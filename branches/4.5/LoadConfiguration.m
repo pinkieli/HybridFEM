@@ -1,85 +1,88 @@
-%% Load Input File which has descriptions of the nodes, elements, materials
-%  and integrator
+%% Load Input File which has descriptions of the nodes, elements, materials and integrator
 function [Model, Elements, Integrator, Materials, Sections, Nodes, choice] = LoadConfiguration(INP_FILE, check)
-FileToOpen = INP_FILE;              % input file path
+FileToOpen = INP_FILE;                    % input file path
 InputFile  = fopen(FileToOpen,'r');
-[~] = fgets(InputFile);                   % skip 3 lines
-[~] = fgets(InputFile);  
-[~] = fgets(InputFile);  
+tmp = fgetl(InputFile);                   % skip 3 lines
+tmp = fgetl(InputFile);  
+tmp = fgetl(InputFile);  
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Parse the Model information
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-data = str2num(fgets(InputFile));   % get a configuration line
-Model = CreateStructure(data(1),data(2),data(3),data(4),data(5),...
-    data(6),data(7),data(8),data(9),data(10));
-[~] = fgets(InputFile);                   % skip 2 lines
-[~] = fgets(InputFile);  
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Parse the nodal coordinate information
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-numNodes = 0;
-data = fgets(InputFile);
-% Create a new node with X,Y,Z coordinates 
-while ~isstrprop(data, 'alpha')   
-    data = str2num(data);
-    numNodes = numNodes + 1;
-    Nodes(numNodes) = CreateNode(data(1), data(2), data(3), data(4));    
-    data = fgets(InputFile);
-end
-fprintf('numNodes: %i\n',numNodes);
-[~] = fgets(InputFile); % "Boundary Condition" has been read, so ignore next line
+%% Parse the Basic Model information
+data = str2num(fgetl(InputFile));         % Get information about the model
+Model.Dimensions = data(1);
+Model.NodesPerElements = data(2);
+Model.NumDOF = data(3); %
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Parse the boundary condition and save it to Model data structure
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Parse the nodal coordinate information
+isExpectedStringInput(fgetl(InputFile),'NODAL COORDINATE DATA BLOCK'); 
+isExpectedStringInput(fgetl(InputFile),'NODE X Y Z'); 
+Model.NumNodes = 0;
+% Create new nodes with X,Y,Z coordinates 
 while 1
-     data = fscanf(InputFile, '%d %d %d %d/n' );
+    data = fscanf(InputFile, '%d %d %d %d/n' );
+    if isempty(data)    
+        break;
+    end
+    Model.NumNodes = Model.NumNodes + 1;
+    Nodes(Model.NumNodes) = CreateNode(data(1), data(2), data(3), data(4));    
+end
+
+
+%% Parse the Boundary Condition and save it to Model data structure
+isExpectedStringInput(fgetl(InputFile),'BOUNDARY CONDITIONS'); 
+tmp = fgetl(InputFile); % skip next line
+Model.BOUND = zeros(Model.NumNodes, Model.NumDOF);
+Model.NumRestrainedDOF = 0;
+while 1
+     data = fscanf(InputFile, '%d %d %d %d/n' );     
      if isempty(data)
          break;
      end
      Model.BOUND(data(1),:)= data(2:Model.NumDOF+1)';
+     Model.NumRestrainedDOF = Model.NumRestrainedDOF + nnz(data)-1;
 end    
-[~] = fgets(InputFile);                   % skip 2 lines
-[~] = fgets(InputFile);
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Parse the constraint dof information and save it to Model data structure
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Parse the Constraint DOF information and save it to Model data structure
+isExpectedStringInput(fgetl(InputFile),'CONSTRAINTS'); 
+tmp = fgetl(InputFile); % skip next line
 Model.RigidLinkNo = 0;
 Model.RigidLinkNodeID=[0 0]; % Define the variable with invalid data
 Model.RigidLinkMaster{1}=Nodes(1); % Unused with invalid Node ID, Dummy data
 Model.RigidLinkSlave{1}=Nodes(1); % Unused with invalid Node ID, Dummy data
-if (Model.NumSlavedDOF ~= 0)
+%if (Model.NumSlavedDOF ~= 0)
     i=1; ii=1;
     while 1        
-        linedata=fgets(InputFile);
-        [head, rem]=strtok(linedata);
-    
-        if( strcmp(head,'RigidLink') )
-            tmp=str2num(rem);
-            Model.RigidLinkNodeID(ii,:)=tmp; % [master node #, slave node #]
-            Model.RigidLinkMaster{ii}=Nodes(tmp(1)); 
-            Model.RigidLinkSlave{ii}=Nodes(tmp(2));  
-            ii = ii + 1;
-            tmp = [tmp 1 1 1];            
-        else
-            tmp = str2num(linedata);            
-            if isempty(tmp)
-                break;
-            end
+        linedata = fgetl(InputFile);
+        if (strcmp(linedata,'MATERIAL DATA BLOCK'))  % Exit this section
+            break;
         end
         
-        data(i,:) = tmp;
+        % Break line to check for Rigid Link
+        [head, rem] = strtok(linedata);    
+        if(strcmp(head,'RigidLink'))   %Check for a Rigid Link
+            csnodes = str2num(rem);       
+            Model.RigidLinkNodeID(ii,:) = csnodes; % [master node #, slave node #]
+            Model.RigidLinkMaster{ii}=Nodes(csnodes(1)); 
+            Model.RigidLinkSlave{ii}=Nodes(csnodes(2)); 
+            Model.RigidLinkNo = ii;
+            ii = ii + 1;
+            csnodes = [csnodes 1 1 1];                 
+        else                           %Check for constraint DOF
+            csnodes = str2num(linedata);                
+        end
+        
+        % save constraint dof data
+        data(i,:) = csnodes;
         i = i+1;
-    end
-    Model.RigidLinkNo = ii-1;
-    data= sortrows(data);    % sort array data
+    end    
+    data = sortrows(data);    % sort array data
     i=1;
+    Model.EqDOF = zeros(Model.NumNodes, Model.NumDOF);
     for j=1:size(data,1)
         for k=1:Model.NumDOF
-            if ~ (data(j,k+2) == 0)
+            if ~(data(j,k+2) == 0)
                 if (Model.EqDOF(data(j,1),k) == 0)
                     Model.EqDOF(data(j,1),k)= i;
                     i=i+1;
@@ -88,74 +91,73 @@ if (Model.NumSlavedDOF ~= 0)
             end
         end
     end
-    [~] = fgets(InputFile);
-else
-    Model.RigidLinkNodeID=[0 0]; % Define the variable with invalid data
-    Model.RigidLinkMaster=Nodes(1); % Unused with invalid Node ID, Dummy data
-    Model.RigidLinkSlave=Nodes(1); % Unused with invalid Node ID, Dummy data
-end
+%else
+%    Model.RigidLinkNodeID=[0 0]; % Define the variable with invalid data
+%    Model.RigidLinkMaster=Nodes(1); % Unused with invalid Node ID, Dummy data
+%    Model.RigidLinkSlave=Nodes(1); % Unused with invalid Node ID, Dummy data
+%end
 % Convert RigidLinkMaster and RigidLinkSlave to Matricies for SIMULINK
-if (Model.RigidLinkNo ~= 0)
-    for j=1:Model.RigidLinkNo
-        Model.RigidLinkMasterMatrix(j,1) = Model.RigidLinkMaster{j}.ID;
-        Model.RigidLinkMasterMatrix(j,2) = Model.RigidLinkMaster{j}.Xcoord;
-        Model.RigidLinkMasterMatrix(j,3) = Model.RigidLinkMaster{j}.Ycoord;
-        Model.RigidLinkMasterMatrix(j,4) = Model.RigidLinkMaster{j}.Zcoord;
-        Model.RigidLinkSlaveMatrix(j,1) = Model.RigidLinkSlave{j}.ID;
-        Model.RigidLinkSlaveMatrix(j,2) = Model.RigidLinkSlave{j}.Xcoord;
-        Model.RigidLinkSlaveMatrix(j,3) = Model.RigidLinkSlave{j}.Ycoord;
-        Model.RigidLinkSlaveMatrix(j,4) = Model.RigidLinkSlave{j}.Zcoord;
-    end
-else
-    % Need to define unused variables here
-    Model.RigidLinkMasterMatrix = zeros(3,3);
-    Model.RigidLinkSlaveMatrix = zeros(3,3);
-end
+%if (Model.RigidLinkNo ~= 0)
+%    for j=1:Model.RigidLinkNo
+%        Model.RigidLinkMasterMatrix(j,1) = Model.RigidLinkMaster{j}.ID;
+%        Model.RigidLinkMasterMatrix(j,2) = Model.RigidLinkMaster{j}.Xcoord;
+%        Model.RigidLinkMasterMatrix(j,3) = Model.RigidLinkMaster{j}.Ycoord;
+%        Model.RigidLinkMasterMatrix(j,4) = Model.RigidLinkMaster{j}.Zcoord;
+%        Model.RigidLinkSlaveMatrix(j,1) = Model.RigidLinkSlave{j}.ID;
+%        Model.RigidLinkSlaveMatrix(j,2) = Model.RigidLinkSlave{j}.Xcoord;
+%        Model.RigidLinkSlaveMatrix(j,3) = Model.RigidLinkSlave{j}.Ycoord;
+%        Model.RigidLinkSlaveMatrix(j,4) = Model.RigidLinkSlave{j}.Zcoord;
+%    end
+%else
+%    % Need to define unused variables here
+%    Model.RigidLinkMasterMatrix = zeros(3,3);
+%    Model.RigidLinkSlaveMatrix = zeros(3,3);
+%end
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Number the dofs in the model considering restrained and constrained dofs
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% number of slave dofs
-numSDOF = nnz(Model.EqDOF) - max(max(Model.EqDOF));
-% set dof_numberer
-[Model, Nodes] = DOFNumberer(Model, numSDOF, Nodes);
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Parse the material information and create Material data structure
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-numMaterials = 0;
-data = fgets(InputFile);
-while ~isstrprop(data, 'alpha')       
+%% Number the DOFs in the model considering restrained and constrained DOFs
+% Number of Slave and Free DOFs
+Model.NumSlavedDOF = nnz(Model.EqDOF) - max(max(Model.EqDOF));
+Model.NumFreeDOF = Model.NumDOF * Model.NumNodes-Model.NumRestrainedDOF-Model.NumSlavedDOF;
+% Number all the DOFs
+[Model, Nodes] = DOFNumberer(Model, Model.NumSlavedDOF, Nodes);
+
+
+%% Parse the material information and create Material data structure
+tmp = fgetl(InputFile); % skip next line,  Material data block line read already
+Model.NumMaterials = 0;
+data = fgetl(InputFile);
+while ~strcmp(data,'SECTION DATA BLOCK');     
     % Create a new material object   
-    numMaterials = numMaterials + 1;
-    Materials{numMaterials} = CreateMaterial(data);
-    data = fgets(InputFile);
+    Model.NumMaterials = Model.NumMaterials + 1;
+    Materials{Model.NumMaterials} = CreateMaterial(data);
+    data = fgetl(InputFile);
 end
-fprintf('numMaterials: %i\n',numMaterials);
-[~] = fgets(InputFile); % skip next line
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Parse the section information and create Section data structure
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-numSections = 0;
-data = fgets(InputFile);
-while ~isstrprop(data, 'alpha') 
+
+%% Parse the section information and create Section data structure
+tmp = fgetl(InputFile); % skip next line,  Section data block line read already
+Model.NumSections = 0;
+data = fgetl(InputFile);
+Sections = 0;
+while ~strcmp(data,'ELEMENT TYPE AND CONNECTIVITY DATA BLOCK');
     data = str2num(data);  
     [par matID] = SectionInfo(data, Materials);
     % Create a new section object
-    Sections(numSections) = CreateSection(par,matID, Materials);
-    data = fgets(InputFile);
+    Model.NumSections = Model.NumSections + 1;
+    Sections(Model.NumSections) = CreateSection(par,matID, Materials);
+    data = fgetl(InputFile);
 end
-Sections = numSections;  % Can be 0 so elements know there are no sections 
-fprintf('numSections: %i\n',numSections);
-[~] = fgets(InputFile); % skip next line
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Parse the element information and create Element data structure
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-for i = 1:Model.NumElements
-    data = str2num(fgets(InputFile));
+
+%% Parse the element information and create Element data structure
+tmp = fgetl(InputFile); % skip next line
+Model.NumElements = 0;
+i = 1;
+data = fgetl(InputFile);
+while ~strcmp(data,'GRAVITY LOADING BLOCK');
     % Select the proper element type to configure
+    data = str2num(data); 
     switch data(2) 
         case 1  % Type 1: Elastic beam-column element
             Elements(i) = {CreateElement_Type1(data(1),data(2),...
@@ -204,51 +206,52 @@ for i = 1:Model.NumElements
         otherwise % Unknown case
             errordlg(['Unknown Element Type', num2str(data(2))],'Input Error');
     end
+    i = i + 1;
+    data = fgetl(InputFile);
+end
+Model.NumElements = i-1;
 
+
+%% Parse the rows of parameters for the gravity loading 
+tmp = fgetl(InputFile); % skip next line,  Gravity block read
+Model.NumGravityNodes = 0;
+data = fgetl(InputFile);
+i = 1;
+while ~strcmp(data,'HYBRID TESTING DATA BLOCK');
+    data = str2num(data);  
+    gravitydata(i,:) = data;
+    i = i + 1;
+    data = fgetl(InputFile);
+end
+Model.NumGravityNodes = i-1;
+if (Model.NumGravityNodes > 0)
+    Model = CreateStaticLoading(Model, gravitydata);
+else
+    Model.P0 = zeros(Model.NumFreeDOF,1);
 end
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Parse the rows of parameters for the gravity loading and Save them to
-% Model data structure
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-if (Model.NumGravityNodes ~= 0)
-    fgets(InputFile);                   % skip 2 lines
-    fgets(InputFile);
-    data=zeros(1,3);
-    for i = 1:Model.NumGravityNodes
-        data(i,:) = str2num(fgets(InputFile));            
-    end
-    Model = CreateStaticLoading(Model, data);
-end
-fgets(InputFile);                   % skip 2 lines
-fgets(InputFile);
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Parse the parameters for the hybrid testing parameters
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-data = str2num(fgets(InputFile));    
+%% Parse the parameters for the hybrid testing parameters
+tmp = fgetl(InputFile); % skip next line,  Hybrid Block read
+data = str2num(fgetl(InputFile));    
 % Add the periods and damping ratio to the structure
 Model.T1 = data(1);
 Model.T2 = data(2);
 Model.DampingRatio = data(3);
-fgets(InputFile);                   % skip 2 lines
-fgets(InputFile);
+fgetl(InputFile);                   % skip 2 lines
+fgetl(InputFile);
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Parse the parameters for the integration algorithm and creat integrator
-% data structure
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-data2 = str2num(fgets(InputFile));
+
+%% Parse the parameters for the integration algorithm and create integrator
+%  data structure
+data2 = str2num(fgetl(InputFile));
 % Create a new integrator with the EQ scale, timestep, Interpolations, 
 % Integration method ID and parameters
 Integrator = CreateIntegrator(data(4), data(5), data(6), data2(1), data2(2));
 fclose(InputFile);
 
-% temporary code for checking model configuration visually
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% plot the model based on the information 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                  
+%% Plot the model based on the information and see if it is correct
 k=0;
 j=0;
 for i=1:Model.NumElements
@@ -320,6 +323,8 @@ end
 
 end
   
+
+%% Get the Section information
 function [par matID] = SectionInfo(data, Materials)
 
 % search for the Material ID assigned to the section from material list
@@ -350,4 +355,11 @@ switch secType
         error(['Invalid Material defined in section']);      
 end
 
+end
+
+%% Check the validity of the string, or break the process
+function isExpectedStringInput(input, stringToMatch)
+    if ~strcmp(input,stringToMatch)
+        error(['Expected: \"' stringToMatch '\"\nFound: \"' input '\"']);        
+    end
 end

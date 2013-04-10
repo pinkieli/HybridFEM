@@ -1,3 +1,6 @@
+Version 4.5
+- Modified: Header for input file has been minimized so users do not need to enter number of Nodes, Elements, Materials, Sections, etc.  Only the Number of Dimensions, Nodes per Elements and DOFs per Node are required
+
 Version 4.4
 - Feature: Simulink Template allows automatic model generation and update
 - Modified: Various tweaks to Elements to improve reliability and accuracy

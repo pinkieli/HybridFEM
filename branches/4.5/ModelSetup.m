@@ -3,7 +3,6 @@
 %  Structure contains information about the overall structure
 %  Elements contains the element information and its nodes and materials
 %  Integrator contains properties of the integration method
-
 [Structure, Elements, Integrator, Materials, Sections, Nodes, choice] = LoadConfiguration(INP_File,UICheck);
 if strcmp(choice,'No')    
      fprintf('[FEM] Model Setup Aborted\n');
@@ -89,9 +88,14 @@ end
 %% Print configuration to the screen
 fprintf(['[FEM] Configuration   : ' INP_File,'\n']);
 fprintf('[FEM] Structure\n');
-fprintf('[FEM]  Nodes          : %i\n',Structure.NumNodes);
-fprintf('[FEM]  Elements       : %i\n',Structure.NumElements);
-fprintf('[FEM]  NumFreeDOF     : %i\n',Structure.NumFreeDOF);
+fprintf('[FEM]  Nodes             : %i\n',Structure.NumNodes);
+fprintf('[FEM]  Elements          : %i\n',Structure.NumElements);
+fprintf('[FEM]  Materials         : %i\n',Structure.NumMaterials);
+fprintf('[FEM]  Sections          : %i\n',Structure.NumSections);
+fprintf('[FEM]  Restrained DOFs   : %i\n',Structure.NumRestrainedDOF);
+fprintf('[FEM]  Slaved DOFs       : %i\n',Structure.NumSlavedDOF);
+fprintf('[FEM]  Free DOFs         : %i\n',Structure.NumFreeDOF);
+fprintf('[FEM]  Gravity Nodes     : %i\n',Structure.NumGravityNodes);
 % Ask the User if they want to see structure periods?
 if (UICheck == 1)
     response = input('[FEM] View Structure Periods? y/[n]: ', 's');
