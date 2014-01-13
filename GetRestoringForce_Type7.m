@@ -30,7 +30,13 @@ if( Structure.RigidLinkNo )
 end
 
 ndof=6;  % The element has 6 dofs
-du=Ue-Element.Uprev;  % The incremental displacement vector du of the element in global coordinates 
+
+if Element.CO==1
+    du=(Ue+Element.resdq)-Element.Uprev;
+else
+    du=Ue -Element.Uprev; % The incremental displacement vector du of the element in global coordinates 
+end
+
 Element.Uprev=Ue; %Update Uprev of element for use in next state determination call
 
 % element defomration % geometry restricted to 1,2 plane (x,y)
@@ -64,16 +70,16 @@ b4 = ones(size(x));
 % initialize incremental section deformations
 dvsecs = zeros(2,Element.nIP);
 
-vr = dv;
+%vr = dv;
 	
 % Iterate to satisfy compatibility 
 for k =1:Element.maxIter
   	
     % Compute residual and basic flexibility by summing 
     % section properties over element length
-%  	vr = dv;
+  	vr = dv;
 	fb = zeros(3);
-    
+    si = Element.si; %momentI, momentJ, axial
     % loop over each section along the element length
     for i=1:Element.nIP
        
@@ -98,25 +104,40 @@ for k =1:Element.maxIter
             sres     = ss - jthss;
             dvs = ks \ sres + dvs;    
             
-   %         if norm(sres) < Element.TOL
-   %             break;
-   %         end
+
 
   %      end
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         % store deformation of each section
         dvsecs(:,i) = dvs;				
-		% add section contribution to residual and flexibility
+		% add section contribution to residual element deformation and flexibility
 		vr = vr - b' * dvs   * ( Element.wi(i) * L/2. );
-		fb = fb + b'*(ks\b) * ( Element.wi(i) * L/2. );        
+		fb = fb + b'*(ks\b) * ( Element.wi(i) * L/2. ); 
+        
+      
     end
-    
+ 
     % check residual deformation 
-    if norm(vr) < Element.TOL
+%     TolFinal=min(Element.EAT,Element.ERT1*norm(vr));
+%     if norm(vr) < TolFinal
+%         Element.NumIter=k;
+%         Element.EC=Element.EC+1;
+% 		break;
+%     end
+
+% check Unbalanced force   
+  UnbForce=fb\vr;
+  NormUnb=((UnbForce(1)*L)^2+(UnbForce(2)*L)^2+(UnbForce(3))^2)^0.5;
+  TolFinal=max(Element.EAT,Element.ERT1*NormUnb);
+    if NormUnb < TolFinal
+        Element.NumIter=k;
+        Element.EC=Element.EC+1;
+        Element.NUnbforce=NormUnb;
 		break;
     end
 
-    ds = fb \ vr + ds;  
+    ds = fb \ vr + ds; 
+ Element.NumIter=Element.maxIter;  
 end
 
 % update section state with converged dvs
@@ -127,7 +148,9 @@ end
 
 % update basic forces for element
 Element.si = ds + si;
-    
+if Element.CO==1
+    Element.resdq = avq'*vr;    
+end
 % Restoring force and stiffness matrix
 RestoringForce = avq' * Element.si;
 

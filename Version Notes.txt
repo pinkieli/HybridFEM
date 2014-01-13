@@ -1,7 +1,13 @@
-Version 4.4
-- Feature: Simulink Template allows automatic model generation and update
-- Modified: Various tweaks to Elements to improve reliability and accuracy
-- Modified: Ramper for changing from CR command to Actuator command fixed
+Version 4.5.2
+- Feature: Element Recorder fixes
+- Feature: New Input Format
+
+Version 4.5
+- Feature: New Integration methods
+- Feature: Improved Simulink models
+- Feature: Concrete01 and Concrete02 materials
+- Feature: General Section
+- Feature: Element Recorder
 
 Version 4.3
 - Feature: Improved RT model timing
