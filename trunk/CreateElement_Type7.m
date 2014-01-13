@@ -1,7 +1,7 @@
 %% Create Element Type 7 
 % flexiblity based beam-column element 
 function vars = CreateElement_Type7(ID, Type, Node1, Node2, Materials,...
-    DampStiffFac, DampMassFac, Section, nIP, ElemDistLoad, maxIter, TOL)
+    DampStiffFac, DampMassFac, Section, nIP, ElemDistLoad, maxIter, EAT,ERT, CO)
 
 % Section geometry and properties read from input file
 % Section(1)  = Section ID
@@ -16,6 +16,7 @@ function vars = CreateElement_Type7(ID, Type, Node1, Node2, Materials,...
 % if Section(9) == 1 , bilinear material 
 %    Section(10) = E, Section(11) = sigmaY, Section(12) = second slop ratio
 % if Section(9) == 3 , concrete material  
+% CO: If you carry over the unb residual element disp= 1, if not CO=0
 
 % Set element nodes
 vars.ID = ID;
@@ -53,14 +54,19 @@ end
 
 % criteria to satisfy compatibility during iterative procedure
 vars.maxIter = maxIter;
-vars.TOL = TOL;
-
+vars.NumIter=1;
+vars.EAT = EAT;
+vars.ERT1 = ERT;
+vars.EC=0;
+vars.CO = CO;
+vars.NUnbforce=0;
 % Set handles to element matrices forming function and restoring force
 vars.FormElementMatrices = @FormElementMatrices_Type7;
 vars.GetRestoringForce = @GetRestoringForce_Type7;
     
 % Keep track of element displacement vector in global coordinates
 vars.Uprev=zeros(6,1);
+vars.resdq=zeros(6,1);
 vars.si = zeros(3,1);
 
 
@@ -71,8 +77,10 @@ wi    = zeros(nIP,1);
 
 switch nIP
     case 2
-        xi  = [-1. 1.]';
+        %xi= [-1., 1.]';
+        xi  = [-0.577350269189626 0.577350269189626]';
         wi = [ 1. 1.]';
+        %errordlg('Gauss-Legendre is used for integration points- RC-MRF Analysis ')
     case 3
         xi= [-1.,0., 1.]';
     	wi= [1/3, 1/3, 1/3]';
