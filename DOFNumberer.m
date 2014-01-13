@@ -1,4 +1,3 @@
-%% Number the DOFs
 function [Model Nds]= DOFNumberer(Model, nsDOF, Nds)
 % numbering degrees of freedom including constraints and restraint 
 % Model = Model data structure 

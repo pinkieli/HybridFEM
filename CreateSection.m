@@ -126,6 +126,10 @@ switch (section.Type)
         fibers = horzcat(fibers, QuadPatch(nfcorey, nfcoverz, coord, mat{1,matid(2)}));  
     
         %layer straight IDreinf barAreaSec coreY confZ coreY -confZ
+        
+    otherwise
+        msg = ['Unknown Section Type ' str2num(section.Type)];
+        errordlg(msg,'Input Error');
 end   
 
 % Create section object
@@ -217,8 +221,6 @@ function cells = CellPatch(As, coord, mat)
         cells(m) = cell;
     end
 end
-  
-      
 
 
 

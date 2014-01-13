@@ -1,4 +1,3 @@
-%% Rigid Link Transformation
 function TL = CalculateRigidLinkTransformation(Master_Node, Slave_Node)
 
 X1 = Master_Node.Xcoord; Y1 = Master_Node.Ycoord;

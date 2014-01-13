@@ -14,25 +14,12 @@ switch (MethodID)
         vars.Gamma = 0;  % placeholder for Simulink compatibility        
         vars.Lambda = Param1;
     case 2 % Rosenbrock-W
-        error('Rosenbrock-W support has been removed');
-    case 3 % KR Semi-explicit alpha-method
-        Rhoinfy = Param1;
-        vars.Alpham = (2 * Rhoinfy - 1) / (Rhoinfy + 1);
-        vars.Alphaf = Rhoinfy / (Rhoinfy + 1);
-        vars.Gamma = 0.5 - vars.Alpham + vars.Alphaf;
-        vars.Beta = 0.25 * (0.5 + vars.Gamma)^2;
-    case 4 % KR Explicit alpha-method
-        Rhoinfy = Param1;
-        vars.Alpham = (2 * Rhoinfy - 1) / (Rhoinfy + 1);
-        vars.Alphaf = Rhoinfy / (Rhoinfy + 1);
-        vars.Gamma = 0.5 - vars.Alpham + vars.Alphaf;
-        vars.Beta = 0.25 * (0.5 + vars.Gamma)^2;
-    case 5 % Chang 2 Int Para
-        vars.Gamma = 0;  % placeholder for Simulink compatibility        
-        vars.Lambda = Param1; % Not used
-    case 6 % Chang 3 Int Para
-        vars.Gamma = 0;  % placeholder for Simulink compatibility        
-        vars.Lambda = Param1; % Not used
+        vars.Gamma = Param1;        
+        % Check that Interpolations are even since they need to be halved
+        % for both stages
+        if (mod(Interpolations,2))
+            error('Interpolations need to be even for Rosenbrock-W Integrator');
+        end
     otherwise 
         error('No Integration method selected');
 end

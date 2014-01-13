@@ -25,10 +25,6 @@ if ISTF == 0
             K = Element.prop.Kt; % for Trilinear material
         case 6
             K = Element.prop.Kip; % for SDegrading material
-        case 7
-            K = Element.prop.Ttangent; % for Concrete material
-        case 8
-            K = Element.prop.e; % for Concrete material
         otherwise
             errordlg('The assigned material is not available', 'InputError');
     end
