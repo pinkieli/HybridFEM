@@ -21,7 +21,7 @@ L = sqrt(dx*dx+dy*dy);
 
 vars.m1 = m1;
 vars.m2 = m2;
-vars.m = max([m1 m2])/10000; % small mass 
+vars.m = max([m1 m2])/1e10; % small mass 
 vars.massDof = mdof;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % change to dummy column for p-d effect

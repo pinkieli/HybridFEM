@@ -8,7 +8,7 @@
 function mat = CreateMaterial(data)
 
 % Material structs need to be predefined with empty variables for code
-% generation
+% generation in Simulink
 mat.E = 0;
 mat.Et = 0;
 mat.Fs = 0;
@@ -41,15 +41,33 @@ mat.uref = 0;
 mat.beta = 0;
 mat.gamma1 = 0;
 mat.n = 0;
-mat.uref = 0;
+mat.uref = 1e-24;
 mat.Dmax = 0;   
 mat.Dmin = 0; 
 mat.zj = 0;
-mat.Uprev =0;
+mat.Uprev = 0;
 mat.k = 0;
 mat.Dmax = 0;
 mat.Dmin = 0;     
 mat.Qj = 0;
+mat.fpc = 0;
+mat.epsc0 = 0;
+mat.fpcu = 0;
+mat.epscu = 0;
+mat.CminStrain = 0;
+mat.CendStrain = 0;
+mat.Cstress = 0;
+mat.Cstrain = 0;
+mat.Ctangent = 0;
+mat.CunloadSlope = 0;
+mat.TminStrain = 0;
+mat.TendStrain = 0;
+mat.Tstrain = 0;
+mat.Tstress = 0;
+mat.Ttangent = 0;
+mat.TunloadSlope = 0;
+
+
 
 % Get material data line
 material = str2num(data);
@@ -133,20 +151,19 @@ switch (mat.Type)
     case 4  % Bouc-Wen Model
         mat.c = material(3);      
         mat.k1 = material(4);    
-        mat.k2 = material(5);   
-        mat.alpha = material(6);  
-        mat.uy = material(7);    
+        mat.k2= material(5);   
+        mat.alpha= material(6);  
+        mat.uy= material(7);    
         mat.a = material(8);
-        mat.uref = 0.8*mat.uy;
-        mat.beta = material(9);
-        mat.gamma1 = material(10);
+        mat.uref= 0.8*mat.uy;
+        mat.beta= material(9);
+        mat.gamma= material(10);
         mat.n = material(11);   
-        mat.uref = material(12);
         mat.Dmax = 0.;   
         mat.Dmin = 0.; 
         mat.zj = 0.;
-        mat.Uprev =0.;
-        mat.k = material(13);  
+        mat.Uprev=0.;
+        mat.k = mat.k1 + mat.k2;    
         mat.Dmax = 0.;
         mat.Dmin = 0.;        
     case 5  % Trilinear Model for panel zone shear deformation        
@@ -157,9 +174,8 @@ switch (mat.Type)
        Du = material(6);
        % equivalent spring stiffness
        Kinit = Vy/Dy;
-       Ky    = (Vu-Vy)/(Du-Dy);
-       %Ku    = 0.04*Kinit;   
-       Ku    = 0.00*Kinit;   
+       Ky    = (Vu-Vy)/(Du-Dy);       
+       Ku    = 0.0;   
        % decompose spring stiffness 
 	   mat.K1 = Kinit-Ky;
 	   mat.K2 = Ky - Ku;
@@ -189,7 +205,7 @@ switch (mat.Type)
         mat.Urn     = material(14); 
     
         % initialize material properties
-        mat.Us  = 0.;
+        mat.Us  = 0.0;
         mat.Uyp  = mat.Fyp/mat.Kip;
         mat.Uyn  = mat.Fyn/mat.Kin;
         mat.K1p  = mat.Kip;
@@ -226,6 +242,67 @@ switch (mat.Type)
             errordlg(msg,'Input Error');
         end 
         
-    otherwise
-        errordlg(['Unknown Material Type', num2str(mat.Type)],'Input Error');
+    
+        
+    case 7  % Concrete01 material properties
+        mat.fpc    = material(3);
+        mat.epsc0     = material(4);
+        mat.fpcu     = material(5);
+        mat.epscu     = material(6);        
+        mat.CminStrain = 0.0;
+        mat.CendStrain = 0.0;   
+        mat.Cstress = 0.0;        
+        mat.Cstrain = 0.0;   
+        
+        if (material(3) > 0.0)
+          mat.fpc = -mat.fpc;
+        end     
+        if (material(4) > 0.0)
+          mat.epsc0 = -mat.epsc0;
+        end   
+        if (material(5) > 0.0)
+          mat.fpcu = -mat.fpcu;
+        end
+        if (material(6) > 0.0)
+          mat.epscu = -mat.epscu;
+        end  
+        
+        % Initial tangent
+        Ec0 = 2*mat.fpc/mat.epsc0;
+        mat.Ttangent = Ec0;
+        mat.CminStrain = 0.0;
+        mat.CunloadSlope = Ec0;
+        mat.CendStrain = 0.0;
+
+        %State variables
+        mat.Cstrain = 0.0;
+        mat.Cstress = 0.0;
+        mat.Ctangent = Ec0;
+        
+        
+    case 8  % Concrete02 material properties            
+        mat.fc    = material(3);
+        mat.epsc0     = material(4);
+        mat.fcu     = material(5);
+        mat.epscu     = material(6); 
+        mat.rat   = material(7);
+        mat.ft   = material(8);
+        mat.Ets   = material(9);
+        
+        mat.ecminP = 0.0;
+        mat.deptP = 0.0;
+
+        mat.eP = 2.0*mat.fc/mat.epsc0;
+        mat.epsP = 0.0;
+        mat.sigP = 0.0;
+        mat.eps = 0.0;
+        mat.sig = 0.0;
+        mat.e = 2.0*mat.fc/mat.epsc0;
+        
+        
+        
+otherwise
+        errordlg(['Unknown Material Type', num2str(mat.Type)],'Input Error');        
+            
+            
 end

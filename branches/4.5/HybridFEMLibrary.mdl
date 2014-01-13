@@ -16,9 +16,9 @@ Library {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Thomas Marullo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Nov 14 16:18:49 2012"
-  RTWModifiedTimeStamp	  274810611
-  ModelVersionFormat	  "1.%<AutoIncrement:264>"
+  LastModifiedDate	  "Fri Aug 23 11:16:16 2013"
+  RTWModifiedTimeStamp	  299157289
+  ModelVersionFormat	  "1.%<AutoIncrement:296>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -658,29 +658,6 @@ Library {
       RTWStateStorageClass    "Auto"
     }
     Block {
-      BlockType		      DiscretePulseGenerator
-      PulseType		      "Sample based"
-      TimeSource	      "Use simulation time"
-      Amplitude		      "1"
-      Period		      "2"
-      PulseWidth	      "1"
-      PhaseDelay	      "0"
-      SampleTime	      "1"
-      VectorParams1D	      on
-    }
-    Block {
-      BlockType		      DiscreteStateSpace
-      A			      "1"
-      B			      "1"
-      C			      "1"
-      D			      "1"
-      X0		      "0"
-      SampleTime	      "1"
-      StateMustResolveToSignalObject off
-      RTWStateStorageClass    "Auto"
-      Realization	      "auto"
-    }
-    Block {
       BlockType		      Inport
       Port		      "1"
       OutputFunctionCall      off
@@ -746,13 +723,6 @@ Library {
       SFunctionDeploymentMode off
     }
     Block {
-      BlockType		      Selector
-      NumberOfDimensions      "1"
-      IndexMode		      "One-based"
-      InputPortWidth	      "-1"
-      SampleTime	      "-1"
-    }
-    Block {
       BlockType		      SubSystem
       ShowPortLabels	      "FromPortIcon"
       Permissions	      "ReadWrite"
@@ -795,23 +765,6 @@ Library {
       BlockType		      Terminator
     }
     Block {
-      BlockType		      TriggerPort
-      TriggerType	      "rising"
-      StatesWhenEnabling      "inherit"
-      PropagateVarSize	      "During execution"
-      ShowOutputPort	      off
-      OutputDataType	      "auto"
-      SampleTimeType	      "triggered"
-      SampleTime	      "1"
-      ZeroCross		      on
-      PortDimensions	      "-1"
-      TriggerSignalSampleTime "-1"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeStr	      "Inherit: auto"
-      Interpolate	      on
-    }
-    Block {
       BlockType		      UnitDelay
       X0		      "0"
       InputProcessing	      "Inherited"
@@ -823,7 +776,7 @@ Library {
   }
   System {
     Name		    "HybridFEMLibrary"
-    Location		    [69, 625, 665, 973]
+    Location		    [16, 779, 322, 1094]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    212
@@ -837,35 +790,14 @@ Library {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "2003"
-    Block {
-      BlockType		      DiscretePulseGenerator
-      Name		      "CR Acceleration\nTiming"
-      SID		      "1975"
-      Ports		      [0, 1]
-      Position		      [220, 39, 250, 71]
-      BackgroundColor	      "red"
-      Period		      "Integrator.Interpolations"
-      PhaseDelay	      "Integrator.Interpolations-1"
-      SampleTime	      "sample"
-    }
-    Block {
-      BlockType		      DiscretePulseGenerator
-      Name		      "CR Command\nTiming"
-      SID		      "1976"
-      Ports		      [0, 1]
-      Position		      [220, 144, 250, 176]
-      BackgroundColor	      "red"
-      Period		      "Integrator.Interpolations"
-      PulseWidth	      "Integrator.Interpolations-1"
-      SampleTime	      "sample"
-    }
+    SIDHighWatermark	    "2504"
     Block {
       BlockType		      SubSystem
       Name		      "Flexible Ramper"
-      SID		      "1969"
+      SID		      "2499"
       Ports		      [1, 1]
       Position		      [65, 236, 115, 254]
+      ZOrder		      37
       BackgroundColor	      "[0.000000, 1.000000, 0.501961]"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -880,11 +812,11 @@ Library {
       "y signal changes for the number of steps desginated.\nSample rate should be the sample rate of the system.\nThe "
       "source signal sample rate should be the sample rate * total ramp steps to get the best performance.  Otherwise, "
       "having a number of ramps smaller than the number of steps between signal changes will result in flat-lining.  La"
-      "rger ramps than the number of steps between signal changes will result in missed data and poor ramping.\n\nSet D"
-      "imension variable to an empty array of required size, ie. [0;0;0] for 3 dimensions.\n"
-      MaskPromptString	      "Total ramp steps|Sample rate|Dimensions"
+      "rger ramps than the number of steps between signal changes will result in missed data and poor ramping.\n\nSet I"
+      "nitial variable to the starting value of the ramp, or to [0;0;0] for 3 inputs starting from 0.\n"
+      MaskPromptString	      "Total ramp steps|Sample rate|Initial Value"
       MaskStyleString	      "edit,edit,edit"
-      MaskVariables	      "ramps=@1;samplerate=@2;u_old=@3;"
+      MaskVariables	      "ramps=@1;samplerate=@2;initVal=@3;"
       MaskTunableValueString  "on,on,on"
       MaskCallbackString      "||"
       MaskEnableString	      "on,on,on"
@@ -899,7 +831,7 @@ Library {
       MaskValueString	      "Integrator.Interpolations|sample|[0]"
       System {
 	Name			"Flexible Ramper"
-	Location		[72, 227, 577, 602]
+	Location		[221, 200, 726, 575]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -915,14 +847,14 @@ Library {
 	Block {
 	  BlockType		  Inport
 	  Name			  "in"
-	  SID			  "1970"
+	  SID			  "2500"
 	  Position		  [30, 118, 60, 132]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Constant
 	  Name			  "Constant"
-	  SID			  "1971"
+	  SID			  "2501"
 	  Position		  [100, 155, 135, 185]
 	  Value			  "ramps"
 	  SampleTime		  "samplerate"
@@ -930,9 +862,9 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Embedded\nMATLAB Function"
-	  SID			  "1972"
+	  SID			  "2502"
 	  Ports			  [3, 1]
-	  Position		  [195, 122, 345, 218]
+	  Position		  [195, 126, 345, 224]
 	  ErrorFcn		  "Stateflow.Translate.translate"
 	  PermitHierarchicalResolution "ExplicitOnly"
 	  TreatAsAtomicUnit	  on
@@ -969,18 +901,18 @@ Library {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "61"
+	    SIDHighWatermark	    "65"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "u"
-	      SID		      "1972::1"
+	      SID		      "2502::1"
 	      Position		      [20, 101, 40, 119]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "ramps"
-	      SID		      "1972::3"
+	      SID		      "2502::3"
 	      Position		      [20, 136, 40, 154]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -988,7 +920,7 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "u_old"
-	      SID		      "1972::4"
+	      SID		      "2502::4"
 	      Position		      [20, 171, 40, 189]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -996,23 +928,24 @@ Library {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "1972::59"
+	      SID		      "2502::63"
 	      Ports		      [1, 1]
-	      Position		      [270, 180, 320, 220]
-	      ZOrder		      14
+	      Position		      [270, 205, 320, 245]
+	      ZOrder		      18
 	      Outputs		      "1"
 	    }
 	    Block {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
-	      SID		      "1972::58"
+	      SID		      "2502::62"
 	      Tag		      "Stateflow S-Function HybridFEMLibrary 5"
 	      Ports		      [3, 2]
-	      Position		      [180, 100, 230, 180]
-	      ZOrder		      13
+	      Position		      [180, 104, 230, 206]
+	      ZOrder		      17
 	      FunctionName	      "sf_sfun"
+	      Parameters	      "initVal"
 	      PortCounts	      "[3 2]"
-	      EnableBusSupport	      off
+	      EnableBusSupport	      on
 	      Port {
 		PortNumber		2
 		Name			"y"
@@ -1023,14 +956,14 @@ Library {
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "1972::61"
-	      Position		      [460, 191, 480, 209]
-	      ZOrder		      16
+	      SID		      "2502::65"
+	      Position		      [460, 216, 480, 234]
+	      ZOrder		      20
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "y"
-	      SID		      "1972::8"
+	      SID		      "2502::8"
 	      Position		      [460, 101, 480, 119]
 	      IconDisplay	      "Port number"
 	    }
@@ -1077,53 +1010,55 @@ Library {
 	Block {
 	  BlockType		  UnitDelay
 	  Name			  "Unit Delay"
-	  SID			  "1973"
+	  SID			  "2503"
 	  Position		  [95, 248, 130, 282]
 	  ZOrder		  -21
+	  X0			  "initVal"
 	  InputProcessing	  "Elements as channels (sample based)"
 	  SampleTime		  "-1"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "out"
-	  SID			  "1974"
+	  SID			  "2504"
 	  Position		  [395, 128, 425, 142]
 	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Unit Delay"
+	  SrcPort		  1
+	  Points		  [35, 0; 0, -60]
+	  DstBlock		  "Embedded\nMATLAB Function"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Embedded\nMATLAB Function"
+	  SrcPort		  1
+	  Points		  [0, -40]
+	  DstBlock		  "out"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  Points		  [40, 0]
+	  DstBlock		  "Embedded\nMATLAB Function"
+	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "in"
 	  SrcPort		  1
 	  Points		  [15, 0]
 	  Branch {
-	    Points		    [0, 0]
-	    DstBlock		    "Unit Delay"
-	    DstPort		    1
-	  }
-	  Branch {
 	    Points		    [100, 0]
 	    DstBlock		    "Embedded\nMATLAB Function"
 	    DstPort		    1
 	  }
-	}
-	Line {
-	  SrcBlock		  "Constant"
-	  SrcPort		  1
-	  DstBlock		  "Embedded\nMATLAB Function"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Embedded\nMATLAB Function"
-	  SrcPort		  1
-	  Points		  [0, -35]
-	  DstBlock		  "out"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Unit Delay"
-	  SrcPort		  1
-	  Points		  [35, 0; 0, -65]
-	  DstBlock		  "Embedded\nMATLAB Function"
-	  DstPort		  3
+	  Branch {
+	    Points		    [0, 0]
+	    DstBlock		    "Unit Delay"
+	    DstPort		    1
+	  }
 	}
       }
     }
@@ -1998,20 +1933,12 @@ Library {
 	  SID			  "525"
 	  Ports			  [1, 1]
 	  Position		  [235, 462, 270, 488]
-	  LibraryVersion	  "1.236"
+	  LibraryVersion	  "1.260"
 	  SourceBlock		  "simulink/Discrete/Discrete Derivative"
 	  SourceType		  "Discrete Derivative"
-	  ShowPortLabels	  "FromPortIcon"
-	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData off
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
-	  GeneratePreprocessorConditionals off
 	  gainval		  "1.0"
 	  ICPrevScaledInput	  "0.0"
+	  InputProcessing	  "Inherited"
 	  OutMin		  "[]"
 	  OutMax		  "[]"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -2028,20 +1955,12 @@ Library {
 	  SID			  "526"
 	  Ports			  [1, 1]
 	  Position		  [95, 242, 155, 278]
-	  LibraryVersion	  "1.236"
+	  LibraryVersion	  "1.260"
 	  SourceBlock		  "simulink/Discrete/Discrete Derivative"
 	  SourceType		  "Discrete Derivative"
-	  ShowPortLabels	  "FromPortIcon"
-	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData off
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
-	  GeneratePreprocessorConditionals off
 	  gainval		  "1.0"
 	  ICPrevScaledInput	  "0.0"
+	  InputProcessing	  "Inherited"
 	  OutMin		  "[]"
 	  OutMax		  "[]"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -3451,438 +3370,6 @@ Library {
 	}
       }
     }
-    Block {
-      BlockType		      SubSystem
-      Name		      "Single DOF Displacement"
-      SID		      "1989"
-      Ports		      [2, 1, 0, 1]
-      Position		      [220, 273, 385, 302]
-      BackgroundColor	      "cyan"
-      MinAlgLoopOccurrences   off
-      PropExecContextOutsideSubsystem off
-      SystemSampleTime	      "SampleRate"
-      RTWSystemCode	      "Auto"
-      FunctionWithSeparateData off
-      Opaque		      off
-      RequestExecContextInheritance off
-      MaskHideContents	      off
-      MaskPromptString	      "Element DOF"
-      MaskStyleString	      "edit"
-      MaskVariables	      "DOF=@1;"
-      MaskTunableValueString  "off"
-      MaskEnableString	      "on"
-      MaskVisibilityString    "on"
-      MaskToolTipString	      "on"
-      MaskIconFrame	      on
-      MaskIconOpaque	      on
-      MaskIconRotate	      "none"
-      MaskPortRotate	      "default"
-      MaskIconUnits	      "autoscale"
-      MaskValueString	      "Elements{1}.Nodes(1).UX"
-      System {
-	Name			"Single DOF Displacement"
-	Location		[485, 436, 1714, 879]
-	Open			off
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	Block {
-	  BlockType		  Inport
-	  Name			  "Velocity"
-	  SID			  "1990"
-	  Position		  [320, 48, 350, 62]
-	  BackgroundColor	  "orange"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "Accel"
-	  SID			  "1991"
-	  Position		  [245, 313, 275, 327]
-	  BackgroundColor	  "orange"
-	  Port			  "2"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  TriggerPort
-	  Name			  "Trigger"
-	  SID			  "1992"
-	  Ports			  []
-	  Position		  [167, 35, 187, 55]
-	  BackgroundColor	  "red"
-	  StatesWhenEnabling	  "held"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Add"
-	  SID			  "1993"
-	  Ports			  [3, 1]
-	  Position		  [695, 154, 725, 186]
-	  BackgroundColor	  "orange"
-	  Inputs		  "+++"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  DiscreteStateSpace
-	  Name			  "Alpha2*u1\nSubstep Rate"
-	  SID			  "1994"
-	  Position		  [560, 271, 670, 309]
-	  BackgroundColor	  "orange"
-	  A			  "[]"
-	  B			  "[]"
-	  C			  "[]"
-	  D			  "Integrator.Alpha2(DOF,:)"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Product
-	  Name			  "Product"
-	  SID			  "1995"
-	  Ports			  [2, 1]
-	  Position		  [595, 127, 625, 158]
-	  BackgroundColor	  "orange"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Product
-	  Name			  "Product1"
-	  SID			  "1996"
-	  Ports			  [2, 1]
-	  Position		  [505, 272, 535, 303]
-	  BackgroundColor	  "orange"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Selector
-	  Name			  "Selector"
-	  SID			  "1997"
-	  Ports			  [1, 1]
-	  Position		  [430, 36, 470, 74]
-	  InputPortWidth	  "NumFreeDOF"
-	  IndexOptions		  "Index vector (dialog)"
-	  Indices		  "DOF"
-	  OutputSizes		  "1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Timestep"
-	  SID			  "1998"
-	  Position		  [475, 135, 570, 165]
-	  BackgroundColor	  "orange"
-	  Value			  "Integrator.Timestep"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Timestep ^2"
-	  SID			  "1999"
-	  Position		  [320, 266, 460, 294]
-	  BackgroundColor	  "orange"
-	  Value			  "Integrator.TimestepSquared"
-	}
-	Block {
-	  BlockType		  UnitDelay
-	  Name			  "Unit Delay"
-	  SID			  "2000"
-	  Position		  [780, 162, 820, 178]
-	  BackgroundColor	  "green"
-	  InputProcessing	  "Elements as channels (sample based)"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Single DOF"
-	  SID			  "2001"
-	  Position		  [815, 113, 845, 127]
-	  BackgroundColor	  "orange"
-	  IconDisplay		  "Port number"
-	}
-	Line {
-	  SrcBlock		  "Unit Delay"
-	  SrcPort		  1
-	  Points		  [5, 0; 0, 35; -150, 0]
-	  DstBlock		  "Add"
-	  DstPort		  3
-	}
-	Line {
-	  SrcBlock		  "Alpha2*u1\nSubstep Rate"
-	  SrcPort		  1
-	  Points		  [0, -120]
-	  DstBlock		  "Add"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Selector"
-	  SrcPort		  1
-	  Points		  [105, 0]
-	  DstBlock		  "Product"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Velocity"
-	  SrcPort		  1
-	  DstBlock		  "Selector"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Add"
-	  SrcPort		  1
-	  Points		  [10, 0]
-	  Branch {
-	    DstBlock		    "Unit Delay"
-	    DstPort		    1
-	  }
-	  Branch {
-	    Points		    [0, -50]
-	    DstBlock		    "Single DOF"
-	    DstPort		    1
-	  }
-	}
-	Line {
-	  SrcBlock		  "Product1"
-	  SrcPort		  1
-	  DstBlock		  "Alpha2*u1\nSubstep Rate"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Accel"
-	  SrcPort		  1
-	  Points		  [195, 0; 0, -25]
-	  DstBlock		  "Product1"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Timestep ^2"
-	  SrcPort		  1
-	  DstBlock		  "Product1"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Timestep"
-	  SrcPort		  1
-	  DstBlock		  "Product"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Product"
-	  SrcPort		  1
-	  Points		  [25, 0; 0, 15]
-	  DstBlock		  "Add"
-	  DstPort		  1
-	}
-	Annotation {
-	  SID			  "2002"
-	  Name			  "Single DOF Displacement Command"
-	  Position		  [312, 153]
-	  FontSize		  16
-	  FontWeight		  "bold"
-	}
-      }
-    }
-    Block {
-      BlockType		      SubSystem
-      Name		      "Single DOF Velocity"
-      SID		      "1977"
-      Ports		      [2, 1, 0, 1]
-      Position		      [220, 211, 385, 244]
-      BackgroundColor	      "cyan"
-      MinAlgLoopOccurrences   off
-      PropExecContextOutsideSubsystem off
-      SystemSampleTime	      "SampleRate"
-      RTWSystemCode	      "Auto"
-      FunctionWithSeparateData off
-      Opaque		      off
-      RequestExecContextInheritance off
-      MaskHideContents	      off
-      MaskPromptString	      "DOF"
-      MaskStyleString	      "edit"
-      MaskVariables	      "DOF=@1;"
-      MaskTunableValueString  "on"
-      MaskEnableString	      "on"
-      MaskVisibilityString    "on"
-      MaskToolTipString	      "on"
-      MaskIconFrame	      on
-      MaskIconOpaque	      on
-      MaskIconRotate	      "none"
-      MaskPortRotate	      "default"
-      MaskIconUnits	      "autoscale"
-      MaskValueString	      "Elements{1}.Nodes(1).UX"
-      System {
-	Name			"Single DOF Velocity"
-	Location		[87, 338, 1316, 1133]
-	Open			off
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	Block {
-	  BlockType		  Inport
-	  Name			  "Velocity"
-	  SID			  "1978"
-	  Position		  [385, 68, 415, 82]
-	  BackgroundColor	  "orange"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "Accel"
-	  SID			  "1979"
-	  Position		  [255, 288, 285, 302]
-	  BackgroundColor	  "orange"
-	  Port			  "2"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  TriggerPort
-	  Name			  "Trigger"
-	  SID			  "1980"
-	  Ports			  []
-	  Position		  [167, 35, 187, 55]
-	  BackgroundColor	  "red"
-	  StatesWhenEnabling	  "held"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Add1"
-	  SID			  "1981"
-	  Ports			  [2, 1]
-	  Position		  [600, 146, 630, 179]
-	  BackgroundColor	  "lightBlue"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  DiscreteStateSpace
-	  Name			  "Alpha1*u1\nSubstep Rate"
-	  SID			  "1982"
-	  Position		  [460, 226, 570, 264]
-	  BackgroundColor	  "lightBlue"
-	  A			  "[]"
-	  B			  "[]"
-	  C			  "[]"
-	  D			  "Integrator.Alpha1(DOF,:)"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Product
-	  Name			  "Product2"
-	  SID			  "1983"
-	  Ports			  [2, 1]
-	  Position		  [395, 227, 425, 258]
-	  BackgroundColor	  "lightBlue"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Selector
-	  Name			  "Selector"
-	  SID			  "1984"
-	  Ports			  [1, 1]
-	  Position		  [495, 56, 535, 94]
-	  InputPortWidth	  "NumFreeDOF"
-	  IndexOptions		  "Index vector (dialog)"
-	  Indices		  "DOF"
-	  OutputSizes		  "1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Timestep "
-	  SID			  "1985"
-	  Position		  [255, 220, 350, 250]
-	  BackgroundColor	  "lightBlue"
-	  Value			  "Integrator.Timestep"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Target Velocity"
-	  SID			  "1986"
-	  Position		  [810, 158, 840, 172]
-	  BackgroundColor	  "lightBlue"
-	  IconDisplay		  "Port number"
-	}
-	Line {
-	  SrcBlock		  "Selector"
-	  SrcPort		  1
-	  Points		  [20, 0; 0, 80]
-	  DstBlock		  "Add1"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Accel"
-	  SrcPort		  1
-	  Points		  [90, 0]
-	  DstBlock		  "Product2"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Product2"
-	  SrcPort		  1
-	  DstBlock		  "Alpha1*u1\nSubstep Rate"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Timestep "
-	  SrcPort		  1
-	  DstBlock		  "Product2"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Alpha1*u1\nSubstep Rate"
-	  SrcPort		  1
-	  Points		  [10, 0]
-	  DstBlock		  "Add1"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Add1"
-	  SrcPort		  1
-	  DstBlock		  "Target Velocity"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Velocity"
-	  SrcPort		  1
-	  DstBlock		  "Selector"
-	  DstPort		  1
-	}
-	Annotation {
-	  SID			  "1988"
-	  Name			  "Velocity Vector"
-	  Position		  [442, 188]
-	  FontSize		  16
-	  FontWeight		  "bold"
-	}
-	Annotation {
-	  SID			  "1987"
-	  Name			  "Single DOF Velocity Command"
-	  Position		  [277, 123]
-	  FontSize		  16
-	  FontWeight		  "bold"
-	}
-      }
-    }
   }
 }
 # Finite State Machines
@@ -3898,7 +3385,7 @@ Stateflow {
     name		    "HybridFEMLibrary"
     created		    "09-Feb-2009 15:15:25"
     isLibrary		    1
-    firstTarget		    77
+    firstTarget		    78
     sfVersion		    76014001.00040001
   }
   chart {
@@ -4416,7 +3903,7 @@ Stateflow {
   chart {
     id			    25
     name		    "Flexible Ramper/Embedded\nMATLAB Function"
-    windowPosition	    [506.813 84.45 200.25 189.75]
+    windowPosition	    [536.813 54.45 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1920 1200 1.333333333333333]
     treeNode		    [0 26 0 0]
@@ -4426,7 +3913,7 @@ Stateflow {
     machine		    1
     subviewS {
     }
-    ssIdHighWaterMark	    11
+    ssIdHighWaterMark	    12
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    29
@@ -4451,19 +3938,19 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function y  = fcn(u,ramps,u_old)\n \n% persistent delay_count;\n% \n% if isempty(delay_count)\n% "
-      "    delay_count = 0;\n% end\n% \n% if delay_count < delay\n%     delay_count = delay_count + 1;\n%     y = u;\n%"
-      "     rampstep_out = 1;\n%     u_old_out = u;\n% else\n% \n\npersistent isRamping;\npersistent startPoint;\npersi"
-      "stent endPoint;\npersistent rampstep;\n\nif isempty(isRamping)\n    isRamping = 0;    \n    startPoint = 0;\n   "
-      " endPoint = 0;\n    rampstep = 0;\nend\n\n%% Check if u and u_old\nif (u == u_old && ~isRamping);\n    % Do noth"
-      "ing and hold here    \n    y = u;\nelseif isRamping ;\n    % Do nothing\n    y = u;\nelse\n    isRamping = 1; % "
-      "Start first ramping\n    startPoint = u_old; % get values\n    endPoint = u; % get values    \n    rampstep = 1;"
-      "     \nend\n\n% Ramp process\nif isRamping      \n    y = (endPoint - startPoint)/ramps * rampstep + startPoint;"
-      "  \n    if (rampstep == ramps)\n        isRamping = 0;\n    else\n        rampstep = rampstep + 1;\n    end \nel"
-      "se\n    y = u;\nend\n\n\n    \n\n%% Ramp\n% y = (u - u_old)/ramps * rampstep + u_old;    \n%     \n% %% Reset ra"
-      "mper\n% if (rampstep == ramps)\n%     rampstep_out = 1;\n%     u_old_out = u; %save this displacement for the ba"
-      "se of the next ramped command\n% else\n%     rampstep_out = rampstep + 1;\n%     u_old_out = u_old;\n% end\n%   "
-      "  \n% end"
+      script		      "function y  = fcn(u, ramps, u_old, initVal)\n \n% persistent delay_count;\n% \n% if isempty(delay"
+      "_count)\n%     delay_count = 0;\n% end\n% \n% if delay_count < delay\n%     delay_count = delay_count + 1;\n%   "
+      "  y = u;\n%     rampstep_out = 1;\n%     u_old_out = u;\n% else\n% \n\npersistent isRamping;\npersistent startPo"
+      "int;\npersistent endPoint;\npersistent rampstep;\n\nif isempty(isRamping)\n    isRamping = 0;    \n    rampstep "
+      "= 0;\n    startPoint = initVal;\n    endPoint = initVal;    \nend\n\n%% Check if u and u_old\nif (u(1) == u_old("
+      "1) && ~isRamping);\n    % Do nothing and hold here    \n    y = u;\nelseif isRamping ;\n    % Do nothing\n    y "
+      "= u;\nelse\n    isRamping = 1; % Start first ramping\n    startPoint = u_old; % get values\n    endPoint = u; % "
+      "get values    \n    rampstep = 1;     \nend\n\n% Ramp process\nif isRamping      \n    y = (endPoint - startPoin"
+      "t)/ramps * rampstep + startPoint;  \n    if (rampstep == ramps)\n        isRamping = 0;\n    else\n        ramps"
+      "tep = rampstep + 1;\n    end \nelse\n    y = u;\nend\n\n\n    \n\n%% Ramp\n% y = (u - u_old)/ramps * rampstep + "
+      "u_old;    \n%     \n% %% Reset ramper\n% if (rampstep == ramps)\n%     rampstep_out = 1;\n%     u_old_out = u; %"
+      "save this displacement for the base of the next ramped command\n% else\n%     rampstep_out = rampstep + 1;\n%   "
+      "  u_old_out = u_old;\n% end\n%     \n% end"
       editorLayout	      "100 M4x1[10 5 700 500]"
       fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
       "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
@@ -4566,8 +4053,31 @@ Stateflow {
     id			    32
     ssIdNumber		    8
     name		    "u_old"
-    linkNode		    [25 31 0]
+    linkNode		    [25 31 33]
     scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    33
+    ssIdNumber		    12
+    name		    "initVal"
+    linkNode		    [25 32 0]
+    scope		    PARAMETER_DATA
+    isNonTunable	    1
     machine		    1
     props {
       array {
@@ -4585,26 +4095,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    33
+    id			    34
     name		    "Flexible Ramper/Embedded\nMATLAB Function"
     machine		    1
     chart		    25
   }
   chart {
-    id			    34
+    id			    35
     name		    "MNS\n(Maxwell Nonlinear Slider)\nMR Damper Model\nUnit: kN, m, sec/Subsystem/Embedded\nMATLAB Function"
     windowPosition	    [341.813 269.45 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1440 900 1.333333333333333]
-    treeNode		    [0 35 0 0]
-    firstTransition	    37
-    firstJunction	    36
-    viewObj		    34
+    treeNode		    [0 36 0 0]
+    firstTransition	    38
+    firstJunction	    37
+    viewObj		    35
     machine		    1
     ssIdHighWaterMark	    9
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    38
+    firstData		    39
     chartFileNumber	    8
     disableImplicitCasting  1
     eml {
@@ -4613,14 +4123,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    35
+    id			    36
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    34
-    treeNode		    [34 0 0 0]
+    chart		    35
+    treeNode		    [35 0 0 0]
     superState		    SUBCHART
-    subviewer		    34
+    subviewer		    35
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -4636,16 +4146,16 @@ Stateflow {
     }
   }
   junction {
-    id			    36
+    id			    37
     position		    [23.5747 49.5747 7]
-    chart		    34
-    linkNode		    [34 0 0]
-    subviewer		    34
+    chart		    35
+    linkNode		    [35 0 0]
+    subviewer		    35
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    37
+    id			    38
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -4653,23 +4163,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      36
+      id		      37
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    34
-    linkNode		    [34 0 0]
+    chart		    35
+    linkNode		    [35 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    34
+    subviewer		    35
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    38
+    id			    39
     ssIdNumber		    4
     name		    "u"
-    linkNode		    [34 0 39]
+    linkNode		    [35 0 40]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4685,10 +4195,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    39
+    id			    40
     ssIdNumber		    5
     name		    "y"
-    linkNode		    [34 38 40]
+    linkNode		    [35 39 41]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4705,32 +4215,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    40
+    id			    41
     ssIdNumber		    6
     name		    "a_p"
-    linkNode		    [34 39 41]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    41
-    ssIdNumber		    9
-    name		    "a_n"
-    linkNode		    [34 40 42]
+    linkNode		    [35 40 42]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4750,9 +4238,9 @@ Stateflow {
   }
   data {
     id			    42
-    ssIdNumber		    8
-    name		    "eta"
-    linkNode		    [34 41 43]
+    ssIdNumber		    9
+    name		    "a_n"
+    linkNode		    [35 41 43]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4772,9 +4260,31 @@ Stateflow {
   }
   data {
     id			    43
+    ssIdNumber		    8
+    name		    "eta"
+    linkNode		    [35 42 44]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    44
     ssIdNumber		    7
     name		    "eta0"
-    linkNode		    [34 42 0]
+    linkNode		    [35 43 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4793,26 +4303,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    44
+    id			    45
     name		    "MNS\n(Maxwell Nonlinear Slider)\nMR Damper Model\nUnit: kN, m, sec/Subsystem/Embedded\nMATLAB Function"
     machine		    1
-    chart		    34
+    chart		    35
   }
   chart {
-    id			    45
+    id			    46
     name		    "MNS\n(Maxwell Nonlinear Slider)\nMR Damper Model\nUnit: kN, m, sec/MNS Element"
     windowPosition	    [506.813 33.331 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1440 900 1.333333333333333]
-    treeNode		    [0 46 0 0]
-    firstTransition	    48
-    firstJunction	    47
-    viewObj		    45
+    treeNode		    [0 47 0 0]
+    firstTransition	    49
+    firstJunction	    48
+    viewObj		    46
     machine		    1
     ssIdHighWaterMark	    20
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    49
+    firstData		    50
     chartFileNumber	    9
     disableImplicitCasting  1
     eml {
@@ -4821,14 +4331,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    46
+    id			    47
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    45
-    treeNode		    [45 0 0 0]
+    chart		    46
+    treeNode		    [46 0 0 0]
     superState		    SUBCHART
-    subviewer		    45
+    subviewer		    46
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -4855,16 +4365,16 @@ Stateflow {
     }
   }
   junction {
-    id			    47
+    id			    48
     position		    [23.5747 49.5747 7]
-    chart		    45
-    linkNode		    [45 0 0]
-    subviewer		    45
+    chart		    46
+    linkNode		    [46 0 0]
+    subviewer		    46
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    48
+    id			    49
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -4872,23 +4382,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      47
+      id		      48
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    45
-    linkNode		    [45 0 0]
+    chart		    46
+    linkNode		    [46 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    45
+    subviewer		    46
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    49
+    id			    50
     ssIdNumber		    4
     name		    "X"
-    linkNode		    [45 0 50]
+    linkNode		    [46 0 51]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4904,10 +4414,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    50
+    id			    51
     ssIdNumber		    5
     name		    "mode_i"
-    linkNode		    [45 49 51]
+    linkNode		    [46 50 52]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4924,32 +4434,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    51
+    id			    52
     ssIdNumber		    6
     name		    "delta_i"
-    linkNode		    [45 50 52]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    52
-    ssIdNumber		    7
-    name		    "FY1"
-    linkNode		    [45 51 53]
+    linkNode		    [46 51 53]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4969,9 +4457,9 @@ Stateflow {
   }
   data {
     id			    53
-    ssIdNumber		    8
-    name		    "FY2"
-    linkNode		    [45 52 54]
+    ssIdNumber		    7
+    name		    "FY1"
+    linkNode		    [46 52 54]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4991,10 +4479,10 @@ Stateflow {
   }
   data {
     id			    54
-    ssIdNumber		    9
-    name		    "Y"
-    linkNode		    [45 53 55]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    8
+    name		    "FY2"
+    linkNode		    [46 53 55]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -5007,15 +4495,15 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    55
-    ssIdNumber		    10
-    name		    "mode_o"
-    linkNode		    [45 54 56]
+    ssIdNumber		    9
+    name		    "Y"
+    linkNode		    [46 54 56]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5035,9 +4523,9 @@ Stateflow {
   }
   data {
     id			    56
-    ssIdNumber		    11
-    name		    "delta_o"
-    linkNode		    [45 55 57]
+    ssIdNumber		    10
+    name		    "mode_o"
+    linkNode		    [46 55 57]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5057,9 +4545,9 @@ Stateflow {
   }
   data {
     id			    57
-    ssIdNumber		    12
-    name		    "fd"
-    linkNode		    [45 56 58]
+    ssIdNumber		    11
+    name		    "delta_o"
+    linkNode		    [46 56 58]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5079,10 +4567,10 @@ Stateflow {
   }
   data {
     id			    58
-    ssIdNumber		    13
-    name		    "k"
-    linkNode		    [45 57 59]
-    scope		    INPUT_DATA
+    ssIdNumber		    12
+    name		    "fd"
+    linkNode		    [46 57 59]
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -5095,15 +4583,15 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    59
-    ssIdNumber		    14
-    name		    "c"
-    linkNode		    [45 58 60]
+    ssIdNumber		    13
+    name		    "k"
+    linkNode		    [46 58 60]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5123,9 +4611,9 @@ Stateflow {
   }
   data {
     id			    60
-    ssIdNumber		    15
-    name		    "dt"
-    linkNode		    [45 59 61]
+    ssIdNumber		    14
+    name		    "c"
+    linkNode		    [46 59 61]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5145,9 +4633,9 @@ Stateflow {
   }
   data {
     id			    61
-    ssIdNumber		    19
-    name		    "TOL"
-    linkNode		    [45 60 62]
+    ssIdNumber		    15
+    name		    "dt"
+    linkNode		    [46 60 62]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5167,9 +4655,31 @@ Stateflow {
   }
   data {
     id			    62
+    ssIdNumber		    19
+    name		    "TOL"
+    linkNode		    [46 61 63]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    63
     ssIdNumber		    20
     name		    "pfd"
-    linkNode		    [45 61 0]
+    linkNode		    [46 62 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5188,26 +4698,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    63
+    id			    64
     name		    "MNS\n(Maxwell Nonlinear Slider)\nMR Damper Model\nUnit: kN, m, sec/MNS Element"
     machine		    1
-    chart		    45
+    chart		    46
   }
   chart {
-    id			    64
+    id			    65
     name		    "MNS\n(Maxwell Nonlinear Slider)\nMR Damper Model\nUnit: kN, m, sec/Pre-defined\nYield Forces"
     windowPosition	    [476.813 63.33 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1440 900 1.333333333333333]
-    treeNode		    [0 65 0 0]
-    firstTransition	    67
-    firstJunction	    66
-    viewObj		    64
+    treeNode		    [0 66 0 0]
+    firstTransition	    68
+    firstJunction	    67
+    viewObj		    65
     machine		    1
     ssIdHighWaterMark	    13
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    68
+    firstData		    69
     chartFileNumber	    10
     disableImplicitCasting  1
     eml {
@@ -5216,14 +4726,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    65
+    id			    66
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    64
-    treeNode		    [64 0 0 0]
+    chart		    65
+    treeNode		    [65 0 0 0]
     superState		    SUBCHART
-    subviewer		    64
+    subviewer		    65
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -5248,16 +4758,16 @@ Stateflow {
     }
   }
   junction {
-    id			    66
+    id			    67
     position		    [23.5747 49.5747 7]
-    chart		    64
-    linkNode		    [64 0 0]
-    subviewer		    64
+    chart		    65
+    linkNode		    [65 0 0]
+    subviewer		    65
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    67
+    id			    68
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -5265,45 +4775,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      66
+      id		      67
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    64
-    linkNode		    [64 0 0]
+    chart		    65
+    linkNode		    [65 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    64
+    subviewer		    65
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    68
+    id			    69
     ssIdNumber		    4
     name		    "xd"
-    linkNode		    [64 0 69]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    69
-    ssIdNumber		    5
-    name		    "acc"
-    linkNode		    [64 68 70]
+    linkNode		    [65 0 70]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5323,9 +4811,9 @@ Stateflow {
   }
   data {
     id			    70
-    ssIdNumber		    6
-    name		    "PAR"
-    linkNode		    [64 69 71]
+    ssIdNumber		    5
+    name		    "acc"
+    linkNode		    [65 69 71]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5345,9 +4833,31 @@ Stateflow {
   }
   data {
     id			    71
+    ssIdNumber		    6
+    name		    "PAR"
+    linkNode		    [65 70 72]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    72
     ssIdNumber		    9
     name		    "u"
-    linkNode		    [64 70 72]
+    linkNode		    [65 71 73]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5363,10 +4873,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    72
+    id			    73
     ssIdNumber		    10
     name		    "FY1"
-    linkNode		    [64 71 73]
+    linkNode		    [65 72 74]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5376,28 +4886,6 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    73
-    ssIdNumber		    11
-    name		    "FY2"
-    linkNode		    [64 72 74]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
       frame		      SF_FRAME_NO
@@ -5406,9 +4894,9 @@ Stateflow {
   }
   data {
     id			    74
-    ssIdNumber		    13
-    name		    "k"
-    linkNode		    [64 73 75]
+    ssIdNumber		    11
+    name		    "FY2"
+    linkNode		    [65 73 75]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5428,9 +4916,31 @@ Stateflow {
   }
   data {
     id			    75
+    ssIdNumber		    13
+    name		    "k"
+    linkNode		    [65 74 76]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    76
     ssIdNumber		    12
     name		    "c"
-    linkNode		    [64 74 0]
+    linkNode		    [65 75 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5449,13 +4959,13 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    76
+    id			    77
     name		    "MNS\n(Maxwell Nonlinear Slider)\nMR Damper Model\nUnit: kN, m, sec/Pre-defined\nYield Forces"
     machine		    1
-    chart		    64
+    chart		    65
   }
   target {
-    id			    77
+    id			    78
     name		    "sfun"
     machine		    1
     linkNode		    [1 0 0]

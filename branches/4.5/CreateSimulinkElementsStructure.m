@@ -1,3 +1,4 @@
+%% Create the Simulink Element Structure
 function [ElementsStruct,ElementsStructBusName] = CreateSimulinkElementsStructure(Elements,Structure,RUNMODE)
 
 ElementsStruct = struct; % create blank structure
