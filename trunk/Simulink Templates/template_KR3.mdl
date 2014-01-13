@@ -1,0 +1,4562 @@
+Model {
+  Name			  "template_KR3"
+  Version		  7.9
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    0
+    NumRootOutports	    0
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.1230"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  SavedCharacterEncoding  "windows-1252"
+  SaveDefaultBlockParams  on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  DataTypeOverrideAppliesTo "AllNumericTypes"
+  MinMaxOverflowLogging	  "ForceOff"
+  MinMaxOverflowArchiveMode "Overwrite"
+  FPTRunName		  "Run 1"
+  MaxMDLFileLineLength	  120
+  CloseFcn		  "rtwprivate ssgencode ModelCloseRequest hybriddaq1dof"
+  Created		  "Mon Jan 01 12:00:00 2006"
+  Creator		  "RTMD"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "NEESsim 64 Bit"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Fri Nov 01 15:27:27 2013"
+  RTWModifiedTimeStamp	  305220385
+  ModelVersionFormat	  "1.%<AutoIncrement:1230>"
+  ConfigurationManager	  "None"
+  SampleTimeColors	  off
+  SampleTimeAnnotations	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  on
+  ShowPortDataTypes	  off
+  ShowDesignRanges	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowSignalResolutionIcons on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  CovForceBlockReductionOff on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  CovModelRefEnable	  "Off"
+  CovExternalEMLEnable	  off
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  off
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      1
+      Version		      "1.12.0"
+      Array {
+	Type			"Handle"
+	Dimension		8
+	Simulink.SolverCC {
+	  $ObjectID		  2
+	  Version		  "1.12.0"
+	  StartTime		  "0.0"
+	  StopTime		  "RunningTime"
+	  AbsTol		  "auto"
+	  FixedStep		  "sample"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ZcThreshold		  "auto"
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  EnableConcurrentExecution off
+	  ConcurrentTasks	  off
+	  Solver		  "FixedStepDiscrete"
+	  SolverName		  "FixedStepDiscrete"
+	  SolverJacobianMethodControl "auto"
+	  ShapePreserveControl	  "DisableAll"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  ZeroCrossAlgorithm	  "Nonadaptive"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  InsertRTBMode		  "Whenever possible"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  3
+	  Version		  "1.12.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  off
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveCompleteFinalSimState off
+	  SaveFormat		  "Array"
+	  SignalLoggingSaveFormat "ModelDataLogs"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  DSMLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  ReturnWorkspaceOutputs  off
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  DSMLoggingName	  "dsmout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  ReturnWorkspaceOutputsName "out"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  4
+	  Version		  "1.12.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    8
+	    Cell		    "BooleansAsBitfields"
+	    Cell		    "PassReuseOutputArgsAs"
+	    Cell		    "PassReuseOutputArgsThreshold"
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    Cell		    "UseSpecifiedMinMax"
+	    PropName		    "DisabledProps"
+	  }
+	  BlockReduction	  off
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  UseIntDivNetSlope	  off
+	  UseFloatMulNetSlope	  off
+	  UseSpecifiedMinMax	  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  off
+	  BufferReuse		  off
+	  EnhancedBackFolding	  off
+	  StrengthReduction	  off
+	  ExpressionFolding	  off
+	  BooleansAsBitfields	  off
+	  BitfieldContainerType	  "uint_T"
+	  EnableMemcpy		  on
+	  MemcpyThreshold	  64
+	  PassReuseOutputArgsAs	  "Structure reference"
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  off
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  on
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  EfficientMapNaN2IntZero on
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  MaxStackSize		  "Inherit from target"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	  ParallelExecutionInRapidAccelerator on
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  5
+	  Version		  "1.12.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"warning"
+	  CheckSSInitialOutputMsg on
+	  UnderspecifiedInitializationDetection	"Classic"
+	  MergeDetectMultiDrivingBlocksExec "none"
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "TryResolveAllWithWarning"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  MaskedZcDiagnostic	  "warning"
+	  IgnoredZcDiagnostic	  "warning"
+	  SolverPrmCheckMsg	  "warning"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "warning"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  FixptConstUnderflowMsg  "none"
+	  FixptConstOverflowMsg	  "none"
+	  FixptConstPrecisionLossMsg "none"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Use local settings"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  FrameProcessingCompatibilityMsg "warning"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  SimStateInterfaceChecksumMismatchMsg "warning"
+	  SimStateOlderReleaseMsg "error"
+	  InitInArrayFormatMsg	  "warning"
+	  StrictBusMsg		  "ErrorLevel1"
+	  BusNameAdapt		  "WarnAndRepair"
+	  NonBusSignalsTreatedAsBus "none"
+	  LoggingUnavailableSignals "error"
+	  BlockIODiagnostic	  "none"
+	  SFUnusedDataAndEventsDiag "warning"
+	  SFUnexpectedBacktrackingDiag "warning"
+	  SFInvalidInputDataAccessInChartInitDiag "warning"
+	  SFNoUnconditionalDefaultTransitionDiag "warning"
+	  SFTransitionOutsideNaturalParentDiag "warning"
+	  SFUnconditionalTransitionShadowingDiag "warning"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  6
+	  Version		  "1.12.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdBitPerFloat	  32
+	  ProdBitPerDouble	  64
+	  ProdBitPerPointer	  32
+	  ProdLargestAtomicInteger "Char"
+	  ProdLargestAtomicFloat  "None"
+	  ProdIntDivRoundTo	  "Zero"
+	  ProdEndianess		  "LittleEndian"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "Generic->32-bit x86 compatible"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetBitPerFloat	  32
+	  TargetBitPerDouble	  64
+	  TargetBitPerPointer	  32
+	  TargetLargestAtomicInteger "Char"
+	  TargetLargestAtomicFloat "None"
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  7
+	  Version		  "1.12.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceErrorOnInvalidPool on
+	  ParallelModelReferenceMATLABWorkerInit "None"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  PropagateVarSize	  "Infer from blocks in model"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	  PropagateSignalLabelsOutOfModel off
+	  SupportModelReferenceSimTargetCustomCode off
+	}
+	Simulink.SFSimCC {
+	  $ObjectID		  8
+	  Version		  "1.12.0"
+	  SFSimEnableDebug	  on
+	  SFSimOverflowDetection  on
+	  SFSimEcho		  on
+	  SimBlas		  on
+	  SimCtrlC		  on
+	  SimExtrinsic		  on
+	  SimIntegrity		  on
+	  SimUseLocalCustomCode	  off
+	  SimParseCustomCode	  off
+	  SimBuildMode		  "sf_incremental_build"
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  9
+	  Version		  "1.12.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    10
+	    Cell		    "IncludeHyperlinkInReport"
+	    Cell		    "GenerateTraceInfo"
+	    Cell		    "GenerateTraceReport"
+	    Cell		    "GenerateTraceReportSl"
+	    Cell		    "GenerateTraceReportSf"
+	    Cell		    "GenerateTraceReportEml"
+	    Cell		    "GenerateWebview"
+	    Cell		    "GenerateCodeMetricsReport"
+	    Cell		    "GenerateCodeReplacementReport"
+	    Cell		    "TargetLang"
+	    PropName		    "DisabledProps"
+	  }
+	  SystemTargetFile	  "xpctarget.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "xpc_default_tmf"
+	  Description		  "xPC Target"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ProcessScript		  "xpctarget_make_rtw_hook"
+	  ConfigAtBuild		  off
+	  RTWUseLocalCustomCode	  off
+	  RTWUseSimCustomCode	  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  GenerateTraceInfo	  off
+	  GenerateTraceReport	  off
+	  GenerateTraceReportSl	  off
+	  GenerateTraceReportSf	  off
+	  GenerateTraceReportEml  off
+	  GenerateCodeInfo	  off
+	  GenerateWebview	  off
+	  GenerateCodeMetricsReport off
+	  GenerateCodeReplacementReport	off
+	  RTWCompilerOptimization "Off"
+	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      10
+	      Version		      "1.12.0"
+	      Array {
+		Type			"Cell"
+		Dimension		21
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"IgnoreTestpoints"
+		Cell			"InsertBlockDesc"
+		Cell			"InsertPolySpaceComments"
+		Cell			"SFDataObjDesc"
+		Cell			"MATLABFcnDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrFcnArg"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		Cell			"ReqsInCode"
+		PropName		"DisabledProps"
+	      }
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrFcnArg   "rt$I$N$M"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      InsertPolySpaceComments off
+	      SimulinkBlockComments   on
+	      MATLABSourceComments    off
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	      UseSimReservedNames     off
+	    }
+	    Simulink.TargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      11
+	      Version		      "1.12.0"
+	      Array {
+		Type			"Cell"
+		Dimension		16
+		Cell			"GeneratePreprocessorConditionals"
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"GenerateTestInterfaces"
+		Cell			"ModelStepFunctionPrototypeControlCompliant"
+		Cell			"CPPClassGenCompliant"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		Cell			"PortableWordSizes"
+		PropName		"DisabledProps"
+	      }
+	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      CodeReplacementLibrary  "XPC_BLAS"
+	      UtilityFuncGeneration   "Auto"
+	      ERTMultiwordTypeDef     "System defined"
+	      CodeExecutionProfiling  off
+	      ERTMultiwordLength      256
+	      MultiwordLength	      2048
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      ParMdlRefBuildCompliant on
+	      CompOptLevelCompliant   on
+	      ConcurrentExecutionCompliant on
+	      IncludeMdlTerminateFcn  on
+	      GeneratePreprocessorConditionals "Disable all"
+	      CombineOutputUpdateFcns off
+	      CombineSignalStateStructs	off
+	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      on
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      SupportVariableSizeSignals off
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      PortableWordSizes	      off
+	      ModelStepFunctionPrototypeControlCompliant off
+	      CPPClassGenCompliant    off
+	      AutosarCompliant	      off
+	      GRTInterface	      on
+	      CustomProperty {
+		DataType		"string"
+		Name			"RL32ModeModifier"
+		Value			"Real-Time"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"ExtMode"
+		Value			"on"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"ExtModeMexFile"
+		Value			"ext_xpc"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"ExtModeIntrfLevel"
+		Value			"Level2 - Open"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"ExtModeArmWhenConnect"
+		Value			"off"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"RL32LogTETModifier"
+		Value			"on"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"RL32LogBufSizeModifier"
+		Value			"100000000"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"xPCTaskExecutionProfile"
+		Value			"off"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"xPCRL32EventNumber"
+		Value			"5000"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"RL32IRQSourceModifier"
+		Value			"Timer"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"xPCIRQSourceBoard"
+		Value			"None/Other"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"xPCIOIRQSlot"
+		Value			"-1"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"xpcDblBuff"
+		Value			"off"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"xpcObjCom"
+		Value			"off"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"xPCGenerateASAP2"
+		Value			"off"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"xPCGenerateXML"
+		Value			"off"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"RL32ObjectName"
+		Value			"tg"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"xPCisDownloadable"
+		Value			"on"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"xPCisDefaultEnv"
+		Value			"on"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"xPCisModelTimeout"
+		Value			"on"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"xPCModelTimeoutSecs"
+		Value			"5"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"xPCLoadParamSetFile"
+		Value			"off"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"xPCConcurrentTasks"
+		Value			"off"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"xPCEnableSFAnimation"
+		Value			"off"
+	      }
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
+      CurrentDlgPage	      "Code Generation/xPC Target options"
+      ConfigPrmDlgPosition     [ 465, 96, 1394, 1016 ] 
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    1
+  }
+  ExplicitPartitioning	  off
+  BlockDefaults {
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Arial"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+    BlockRotation	    0
+    BlockMirror		    off
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Arial"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Arial"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+      PreserveConstantTs      off
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      DiscretePulseGenerator
+      PulseType		      "Sample based"
+      TimeSource	      "Use simulation time"
+      Amplitude		      "1"
+      Period		      "2"
+      PulseWidth	      "1"
+      PhaseDelay	      "0"
+      SampleTime	      "1"
+      VectorParams1D	      on
+    }
+    Block {
+      BlockType		      EnablePort
+      StatesWhenEnabling      "held"
+      PropagateVarSize	      "Only when enabling"
+      ShowOutputPort	      off
+      ZeroCross		      on
+      PortDimensions	      "1"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "double"
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      FromWorkspace
+      VariableName	      "simulink_input"
+      OutDataTypeStr	      "Inherit: auto"
+      SampleTime	      "-1"
+      Interpolate	      on
+      ZeroCross		      off
+      OutputAfterFinalValue   "Extrapolation"
+    }
+    Block {
+      BlockType		      InitialCondition
+      Value		      "1"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      OutputFunctionCall      off
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchInputForFeedbackSignals off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      RateTransition
+      Integrity		      on
+      Deterministic	      on
+      X0		      "0"
+      OutPortSampleTimeOpt    "Specify"
+      OutPortSampleTimeMultiple	"1"
+      OutPortSampleTime	      "-1"
+    }
+    Block {
+      BlockType		      S-Function
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+      SFunctionDeploymentMode off
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      CheckFcnCallInpInsideContextMsg off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      DataTypeOverrideAppliesTo	"AllNumericTypes"
+      MinMaxOverflowLogging   "UseLocalSettings"
+      SFBlockType	      "NONE"
+      Variant		      off
+      GeneratePreprocessorConditionals off
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      AccumDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Terminator
+    }
+    Block {
+      BlockType		      ToWorkspace
+      VariableName	      "simulink_output"
+      MaxDataPoints	      "1000"
+      Decimation	      "1"
+      SampleTime	      "0"
+      SaveFormat	      "Array"
+      FixptAsFi		      off
+      NumInputs		      "1"
+    }
+    Block {
+      BlockType		      UnitDelay
+      X0		      "0"
+      InputProcessing	      "Inherited"
+      SampleTime	      "1"
+      StateMustResolveToSignalObject off
+      RTWStateStorageClass    "Auto"
+      HasFrameUpgradeWarning  on
+    }
+  }
+  System {
+    Name		    "template_KR3"
+    Location		    [449, 288, 1438, 669]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "2218"
+    Block {
+      BlockType		      DiscretePulseGenerator
+      Name		      "Acceleration\nTiming"
+      SID		      "2116"
+      Ports		      [0, 1]
+      Position		      [690, 99, 720, 131]
+      BackgroundColor	      "red"
+      Period		      "Integrator.Interpolations"
+      PhaseDelay	      "Integrator.Interpolations-1"
+      SampleTime	      "sample"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Calc Accel-Vel Vectors\nType 3 KR semi explicit"
+      SID		      "2117"
+      Ports		      [3, 4, 1]
+      Position		      [690, 161, 830, 239]
+      BackgroundColor	      "orange"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Calc Accel-Vel Vectors\nType 3 KR semi explicit"
+	Location		[906, 233, 1770, 920]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "EffForcePS"
+	  SID			  "2118"
+	  Position		  [45, 558, 75, 572]
+	  BackgroundColor	  "orange"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "TotalRF"
+	  SID			  "2119"
+	  Position		  [45, 138, 75, 152]
+	  BackgroundColor	  "orange"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "ExprRF"
+	  SID			  "2120"
+	  Position		  [45, 173, 75, 187]
+	  BackgroundColor	  "orange"
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  EnablePort
+	  Name			  "Enable"
+	  SID			  "2171"
+	  Ports			  []
+	  Position		  [387, 30, 407, 50]
+	  ZOrder		  -2
+	  BackgroundColor	  "red"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Algebra"
+	  SID			  "2122"
+	  Ports			  [2, 1]
+	  Position		  [105, 148, 140, 172]
+	  BackgroundColor	  "orange"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Alphaf"
+	  SID			  "2123"
+	  Position		  [45, 59, 175, 91]
+	  BackgroundColor	  "orange"
+	  ShowName		  off
+	  Value			  "Integrator.Alphaf"
+	}
+	Block {
+	  BlockType		  FromWorkspace
+	  Name			  "EQ Record"
+	  SID			  "2217"
+	  Position		  [45, 267, 175, 293]
+	  BackgroundColor	  "orange"
+	  ShowName		  off
+	  VariableName		  "Integrator.PEFFsimulink"
+	  Interpolate		  off
+	  ZeroCross		  on
+	  OutputAfterFinalValue	  "Holding final value"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "EQ Scale Factor"
+	  SID			  "2125"
+	  Position		  [45, 219, 175, 251]
+	  BackgroundColor	  "orange"
+	  ShowName		  off
+	  Value			  "Integrator.EQScaleFactor"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Gamma"
+	  SID			  "2126"
+	  Position		  [45, 434, 175, 466]
+	  BackgroundColor	  "orange"
+	  ShowName		  off
+	  Value			  "Integrator.Gamma"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "MATLAB Function"
+	  SID			  "2127"
+	  Ports			  [11, 2]
+	  Position		  [505, 115, 660, 355]
+	  ZOrder		  -4
+	  LibraryVersion	  "1.32"
+	  ErrorFcn		  "Stateflow.Translate.translate"
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  SFBlockType		  "MATLAB Function"
+	  MaskType		  "Stateflow"
+	  MaskDescription	  "Embedded MATLAB block"
+	  MaskSelfModifiable	  on
+	  MaskDisplay		  "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('private/"
+	  "eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'fcn']);"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  System {
+	    Name		    "MATLAB Function"
+	    Location		    [257, 457, 812, 717]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    SIDHighWatermark	    "57"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Alphaf"
+	      SID		      "2127::1"
+	      Position		      [20, 101, 40, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "RestoringForce"
+	      SID		      "2127::25"
+	      Position		      [20, 136, 40, 154]
+	      ZOrder		      11
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "EQScaleFactor"
+	      SID		      "2127::45"
+	      Position		      [20, 171, 40, 189]
+	      ZOrder		      31
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "PEFF"
+	      SID		      "2127::46"
+	      Position		      [20, 206, 40, 224]
+	      ZOrder		      32
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "P0"
+	      SID		      "2127::48"
+	      Position		      [20, 246, 40, 264]
+	      ZOrder		      34
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "MassMatrixHat1Inv"
+	      SID		      "2127::49"
+	      Position		      [20, 281, 40, 299]
+	      ZOrder		      35
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Gamma"
+	      SID		      "2127::50"
+	      Position		      [20, 316, 40, 334]
+	      ZOrder		      36
+	      Port		      "7"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Timestep"
+	      SID		      "2127::51"
+	      Position		      [20, 351, 40, 369]
+	      ZOrder		      37
+	      Port		      "8"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "EffForcePrevStep"
+	      SID		      "2127::57"
+	      Position		      [20, 386, 40, 404]
+	      ZOrder		      43
+	      Port		      "9"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Prev_Velocity"
+	      SID		      "2127::55"
+	      Position		      [20, 426, 40, 444]
+	      ZOrder		      41
+	      Port		      "10"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Prev_Acceleration"
+	      SID		      "2127::56"
+	      Position		      [20, 461, 40, 479]
+	      ZOrder		      42
+	      Port		      "11"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      " Demux "
+	      SID		      "2127::20"
+	      Ports		      [1, 1]
+	      Position		      [270, 480, 320, 520]
+	      ZOrder		      6
+	      Outputs		      "1"
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      " SFunction "
+	      SID		      "2127::19"
+	      Tag		      "Stateflow S-Function template_KR3 2"
+	      Ports		      [11, 3]
+	      Position		      [180, 158, 230, 482]
+	      ZOrder		      5
+	      FunctionName	      "sf_sfun"
+	      PortCounts	      "[11 3]"
+	      EnableBusSupport	      on
+	      Port {
+		PortNumber		2
+		Name			"Acceleration"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"Velocity"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      " Terminator "
+	      SID		      "2127::22"
+	      Position		      [460, 491, 480, 509]
+	      ZOrder		      8
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Acceleration"
+	      SID		      "2127::5"
+	      Position		      [460, 101, 480, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Velocity"
+	      SID		      "2127::36"
+	      Position		      [460, 136, 480, 154]
+	      ZOrder		      22
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      " SFunction "
+	      SrcPort		      1
+	      DstBlock		      " Demux "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      " Demux "
+	      SrcPort		      1
+	      DstBlock		      " Terminator "
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "Velocity"
+	      Labels		      [0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      3
+	      DstBlock		      "Velocity"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "Acceleration"
+	      Labels		      [0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      2
+	      DstBlock		      "Acceleration"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Prev_Acceleration"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      11
+	    }
+	    Line {
+	      SrcBlock		      "Prev_Velocity"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      10
+	    }
+	    Line {
+	      SrcBlock		      "EffForcePrevStep"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      9
+	    }
+	    Line {
+	      SrcBlock		      "Timestep"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      8
+	    }
+	    Line {
+	      SrcBlock		      "Gamma"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      7
+	    }
+	    Line {
+	      SrcBlock		      "MassMatrixHat1Inv"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      6
+	    }
+	    Line {
+	      SrcBlock		      "P0"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "PEFF"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "EQScaleFactor"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "RestoringForce"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Alphaf"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "MassMatrixHat1Inv"
+	  SID			  "2128"
+	  Position		  [45, 379, 185, 411]
+	  BackgroundColor	  "orange"
+	  ShowName		  off
+	  Value			  "Integrator.MassMatrixHat1Inv"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "P0"
+	  SID			  "2129"
+	  Position		  [45, 324, 175, 356]
+	  BackgroundColor	  "orange"
+	  ShowName		  off
+	  Value			  "Structure.P0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Timestep"
+	  SID			  "2130"
+	  Position		  [45, 489, 175, 521]
+	  BackgroundColor	  "orange"
+	  ShowName		  off
+	  Value			  "Integrator.Timestep"
+	}
+	Block {
+	  BlockType		  UnitDelay
+	  Name			  "Unit Delay"
+	  SID			  "2131"
+	  Position		  [565, 372, 605, 388]
+	  BlockMirror		  on
+	  BackgroundColor	  "green"
+	  ShowName		  off
+	  X0			  "Integrator.Acceleration"
+	  InputProcessing	  "Elements as channels (sample based)"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  UnitDelay
+	  Name			  "Unit Delay1"
+	  SID			  "2132"
+	  Position		  [565, 402, 605, 418]
+	  BlockMirror		  on
+	  BackgroundColor	  "green"
+	  ShowName		  off
+	  X0			  "Integrator.Velocity"
+	  InputProcessing	  "Elements as channels (sample based)"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "PEFF"
+	  SID			  "2135"
+	  Position		  [330, 273, 360, 287]
+	  BackgroundColor	  "orange"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Total_RF"
+	  SID			  "2182"
+	  Position		  [230, 168, 260, 182]
+	  BackgroundColor	  "orange"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Target Acceleration"
+	  SID			  "2133"
+	  Position		  [735, 213, 765, 227]
+	  BackgroundColor	  "orange"
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Target Velocity"
+	  SID			  "2134"
+	  Position		  [735, 288, 765, 302]
+	  BackgroundColor	  "orange"
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "EffForcePS"
+	  SrcPort		  1
+	  Points		  [375, 0; 0, -270]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  9
+	}
+	Line {
+	  SrcBlock		  "Unit Delay1"
+	  SrcPort		  1
+	  Points		  [-90, 0; 0, -95]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  10
+	}
+	Line {
+	  SrcBlock		  "Unit Delay"
+	  SrcPort		  1
+	  Points		  [-80, 0; 0, -45]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  11
+	}
+	Line {
+	  SrcBlock		  "Timestep"
+	  SrcPort		  1
+	  Points		  [255, 0; 0, -230]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  8
+	}
+	Line {
+	  SrcBlock		  "Gamma"
+	  SrcPort		  1
+	  Points		  [245, 0; 0, -195]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  7
+	}
+	Line {
+	  SrcBlock		  "MassMatrixHat1Inv"
+	  SrcPort		  1
+	  Points		  [220, 0; 0, -160]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  6
+	}
+	Line {
+	  SrcBlock		  "P0"
+	  SrcPort		  1
+	  Points		  [210, 0; 0, -125]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "EQ Scale Factor"
+	  SrcPort		  1
+	  Points		  [0, -30; 155, 0; 0, -30]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "EQ Record"
+	  SrcPort		  1
+	  Points		  [35, 0]
+	  Branch {
+	    DstBlock		    "PEFF"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, -30; 140, 0; 0, -55]
+	    DstBlock		    "MATLAB Function"
+	    DstPort		    4
+	  }
+	}
+	Line {
+	  SrcBlock		  "MATLAB Function"
+	  SrcPort		  2
+	  Points		  [35, 0]
+	  Branch {
+	    Points		    [0, 115]
+	    DstBlock		    "Unit Delay1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Target Velocity"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Alphaf"
+	  SrcPort		  1
+	  Points		  [80, 0; 0, 60]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Algebra"
+	  SrcPort		  1
+	  Points		  [0, -5; 55, 0]
+	  Branch {
+	    DstBlock		    "MATLAB Function"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 20]
+	    DstBlock		    "Total_RF"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "ExprRF"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  DstBlock		  "Algebra"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "TotalRF"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  DstBlock		  "Algebra"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "MATLAB Function"
+	  SrcPort		  1
+	  Points		  [20, 0; 0, 45]
+	  Branch {
+	    Points		    [0, 160]
+	    DstBlock		    "Unit Delay"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Target Acceleration"
+	    DstPort		    1
+	  }
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Calculate Command Vectors\nType 3 KR semi explicit"
+      SID		      "1940"
+      Ports		      [2, 1, 1]
+      Position		      [60, 159, 210, 221]
+      BackgroundColor	      "cyan"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      SystemSampleTime	      "SampleRate"
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Calculate Command Vectors\nType 3 KR semi explicit"
+	Location		[830, 573, 1518, 989]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Accel"
+	  SID			  "1944"
+	  Position		  [135, 338, 165, 352]
+	  BackgroundColor	  "orange"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Vel"
+	  SID			  "2043"
+	  Position		  [190, 293, 220, 307]
+	  BackgroundColor	  "orange"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  EnablePort
+	  Name			  "Enable"
+	  SID			  "2115"
+	  Ports			  []
+	  Position		  [212, 30, 232, 50]
+	  ZOrder		  -2
+	  BackgroundColor	  "red"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Alpha1"
+	  SID			  "2042"
+	  Position		  [85, 101, 225, 129]
+	  BackgroundColor	  "orange"
+	  ShowName		  off
+	  Value			  "Integrator.Alpha1"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Alpha2"
+	  SID			  "1956"
+	  Position		  [85, 146, 225, 174]
+	  BackgroundColor	  "orange"
+	  ShowName		  off
+	  Value			  "Integrator.Alpha2"
+	}
+	Block {
+	  BlockType		  InitialCondition
+	  Name			  "Init Accel"
+	  SID			  "1947"
+	  Position		  [185, 331, 225, 359]
+	  BackgroundColor	  "orange"
+	  FontSize		  12
+	  Value			  "Integrator.Acceleration"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "MATLAB Function"
+	  SID			  "2199"
+	  Ports			  [7, 1]
+	  Position		  [310, 158, 485, 312]
+	  ZOrder		  -4
+	  LibraryVersion	  "1.32"
+	  ErrorFcn		  "Stateflow.Translate.translate"
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  SFBlockType		  "MATLAB Function"
+	  MaskType		  "Stateflow"
+	  MaskDescription	  "Embedded MATLAB block"
+	  MaskSelfModifiable	  on
+	  MaskDisplay		  "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('private/"
+	  "eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'fcn']);"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  System {
+	    Name		    "MATLAB Function"
+	    Location		    [257, 457, 812, 717]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    SIDHighWatermark	    "64"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Alpha1"
+	      SID		      "2199::25"
+	      Position		      [20, 101, 40, 119]
+	      ZOrder		      11
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Alpha2"
+	      SID		      "2199::45"
+	      Position		      [20, 136, 40, 154]
+	      ZOrder		      31
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Timestep"
+	      SID		      "2199::46"
+	      Position		      [20, 171, 40, 189]
+	      ZOrder		      32
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "TimestepSquared"
+	      SID		      "2199::48"
+	      Position		      [20, 206, 40, 224]
+	      ZOrder		      34
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Velocity"
+	      SID		      "2199::64"
+	      Position		      [20, 246, 40, 264]
+	      ZOrder		      50
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Acceleration"
+	      SID		      "2199::59"
+	      Position		      [20, 281, 40, 299]
+	      ZOrder		      45
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Prev_Displacement"
+	      SID		      "2199::62"
+	      Position		      [20, 316, 40, 334]
+	      ZOrder		      48
+	      Port		      "7"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      " Demux "
+	      SID		      "2199::20"
+	      Ports		      [1, 1]
+	      Position		      [270, 505, 320, 545]
+	      ZOrder		      6
+	      Outputs		      "1"
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      " SFunction "
+	      SID		      "2199::19"
+	      Tag		      "Stateflow S-Function template_KR3 1"
+	      Ports		      [7, 2]
+	      Position		      [180, 174, 230, 506]
+	      ZOrder		      5
+	      FunctionName	      "sf_sfun"
+	      PortCounts	      "[7 2]"
+	      EnableBusSupport	      on
+	      Port {
+		PortNumber		2
+		Name			"Displacement"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      " Terminator "
+	      SID		      "2199::22"
+	      Position		      [460, 516, 480, 534]
+	      ZOrder		      8
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Displacement"
+	      SID		      "2199::60"
+	      Position		      [460, 101, 480, 119]
+	      ZOrder		      46
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Alpha1"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Alpha2"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Timestep"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "TimestepSquared"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "Velocity"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "Acceleration"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      6
+	    }
+	    Line {
+	      SrcBlock		      "Prev_Displacement"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      7
+	    }
+	    Line {
+	      Name		      "Displacement"
+	      Labels		      [0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      2
+	      DstBlock		      "Displacement"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      " Demux "
+	      SrcPort		      1
+	      DstBlock		      " Terminator "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      " SFunction "
+	      SrcPort		      1
+	      DstBlock		      " Demux "
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Timestep"
+	  SID			  "1954"
+	  Position		  [130, 200, 225, 230]
+	  BackgroundColor	  "orange"
+	  ShowName		  off
+	  Value			  "Integrator.Timestep"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Timestep ^2"
+	  SID			  "1957"
+	  Position		  [85, 251, 225, 279]
+	  BackgroundColor	  "orange"
+	  ShowName		  off
+	  Value			  "Integrator.TimestepSquared"
+	}
+	Block {
+	  BlockType		  UnitDelay
+	  Name			  "Unit Delay2"
+	  SID			  "1961"
+	  Position		  [375, 347, 415, 363]
+	  BlockMirror		  on
+	  BackgroundColor	  "green"
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  X0			  "Integrator.Displacement"
+	  InputProcessing	  "Elements as channels (sample based)"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Target Displacement1"
+	  SID			  "1962"
+	  Position		  [545, 228, 575, 242]
+	  BackgroundColor	  "orange"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Accel"
+	  SrcPort		  1
+	  DstBlock		  "Init Accel"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "MATLAB Function"
+	  SrcPort		  1
+	  Points		  [20, 0]
+	  Branch {
+	    DstBlock		    "Target Displacement1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 120]
+	    DstBlock		    "Unit Delay2"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Unit Delay2"
+	  SrcPort		  1
+	  Points		  [-80, 0; 0, -60]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  7
+	}
+	Line {
+	  SrcBlock		  "Alpha1"
+	  SrcPort		  1
+	  Points		  [25, 0; 0, 60]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Alpha2"
+	  SrcPort		  1
+	  Points		  [10, 0; 0, 35]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Timestep"
+	  SrcPort		  1
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Timestep ^2"
+	  SrcPort		  1
+	  Points		  [0, -30]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Vel"
+	  SrcPort		  1
+	  Points		  [35, 0; 0, -45]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "Init Accel"
+	  SrcPort		  1
+	  Points		  [0, -25; 45, 0; 0, -45]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  6
+	}
+	Annotation {
+	  SID			  "1967"
+	  Position		  [207, 354]
+	}
+      }
+    }
+    Block {
+      BlockType		      DiscretePulseGenerator
+      Name		      "Command\nTiming"
+      SID		      "2114"
+      Ports		      [0, 1]
+      Position		      [75, 89, 105, 121]
+      ZOrder		      36
+      BackgroundColor	      "red"
+      Period		      "Integrator.Interpolations"
+      SampleTime	      "sample"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "EffForcePrevStep"
+      SID		      "2136"
+      Ports		      [4, 1]
+      Position		      [380, 106, 505, 154]
+      ZOrder		      -17
+      BackgroundColor	      "orange"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"EffForcePrevStep"
+	Location		[1002, 110, 1856, 605]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "PEFF"
+	  SID			  "2139"
+	  Position		  [135, 413, 165, 427]
+	  ZOrder		  -1
+	  BackgroundColor	  "orange"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "TotalRF"
+	  SID			  "2140"
+	  Position		  [135, 323, 165, 337]
+	  BackgroundColor	  "orange"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Accel"
+	  SID			  "2137"
+	  Position		  [125, 103, 155, 117]
+	  ZOrder		  -1
+	  BackgroundColor	  "orange"
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Vel"
+	  SID			  "2138"
+	  Position		  [125, 223, 155, 237]
+	  BackgroundColor	  "orange"
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Alphaf"
+	  SID			  "2143"
+	  Position		  [130, 264, 260, 296]
+	  BackgroundColor	  "orange"
+	  ShowName		  off
+	  Value			  "Integrator.Alphaf"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "DampingMatrixFree"
+	  SID			  "2144"
+	  Position		  [125, 149, 270, 181]
+	  BackgroundColor	  "orange"
+	  ShowName		  off
+	  Value			  "Structure.DampingMatrixFree"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "EQ Scale Factor"
+	  SID			  "2145"
+	  Position		  [135, 359, 265, 391]
+	  BackgroundColor	  "orange"
+	  ShowName		  off
+	  Value			  "Integrator.EQScaleFactor"
+	}
+	Block {
+	  BlockType		  InitialCondition
+	  Name			  "Init Accel"
+	  SID			  "2146"
+	  Position		  [190, 96, 230, 124]
+	  BackgroundColor	  "orange"
+	  FontSize		  12
+	  Value			  "Integrator.Acceleration"
+	}
+	Block {
+	  BlockType		  InitialCondition
+	  Name			  "Init PEFF"
+	  SID			  "2147"
+	  Position		  [205, 406, 245, 434]
+	  BackgroundColor	  "orange"
+	  FontSize		  12
+	  Value			  "Integrator.PEFF(1,:)"
+	}
+	Block {
+	  BlockType		  InitialCondition
+	  Name			  "Init Vel"
+	  SID			  "2148"
+	  Position		  [175, 216, 215, 244]
+	  BackgroundColor	  "orange"
+	  FontSize		  12
+	  Value			  "Integrator.Velocity"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "MATLAB Function"
+	  SID			  "2203"
+	  Ports			  [8, 1]
+	  Position		  [430, 118, 605, 272]
+	  ZOrder		  -4
+	  LibraryVersion	  "1.32"
+	  ErrorFcn		  "Stateflow.Translate.translate"
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  SFBlockType		  "MATLAB Function"
+	  MaskType		  "Stateflow"
+	  MaskDescription	  "Embedded MATLAB block"
+	  MaskSelfModifiable	  on
+	  MaskDisplay		  "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('private/"
+	  "eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'fcn']);"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  System {
+	    Name		    "MATLAB Function"
+	    Location		    [257, 457, 812, 717]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    SIDHighWatermark	    "65"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "MassMatrixHat2"
+	      SID		      "2203::25"
+	      Position		      [20, 101, 40, 119]
+	      ZOrder		      11
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Acceleration"
+	      SID		      "2203::59"
+	      Position		      [20, 136, 40, 154]
+	      ZOrder		      45
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "DampingMatrixFree"
+	      SID		      "2203::45"
+	      Position		      [20, 171, 40, 189]
+	      ZOrder		      31
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Velocity"
+	      SID		      "2203::64"
+	      Position		      [20, 206, 40, 224]
+	      ZOrder		      50
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Alphaf"
+	      SID		      "2203::46"
+	      Position		      [20, 246, 40, 264]
+	      ZOrder		      32
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "RestoringForce"
+	      SID		      "2203::48"
+	      Position		      [20, 281, 40, 299]
+	      ZOrder		      34
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "EQScaleFactor"
+	      SID		      "2203::62"
+	      Position		      [20, 316, 40, 334]
+	      ZOrder		      48
+	      Port		      "7"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "PEFF"
+	      SID		      "2203::65"
+	      Position		      [20, 351, 40, 369]
+	      ZOrder		      51
+	      Port		      "8"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      " Demux "
+	      SID		      "2203::20"
+	      Ports		      [1, 1]
+	      Position		      [270, 505, 320, 545]
+	      ZOrder		      6
+	      Outputs		      "1"
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      " SFunction "
+	      SID		      "2203::19"
+	      Tag		      "Stateflow S-Function template_KR3 4"
+	      Ports		      [8, 2]
+	      Position		      [180, 174, 230, 506]
+	      ZOrder		      5
+	      FunctionName	      "sf_sfun"
+	      PortCounts	      "[8 2]"
+	      EnableBusSupport	      on
+	      Port {
+		PortNumber		2
+		Name			"EffForcePrevStep"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      " Terminator "
+	      SID		      "2203::22"
+	      Position		      [460, 516, 480, 534]
+	      ZOrder		      8
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "EffForcePrevStep"
+	      SID		      "2203::60"
+	      Position		      [460, 101, 480, 119]
+	      ZOrder		      46
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "MassMatrixHat2"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Acceleration"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "DampingMatrixFree"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Velocity"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "Alphaf"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "RestoringForce"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      6
+	    }
+	    Line {
+	      SrcBlock		      "EQScaleFactor"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      7
+	    }
+	    Line {
+	      SrcBlock		      "PEFF"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      8
+	    }
+	    Line {
+	      Name		      "EffForcePrevStep"
+	      Labels		      [0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      2
+	      DstBlock		      "EffForcePrevStep"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      " Demux "
+	      SrcPort		      1
+	      DstBlock		      " Terminator "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      " SFunction "
+	      SrcPort		      1
+	      DstBlock		      " Demux "
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "MassMatrixHat2"
+	  SID			  "2149"
+	  Position		  [125, 44, 270, 76]
+	  BackgroundColor	  "orange"
+	  ShowName		  off
+	  Value			  "Integrator.MassMatrixHat2"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "EffForcePrevStep"
+	  SID			  "2155"
+	  Position		  [665, 188, 695, 202]
+	  ZOrder		  -2
+	  BackgroundColor	  "orange"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "PEFF"
+	  SrcPort		  1
+	  DstBlock		  "Init PEFF"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Vel"
+	  SrcPort		  1
+	  DstBlock		  "Init Vel"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "MassMatrixHat2"
+	  SrcPort		  1
+	  Points		  [5, 0; 0, 35; 135, 0]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Accel"
+	  SrcPort		  1
+	  DstBlock		  "Init Accel"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Init Accel"
+	  SrcPort		  1
+	  Points		  [90, 0; 0, 35]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "DampingMatrixFree"
+	  SrcPort		  1
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Init Vel"
+	  SrcPort		  1
+	  Points		  [95, 0; 0, -45]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Alphaf"
+	  SrcPort		  1
+	  Points		  [75, 0; 0, -75]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "TotalRF"
+	  SrcPort		  1
+	  Points		  [185, 0; 0, -105]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  6
+	}
+	Line {
+	  SrcBlock		  "EQ Scale Factor"
+	  SrcPort		  1
+	  Points		  [95, 0; 0, -130]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  7
+	}
+	Line {
+	  SrcBlock		  "Init PEFF"
+	  SrcPort		  1
+	  Points		  [135, 0; 0, -155]
+	  DstBlock		  "MATLAB Function"
+	  DstPort		  8
+	}
+	Line {
+	  SrcBlock		  "MATLAB Function"
+	  SrcPort		  1
+	  DstBlock		  "EffForcePrevStep"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Numerical Element Calculations"
+      SID		      "2218"
+      Ports		      [2, 2]
+      Position		      [345, 188, 500, 232]
+      ZOrder		      -9
+      BackgroundColor	      "[0.380392, 0.741176, 0.988235]"
+      LibraryVersion	      "1.32"
+      ErrorFcn		      "Stateflow.Translate.translate"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      SFBlockType	      "MATLAB Function"
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('pr"
+      "ivate/eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'eml']);"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "normalized"
+      System {
+	Name			"Numerical Element Calculations"
+	Location		[227, 345, 838, 789]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"62"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Displacement"
+	  SID			  "2218::19"
+	  Position		  [20, 101, 40, 119]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Velocity"
+	  SID			  "2218::34"
+	  Position		  [20, 136, 40, 154]
+	  ZOrder		  -2
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "2218::58"
+	  Ports			  [1, 1]
+	  Position		  [270, 205, 320, 245]
+	  ZOrder		  14
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  " SFunction "
+	  SID			  "2218::57"
+	  Tag			  "Stateflow S-Function template_KR3 5"
+	  Ports			  [2, 3]
+	  Position		  [180, 104, 230, 206]
+	  ZOrder		  13
+	  FunctionName		  "sf_sfun"
+	  Parameters		  "ElementsStruct,NumFreeDOF,RigidLinkMasterMatrix,RigidLinkNo,RigidLinkNodeID,RigidLinkSlaveMatrix"
+	  PortCounts		  "[2 3]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "Total_RF"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "ElementRFs"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "2218::60"
+	  Position		  [460, 216, 480, 234]
+	  ZOrder		  16
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Total_RF"
+	  SID			  "2218::5"
+	  Position		  [460, 101, 480, 119]
+	  ZOrder		  -9
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "ElementRFs"
+	  SID			  "2218::62"
+	  Position		  [460, 136, 480, 154]
+	  ZOrder		  17
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "ElementRFs"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  3
+	  DstBlock		  "ElementRFs"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "Total_RF"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "Total_RF"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Velocity"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Displacement"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      RateTransition
+      Name		      "Rate Transition1"
+      SID		      "2170"
+      Position		      [430, 82, 450, 98]
+      BlockMirror	      on
+      BackgroundColor	      "green"
+      NamePlacement	      "alternate"
+      ShowName		      off
+      Deterministic	      off
+      X0		      "-1"
+      OutPortSampleTime	      "SampleRate"
+    }
+    Block {
+      BlockType		      RateTransition
+      Name		      "Rate Transition2"
+      SID		      "2157"
+      Position		      [540, 192, 560, 208]
+      BackgroundColor	      "green"
+      ShowName		      off
+      Deterministic	      off
+      OutPortSampleTime	      "sample"
+    }
+    Block {
+      BlockType		      RateTransition
+      Name		      "Rate Transition3"
+      SID		      "2158"
+      Position		      [540, 122, 560, 138]
+      BackgroundColor	      "green"
+      ShowName		      off
+      Deterministic	      off
+      OutPortSampleTime	      "sample"
+    }
+    Block {
+      BlockType		      RateTransition
+      Name		      "Rate Transition4"
+      SID		      "2172"
+      Position		      [327, 75, 343, 100]
+      BlockRotation	      270
+      BlockMirror	      on
+      BackgroundColor	      "green"
+      NamePlacement	      "alternate"
+      ShowName		      off
+      Deterministic	      off
+      X0		      "-1"
+      OutPortSampleTime	      "SampleRate"
+    }
+    Block {
+      BlockType		      RateTransition
+      Name		      "Rate Transition5"
+      SID		      "2166"
+      Position		      [240, 182, 265, 198]
+      ZOrder		      33
+      BackgroundColor	      "green"
+      ShowName		      off
+      Deterministic	      off
+      OutPortSampleTime	      "SampleRate"
+    }
+    Block {
+      BlockType		      RateTransition
+      Name		      "Rate Transition6"
+      SID		      "2173"
+      Position		      [307, 75, 323, 100]
+      BlockRotation	      270
+      BlockMirror	      on
+      BackgroundColor	      "green"
+      NamePlacement	      "alternate"
+      ShowName		      off
+      Deterministic	      off
+      X0		      "-1"
+      OutPortSampleTime	      "SampleRate"
+    }
+    Block {
+      BlockType		      RateTransition
+      Name		      "Rate Transition7"
+      SID		      "2183"
+      Position		      [430, 62, 450, 78]
+      BlockMirror	      on
+      BackgroundColor	      "green"
+      NamePlacement	      "alternate"
+      ShowName		      off
+      Deterministic	      off
+      X0		      "-1"
+      OutPortSampleTime	      "SampleRate"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace"
+      SID		      "2177"
+      Ports		      [1]
+      Position		      [290, 161, 340, 179]
+      ZOrder		      -18
+      ShowName		      off
+      VariableName	      "A_Disp"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace1"
+      SID		      "2178"
+      Ports		      [1]
+      Position		      [540, 220, 590, 240]
+      ZOrder		      32
+      ShowName		      off
+      VariableName	      "A_RF"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace2"
+      SID		      "2179"
+      Ports		      [1]
+      Position		      [230, 101, 280, 119]
+      ZOrder		      27
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      ShowName		      off
+      VariableName	      "A_Vel"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace3"
+      SID		      "2180"
+      Ports		      [1]
+      Position		      [230, 125, 280, 145]
+      ZOrder		      32
+      BlockMirror	      on
+      NamePlacement	      "alternate"
+      ShowName		      off
+      VariableName	      "A_Accel"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      UnitDelay
+      Name		      "Unit Delay4"
+      SID		      "2186"
+      Position		      [860, 203, 880, 217]
+      ZOrder		      25
+      BackgroundColor	      "green"
+      NamePlacement	      "alternate"
+      ShowName		      off
+      X0		      "Integrator.Acceleration"
+      InputProcessing	      "Elements as channels (sample based)"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      UnitDelay
+      Name		      "Unit Delay5"
+      SID		      "2187"
+      Position		      [860, 223, 880, 237]
+      ZOrder		      25
+      BackgroundColor	      "green"
+      NamePlacement	      "alternate"
+      ShowName		      off
+      X0		      "Integrator.Velocity"
+      InputProcessing	      "Elements as channels (sample based)"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      UnitDelay
+      Name		      "Unit Delay6"
+      SID		      "2188"
+      Position		      [860, 163, 880, 177]
+      ZOrder		      25
+      BackgroundColor	      "green"
+      NamePlacement	      "alternate"
+      ShowName		      off
+      X0		      "Integrator.PEFF(1,:)"
+      InputProcessing	      "Elements as channels (sample based)"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      UnitDelay
+      Name		      "Unit Delay7"
+      SID		      "2189"
+      Position		      [860, 183, 880, 197]
+      ZOrder		      25
+      BackgroundColor	      "green"
+      NamePlacement	      "alternate"
+      ShowName		      off
+      X0		      "Integrator.RestoringForce"
+      InputProcessing	      "Elements as channels (sample based)"
+      SampleTime	      "-1"
+    }
+    Line {
+      SrcBlock		      "Calc Accel-Vel Vectors\nType 3 KR semi explicit"
+      SrcPort		      3
+      DstBlock		      "Unit Delay4"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Calculate Command Vectors\nType 3 KR semi explicit"
+      SrcPort		      1
+      DstBlock		      "Rate Transition5"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Calc Accel-Vel Vectors\nType 3 KR semi explicit"
+      SrcPort		      4
+      DstBlock		      "Unit Delay5"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Command\nTiming"
+      SrcPort		      1
+      Points		      [25, 0]
+      DstBlock		      "Calculate Command Vectors\nType 3 KR semi explicit"
+      DstPort		      enable
+    }
+    Line {
+      SrcBlock		      "Rate Transition2"
+      SrcPort		      1
+      DstBlock		      "Calc Accel-Vel Vectors\nType 3 KR semi explicit"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Numerical Element Calculations"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	DstBlock		"Rate Transition2"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 30]
+	DstBlock		"To Workspace1"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Calc Accel-Vel Vectors\nType 3 KR semi explicit"
+      SrcPort		      1
+      DstBlock		      "Unit Delay6"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "EffForcePrevStep"
+      SrcPort		      1
+      DstBlock		      "Rate Transition3"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Rate Transition3"
+      SrcPort		      1
+      Points		      [20, 0; 0, 45]
+      DstBlock		      "Calc Accel-Vel Vectors\nType 3 KR semi explicit"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Rate Transition5"
+      SrcPort		      1
+      Points		      [5, 0]
+      Branch {
+	DstBlock		"To Workspace"
+	DstPort			1
+      }
+      Branch {
+	Points			[55, 0]
+	DstBlock		"Numerical Element Calculations"
+	DstPort			1
+      }
+    }
+    Line {
+      Labels		      [2, 0]
+      SrcBlock		      "Unit Delay5"
+      SrcPort		      1
+      Points		      [45, 0; 0, -200; -615, 0]
+      Branch {
+	DstBlock		"Rate Transition6"
+	DstPort			1
+      }
+      Branch {
+	Points			[-285, 0; 0, 175]
+	DstBlock		"Calculate Command Vectors\nType 3 KR semi explicit"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Rate Transition1"
+      SrcPort		      1
+      Points		      [-65, 0; 0, 25]
+      DstBlock		      "EffForcePrevStep"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Acceleration\nTiming"
+      SrcPort		      1
+      Points		      [35, 0]
+      DstBlock		      "Calc Accel-Vel Vectors\nType 3 KR semi explicit"
+      DstPort		      enable
+    }
+    Line {
+      SrcBlock		      "Rate Transition4"
+      SrcPort		      1
+      Points		      [0, 30]
+      Branch {
+	DstBlock		"EffForcePrevStep"
+	DstPort			3
+      }
+      Branch {
+	DstBlock		"To Workspace3"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Rate Transition6"
+      SrcPort		      1
+      Points		      [0, 5]
+      Branch {
+	Points			[0, 35]
+	DstBlock		"EffForcePrevStep"
+	DstPort			4
+      }
+      Branch {
+	DstBlock		"To Workspace2"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Calc Accel-Vel Vectors\nType 3 KR semi explicit"
+      SrcPort		      2
+      DstBlock		      "Unit Delay7"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Rate Transition7"
+      SrcPort		      1
+      Points		      [-75, 0; 0, 55]
+      DstBlock		      "EffForcePrevStep"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Unit Delay7"
+      SrcPort		      1
+      Points		      [20, 0; 0, -120]
+      DstBlock		      "Rate Transition7"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Unit Delay6"
+      SrcPort		      1
+      Points		      [5, 0; 0, -80]
+      DstBlock		      "Rate Transition1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Unit Delay4"
+      SrcPort		      1
+      Points		      [35, 0; 0, -160; -585, 0]
+      Branch {
+	Points			[0, 0]
+	DstBlock		"Rate Transition4"
+	DstPort			1
+      }
+      Branch {
+	Points			[-290, 0]
+	DstBlock		"Calculate Command Vectors\nType 3 KR semi explicit"
+	DstPort			1
+      }
+    }
+  }
+}
+# Finite State Machines
+#
+#    Stateflow Version 7.6 (R2011b) dated Jan 25 2012, 21:03:37
+#
+#
+
+
+Stateflow {
+  machine {
+    id			    1
+    name		    "template_KR3"
+    created		    "01-Jan-2006 12:00:00"
+    isLibrary		    0
+    firstTarget		    62
+    sfVersion		    76014001.00040001
+  }
+  chart {
+    id			    2
+    name		    "Calculate Command Vectors\nType 3 KR semi explicit/MATLAB Function"
+    windowPosition	    [465.75 98.25 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1920 1200 1.333333333333333]
+    treeNode		    [0 3 0 0]
+    firstTransition	    5
+    firstJunction	    4
+    viewObj		    2
+    machine		    1
+    ssIdHighWaterMark	    44
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    6
+    chartFileNumber	    1
+    disableImplicitCasting  1
+    eml {
+      name		      "fcn"
+    }
+  }
+  state {
+    id			    3
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 0 0]
+    superState		    SUBCHART
+    subviewer		    2
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function Displacement   = fcn(Alpha1,...\n                                Alpha2,...\n           "
+      "                     Timestep,...\n                                TimestepSquared,...\n                        "
+      "        Velocity,...\n                                Acceleration,...\n                                Prev_Dis"
+      "placement)\n\nDisplacement = Prev_Displacement + ...\n                    Alpha1 * Timestep * Velocity + ...\n  "
+      "                  Alpha2 * TimestepSquared * Acceleration;\n"
+      editorLayout	      "100 M4x1[10 5 700 500]"
+    }
+  }
+  junction {
+    id			    4
+    position		    [23.5747 49.5747 7]
+    chart		    2
+    linkNode		    [2 0 0]
+    subviewer		    2
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    5
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      4
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    2
+    linkNode		    [2 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    2
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    6
+    ssIdNumber		    8
+    name		    "Alpha1"
+    linkNode		    [2 0 7]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    7
+    ssIdNumber		    27
+    name		    "Alpha2"
+    linkNode		    [2 6 8]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    8
+    ssIdNumber		    28
+    name		    "Timestep"
+    linkNode		    [2 7 9]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    9
+    ssIdNumber		    30
+    name		    "TimestepSquared"
+    linkNode		    [2 8 10]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    10
+    ssIdNumber		    42
+    name		    "Velocity"
+    linkNode		    [2 9 11]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    11
+    ssIdNumber		    5
+    name		    "Acceleration"
+    linkNode		    [2 10 12]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    12
+    ssIdNumber		    41
+    name		    "Displacement"
+    linkNode		    [2 11 13]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    13
+    ssIdNumber		    43
+    name		    "Prev_Displacement"
+    linkNode		    [2 12 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    14
+    name		    "Calculate Command Vectors\nType 3 KR semi explicit/MATLAB Function"
+    machine		    1
+    chart		    2
+  }
+  chart {
+    id			    15
+    name		    "Calc Accel-Vel Vectors\nType 3 KR semi explicit/MATLAB Function"
+    windowPosition	    [390.75 258.45 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1920 1080 1.333333333333333]
+    treeNode		    [0 16 0 0]
+    firstTransition	    18
+    firstJunction	    17
+    viewObj		    15
+    machine		    1
+    ssIdHighWaterMark	    40
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    19
+    chartFileNumber	    2
+    disableImplicitCasting  1
+    eml {
+      name		      "fcn"
+    }
+  }
+  state {
+    id			    16
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    15
+    treeNode		    [15 0 0 0]
+    superState		    SUBCHART
+    subviewer		    15
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [Acceleration,Velocity] = fcn(Alphaf,...                                                "
+      "        \n                            RestoringForce,...                              \n                        "
+      "    EQScaleFactor,...\n                            PEFF,...      \n                            P0,... \n        "
+      "                    MassMatrixHat1Inv,...\n                            Gamma,...\n                            Ti"
+      "mestep,...\n                            EffForcePrevStep,...\n                            Prev_Velocity,...\n   "
+      "                         Prev_Acceleration)\n                                                \n\nAcceleration = "
+      "MassMatrixHat1Inv * ...\n                          ((1 - Alphaf) * (EQScaleFactor * PEFF - ...\n                "
+      "          RestoringForce) - EffForcePrevStep + P0);\n                      \nVelocity = Prev_Velocity + Timestep"
+      " * ((1 - Gamma) * Prev_Acceleration + ...\n                      Gamma * Acceleration);\n\n"
+      editorLayout	      "100 M4x1[10 5 700 500]"
+    }
+  }
+  junction {
+    id			    17
+    position		    [23.5747 49.5747 7]
+    chart		    15
+    linkNode		    [15 0 0]
+    subviewer		    15
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    18
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      17
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    15
+    linkNode		    [15 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    15
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    19
+    ssIdNumber		    4
+    name		    "Alphaf"
+    linkNode		    [15 0 20]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    20
+    ssIdNumber		    8
+    name		    "RestoringForce"
+    linkNode		    [15 19 21]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    21
+    ssIdNumber		    5
+    name		    "Acceleration"
+    linkNode		    [15 20 22]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    22
+    ssIdNumber		    6
+    name		    "Velocity"
+    linkNode		    [15 21 23]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    23
+    ssIdNumber		    27
+    name		    "EQScaleFactor"
+    linkNode		    [15 22 24]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    24
+    ssIdNumber		    28
+    name		    "PEFF"
+    linkNode		    [15 23 25]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    25
+    ssIdNumber		    30
+    name		    "P0"
+    linkNode		    [15 24 26]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    26
+    ssIdNumber		    31
+    name		    "MassMatrixHat1Inv"
+    linkNode		    [15 25 27]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    27
+    ssIdNumber		    32
+    name		    "Gamma"
+    linkNode		    [15 26 28]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    28
+    ssIdNumber		    33
+    name		    "Timestep"
+    linkNode		    [15 27 29]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    29
+    ssIdNumber		    39
+    name		    "EffForcePrevStep"
+    linkNode		    [15 28 30]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    30
+    ssIdNumber		    37
+    name		    "Prev_Velocity"
+    linkNode		    [15 29 31]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    31
+    ssIdNumber		    38
+    name		    "Prev_Acceleration"
+    linkNode		    [15 30 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    32
+    name		    "Calc Accel-Vel Vectors\nType 3 KR semi explicit/MATLAB Function"
+    machine		    1
+    chart		    15
+  }
+  chart {
+    id			    33
+    name		    "EffForcePrevStep/MATLAB Function"
+    windowPosition	    [480.75 83.25 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1920 1200 1.333333333333333]
+    treeNode		    [0 34 0 0]
+    firstTransition	    36
+    firstJunction	    35
+    viewObj		    33
+    machine		    1
+    ssIdHighWaterMark	    45
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    37
+    chartFileNumber	    4
+    disableImplicitCasting  1
+    eml {
+      name		      "fcn"
+    }
+  }
+  state {
+    id			    34
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    33
+    treeNode		    [33 0 0 0]
+    superState		    SUBCHART
+    subviewer		    33
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function EffForcePrevStep   = fcn(MassMatrixHat2,...\n                                Acceleratio"
+      "n,...\n                                DampingMatrixFree,...\n                                Velocity,...\n    "
+      "                            Alphaf,...\n                                RestoringForce,...                      "
+      "          \n                                EQScaleFactor,...\n                                PEFF)\n\nEffForce"
+      "PrevStep = MassMatrixHat2 * Acceleration + ...\n                DampingMatrixFree * Velocity + Alphaf * ...\n   "
+      "             (RestoringForce - EQScaleFactor * PEFF);"
+      editorLayout	      "100 M4x1[10 5 700 500]"
+    }
+  }
+  junction {
+    id			    35
+    position		    [23.5747 49.5747 7]
+    chart		    33
+    linkNode		    [33 0 0]
+    subviewer		    33
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    36
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      35
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    33
+    linkNode		    [33 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    33
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    37
+    ssIdNumber		    8
+    name		    "MassMatrixHat2"
+    linkNode		    [33 0 38]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    38
+    ssIdNumber		    5
+    name		    "Acceleration"
+    linkNode		    [33 37 39]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    39
+    ssIdNumber		    27
+    name		    "DampingMatrixFree"
+    linkNode		    [33 38 40]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    40
+    ssIdNumber		    42
+    name		    "Velocity"
+    linkNode		    [33 39 41]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    41
+    ssIdNumber		    28
+    name		    "Alphaf"
+    linkNode		    [33 40 42]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    42
+    ssIdNumber		    30
+    name		    "RestoringForce"
+    linkNode		    [33 41 43]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    43
+    ssIdNumber		    41
+    name		    "EffForcePrevStep"
+    linkNode		    [33 42 44]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    44
+    ssIdNumber		    43
+    name		    "EQScaleFactor"
+    linkNode		    [33 43 45]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    45
+    ssIdNumber		    45
+    name		    "PEFF"
+    linkNode		    [33 44 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    46
+    name		    "EffForcePrevStep/MATLAB Function"
+    machine		    1
+    chart		    33
+  }
+  chart {
+    id			    47
+    name		    "Numerical Element Calculations"
+    windowPosition	    [611.25 286.083 213 384.75]
+    viewLimits		    [0 169.5 0 348.75]
+    screen		    [1 1 1920 1200 1.333333333333333]
+    treeNode		    [0 48 0 0]
+    firstTransition	    50
+    firstJunction	    49
+    viewObj		    47
+    machine		    1
+    ssIdHighWaterMark	    32
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    51
+    chartFileNumber	    5
+    disableImplicitCasting  1
+    eml {
+      name		      "eml"
+    }
+  }
+  state {
+    id			    48
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    47
+    treeNode		    [47 0 0 0]
+    superState		    SUBCHART
+    subviewer		    47
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "% Get restoring force for each element\n% Returns (6x1) restoring force vector of all elements in"
+      " global coordinates %*fs\nfunction [Total_RF,ElementRFs] = eml(NumFreeDOF, Displacement, Velocity, ElementsStruc"
+      "t, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix) %*fe\n    % Store the Elements in "
+      "memory\n    persistent Elements;\n    persistent TotalRF;        \n    if isempty(Elements)\n        Elements = "
+      "ElementsStruct;        \n    end\n    \n    % Storage for the Global Restoring Force        \n    TotalRF = zero"
+      "s(NumFreeDOF, 1);     \n    ElementRFs = struct;   \n    ElementRFs.Recorders = 0;\n    \n%Elements  %*s\n[Eleme"
+      "nts.Element1, ElementRF] = GetRestoringForce_Type6(Elements.Element1, Displacement, RigidLinkNo, RigidLinkNodeID"
+      ", RigidLinkMasterMatrix, RigidLinkSlaveMatrix);\nTotalRF = AssembleElementGlobalRF6DOF(Elements.Element1, Elemen"
+      "tRF, TotalRF);\n[Elements.Element2, ElementRF] = GetRestoringForce_Type6(Elements.Element2, Displacement, RigidL"
+      "inkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);\nTotalRF = AssembleElementGlobalRF6DOF(Ele"
+      "ments.Element2, ElementRF, TotalRF);\n[Elements.Element3, ElementRF] = GetRestoringForce_Type6(Elements.Element3"
+      ", Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);\nTotalRF = AssembleE"
+      "lementGlobalRF6DOF(Elements.Element3, ElementRF, TotalRF);\n[Elements.Element4, ElementRF] = GetRestoringForce_T"
+      "ype6(Elements.Element4, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)"
+      ";\nTotalRF = AssembleElementGlobalRF6DOF(Elements.Element4, ElementRF, TotalRF);\n[Elements.Element5, ElementRF]"
+      " = GetRestoringForce_Type4(Elements.Element5, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix,"
+      " RigidLinkSlaveMatrix);\nTotalRF = AssembleElementGlobalRF6DOF(Elements.Element5, ElementRF, TotalRF);\n\n%*e\n "
+      "                        \n    Total_RF = TotalRF;\n\n\nend\n\n\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+      "%%%%%%%%%%%%%%%%%%%%%%%%%%%\nfunction TotalRF = AssembleElementGlobalRF6DOF(Element, ElementRF, TotalRF)\n    % "
+      "Assemble the structure restoring force vector based on the\n    % degrees of freedom node locations.  \n    ndof"
+      " = 6;\n    dof6 = zeros(6,1); \n    dof6(1,1)=Element.Nodes(1).UX;\n    dof6(2,1)=Element.Nodes(1).UY;\n    dof6"
+      "(3,1)=Element.Nodes(1).THETA;\n    dof6(4,1)=Element.Nodes(2).UX;\n    dof6(5,1)=Element.Nodes(2).UY;\n    dof6("
+      "6,1)=Element.Nodes(2).THETA;      \n\n    % Add to the TotalRF    \n    i = 1;\n    for i=1:ndof\n        if dof"
+      "6(i,1) ~= -1\n          TotalRF(dof6(i,1), 1) = ElementRF(i, 1) + TotalRF(dof6(i,1), 1);\n        end\n    end  "
+      "  \nend\n\nfunction TotalRF = AssembleElementGlobalRF9DOF(Element, ElementRF, TotalRF)\n    % Assemble the struc"
+      "ture restoring force vector based on the\n    % degrees of freedom node locations.  \n    ndof = 12;\n    dof12 "
+      "= zeros(12,1); \n    dof12(1,1)=Element.Nodes(1).UX;\n    dof12(2,1)=Element.Nodes(1).UY;\n    dof12(3,1)=Elemen"
+      "t.Nodes(1).THETA;\n    dof12(4,1)=Element.Nodes(2).UX;\n    dof12(5,1)=Element.Nodes(2).UY;\n    dof12(6,1)=Elem"
+      "ent.Nodes(2).THETA;  \n    dof12(7,1)=Element.Nodes(3).UX;\n    dof12(8,1)=Element.Nodes(3).UY;\n    dof12(9,1)="
+      "Element.Nodes(3).THETA;\n    dof12(10,1)=Element.Nodes(4).UX;\n    dof12(11,1)=Element.Nodes(4).UY;\n    dof12(1"
+      "2,1)=Element.Nodes(4).THETA;\n\n    % Add to the TotalRF\n    for i=1:ndof\n        if dof12(i,1) ~= -1\n       "
+      "   TotalRF(dof12(i,1), 1) = ElementRF(i, 1) + TotalRF(dof12(i,1), 1);\n        end\n    end    \nend\n\n%% Eleme"
+      "nt 1\nfunction [Element, RestoringForce] = GetRestoringForce_Type1(Element, Displacement, RigidLinkNo, RigidLink"
+      "NodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n    % Get distance between nodes\n    X21 = Element.Nodes("
+      "2).Xcoord - Element.Nodes(1).Xcoord;\n    Y21 = Element.Nodes(2).Ycoord - Element.Nodes(1).Ycoord;\n    EL = sqr"
+      "t(X21 * X21 + Y21 * Y21);\n    EAL = Element.Material.E * Element.Area / EL;\n    EIZL = Element.Material.E * El"
+      "ement.Inertia / EL;    \n    % Calculation of density (the uniform load is only taken into account)\n    SEP = z"
+      "eros(6);\n    SEP(1, 1) = EAL;\n    SEP(1, 4) = -EAL;\n    SEP(4, 4) = EAL;\n    SEP(2, 2) = 12 * EIZL / EL ^ 2;"
+      "\n    SEP(2, 3) = 6 * EIZL / EL;\n    SEP(2, 5) = -SEP(2, 2);\n    SEP(2, 6) = SEP(2, 3);\n    SEP(3, 3) = 4 * E"
+      "IZL;\n    SEP(3, 5) = -6 * EIZL / EL;\n    SEP(3, 6) = 2 * EIZL;\n    SEP(5, 5) = 12 * EIZL / EL ^ 2;\n    SEP(5"
+      ", 6) = -6 * EIZL / EL;\n    SEP(6, 6) = 4 * EIZL;\n    for i = 1:6\n       for j = i:6\n          SEP(j, i) = SE"
+      "P(i, j);\n       end\n    end\n    DCOS = zeros(3);\n    DCOS(1, 1) = X21 / EL;\n    DCOS(1, 2) = Y21 / EL;\n   "
+      " DCOS(1, 3) = 0;\n    DCOS(2, 1) = -DCOS(1, 2);\n    DCOS(2, 2) = DCOS(1, 1);\n    DCOS(2, 3) = 0;\n    DCOS(3, "
+      "1) = 0;\n    DCOS(3, 2) = 0;\n    DCOS(3, 3) = 1;\n    ALMBDA = zeros(6);       \n    for i = 1:2\n       IK = 3"
+      " * (i - 1);\n       for j = 1:3\n          for k = 1:3\n             ALMBDA(j + IK, k + IK) = DCOS(j, k);\n     "
+      "     end\n       end\n    end\n    SE = ALMBDA' * SEP * ALMBDA;\n    % Create the displacement Ue (6x1) vector o"
+      "f the element in global coordinates\n    Ue = zeros(6,1);\n    dof = zeros(6,1);\n    dof(1,1)=Element.Nodes(1)."
+      "UX;\n    dof(2,1)=Element.Nodes(1).UY;\n    dof(3,1)=Element.Nodes(1).THETA;\n    dof(4,1)=Element.Nodes(2).UX;\n"
+      "    dof(5,1)=Element.Nodes(2).UY;\n    dof(6,1)=Element.Nodes(2).THETA;\n    \n    for i=1:6\n        if dof(i,1"
+      ") ~= -1\n            Ue(i,1)=Displacement(dof(i,1),1);\n        end\n    end\n\n    % Calculation Restoring Forc"
+      "e, considering the Rigid Links if used\n    if( RigidLinkNo )\n        TR = RigidLinkTransformation2Nodes(Elemen"
+      "t.Nodes(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);\n"
+      "        RestoringForce = TR' * SE * TR * Ue;  % (6x1) resisting force vector of element in global coordinates\n "
+      "   else        \n        RestoringForce = SE * Ue;  % (6x1) resisting force vector of element in global coordina"
+      "tes\n    end\nend\n\n%% Element 2\nfunction [Element, RestoringForce] = GetRestoringForce_Type2(Element, Displac"
+      "ement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n    % Preset arrays\n    SE ="
+      " zeros(6,6);\n    SE(1, 1) = Element.Stiffness;\n    SE(1, 4) = -Element.Stiffness;\n    SE(4, 4) = Element.Stif"
+      "fness;\n    SE(4, 1) = SE(1,4);\n    \n    % Create the displacement Ue (6x1) vector of the element in global co"
+      "ordinates\n    Ue = zeros(6,1);\n    dof = zeros(6,1);\n    dof(1,1)=Element.Nodes(1).UX;\n    dof(2,1)=Element."
+      "Nodes(1).UY;\n    dof(3,1)=Element.Nodes(1).THETA;\n    dof(4,1)=Element.Nodes(2).UX;\n    dof(5,1)=Element.Node"
+      "s(2).UY;\n    dof(6,1)=Element.Nodes(2).THETA;\n    \n    for i=1:6\n        if dof(i,1) ~= -1\n            Ue(i"
+      ",1)=Displacement(dof(i,1),1);\n        end\n    end\n\n    % Calculation Restoring Force, considering the Rigid "
+      "Links if used\n    if( RigidLinkNo )\n        TR = RigidLinkTransformation2Nodes(Element.Nodes(1).ID, Element.No"
+      "des(2).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);\n        RestoringForce ="
+      " TR' * SE * TR * Ue;  % (6x1) resisting force vector of element in global coordinates\n    else\n%         if (R"
+      "UNMODE_BIT)\n%             RestoringForce = zeros(6,1);\n%             RestoringForce(1,1) = Element2Input;\n%  "
+      "           RestoringForce(4,1) = -Element2Input;\n%         else\n            RestoringForce = SE * Ue;  % (6x1)"
+      " resisting force vector of element in global coordinates\n%         end\n    end    \nend\n\n%% Element 3\n\n%% "
+      "Element 4\nfunction [Element, RestoringForce] = GetRestoringForce_Type4(Element, Displacement, RigidLinkNo, Rigi"
+      "dLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n\n    % element geometry       \n    % element deform"
+      "ation % geometry restricted to 1,2 plane (x,y)\n    dx = Element.xyj(1,1) - Element.xyi(1,1); \n    dy = Element"
+      ".xyj(2,1) - Element.xyi(2,1);\n    L = sqrt(dx*dx+dy*dy);\n    dx = dx / L;\n    dy = dy / L;\n\n    % 6x6 trans"
+      "formation matrix from local to global coordiante\n    apq  = zeros(6);\n    apq(1,1) = dx; apq(2,2) = dx; apq(4,"
+      "4) = dx; apq(5,5)= dx;\n    apq(1,2) = dy; apq(2,1) =-dy; apq(4,5) = dy; apq(5,4)=-dy;\n    apq(3,3) = 1.0; apq("
+      "6,6) =1.0;\n\n    % element stiffness matrix in local coordinate\n    SE = zeros(6,6);  \n    SE(2, 2) = Element"
+      ".K22;\n    SE(2, 5) = Element.K25;\n    SE(5, 2) = Element.K52;\n    SE(5, 5) = Element.K55;\n    % transformed "
+      "element stiffness matrix in global coordinate\n    SE = apq' * SE * apq;\n\n    % Create the displacement Ue (6x"
+      "1) vector of the element in global coordinates\n    Ue = zeros(6,1);\n    dof = zeros(6,1);\n    dof(1,1)=Elemen"
+      "t.Nodes(1).UX;\n    dof(2,1)=Element.Nodes(1).UY;\n    dof(3,1)=Element.Nodes(1).THETA;\n    dof(4,1)=Element.No"
+      "des(2).UX;\n    dof(5,1)=Element.Nodes(2).UY;\n    dof(6,1)=Element.Nodes(2).THETA;\n\n    for i=1:6\n        if"
+      " dof(i,1) ~= -1\n            Ue(i,1) = Displacement(dof(i,1),1);\n        end\n    end\n    \n    % Calculation "
+      "Restoring Force, considering the Rigid Links if used\n    if( RigidLinkNo )\n        TR = RigidLinkTransformatio"
+      "n2Nodes(Element.Nodes(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLink"
+      "SlaveMatrix);\n        RestoringForce = TR' * SE * TR * Ue;  % (6x1) resisting force vector of element in global"
+      " coordinates\n    else\n        RestoringForce = SE * Ue;  % (6x1) resisting force vector of element in global c"
+      "oordinates\n    end\nend\n\n%% Element 5\n\n%% Element 6\nfunction [Element,RestoringForce] = GetRestoringForce_"
+      "Type6(Element, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n    % G"
+      "et the displacement Ue (6x1) vector of the element in global coordinates\n    Ue = zeros(6,1);\n    dof=zeros(6,"
+      "1);\n    dof(1,1)=Element.Nodes(1).UX;\n    dof(2,1)=Element.Nodes(1).UY;\n    dof(3,1)=Element.Nodes(1).THETA;\n"
+      "    dof(4,1)=Element.Nodes(2).UX;\n    dof(5,1)=Element.Nodes(2).UY;\n    dof(6,1)=Element.Nodes(2).THETA;\n    "
+      "for i=1:6\n        if dof(i,1) ~= -1\n            Ue(i,1)=Displacement(dof(i,1),1);\n        end\n    end\n\n   "
+      " % Calculation Restoring Force, considering the Rigid Links if used\n    if( RigidLinkNo )\n        TR = RigidLi"
+      "nkTransformation2Nodes(Element.Nodes(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMa"
+      "trix, RigidLinkSlaveMatrix);        \n        Ue = TR * Ue; \n    end       \n\n    du=Ue-Element.Uprev;  % The "
+      "incremental displacement vector du of the element in global coordinates \n    Element.Uprev=Ue; %Update Uprev of"
+      " element for use in next state determination call\n\n    % Incremental basic deformations\n    dv = Element.avq "
+      "* du;      \n\n    % Integrate basic force and basic stiffness matrix\n    kb = zeros(3);\n    s  = zeros(3,1);\n"
+      "\n    for i=1:length(Element.sections)\n\n        % Form B matrix and compute section deformation\n        B = ["
+      " Element.b1(i) Element.b2(i) 0; 0 0 Element.b3(i) ];\n        dvs = B * dv;  \n\n        % Section state determi"
+      "nation and update section state\n        [ss ks Element.sections(i)] = SectionState( Element.sections(i), dvs );"
+      "\n\n        % Sum section term\n        kb = kb + B'*ks*B * ( Element.wi(i) * Element.L/2 );\n        s  = s  + "
+      "B'*ss   * ( Element.wi(i) * Element.L/2 );\n\n    end\n\n    % Restoring force and stiffness matrix\n    Restori"
+      "ngForce = Element.avq' * s;\n\n    if( RigidLinkNo )\n        RestoringForce = TR' * RestoringForce;  \n    end\n"
+      "end\n\n%% Element 7\nfunction [Element,RestoringForce] = GetRestoringForce_Type7(Element, Displacement, RigidLin"
+      "kNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n    % Get the displacement Ue (6x1) vector o"
+      "f the element in global coordinates\n    Ue = zeros(6,1);\n    dof=zeros(6,1);\n    dof(1,1)=Element.Nodes(1).UX"
+      ";\n    dof(2,1)=Element.Nodes(1).UY;\n    dof(3,1)=Element.Nodes(1).THETA;\n    dof(4,1)=Element.Nodes(2).UX;\n "
+      "   dof(5,1)=Element.Nodes(2).UY;\n    dof(6,1)=Element.Nodes(2).THETA;\n    for i=1:6\n        if dof(i,1) ~= -1"
+      "\n            Ue(i,1)=Displacement(dof(i,1),1);\n        end\n    end\n\n    % Calculation Restoring Force, cons"
+      "idering the Rigid Links if used\n    if( RigidLinkNo )\n        TR = RigidLinkTransformation2Nodes(Element.Nodes"
+      "(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);        "
+      "\n        Ue = TR * Ue; \n    end       \n\n    if Element.CO==1\n        du=(Ue+Element.resdq)-Element.Uprev;\n"
+      "    else\n        du=Ue -Element.Uprev; % The incremental displacement vector du of the element in global coordi"
+      "nates \n    end\n    Element.Uprev=Ue; %Update Uprev of element for use in next state determination call\n\n    "
+      "% element deformation % geometry restricted to 1,2 plane (x,y)\n    dx = Element.xyj(1,1) - Element.xyi(1,1); \n"
+      "    dy = Element.xyj(2,1) - Element.xyi(2,1);\n    L = sqrt(dx*dx+dy*dy);\n    dx = dx / L;\n    dy = dy / L;\n\n"
+      "    % Form transformation matrix from element in global coordinate to basic system\n    avq  = [ -dy/L  dx/L  1 "
+      " dy/L -dx/L  0;\n           -dy/L  dx/L  0  dy/L -dx/L  1;\n           -dx   -dy    0  dx    dy    0];\n\n    % "
+      "Incremental basic deformations\n    dv = avq * du;        \n\n    % Basic forces from previous load step\n    si"
+      " = Element.si; %momentI, momentJ, axial\n    \n    % Initialize ds for iteration\n    ds = zeros(3,1); %deltaMom"
+      "entI, deltaMomentJ, deltaAxial\n\n    % Interpolation functions for equilibrium evaluated at integration points\n"
+      "    x  = (  Element.xi + 1. ) / 2.;   \n    b1 = -( 1. - x );\n    b2 =        x;      \n    b3 = -1./L;\n    b4"
+      " = ones(size(x));\n\n    % initialize incremental section deformations\n    dvsecs = zeros(2,Element.nIP);\n    "
+      "\n    vr = dv; % Predefine vr\n    % Iterate to satisfy compatibility \n    for k =1:Element.maxIter\n  	\n     "
+      "   % Compute residual and basic flexibility by summing \n        % section properties over element length\n     "
+      "   vr = dv;\n        fb = zeros(3);\n        si = Element.si; %momentI, momentJ, axial\n        % loop over each"
+      " section along the element length\n        for i=1:Element.nIP\n            % transformaion matrix \n           "
+      " b = [ b1(i) b2(i) 0;\n                  0     0    b4(i)];\n              \n            % section force, moment"
+      ", axial, and shear \n            ss = b * ( ds + si );\n            \n            % Given section force, determi"
+      "ne section deformation iteratively\n            % Initialize vector of dvs for iteration   \n            dvs = z"
+      "eros(2,1);\n            \n            % given section deformation, determine section force\n            [jthss, "
+      "ks] = SectionState(Element.sections(i), dvs);   \n            \n            % residual section force \n         "
+      "   sres     = ss - jthss;\n            dvs = ks \\ sres + dvs;    \n            \n             % store deformati"
+      "on of each section\n            dvsecs(:,i) = dvs;	\n            \n            % add section contribution to res"
+      "idual element deformation and flexibility\n            vr = vr - b' * dvs   * ( Element.wi(i) * L/2. );\n       "
+      "     fb = fb + b'*(ks\\b) * ( Element.wi(i) * L/2. ); \n        end\n        \n        % check Unbalanced force "
+      "  \n        UnbForce=fb\\vr;\n        NormUnb=((UnbForce(1)*L)^2+(UnbForce(2)*L)^2+(UnbForce(3))^2)^0.5;\n      "
+      "  TolFinal=max(Element.EAT,Element.ERT1*NormUnb);\n        if NormUnb < TolFinal\n            Element.NumIter=k;"
+      "\n            Element.EC=Element.EC+1;\n            Element.NUnbforce=NormUnb;\n            break;\n        end\n"
+      "        \n        ds = fb \\ vr + ds;\n        Element.NumIter=Element.maxIter;              \n    end\n    \n  "
+      "  % update section state with converged dvs\n    for i=1:Element.nIP\n        [ssc, ksc, Element.sections(i)] = "
+      "SectionState(Element.sections(i),dvsecs(:,i));    \n    end\n    \n    % update basic forces for element\n    El"
+      "ement.si = ds + si;\n    if Element.CO==1\n        Element.resdq = avq'*vr;    \n    end\n    \n    % Restoring "
+      "force and stiffness matrix\n    RestoringForce = avq' * Element.si;\n            \n    if( RigidLinkNo )\n      "
+      "  RestoringForce = TR' * RestoringForce;  \n    end    \nend\n\n\n%% Element 8\nfunction [Element,RestoringForce"
+      "] = GetRestoringForce_Type8(Element, Displacement, Velocity, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix"
+      ", RigidLinkSlaveMatrix)\n    % Get the displacement Ue (6x1) vector of the element in global coordinates\n    Ue"
+      "v = zeros(6,1);\n    Vev = zeros(6,1);\n    dof=zeros(6,1);\n    dof(1,1)=Element.Nodes(1).UX;\n    dof(2,1)=Ele"
+      "ment.Nodes(1).UY;\n    dof(3,1)=Element.Nodes(1).THETA;\n    dof(4,1)=Element.Nodes(2).UX;\n    dof(5,1)=Element"
+      ".Nodes(2).UY;\n    dof(6,1)=Element.Nodes(2).THETA;\n    for i=1:6\n        if dof(i,1) ~= -1\n            Uev(i"
+      ",1)=Displacement(dof(i,1),1);\n            Vev(i,1)=Velocity(dof(i,1),1);        \n        end\n    end\n\n    %"
+      " Calculation Restoring Force, considering the Rigid Links if used\n    if( RigidLinkNo )\n        TR = RigidLink"
+      "Transformation2Nodes(Element.Nodes(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatr"
+      "ix, RigidLinkSlaveMatrix);        \n        Uev = TR * Uev; \n        Vev = TR * Vev; \n    end \n\n    % Deform"
+      "ation and velocity\n    % if Element.dof ==1\n    Ue = Uev(Element.dof,1)-Uev(Element.dof+3,1);\n    Ve = Vev(El"
+      "ement.dof,1)-Vev(Element.dof+3,1);\n    % elseif Element.dof ==2\n    %     Ue = Uev(2,1)-Uev(5,1);\n    %     V"
+      "e = Vev(2,1)-Vev(5,1);\n    % else\n    %     Ue = Uev(3,1)-Uev(6,1);\n    %     Ve = Vev(3,1)-Vev(6,1);\n    % "
+      "end\n\n    % Incremental displacement and velocity\n    % the incremental deformation of the element \n    % Upd"
+      "ate max and min deformation history\n    % Element.prop.Dmax= max(Ue,Element.prop.Dmax); \n    % Element.prop.Dm"
+      "in= min(Ue,Element.prop.Dmin); \n    du = Ue - Element.Uprev;\n    [Element.prop kt Fs] = MaterialState(du, Elem"
+      "ent.prop, Ve);\n\n    RestoringForce=zeros(6,1);\n    RestoringForce(Element.dof,1)   = Fs;\n    RestoringForce("
+      "Element.dof+3,1) = -Fs;\n\n    if( RigidLinkNo )\n        RestoringForce = TR' * RestoringForce;  \n    end\n\n "
+      "   % Update Uprev\n    Element.Uprev=Ue; \nend\n\n\n%% Element 9\nfunction [Element,RestoringForce] = GetRestori"
+      "ngForce_Type9(Element, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n"
+      "\n%% Get the displacement Ue (12x1) vector of the element in global coordinates\nndof=12;  \nUe = zeros(ndof,1);"
+      "\ndof=zeros(ndof,1);\ndof(1,1)=Element.Nodes(1).UX;\ndof(2,1)=Element.Nodes(1).UY;\ndof(3,1)=Element.Nodes(1).TH"
+      "ETA;\ndof(4,1)=Element.Nodes(2).UX;\ndof(5,1)=Element.Nodes(2).UY;\ndof(6,1)=Element.Nodes(2).THETA;\ndof(7,1)=E"
+      "lement.Nodes(3).UX;\ndof(8,1)=Element.Nodes(3).UY;\ndof(9,1)=Element.Nodes(3).THETA;\ndof(10,1)=Element.Nodes(4)"
+      ".UX;\ndof(11,1)=Element.Nodes(4).UY;\ndof(12,1)=Element.Nodes(4).THETA;\n\nfor i=1:ndof\n    if dof(i,1) ~= -1\n"
+      "        Ue(i,1)=Displacement(dof(i,1),1);\n    end\nend\n\n% Calculation Restoring Force, considering the Rigid "
+      "Links if used\nif( RigidLinkNo )\n    TR = RigidLinkTransformation4Nodes(Element.Nodes(1).ID, Element.Nodes(2).I"
+      "D, Element.Nodes(3).ID, Element.Nodes(4).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlave"
+      "Matrix);        \n    Ue = TR * Ue; \nend   \n\n% The incremental displacement vector du of the element in globa"
+      "l coordinates\n% The element has 12 dofs\n% Update Uprev of element for use in next state determination call\ndu"
+      "=Ue-Element.Uprev;  \nElement.Uprev=Ue; \n\n% transform global node displacement to basic deformation\nv = Eleme"
+      "nt.avq*Ue;\n\n% compute element force\ns = zeros(9,1); \n\ns(1) = Element.kb1*v(1);\ns(2) = Element.kb2*v(2);\ns"
+      "(4) = Element.kb4*v(4);\ns(5) = Element.kb5*v(5);\ns(6) = Element.kb6*v(6);\ns(7) = Element.kb7*v(7);\ns(8) = El"
+      "ement.kb8*v(8);\ns(9) = Element.kb9*v(9);\n\ndv3 = Element.dx/Element.Width*du(10)-Element.dy/Element.Width*du(5"
+      ")-Element.dx/Element.Width*du(4)+Element.dy/Element.Width*du(11)-Element.Height/Element.Width*Element.dx/Element"
+      ".Width*du(2)...\n    +Element.Height/Element.Width*Element.dy/Element.Width*du(1)+Element.Height/Element.Width*E"
+      "lement.dx/Element.Width*du(8)-Element.Height/Element.Width*Element.dy/Element.Width*du(7);\n\n% compute shear de"
+      "formation mode\n[Element.ShearProp , tmp, s(3)]= MaterialState(dv3, Element.ShearProp, 0);\n\n% Restoring force "
+      "and stiffness matrix\nRestoringForce = Element.avq' * s;\n\nif( RigidLinkNo )\n    RestoringForce = TR' * Restor"
+      "ingForce;  \nend\n\n% function [pro] = trilinear(dx, pro)\n% \n% % calculate current deformation \n%     x = pro"
+      ".xprev + dx; \n% \n% if pro.YieldCode == 0\n% \n% 	pro.Fs1 = pro.Fs1+pro.K1*dx;\n%     pro.Fs2 = pro.Fs2+pro.K2*"
+      "dx;\n% 	% if it is beyond elastic range, limit to yield force\n% 	% and set m_nYieldCode to 1\n% 	if pro.Fs1 > p"
+      "ro.Fy1\n% 		\n%         pro.Fs1 = pro.Fy1 ;\n% 		pro.YieldCode = 1;\n%         \n%         if(pro.Fs2> pro.Fy2)\n"
+      "% 			pro.Fs2 = pro.Fy2 ;\n% 		    pro.YieldCode = 2;\n%         end\n%     elseif pro.Fs1 < -pro.Fy1\n% 		\n%   "
+      "      pro.Fs1 = -pro.Fy1;\n% 		pro.YieldCode = 1 ;\n%        \n% 		if pro.Fs2 < -pro.Fy2\n% 			pro.Fs2 = - pro.F"
+      "y2 ;\n% 		    pro.YieldCode = 2;\n%         end\n%     end\n% % 1st post-yielding region    \n% elseif pro.Yield"
+      "Code == 1\n%     \n%     % assume spring2 remain elastic\n%     pro.Fs2= pro.Fs2+pro.K2*dx;\n%     \n%     % kee"
+      "p loading\n%     if pro.Fs1*dx > 0.\n%         if pro.Fs2 > pro.Fy2\n%             pro.Fs2 = pro.Fy2;\n%        "
+      "     pro.YieldCode=2;            \n%         elseif pro.Fs2 < -pro.Fy2\n%             pro.Fs2 = -pro.Fy2;\n%    "
+      "         pro.YieldCode=2;\n%         end\n%         % unloading\n%     elseif pro.Fs1*dx < 0.\n%         pro.Fs1"
+      "= pro.Fs1 + pro.K1*dx;\n%         pro.YieldCode = 0;\n%         \n%         if pro.Fs1 < -pro.Fy1 \n%           "
+      "  pro.Fs1 = -pro.Fy1;\n%             pro.YieldCode = 1;\n%             if pro.Fs2 < -pro.Fy2\n%                 "
+      "pro.Fs2 = -pro.Fy2;\n%                 pro.YieldCode = 2;\n%             end\n%         elseif pro.Fs1 > pro.Fy1"
+      "\n%             pro.Fs1 = pro.Fy1;\n%             pro.YieldCode = 1;\n%             if pro.Fs2 > pro.Fy2\n%     "
+      "            pro.Fs2 = pro.Fy2;\n%                 pro.YieldCode = 2;\n%             end\n%         end\n%     en"
+      "d\n% elseif pro.YieldCode ==2\n%     % unloading\n% 	if (pro.Fs1*dx) < 0.\n% 		pro.Fs1 = pro.Fs1 + pro.K1*dx;\n%"
+      " 		pro.Fs2 = pro.Fs2 + pro.K2*dx;\n% 		pro.YieldCode = 0;\n% 		\n%         if pro.Fs1 < -pro.Fy1\n%             "
+      "pro.Fs1 = -pro.Fy1;\n% 			pro.YieldCode = 1;\n%             if pro.Fs2 < -pro.Fy2\n% 				pro.Fs2 = -pro.Fy2;\n% "
+      "				pro.YieldCode = 2;\n%             end            \n%         elseif pro.Fs1 > pro.Fy1\n% 			pro.Fs1 = pro.Fy"
+      "1;\n% 			pro.YieldCode = 1;\n%             if pro.Fs2> pro.Fy2\n% 				pro.Fs2 = pro.Fy2;\n% 				pro.YieldCode = "
+      "2;\n% 			end\n%         end\n%     end\n% end\n% \n% pro.Fs = pro.Fs1 + pro.Fs2 + pro.K3*x;\n% \n% % updata curr"
+      "ent state for next time step\n% if pro.YieldCode == 0\n%     pro.Kt = pro.K1 +pro.K2 +pro.K3;\n% elseif pro.Yiel"
+      "dCode == 1\n%     pro.Kt = pro.K2 +pro.K3;    \n% else\n%     pro.Kt = pro.K3;\n% end\n% pro.xprev = x;\n\nend\n"
+      "    \n\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+      "% Helper Functions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+      "%%%%%%%%%%%%%\n\n%% Rigid Link Tranformation Matrix Calculation for 2 Nodes, 6 DOF\nfunction TR = RigidLinkTrans"
+      "formation2Nodes(Node1ID, Node2ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n  "
+      "  % Rigid Link Calculations\n    TR = eye(6,6); % Transformation matrix for rigid link\n    if( RigidLinkNo )   "
+      " \n        % Find the row with the slave node, if it exists in the element\n        idx = 0;\n        for kk = 1"
+      ":RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node1ID)\n                idx = kk;\n                brea"
+      "k;\n            end\n        end\n        %idx=find(RigidLinkNodeID(:,2) == Node1ID); % find if a slave node exi"
+      "sts in the element\n        if ( idx )\n            TL=CalculateRigidLinkTransformation(RigidLinkMasterMatrix(id"
+      "x,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(idx,3));\n            jjj = 1"
+      "; % Node 1\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end\n        idx = 0;\n        fo"
+      "r kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node2ID)\n                idx = kk;\n            "
+      "    break;\n            end\n        end    \n        %idx=find(RigidLinkNodeID(:,2) == Node2ID); % find if a sl"
+      "ave node exists in the element\n        if ( idx )\n            TL=CalculateRigidLinkTransformation(RigidLinkMas"
+      "terMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(idx,3));         "
+      "   \n            jjj = 2; % Node 2\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end      "
+      "      \n    end\nend\n\n%% Rigid Link Tranformation Matrix Calculation for 4 Nodes, 12 DOF\nfunction TR = RigidL"
+      "inkTransformation4Nodes(Node1ID, Node2ID, Node3ID, Node4ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix,"
+      " RigidLinkSlaveMatrix)\n    % Rigid Link Calculations\n    TR = eye(12,12); % Transformation matrix for rigid li"
+      "nk\n    if( RigidLinkNo )    \n        % Find the row with the slave node, if it exists in the element\n        "
+      "idx = 0;\n        for kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node1ID)\n                idx"
+      " = kk;\n                break;\n            end\n        end\n        %idx=find(RigidLinkNodeID(:,2) == Node1ID)"
+      "; % find if a slave node exists in the element\n        if ( idx )\n            TL=CalculateRigidLinkTransformat"
+      "ion(RigidLinkMasterMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(i"
+      "dx,3));\n            jjj = 1; % Node 1\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end\n"
+      "        idx = 0;\n        for kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node2ID)\n           "
+      "     idx = kk;\n                break;\n            end\n        end    \n        %idx=find(RigidLinkNodeID(:,2)"
+      " == Node2ID); % find if a slave node exists in the element\n        if ( idx )\n            TL=CalculateRigidLin"
+      "kTransformation(RigidLinkMasterMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkS"
+      "laveMatrix(idx,3));            \n            jjj = 2; % Node 2\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*j"
+      "jj) = TL;\n        end                \n        % Find the row with the slave node, if it exists in the element\n"
+      "        idx = 0;\n        for kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node3ID)\n           "
+      "     idx = kk;\n                break;\n            end\n        end\n        %idx=find(RigidLinkNodeID(:,2) == "
+      "Node3ID); % find if a slave node exists in the element\n        if ( idx )\n            TL=CalculateRigidLinkTra"
+      "nsformation(RigidLinkMasterMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlave"
+      "Matrix(idx,3));\n            jjj = 3; % Node 3\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n     "
+      "   end\n        idx = 0;\n        for kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node4ID)\n   "
+      "             idx = kk;\n                break;\n            end\n        end    \n        %idx=find(RigidLinkNod"
+      "eID(:,2) == Node4ID); % find if a slave node exists in the element\n        if ( idx )\n            TL=Calculate"
+      "RigidLinkTransformation(RigidLinkMasterMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),Ri"
+      "gidLinkSlaveMatrix(idx,3));            \n            jjj = 4; % Node 4\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-"
+      "1)+1:3*jjj) = TL;\n        end          \n    end\nend\n\n%% Calculate Rigid Link Transformation\nfunction TL = "
+      "CalculateRigidLinkTransformation(MNXcoord, MNYcoord, SNXcoord, SNYcoord)\n    X1 = MNXcoord; Y1 = MNYcoord;\n   "
+      " X2 = SNXcoord;  Y2 = SNYcoord;\n    deltaX = X2 - X1;\n    deltaY = Y2 - Y1;\n    TL = [ 1 0 -deltaY;\n        "
+      "   0 1  deltaX;\n           0 0  1    ];\nend\n\n%% State determination for fiber section\nfunction [ss, ks, sec"
+      "] = SectionState( sec, dvs )\n% For section sec undergoing a change\n% in section deformation dvs=[curvature str"
+      "ain], compute\n% section forces SS=[moment axial] and the 2x2 tangents\n% section stiffness KS.\n    ks = zeros("
+      "2,2);\n    ss = zeros(2,1);  \n    numfib = length(sec.fibers);\n\n    % Loop over fibers\n    for i=1:numfib\n "
+      "       yi   = sec.fibers(i).yi;\n        area = sec.fibers(i).A;\n\n        % Change in strain\n        deps = y"
+      "i * dvs(1:2);\n\n        [sec.fibers(i).prop Et sc] = MaterialState(deps, sec.fibers(i).prop, 0 );        \n\n  "
+      "      % Integration -- add contribution of fiber \n        % for 3D --- following codes need to be modified\n   "
+      "     ks = ks + yi'*yi * (area*Et ); % may not need to do it\n        ss = ss + yi'    * (area*sc);\n    end\nend"
+      "\n\n%% Material Section State\nfunction [ mat Et sc] = MaterialState( dep, mat, vc)  \n    %MATERIALSTATE Summar"
+      "y of this function goes here\n    %   dep = incremental deformation at the current time step, except for\n    % "
+      "  Bouc-Wen model\n    %   mat = material data structure\n    %   vc  = 0 for other materials\n    %       = curr"
+      "ent velocity for Bouc-Wen material\n    %\n    switch  mat.Type\n        case 2\n            mat = bilinearMat(d"
+      "ep, mat);\n            Et = mat.Et;\n            sc = mat.sc;\n%       case 3\n        case 4\n            mat ="
+      " BoucWen(dep, mat, vc);\n            Et = mat.k;\n            sc = mat.Qj;\n        case 5\n            mat = tr"
+      "ilinear(dep, mat);\n            Et = mat.Kt;\n            sc = mat.Fs;\n%         case 6     \n        case 7\n "
+      "           mat = Concrete01(dep, mat);\n            Et = mat.Ttangent;\n            sc = mat.Cstress;\n        o"
+      "therwise\n            Et = 0;\n            sc = 0;\n    end\nend\n\n%% Bilinear Material Section State\nfunction"
+      " [mat] = bilinearMat(deps, mat )\n    %	[mat]=BILINEARMAT(deps,mat) For strain increment deps\n    %	and mat com"
+      "pute new properties for bilinear material.\n    %	mat.SY, mat.E, mat.EP are the yield stress,\n    %	first slop "
+      "and second slope respectively.  materialProp.SC,\n    %	mat.SB, materialSE are the current stress, back stress, "
+      "and\n    %	current strain, respectively. mat.ET is the current tangent modulus.\n\n    % Material properties\n  "
+      "  sigy = mat.sy;		% yield stress\n    E    = mat.e;		% E\n    Ep   = mat.ep;		% alpha*E\n\n    % State from last"
+      " converged load step\n    sig  = mat.sc;		% stress\n    sigb = mat.sb;		% backstress\n    code = mat.cd;		% yiel"
+      "d code\n                        %	=0, elastic\n                        %	=1, plastic\n\n    if code==0 || ( code"
+      "==1 && (sig-sigb)*deps < 0 )\n        % Strain to plastic loading from elastic state\n        deps1 = ( sign(dep"
+      "s) * sigy + sigb - sig ) / E;\n\n        % Elastic\n        sig  = sig + E * deps;\n        Et   = E;\n        c"
+      "ode = 0;\n\n        % Check if plasic loading from elastic state\n        if abs(deps) > abs(deps1)\n           "
+      " sig  = sig  + ( Ep - E ) * ( deps - deps1 );\n            sigb = sigb +   Ep       * ( deps - deps1 );\n       "
+      "     Et   = Ep;\n            code = 1;\n        end\n\n    else\n        % Continue plastic loading\n        sig"
+      "  = sig  + Ep * deps;\n        sigb = sigb + Ep * deps;\n        Et   = Ep;\n        code = 1;\n\n    end\n\n   "
+      " % Return updated state. \n    mat.sc = sig;\n    mat.sb = sigb;\n    mat.cd = code;\n    mat.es = mat.es + deps"
+      ";	\n    mat.Et = Et;\nend   \n\n%% BoucWen Material Section State\nfunction [BW]= BoucWen( dx, BW, vcur)\n    % "
+      "---------------------------------------------\n    % x,v: displacement and velocity\n    %   Q: restoring force\n"
+      "    %   z: hysteretic component\n    %  zj: z in next step, i.e. z_i+1\n    %  BW: numerous parameters for Bouc-"
+      "Wen model\n    %   i: step number\n\n    xcur =  dx + BW.Uprev;\n    % Fourth order R-K forward integration\n   "
+      " dz1 = dx*f(BW,vcur,BW.zj);\n    dz2 = dx*f(BW,vcur,BW.zj+dz1/2);\n    dz3 = dx*f(BW,vcur,BW.zj+dz2/2);\n    dz4"
+      " = dx*f(BW,vcur,BW.zj+dz3);\n    zj = BW.zj + (dz1+2*dz2+2*dz3+dz4)/6;\n\n    umax=(abs(BW.Dmin)+ BW.Dmax)*0.5; "
+      "   \n    BW.k=BW.k1*exp(-umax/BW.uref) + BW.k2;    \n    BW.Qj = BW.c*(abs(vcur)^BW.a)*sign(vcur) + BW.alpha*BW."
+      "k*xcur +...\n        (1-BW.alpha)*BW.k*BW.uy*zj;\n\n    % update deformation for next time step\n    BW.Uprev = "
+      "xcur;\n    BW.Dmax= max(xcur,BW.Dmax); \n    BW.Dmin= min(xcur,BW.Dmin); \n    BW.zj =  zj;\nend\n\n% BoucWen He"
+      "lper\nfunction y=f(BW,v,z)\n    % This function describes the nonlinear differential equation that governs\n    "
+      "% the hysteretic component, z.\n    % The returned value is \"dz/dx\" or \"z_dot/x_dot\"\n    y =(1/BW.uy)*(1-BW"
+      ".beta*sign(v)*abs(z)^BW.n*sign(z)-BW.gamma1*abs(z)^BW.n);\nend\n%%%%%%%%%%%%%%%%%%% End of Bouc-Wen Model %%%%%%"
+      "%%%%%%%%%%%%%%%%%% \n\n%% Trilinear Material Section State\nfunction [pro] = trilinear(dx, pro)\n    % calculate"
+      " current deformation \n        x = pro.xprev + dx; \n\n    if pro.YieldCode == 0\n\n        pro.Fs1 = pro.Fs1+pr"
+      "o.K1*dx;\n        pro.Fs2 = pro.Fs2+pro.K2*dx;\n        % if it is beyond elastic range, limit to yield force\n "
+      "       % and set m_nYieldCode to 1\n        if pro.Fs1 > pro.Fy1\n\n            pro.Fs1 = pro.Fy1 ;\n           "
+      " pro.YieldCode = 1;\n\n            if(pro.Fs2> pro.Fy2)\n                pro.Fs2 = pro.Fy2 ;\n                pr"
+      "o.YieldCode = 2;\n            end\n        elseif pro.Fs1 < -pro.Fy1\n\n            pro.Fs1 = -pro.Fy1;\n       "
+      "     pro.YieldCode = 1 ;\n\n            if pro.Fs2 < -pro.Fy2\n                pro.Fs2 = - pro.Fy2 ;\n          "
+      "      pro.YieldCode = 2;\n            end\n        end\n    % 1st post-yielding region    \n    elseif pro.Yield"
+      "Code == 1\n\n        % assume spring2 remain elastic\n        pro.Fs2= pro.Fs2+pro.K2*dx;\n\n        % keep load"
+      "ing\n        if pro.Fs1*dx > 0.\n            if pro.Fs2 > pro.Fy2\n                pro.Fs2 = pro.Fy2;\n         "
+      "       pro.YieldCode=2;            \n            elseif pro.Fs2 < -pro.Fy2\n                pro.Fs2 = -pro.Fy2;\n"
+      "                pro.YieldCode=2;\n            end\n            % unloading\n        elseif pro.Fs1*dx < 0.\n    "
+      "        pro.Fs1= pro.Fs1 + pro.K1*dx;\n            pro.YieldCode = 0;\n\n            if pro.Fs1 < -pro.Fy1 \n   "
+      "             pro.Fs1 = -pro.Fy1;\n                pro.YieldCode = 1;\n                if pro.Fs2 < -pro.Fy2\n   "
+      "                 pro.Fs2 = -pro.Fy2;\n                    pro.YieldCode = 2;\n                end\n            e"
+      "lseif pro.Fs1 > pro.Fy1\n                pro.Fs1 = pro.Fy1;\n                pro.YieldCode = 1;\n               "
+      " if pro.Fs2 > pro.Fy2\n                    pro.Fs2 = pro.Fy2;\n                    pro.YieldCode = 2;\n         "
+      "       end\n            end\n        end\n    elseif pro.YieldCode ==2\n        % unloading\n        if (pro.Fs1"
+      "*dx) < 0.\n            pro.Fs1 = pro.Fs1 + pro.K1*dx;\n            pro.Fs2 = pro.Fs2 + pro.K2*dx;\n            p"
+      "ro.YieldCode = 0;\n\n            if pro.Fs1 < -pro.Fy1\n                pro.Fs1 = -pro.Fy1;\n                pro"
+      ".YieldCode = 1;\n                if pro.Fs2 < -pro.Fy2\n                    pro.Fs2 = -pro.Fy2;\n               "
+      "     pro.YieldCode = 2;\n                end            \n            elseif pro.Fs1 > pro.Fy1\n                "
+      "pro.Fs1 = pro.Fy1;\n                pro.YieldCode = 1;\n                if pro.Fs2> pro.Fy2\n                   "
+      " pro.Fs2 = pro.Fy2;\n                    pro.YieldCode = 2;\n                end\n            end\n        end\n"
+      "    end\n\n    pro.Fs = pro.Fs1 + pro.Fs2 + pro.K3*x;\n\n    % updata current state for next time step\n    if p"
+      "ro.YieldCode == 0\n        pro.Kt = pro.K1 +pro.K2 +pro.K3;\n    elseif pro.YieldCode == 1\n        pro.Kt = pro"
+      ".K2 +pro.K3;    \n    else\n        pro.Kt = pro.K3;\n    end\n    pro.xprev = x;\nend\n\n%% Concrete01 Material"
+      " Section State\nfunction [mat] = Concrete01(dStrain , mat)\n\n    % Get the total strain     \n    mat.Tstrain ="
+      " dStrain + mat.Cstrain;\n    % Get the previous states\n    mat.TminStrain = mat.CminStrain;\n    mat.TendStrain"
+      " = mat.CendStrain;\n    mat.TunloadSlope = mat.CunloadSlope;\n    mat.Tstress = mat.Cstress;\n    mat.Ttangent ="
+      " mat.Ctangent;        \n    \n    % check for a quick return\n    if (mat.Tstrain > 0.0)\n        mat.Tstress = "
+      "1e-10;\n        mat.Ttangent = 0;%1e-10;\n    end    \n    \n    mat.TunloadSlope = mat.CunloadSlope;  \n  \n   "
+      " tempStress = mat.Cstress + mat.TunloadSlope*mat.Tstrain - mat.TunloadSlope*mat.Cstrain;\n  \n    % Material goe"
+      "s further into compression\n    if (mat.Tstrain < mat.Cstrain)   \n        mat.TminStrain = mat.CminStrain;\n   "
+      "     mat.TendStrain = mat.CendStrain;  \n    \n        [mat] = reload(mat);\n    \n        if (tempStress > mat."
+      "Tstress) \n            mat.Tstress = tempStress;\n            mat.Ttangent = mat.TunloadSlope;\n        end\n   "
+      " \n    % Material goes TOWARD tension\n    elseif (tempStress <= 0.0)\n        mat.Tstress = tempStress;\n      "
+      "  mat.Ttangent = mat.TunloadSlope;\n        \n    % Made it into tension\n    else\n        mat.Tstress = 1e-10;"
+      "\n        mat.Ttangent = 0;%1e-10;\n    end\n         \n    % Save states\n    mat.CminStrain = mat.TminStrain;\n"
+      "    mat.CendStrain = mat.TendStrain;\n    mat.CunloadSlope = mat.TunloadSlope;\n    mat.Cstress = mat.Tstress;\n"
+      "    mat.Ctangent = mat.Ttangent;\n    mat.Cstrain = mat.Tstrain;  \nend\n\n% Reload, Concrete01\nfunction [mat] "
+      "= reload(mat)\n\n    if (mat.Tstrain <= mat.TminStrain)     \n        mat.TminStrain = mat.Tstrain;\n    \n     "
+      "   % Determine point on envelope\n        [mat] = envelope(mat);     \n        [mat] = unload(mat);     \n    el"
+      "seif (mat.Tstrain <= mat.TendStrain) \n        mat.Ttangent = mat.TunloadSlope;\n        mat.Tstress = mat.Ttang"
+      "ent*(mat.Tstrain-mat.TendStrain);\n    else \n        mat.Tstress = 1e-10;\n        mat.Ttangent = 0;%1e-10;\n  "
+      "  end \nend\n    \n% Envelope, Concrete01\nfunction [mat] = envelope(mat)  \n\n    if (mat.Tstrain > mat.epsc0) "
+      "\n        eta = mat.Tstrain/mat.epsc0;\n        mat.Tstress = mat.fpc*(2*eta-eta*eta);\n        Ec0 = 2.0*mat.fp"
+      "c/mat.epsc0;  % changed\n        mat.Ttangent = Ec0*(1.0-eta); % changed\n    elseif (mat.Tstrain > mat.epscu) \n"
+      "        mat.Ttangent = (mat.fpc-mat.fpcu)/(mat.epsc0-mat.epscu);\n        mat.Tstress = mat.fpc + mat.Ttangent*("
+      "mat.Tstrain-mat.epsc0);\n    else \n        mat.Tstress = mat.fpcu;\n        mat.Ttangent = 1e-10;\n    end\nend"
+      "\n\n% Unload, Concrete01\nfunction [mat] = unload(mat)   \n    DBL_EPSILON=2.2204460492503131e-16;\n  \n    temp"
+      "Strain = mat.TminStrain;\n  \n    if (tempStrain < mat.epscu)\n        tempStrain = mat.epscu;\n    end\n    eta"
+      " = tempStrain/mat.epsc0;\n    ratio = 0.707*(eta-2.0) + 0.834;\n    if (eta < 2.0)\n        ratio = 0.145*eta*et"
+      "a + 0.13*eta;\n    end\n    mat.TendStrain = ratio*mat.epsc0;\n    temp1 = mat.TminStrain - mat.TendStrain;\n   "
+      " Ec0 = 2.0*mat.fpc/mat.epsc0;  % changed\n    temp2 = mat.Tstress/Ec0;   % changed\n  \n    if (temp1 > -DBL_EPS"
+      "ILON) % temp1 should always be negative\n        mat.TunloadSlope = Ec0;  % changed\n    elseif (temp1 <= temp2)"
+      "\n        mat.TendStrain = mat.TminStrain - temp1;\n        mat.TunloadSlope = mat.Tstress/temp1;\n    else \n  "
+      "      mat.TendStrain = mat.TminStrain - temp2;\n        mat.TunloadSlope = Ec0;  % changed\n    end\nend\n%%%%%%"
+      "%%%%%%%%%%%%%%%%%%End of Concrete01 Material%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n"
+      editorLayout	      "100 M4x1[10 5 700 500]"
+    }
+  }
+  junction {
+    id			    49
+    position		    [23.5747 49.5747 7]
+    chart		    47
+    linkNode		    [47 0 0]
+    subviewer		    47
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    50
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.7 14.971]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      49
+      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    47
+    linkNode		    [47 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    47
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    51
+    ssIdNumber		    5
+    name		    "Total_RF"
+    linkNode		    [47 0 52]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    52
+    ssIdNumber		    6
+    name		    "NumFreeDOF"
+    linkNode		    [47 51 53]
+    scope		    PARAMETER_DATA
+    paramIndexForInitFromWorkspace 1
+    isNonTunable	    1
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    53
+    ssIdNumber		    7
+    name		    "Displacement"
+    linkNode		    [47 52 54]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    54
+    ssIdNumber		    21
+    name		    "Velocity"
+    linkNode		    [47 53 55]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    55
+    ssIdNumber		    8
+    name		    "ElementsStruct"
+    linkNode		    [47 54 56]
+    scope		    PARAMETER_DATA
+    isNonTunable	    1
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_SIMULINK_OBJECT_TYPE
+	primitive		SF_DOUBLE_TYPE
+	busObject		"ElementStructBus"
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Bus: ElementStructBus"
+  }
+  data {
+    id			    56
+    ssIdNumber		    10
+    name		    "RigidLinkNo"
+    linkNode		    [47 55 57]
+    scope		    PARAMETER_DATA
+    paramIndexForInitFromWorkspace 3
+    isNonTunable	    1
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    57
+    ssIdNumber		    11
+    name		    "RigidLinkNodeID"
+    linkNode		    [47 56 58]
+    scope		    PARAMETER_DATA
+    paramIndexForInitFromWorkspace 4
+    isNonTunable	    1
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    58
+    ssIdNumber		    12
+    name		    "RigidLinkMasterMatrix"
+    linkNode		    [47 57 59]
+    scope		    PARAMETER_DATA
+    paramIndexForInitFromWorkspace 2
+    isNonTunable	    1
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    59
+    ssIdNumber		    13
+    name		    "RigidLinkSlaveMatrix"
+    linkNode		    [47 58 60]
+    scope		    PARAMETER_DATA
+    paramIndexForInitFromWorkspace 5
+    isNonTunable	    1
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    60
+    ssIdNumber		    32
+    name		    "ElementRFs"
+    linkNode		    [47 59 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_SIMULINK_OBJECT_TYPE
+	primitive		SF_DOUBLE_TYPE
+	busObject		"ElementRecorderBus"
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Bus: ElementRecorderBus"
+  }
+  instance {
+    id			    61
+    name		    "Numerical Element Calculations"
+    machine		    1
+    chart		    47
+  }
+  target {
+    id			    62
+    name		    "sfun"
+    codeFlags		    ""
+    machine		    1
+    linkNode		    [1 0 63]
+  }
+  target {
+    id			    63
+    name		    "rtw"
+    codeFlags		    " comments=1 statebitsets=1 databitsets=1 emitlogicalops=1 elseifdetection=1 constantfolding=1 redu"
+    "ndantloadelimination=0 preservenames=0 preservenameswithparent=0 exportcharts=0"
+    machine		    1
+    linkNode		    [1 62 0]
+  }
+}
