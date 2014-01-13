@@ -1,7 +1,7 @@
 %% Create a Structure object
 function vars = CreateStructure(NumNodes, NumElements, NumMaterials,...
                                 NumSections, Dimensions, NodesPerElement,... 
-                                NumDOF,NumRestrainedDOF, NumSlavedDOF, NumGravityNodes)
+                                NumDOF,NumRestrainedDOF, NumSlavedDOF, NumGravityNodes,vars)
 
 %% Set properties
 vars.NumNodes = NumNodes;
@@ -17,7 +17,7 @@ vars.NumGravityNodes = NumGravityNodes;
 
 % Calculate number of free degrees of freedom.
 vars.NumFreeDOF = vars.NumDOF * vars.NumNodes-vars.NumRestrainedDOF-vars.NumSlavedDOF;
-vars.BOUND = zeros(NumNodes, NumDOF);
+% vars.BOUND = zeros(NumNodes, NumDOF);
 vars.EqDOF = zeros(NumNodes, NumDOF);
 
 % initial condition for the time history analysis

@@ -31,7 +31,7 @@ for i=1:length(Element.sections)
     bs = [ b1(i) b2(i) 0;
            0     0    b4(i)];
 %             b3    b3    0];      % moment, axial, shear  
-    u = zeros(3,1);
+    u = zeros(2,1);
     [ss, ks] = SectionState(Element.sections(i), u);
     fb = fb + bs'*(ks\bs) * ( Element.wi(i) * L/2 );
 
