@@ -1,0 +1,52 @@
+# The user can now have any number of comments line which must start with "#" and a space
+# UNITS: KN-m-sec
+# NODAL COORDINATE DATA BLOCK
+# NODE	X		Y		Z		UX	UY	THETA
+node  1		0		6		0		
+node   2		6		6		0		
+node   3		0		3		0		
+node   4		6		3		0		
+node   5		0		0		0	
+node   6		6		0		0		
+node   7		7		0		0	
+node   8		7		3		0	
+node   9		7		6		0	
+# BOUNDARY CONDITION
+# NODE  X Y Z
+fix 5 1 1 0
+fix 6 1 1 0
+fix 7 1 1 0
+# CONSTRAINT
+# M S  dof 
+equalDOF 4 8 1 0 0 
+equalDOF 2 9 1 0 0
+rigidLink beam 1 3
+# MATERIAL DATA BLOCK     
+# ID Type	E sigmaY E2
+uniaxialMaterial 1 2 200000000.0 345000. 0.01
+uniaxialMaterial 2 1 200000000.0
+# Section Data Block
+# SectionID SectionType Section data MaterialID {W14x120: h  bf tf tw}
+section 1 1 0.367792 0.372618 0.023876 0.014986 3 10 1
+section 2 1 0.598678 0.177927 0.012827 0.010033 3 10 1
+# ELEMENT TYPE AND CONNECTIVITY DATA BLOCK 
+# ELEM  TYPE  NODE1  NODE2  DampK   DampM     {SECID NIP Load ITER}
+element 1 6 1 2 1  1 2 5 0.1 
+element 2 6 3 4 1  1 2 5 0.1 
+element 3 6 5 3 1  1 1 5 0.1 
+element 4 6 3 1 1  1 1 5 0.1 
+element 5 6 6 4 1  1 1 5 0.1 
+element 6 6 4 2 1  1 1 5 0.1 
+element 7      1   7   8   1 1 2  0.0976  7.125e-4  0.1
+element 8      1   8   9   1 1 2  0.0976  7.125e-4  0.1
+element 9      4   7   8   1 1 12020.0   0.0  612.64  1
+element 10     4   8   9   1 1 6010.0   0.0  612.64  1  
+# GRAVITY LOADING BLOCK
+# NODE DOFNUM LOAD
+gravityLoad 8 2 -6010
+gravityLoad 9 2 -6010
+# HYBRID TESTING DATA BLOCK
+#        T1		T2		KSI	
+rayleigh 1.4	0.41	0.0	
+# Integrator Type  parameter SF		     DT      Interpolations
+integrator     1    1       1      0.0058594        1

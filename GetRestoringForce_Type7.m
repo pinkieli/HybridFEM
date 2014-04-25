@@ -31,11 +31,8 @@ end
 
 ndof=6;  % The element has 6 dofs
 
-if Element.CO==1
-    du=(Ue+Element.resdq)-Element.Uprev;
-else
-    du=Ue -Element.Uprev; % The incremental displacement vector du of the element in global coordinates 
-end
+du=Ue -Element.Uprev; % The incremental displacement vector du of the element in global coordinates 
+
 
 Element.Uprev=Ue; %Update Uprev of element for use in next state determination call
 
@@ -63,7 +60,7 @@ ds = zeros(3,1); %deltaMomentI, deltaMomentJ, deltaAxial
 % Interpolation functions for equilibrium evaluated at integration points
 x  = (  Element.xi + 1. ) / 2.;   
 b1 = -( 1. - x );
-b2 =        x;      
+b2 =   x;      
 b3 = -1./L;
 b4 = ones(size(x));
 
@@ -77,9 +74,10 @@ for k =1:Element.maxIter
   	
     % Compute residual and basic flexibility by summing 
     % section properties over element length
-  	vr = dv;
+  	vr = dv;                                                                                           % vr = dv: Incremental basic deformations
 	fb = zeros(3);
     si = Element.si; %momentI, momentJ, axial
+     
     % loop over each section along the element length
     for i=1:Element.nIP
        
@@ -88,43 +86,27 @@ for k =1:Element.maxIter
                0     0    b4(i)];
        %        b3    b3    0]; 
 		% section force, moment, axial, and shear 
-        ss = b * ( ds + si );
+        ss = b * ( ds + si );                                                                          % ss : section force
 		
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         % Given section force, determine section deformation iteratively
         % Initialize vector of dvs for iteration   
-         dvs = zeros(2,1);
-
-        % Iterate on section equilibrium
-  %      for j=1:Element.maxIter
-	    
-            % given section deformation, determine section force
+%          dvs = zeros(2,1);                                                                            % dvs : section deformation
+            dvs = zeros(2,1);
+         % given section deformation, determine section force
             [jthss, ks] = SectionState(Element.sections(i), dvs);            
             % residual section force 
-            sres     = ss - jthss;
-            dvs = ks \ sres + dvs;    
-            
+            sres     = ss - jthss;                                                                   % sres: section unb force
+            dvs = ks \ sres + dvs;                                                                   % Update the section deformation  delta(dx)=r(x)+f(x) (r(x)=ks \ sres ~ f(x).DU(x))
 
-
-  %      end
-        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         % store deformation of each section
         dvsecs(:,i) = dvs;				
 		% add section contribution to residual element deformation and flexibility
-		vr = vr - b' * dvs   * ( Element.wi(i) * L/2. );
+		vr = vr - b' * dvs   * ( Element.wi(i) * L/2. );                                             % delta(q)= -s = - b' * dvs   * ( Element.wi(i) * L/2. );
 		fb = fb + b'*(ks\b) * ( Element.wi(i) * L/2. ); 
         
       
     end
- 
-    % check residual deformation 
-%     TolFinal=min(Element.EAT,Element.ERT1*norm(vr));
-%     if norm(vr) < TolFinal
-%         Element.NumIter=k;
-%         Element.EC=Element.EC+1;
-% 		break;
-%     end
-
 % check Unbalanced force   
   UnbForce=fb\vr;
   NormUnb=((UnbForce(1)*L)^2+(UnbForce(2)*L)^2+(UnbForce(3))^2)^0.5;
@@ -135,8 +117,9 @@ for k =1:Element.maxIter
         Element.NUnbforce=NormUnb;
 		break;
     end
-
+ if Element.CO==1
     ds = fb \ vr + ds; 
+ end
  Element.NumIter=Element.maxIter;  
 end
 
@@ -148,9 +131,7 @@ end
 
 % update basic forces for element
 Element.si = ds + si;
-if Element.CO==1
-    Element.resdq = avq'*vr;    
-end
+
 % Restoring force and stiffness matrix
 RestoringForce = avq' * Element.si;
 

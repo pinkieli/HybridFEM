@@ -50,6 +50,7 @@ mat.k = 0;
 mat.Dmax = 0;
 mat.Dmin = 0;     
 mat.Qj = 0;
+
 mat.fpc = 0;
 mat.epsc0 = 0;
 mat.fpcu = 0;
@@ -67,6 +68,41 @@ mat.Tstress = 0;
 mat.Ttangent = 0;
 mat.TunloadSlope = 0;
 
+mat.Fy = 0;
+mat.E0 = 0;
+mat.b = 0;
+mat.R0 = 0; 
+mat.cR1 = 0;
+mat.cR2 = 0;
+mat.a1 = 0;   
+mat.a2 = 0; 
+mat.a3 = 0; 
+mat.a4 = 0; 
+mat.sigini = 0.; 
+mat.Esh = 0.;
+mat.epsy = 0.;
+mat.konP = 0;
+mat.kon = 0;
+mat.eP = 0.;
+mat.epsP = 0.0;
+mat.sigP = 0.0;
+mat.sig = 0.0;
+mat.eps = 0.0;
+mat.e = 0.;
+mat.epsmax = 0.;
+mat.epsmin = 0.0;
+mat.epspl = 0.0;
+mat.epss0 = 0.0;
+mat.sigs0 = 0.0;
+mat.epsr = 0.0;
+mat.sigr = 0.0;
+mat.epsmaxP = 0.;
+mat.epsminP = 0.;
+mat.epsplP = 0.0;
+mat.epss0P = 0.0;
+mat.sigs0P = 0.0;
+mat.epssrP = 0.0;
+mat.sigsrP = 0.0;
 
 
 % Get material data line
@@ -299,8 +335,52 @@ switch (mat.Type)
         mat.sig = 0.0;
         mat.e = 2.0*mat.fc/mat.epsc0;
         
+     case 9  % Steel02 material properties            
+        mat.Fy    = material(3);
+        mat.E0     = material(4);
+        mat.b     = material(5);
+        mat.R0     = material(6); 
+        mat.cR1   = material(7);
+        mat.cR2   = material(8);
+        mat.a1   = material(9);   
+        mat.a2   = material(10); 
+        mat.a3   = material(11); 
+        mat.a4   = material(12); 
+        mat.sigini  = material(13); 
         
+        mat.Esh = mat.b*mat.E0;
+        mat.epsy = mat.Fy / mat.E0;
         
+        mat.konP = 0;
+        mat.kon = 0;
+        mat.eP = mat.E0;
+        mat.epsP = 0.0;
+        mat.sigP = 0.0;
+        mat.sig = 0.0;
+        mat.eps = 0.0;
+        mat.e = mat.E0;
+        
+        mat.epsmax = mat.Fy/mat.E0;
+        mat.epsmin = -mat.epsmax;
+        mat.epspl = 0.0;
+        mat.epss0 = 0.0;
+        mat.sigs0 = 0.0;
+        mat.epsr = 0.0;
+        mat.sigr = 0.0;
+        
+        mat.epsmaxP = mat.Fy/mat.E0;
+        mat.epsminP = -mat.epsmaxP;
+        mat.epsplP = 0.0;
+        mat.epss0P = 0.0;
+        mat.sigs0P = 0.0;
+        mat.epssrP = 0.0;
+        mat.sigsrP = 0.0;
+
+        if (mat.sigini ~= 0.0) 
+          mat.epsP = mat.sigini/E0;
+          mat.sigP = mat.sigini;
+        end
+                
 otherwise
         errordlg(['Unknown Material Type', num2str(mat.Type)],'Input Error');        
             

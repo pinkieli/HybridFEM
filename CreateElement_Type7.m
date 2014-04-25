@@ -1,7 +1,7 @@
 %% Create Element Type 7 
 % flexiblity based beam-column element 
 function vars = CreateElement_Type7(ID, Type, Node1, Node2, Materials,...
-    DampStiffFac, DampMassFac, Section, nIP, ElemDistLoad, maxIter, EAT,ERT, CO)
+    DampStiffFac, DampMassFac, Section, nIP, ElemDistLoad, maxIter, EAT,ERT,CO)
 
 % Section geometry and properties read from input file
 % Section(1)  = Section ID
@@ -77,19 +77,25 @@ wi    = zeros(nIP,1);
 
 switch nIP
     case 2
-        %xi= [-1., 1.]';
-        xi  = [-0.577350269189626 0.577350269189626]';
+        %xi= [-1., 1.]';  %Gauss-Labatto
+        xi  = [-0.577350269189626 0.577350269189626]';  %Gauss-Legendre
         wi = [ 1. 1.]';
         %errordlg('Gauss-Legendre is used for integration points- RC-MRF Analysis ')
     case 3
-        xi= [-1.,0., 1.]';
-    	wi= [1/3, 1/3, 1/3]';
+        %xi= [-1.,0., 1.]'; %Gauss-Labatto
+    	%wi= [1/3, 1/3, 1/3]'; %Gauss-Labatto
+        xi= [-0.7745966692,0., 0.7745966692]'; %Gauss-Legendre
+    	wi= [0.5555555556, 0.8888888888, 0.5555555556]'; %Gauss-Legendre
 	case 4
-        xi= [-1.,-0.44721360, 0.44721360, 1.]';
-    	wi= [1/6, 5/6, 5/6, 1/6]';
+        %xi= [-1.,-0.44721360, 0.44721360, 1.]'; %Gauss-Labatto
+    	%wi= [1/6, 5/6, 5/6, 1/6]'; %Gauss-Labatto
+        xi= [-0.8611363116,-0.3399810436, 0.3399810436, 0.8611363116]'; %Gauss-Legendre
+    	wi= [0.3478548451, 0.6521451549, 0.6521451549, 0.3478548451]'; %Gauss-Legendre
 	case 5
-        xi= [-1.,-0.65465367, 0., 0.65465367, 1.]';
-    	wi= [0.1, 0.5444444444, 0.7111111111, 0.5444444444, 0.1]';
+        %xi= [-1.,-0.65465367, 0., 0.65465367, 1.]';  %Gauss-Labatto
+    	%wi= [0.1, 0.5444444444, 0.7111111111, 0.5444444444, 0.1]';  %Gauss-Labatto
+        xi= [-0.9061798459,-0.5384693101, 0., 0.5384693101, 0.9061798459]';  %Gauss-Legendre
+    	wi= [0.2369268851, 0.4786286705, 0.5688888888, 0.4786286705, 0.2369268851]';  %Gauss-Legendre
     case 6
         xi= [-1.,-0.7650553239, -0.2852315164, 0.2852315164,...
             0.7650553239, 1.]';

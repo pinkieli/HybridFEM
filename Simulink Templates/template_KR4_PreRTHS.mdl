@@ -1,16 +1,16 @@
 Model {
   Name			  "template_KR4_PreRTHS"
-  Version		  7.9
+  Version		  8.2
   MdlSubVersion		  0
+  SavedCharacterEncoding  "windows-1252"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1279"
+    ComputedModelVersion    "1.1280"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
-  SavedCharacterEncoding  "windows-1252"
   SaveDefaultBlockParams  on
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
@@ -22,16 +22,55 @@ Model {
   FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
   CloseFcn		  "rtwprivate ssgencode ModelCloseRequest hybriddaq1dof"
+  Object {
+    $PropName		    "BdWindowsInfo"
+    $ObjectID		    1
+    $ClassName		    "Simulink.BDWindowsInfo"
+    Object {
+      $PropName		      "WindowsInfo"
+      $ObjectID		      2
+      $ClassName	      "Simulink.WindowInfo"
+      IsActive		      [1]
+      Location		      [54.0, 608.0, 1138.0, 565.0]
+      Object {
+	$PropName		"ModelBrowserInfo"
+	$ObjectID		3
+	$ClassName		"Simulink.ModelBrowserInfo"
+	Visible			[0]
+	DockPosition		"Left"
+	Width			[50]
+	Height			[50]
+	Filter			[8]
+      }
+      Object {
+	$PropName		"ExplorerBarInfo"
+	$ObjectID		4
+	$ClassName		"Simulink.ExplorerBarInfo"
+	Visible			[1]
+      }
+      Object {
+	$PropName		"EditorsInfo"
+	$ObjectID		5
+	$ClassName		"Simulink.EditorInfo"
+	IsActive		[1]
+	ViewObjType		"SimulinkTopLevel"
+	LoadSaveID		"0"
+	Extents			[1088.0, 391.0]
+	ZoomFactor		[1.0]
+	Offset			[0.0, 0.0]
+      }
+    }
+  }
   Created		  "Mon Jan 01 12:00:00 2006"
   Creator		  "RTMD"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "NEESsim 64 Bit"
+  LastModifiedBy	  "Thomas Marullo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Nov 01 15:27:23 2013"
-  RTWModifiedTimeStamp	  305220342
-  ModelVersionFormat	  "1.%<AutoIncrement:1279>"
-  ConfigurationManager	  "None"
+  LastModifiedDate	  "Fri Apr 25 15:13:35 2014"
+  RTWModifiedTimeStamp	  320339614
+  ModelVersionFormat	  "1.%<AutoIncrement:1280>"
+  ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -56,6 +95,11 @@ Model {
   BrowserShowLibraryLinks off
   BrowserLookUnderMasks	  off
   SimulationMode	  "normal"
+  PauseTimes		  "5"
+  NumberOfSteps		  1
+  SnapshotBufferSize	  10
+  SnapshotInterval	  10
+  NumberOfLastSnapshots	  0
   LinearizationMsg	  "none"
   Profile		  off
   ParamWorkspaceSource	  "MATLABWorkspace"
@@ -63,6 +107,24 @@ Model {
   AccelTemplateMakefile	  "accel_default_tmf"
   AccelMakeCommand	  "make_rtw"
   TryForcingSFcnDF	  off
+  Object {
+    $PropName		    "DataLoggingOverride"
+    $ObjectID		    6
+    $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
+    model_		    "template_KR4_PreRTHS"
+    Array {
+      Type		      "Cell"
+      Dimension		      1
+      Cell		      "template_KR4_PreRTHS"
+      PropName		      "logAsSpecifiedByModels_"
+    }
+    Array {
+      Type		      "Cell"
+      Dimension		      1
+      Cell		      ""
+      PropName		      "logAsSpecifiedByModelsSSIDs_"
+    }
+  }
   RecordCoverage	  off
   CovPath		  "/"
   CovSaveName		  "covdata"
@@ -70,6 +132,7 @@ Model {
   CovNameIncrementing	  off
   CovHtmlReporting	  on
   CovForceBlockReductionOff on
+  CovEnableCumulative	  on
   covSaveCumulativeToWorkspaceVar on
   CovSaveSingleToWorkspaceVar on
   CovCumulativeVarName	  "covCumulativeData"
@@ -105,14 +168,14 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      1
-      Version		      "1.12.0"
+      $ObjectID		      7
+      Version		      "1.13.1"
       Array {
 	Type			"Handle"
 	Dimension		8
 	Simulink.SolverCC {
-	  $ObjectID		  2
-	  Version		  "1.12.0"
+	  $ObjectID		  8
+	  Version		  "1.13.1"
 	  StartTime		  "0.0"
 	  StopTime		  "RunningTime"
 	  AbsTol		  "auto"
@@ -146,8 +209,8 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  3
-	  Version		  "1.12.0"
+	  $ObjectID		  9
+	  Version		  "1.13.1"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -178,8 +241,8 @@ Model {
 	  Refine		  "1"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  4
-	  Version		  "1.12.0"
+	  $ObjectID		  10
+	  Version		  "1.13.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    8
@@ -199,6 +262,7 @@ Model {
 	  InlineParams		  off
 	  UseIntDivNetSlope	  off
 	  UseFloatMulNetSlope	  off
+	  DefaultUnderspecifiedDataType	"double"
 	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
 	  OptimizeBlockIOStorage  off
@@ -218,6 +282,7 @@ Model {
 	  SystemCodeInlineAuto	  off
 	  StateBitsets		  off
 	  DataBitsets		  off
+	  ActiveStateOutputEnumStorageType "Native Integer"
 	  UseTempVars		  off
 	  ZeroExternalMemoryAtStartup on
 	  ZeroInternalMemoryAtStartup on
@@ -234,8 +299,8 @@ Model {
 	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  5
-	  Version		  "1.12.0"
+	  $ObjectID		  11
+	  Version		  "1.13.1"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -284,7 +349,7 @@ Model {
 	  UnnecessaryDatatypeConvMsg "none"
 	  VectorMatrixConversionMsg "none"
 	  InvalidFcnCallConnMsg	  "error"
-	  FcnCallInpInsideContextMsg "Enable All"
+	  FcnCallInpInsideContextMsg "EnableAllAsWarning"
 	  SignalLabelMismatchMsg  "none"
 	  UnconnectedInputMsg	  "warning"
 	  UnconnectedOutputMsg	  "warning"
@@ -320,14 +385,17 @@ Model {
 	  SFNoUnconditionalDefaultTransitionDiag "warning"
 	  SFTransitionOutsideNaturalParentDiag "warning"
 	  SFUnconditionalTransitionShadowingDiag "warning"
+	  SFUndirectedBroadcastEventsDiag "warning"
+	  SFTransitionActionBeforeConditionDiag	"warning"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  6
-	  Version		  "1.12.0"
+	  $ObjectID		  12
+	  Version		  "1.13.1"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
 	  ProdBitPerLong	  32
+	  ProdBitPerLongLong	  64
 	  ProdBitPerFloat	  32
 	  ProdBitPerDouble	  64
 	  ProdBitPerPointer	  32
@@ -337,17 +405,20 @@ Model {
 	  ProdEndianess		  "LittleEndian"
 	  ProdWordSize		  32
 	  ProdShiftRightIntArith  on
+	  ProdLongLongMode	  off
 	  ProdHWDeviceType	  "Generic->32-bit x86 compatible"
 	  TargetBitPerChar	  8
 	  TargetBitPerShort	  16
 	  TargetBitPerInt	  32
 	  TargetBitPerLong	  32
+	  TargetBitPerLongLong	  64
 	  TargetBitPerFloat	  32
 	  TargetBitPerDouble	  64
 	  TargetBitPerPointer	  32
 	  TargetLargestAtomicInteger "Char"
 	  TargetLargestAtomicFloat "None"
 	  TargetShiftRightIntArith on
+	  TargetLongLongMode	  off
 	  TargetIntDivRoundTo	  "Undefined"
 	  TargetEndianess	  "Unspecified"
 	  TargetWordSize	  32
@@ -359,8 +430,8 @@ Model {
 	  ProdEqTarget		  on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  7
-	  Version		  "1.12.0"
+	  $ObjectID		  13
+	  Version		  "1.13.1"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
 	  EnableParallelModelReferenceBuilds off
@@ -374,8 +445,8 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  8
-	  Version		  "1.12.0"
+	  $ObjectID		  14
+	  Version		  "1.13.1"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
@@ -386,11 +457,12 @@ Model {
 	  SimUseLocalCustomCode	  off
 	  SimParseCustomCode	  off
 	  SimBuildMode		  "sf_incremental_build"
+	  SimGenImportedTypeDefs  off
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  9
-	  Version		  "1.12.0"
+	  $ObjectID		  15
+	  Version		  "1.13.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    9
@@ -406,10 +478,14 @@ Model {
 	    PropName		    "DisabledProps"
 	  }
 	  SystemTargetFile	  "grt.tlc"
+	  TLCOptions		  ""
 	  GenCodeOnly		  off
 	  MakeCommand		  "make_rtw"
 	  GenerateMakefile	  on
+	  PackageGeneratedCodeAndArtifacts off
+	  PackageName		  ""
 	  TemplateMakefile	  "grt_default_tmf"
+	  PostCodeGenCommand	  ""
 	  Description		  "Generic Real-Time Target"
 	  GenerateReport	  off
 	  SaveLog		  off
@@ -422,11 +498,29 @@ Model {
 	  ProcessScriptMode	  "Default"
 	  ConfigurationMode	  "Optimized"
 	  ProcessScript		  "grt_make_rtw_hook"
+	  ConfigurationScript	  ""
 	  ConfigAtBuild		  off
 	  RTWUseLocalCustomCode	  off
 	  RTWUseSimCustomCode	  off
+	  CustomSourceCode	  ""
+	  CustomHeaderCode	  ""
+	  CustomInclude		  ""
+	  CustomSource		  ""
+	  CustomLibrary		  ""
+	  CustomInitializer	  ""
+	  CustomTerminator	  ""
+	  Toolchain		  "Automatically locate an installed toolchain"
+	  BuildConfiguration	  "Faster Builds"
 	  IncludeHyperlinkInReport off
 	  LaunchReport		  off
+	  PortableWordSizes	  off
+	  GenerateErtSFunction	  off
+	  CreateSILPILBlock	  "None"
+	  CodeExecutionProfiling  off
+	  CodeExecutionProfileVariable "executionProfile"
+	  CodeProfilingSaveOptions "SummaryOnly"
+	  CodeProfilingInstrumentation off
+	  SILDebugging		  off
 	  TargetLang		  "C"
 	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
 	  IncludeERTFirstTime	  off
@@ -440,14 +534,17 @@ Model {
 	  GenerateCodeMetricsReport off
 	  GenerateCodeReplacementReport	off
 	  RTWCompilerOptimization "Off"
+	  RTWCustomCompilerOptimizations ""
 	  CheckMdlBeforeBuild	  "Off"
 	  CustomRebuildMode	  "OnUpdate"
+	  DataInitializer	  ""
+	  SharedConstantsCachingThreshold 1024
 	  Array {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      10
-	      Version		      "1.12.0"
+	      $ObjectID		      16
+	      Version		      "1.13.1"
 	      Array {
 		Type			"Cell"
 		Dimension		21
@@ -483,6 +580,7 @@ Model {
 	      PreserveName	      off
 	      PreserveNameWithParent  off
 	      ShowEliminatedStatement off
+	      OperatorAnnotations     off
 	      IncAutoGenComments      off
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
@@ -490,13 +588,14 @@ Model {
 	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
-	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrType     "$N$R$M_T"
 	      CustomSymbolStrField    "$N$M"
 	      CustomSymbolStrFcn      "$R$N$M$F"
 	      CustomSymbolStrFcnArg   "rt$I$N$M"
 	      CustomSymbolStrBlkIO    "rtb_$N$M"
 	      CustomSymbolStrTmpVar   "$N$M"
 	      CustomSymbolStrMacro    "$R$N$M"
+	      CustomSymbolStrUtil     "$N$C"
 	      DefineNamingRule	      "None"
 	      ParamNamingRule	      "None"
 	      SignalNamingRule	      "None"
@@ -505,14 +604,15 @@ Model {
 	      SimulinkBlockComments   on
 	      MATLABSourceComments    off
 	      EnableCustomComments    off
+	      InternalIdentifier      "Shortened"
 	      InlinedPrmAccess	      "Literals"
 	      ReqsInCode	      off
 	      UseSimReservedNames     off
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      11
-	      Version		      "1.12.0"
+	      $ObjectID		      17
+	      Version		      "1.13.1"
 	      Array {
 		Type			"Cell"
 		Dimension		16
@@ -525,13 +625,13 @@ Model {
 		Cell			"GenerateTestInterfaces"
 		Cell			"ModelStepFunctionPrototypeControlCompliant"
 		Cell			"CPPClassGenCompliant"
-		Cell			"MultiInstanceERTCode"
+		Cell			"PortableWordSizes"
 		Cell			"PurelyIntegerCode"
 		Cell			"SupportComplex"
 		Cell			"SupportAbsoluteTime"
 		Cell			"SupportContinuousTime"
 		Cell			"SupportNonInlinedSFcns"
-		Cell			"PortableWordSizes"
+		Cell			"GenerateAllocFcn"
 		PropName		"DisabledProps"
 	      }
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
@@ -540,7 +640,6 @@ Model {
 	      CodeReplacementLibrary  "ANSI_C"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
-	      CodeExecutionProfiling  off
 	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
@@ -571,11 +670,12 @@ Model {
 	      SupportVariableSizeSignals off
 	      EnableShiftOperators    on
 	      ParenthesesLevel	      "Nominal"
-	      PortableWordSizes	      off
+	      MATLABClassNameForMDSCustomization "Simulink.SoftwareTarget.GRTCustomization"
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
 	      GRTInterface	      off
+	      GenerateAllocFcn	      off
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -603,7 +703,17 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    1
+    $ObjectID		    7
+  }
+  Object {
+    $PropName		    "DataTransfer"
+    $ObjectID		    18
+    $ClassName		    "Simulink.GlobalDataTransfer"
+    DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
+    DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
+    DefaultTransitionBetweenContTasks "Ensure deterministic transfer (minimum delay)"
+    DefaultExtrapolationMethodBetweenContTasks "None"
+    AutoInsertRateTranBlk   [0]
   }
   ExplicitPartitioning	  off
   BlockDefaults {
@@ -636,6 +746,25 @@ Model {
     FontSize		    9
     FontWeight		    "normal"
     FontAngle		    "normal"
+  }
+  MaskDefaults {
+    SelfModifiable	    "off"
+    IconFrame		    "on"
+    IconOpaque		    "on"
+    RunInitForIconRedraw    "off"
+    IconRotate		    "none"
+    PortRotate		    "default"
+    IconUnits		    "autoscale"
+  }
+  MaskParameterDefaults {
+    Evaluate		    "on"
+    Tunable		    "on"
+    NeverSave		    "off"
+    Internal		    "off"
+    ReadOnly		    "off"
+    Enabled		    "on"
+    Visible		    "on"
+    ToolTip		    "on"
   }
   BlockParameterDefaults {
     Block {
@@ -786,6 +915,7 @@ Model {
       SystemSampleTime	      "-1"
       RTWFcnNameOpts	      "Auto"
       RTWFileNameOpts	      "Auto"
+      FunctionInterfaceSpec   "void_void"
       RTWMemSecFuncInitTerm   "Inherit from model"
       RTWMemSecFuncExecute    "Inherit from model"
       RTWMemSecDataConstants  "Inherit from model"
@@ -798,6 +928,7 @@ Model {
       SFBlockType	      "NONE"
       Variant		      off
       GeneratePreprocessorConditionals off
+      ContentPreviewEnabled   off
     }
     Block {
       BlockType		      Sum
@@ -830,17 +961,17 @@ Model {
     }
     Block {
       BlockType		      UnitDelay
-      X0		      "0"
+      InitialCondition	      "0"
       InputProcessing	      "Inherited"
       SampleTime	      "1"
       StateMustResolveToSignalObject off
-      RTWStateStorageClass    "Auto"
+      CodeGenStateStorageClass "Auto"
       HasFrameUpgradeWarning  on
     }
   }
   System {
     Name		    "template_KR4_PreRTHS"
-    Location		    [512, 328, 1594, 709]
+    Location		    [54, 608, 1192, 1173]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -854,7 +985,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "5941"
+    SIDHighWatermark	    "5942"
     Block {
       BlockType		      DiscretePulseGenerator
       Name		      "Acceleration\nTiming"
@@ -884,7 +1015,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Actuators"
-	Location		[246, 269, 1384, 912]
+	Location		[216, 157, 1410, 984]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1043,18 +1174,21 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
+	  ZOrder		  1
 	  SrcBlock		  "Flexible Ramper1"
 	  SrcPort		  1
 	  DstBlock		  "Stiffness*u1"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  2
 	  SrcBlock		  "Flexible Ramper"
 	  SrcPort		  1
 	  DstBlock		  "Stiffness*u"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  3
 	  SrcBlock		  "Stiffness*u1"
 	  SrcPort		  1
 	  Points		  [46, 0; 0, -45]
@@ -1062,12 +1196,14 @@ Model {
 	  DstPort		  2
 	}
 	Line {
+	  ZOrder		  4
 	  SrcBlock		  "scale"
 	  SrcPort		  1
 	  DstBlock		  "Assignment"
 	  DstPort		  2
 	}
 	Line {
+	  ZOrder		  5
 	  SrcBlock		  "NumFreeDOF"
 	  SrcPort		  1
 	  Points		  [15, 0]
@@ -1075,12 +1211,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  6
 	  SrcBlock		  "Add restoring force"
 	  SrcPort		  1
 	  DstBlock		  "scale"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  7
 	  SrcBlock		  "Stiffness*u"
 	  SrcPort		  1
 	  Points		  [57, 0; 0, 40]
@@ -1088,30 +1226,35 @@ Model {
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  8
 	  SrcBlock		  "Assignment"
 	  SrcPort		  1
 	  DstBlock		  "Expt RF"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  9
 	  SrcBlock		  "Selector1"
 	  SrcPort		  1
 	  DstBlock		  "Flexible Ramper1"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  10
 	  SrcBlock		  "Selector"
 	  SrcPort		  1
 	  DstBlock		  "Flexible Ramper"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  11
 	  SrcBlock		  "Vel"
 	  SrcPort		  1
 	  DstBlock		  "Selector1"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  12
 	  SrcBlock		  "Disp"
 	  SrcPort		  1
 	  DstBlock		  "Selector"
@@ -1125,6 +1268,7 @@ Model {
       SID		      "5926"
       Ports		      [4, 1, 1]
       Position		      [800, 121, 940, 199]
+      ZOrder		      -6
       BackgroundColor	      "orange"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -1135,7 +1279,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Calc Accel Vector\nType 4 KR explicit"
-	Location		[146, 510, 945, 1076]
+	Location		[116, 398, 971, 1148]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1153,6 +1297,7 @@ Model {
 	  Name			  "f_ID"
 	  SID			  "5927"
 	  Position		  [195, 163, 225, 177]
+	  ZOrder		  -1
 	  BackgroundColor	  "orange"
 	  IconDisplay		  "Port number"
 	}
@@ -1161,6 +1306,7 @@ Model {
 	  Name			  "f_hat"
 	  SID			  "5928"
 	  Position		  [195, 198, 225, 212]
+	  ZOrder		  -2
 	  BackgroundColor	  "orange"
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -1170,6 +1316,7 @@ Model {
 	  Name			  "TotalRF"
 	  SID			  "5929"
 	  Position		  [155, 293, 185, 307]
+	  ZOrder		  -3
 	  BackgroundColor	  "orange"
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -1179,6 +1326,7 @@ Model {
 	  Name			  "ExprRF"
 	  SID			  "5930"
 	  Position		  [155, 343, 185, 357]
+	  ZOrder		  -4
 	  BackgroundColor	  "orange"
 	  Port			  "4"
 	  IconDisplay		  "Port number"
@@ -1198,6 +1346,7 @@ Model {
 	  SID			  "5932"
 	  Ports			  [2, 1]
 	  Position		  [205, 313, 240, 337]
+	  ZOrder		  -6
 	  BackgroundColor	  "orange"
 	  InputSameDT		  off
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -1208,6 +1357,7 @@ Model {
 	  Name			  "Alphaf"
 	  SID			  "5933"
 	  Position		  [105, 229, 235, 261]
+	  ZOrder		  -7
 	  BackgroundColor	  "orange"
 	  ShowName		  off
 	  Value			  "Integrator.Alphaf"
@@ -1217,6 +1367,7 @@ Model {
 	  Name			  "EQ Record"
 	  SID			  "5934"
 	  Position		  [95, 117, 225, 143]
+	  ZOrder		  -8
 	  BackgroundColor	  "orange"
 	  ShowName		  off
 	  VariableName		  "Integrator.PEFFsimulink"
@@ -1239,6 +1390,7 @@ Model {
 	  Name			  "Integrator.MassMatrixHat1Inv"
 	  SID			  "5936"
 	  Position		  [95, 26, 235, 54]
+	  ZOrder		  -10
 	  BackgroundColor	  "orange"
 	  ShowName		  off
 	  Value			  "Integrator.MassMatrixHat1Inv"
@@ -1262,19 +1414,9 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  SFBlockType		  "MATLAB Function"
-	  MaskType		  "Stateflow"
-	  MaskDescription	  "Embedded MATLAB block"
-	  MaskSelfModifiable	  on
-	  MaskDisplay		  "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('private/"
-	  "eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'fcn']);"
-	  MaskIconFrame		  on
-	  MaskIconOpaque	  off
-	  MaskIconRotate	  "none"
-	  MaskPortRotate	  "default"
-	  MaskIconUnits		  "normalized"
 	  System {
 	    Name		    "MATLAB Function"
-	    Location		    [257, 457, 812, 717]
+	    Location		    [227, 345, 838, 789]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1287,7 +1429,7 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "63"
+	    SIDHighWatermark	    "66"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "MassMatrixHat1Inv"
@@ -1380,23 +1522,23 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "5937::20"
+	      SID		      "5937::65"
 	      Ports		      [1, 1]
-	      Position		      [270, 505, 320, 545]
-	      ZOrder		      6
+	      Position		      [270, 230, 320, 270]
+	      ZOrder		      51
 	      Outputs		      "1"
 	    }
 	    Block {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
-	      SID		      "5937::19"
+	      SID		      "5937::64"
 	      Tag		      "Stateflow S-Function template_KR4_PreRTHS 2"
 	      Ports		      [10, 2]
-	      Position		      [180, 172, 230, 503]
-	      ZOrder		      5
+	      Position		      [180, 100, 230, 320]
+	      ZOrder		      50
 	      FunctionName	      "sf_sfun"
 	      PortCounts	      "[10 2]"
-	      EnableBusSupport	      on
+	      EnableBusSupport	      off
 	      Port {
 		PortNumber		2
 		Name			"Acceleration"
@@ -1407,31 +1549,91 @@ Model {
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "5937::22"
-	      Position		      [460, 516, 480, 534]
-	      ZOrder		      8
+	      SID		      "5937::66"
+	      Position		      [460, 241, 480, 259]
+	      ZOrder		      52
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "Acceleration"
 	      SID		      "5937::5"
 	      Position		      [460, 101, 480, 119]
+	      ZOrder		      -14
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      SrcBlock		      " SFunction "
+	      ZOrder		      14
+	      SrcBlock		      "MassMatrixHat1Inv"
 	      SrcPort		      1
-	      DstBlock		      " Demux "
+	      DstBlock		      " SFunction "
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      " Demux "
+	      ZOrder		      15
+	      SrcBlock		      "EQScaleFactor"
 	      SrcPort		      1
-	      DstBlock		      " Terminator "
-	      DstPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      16
+	      SrcBlock		      "PEFF"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      3
+	    }
+	    Line {
+	      ZOrder		      17
+	      SrcBlock		      "PrevPEFF"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      4
+	    }
+	    Line {
+	      ZOrder		      18
+	      SrcBlock		      "IntmInherentDampingForce"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      5
+	    }
+	    Line {
+	      ZOrder		      19
+	      SrcBlock		      "PrevWeightedInertiaForce"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      6
+	    }
+	    Line {
+	      ZOrder		      20
+	      SrcBlock		      "Alphaf"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      7
+	    }
+	    Line {
+	      ZOrder		      21
+	      SrcBlock		      "RestoringForce"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      8
+	    }
+	    Line {
+	      ZOrder		      22
+	      SrcBlock		      "Prev_RestoringForce"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      9
+	    }
+	    Line {
+	      ZOrder		      23
+	      SrcBlock		      "P0"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      10
 	    }
 	    Line {
 	      Name		      "Acceleration"
+	      ZOrder		      24
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      2
@@ -1439,63 +1641,17 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "P0"
+	      ZOrder		      25
+	      SrcBlock		      " Demux "
 	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      10
+	      DstBlock		      " Terminator "
+	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "Prev_RestoringForce"
+	      ZOrder		      26
+	      SrcBlock		      " SFunction "
 	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      9
-	    }
-	    Line {
-	      SrcBlock		      "RestoringForce"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      8
-	    }
-	    Line {
-	      SrcBlock		      "Alphaf"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      7
-	    }
-	    Line {
-	      SrcBlock		      "PrevWeightedInertiaForce"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      6
-	    }
-	    Line {
-	      SrcBlock		      "IntmInherentDampingForce"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      5
-	    }
-	    Line {
-	      SrcBlock		      "PrevPEFF"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      4
-	    }
-	    Line {
-	      SrcBlock		      "PEFF"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      3
-	    }
-	    Line {
-	      SrcBlock		      "EQScaleFactor"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "MassMatrixHat1Inv"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
+	      DstBlock		      " Demux "
 	      DstPort		      1
 	    }
 	  }
@@ -1505,6 +1661,7 @@ Model {
 	  Name			  "Structure.P0"
 	  SID			  "5938"
 	  Position		  [110, 384, 240, 416]
+	  ZOrder		  -12
 	  BackgroundColor	  "orange"
 	  ShowName		  off
 	  Value			  "Structure.P0"
@@ -1514,9 +1671,10 @@ Model {
 	  Name			  "Unit Delay1"
 	  SID			  "5939"
 	  Position		  [320, 242, 360, 258]
+	  ZOrder		  -13
 	  BackgroundColor	  "green"
 	  ShowName		  off
-	  X0			  "Integrator.PEFF(1,:)"
+	  InitialCondition	  "Integrator.PEFF(1,:)"
 	  InputProcessing	  "Elements as channels (sample based)"
 	  SampleTime		  "-1"
 	}
@@ -1525,9 +1683,10 @@ Model {
 	  Name			  "Unit Delay3"
 	  SID			  "5940"
 	  Position		  [310, 307, 350, 323]
+	  ZOrder		  -14
 	  BackgroundColor	  "green"
 	  ShowName		  off
-	  X0			  "Integrator.RestoringForce"
+	  InitialCondition	  "Integrator.RestoringForce"
 	  InputProcessing	  "Elements as channels (sample based)"
 	  SampleTime		  "-1"
 	}
@@ -1536,28 +1695,33 @@ Model {
 	  Name			  "Target Acceleration"
 	  SID			  "5941"
 	  Position		  [680, 258, 710, 272]
+	  ZOrder		  -15
 	  BackgroundColor	  "orange"
 	  IconDisplay		  "Port number"
 	}
 	Line {
+	  ZOrder		  1
 	  SrcBlock		  "Unit Delay1"
 	  SrcPort		  1
 	  DstBlock		  "MATLAB Function"
 	  DstPort		  4
 	}
 	Line {
+	  ZOrder		  2
 	  SrcBlock		  "TotalRF"
 	  SrcPort		  1
 	  DstBlock		  "Algebra"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  3
 	  SrcBlock		  "ExprRF"
 	  SrcPort		  1
 	  DstBlock		  "Algebra"
 	  DstPort		  2
 	}
 	Line {
+	  ZOrder		  4
 	  SrcBlock		  "Integrator.MassMatrixHat1Inv"
 	  SrcPort		  1
 	  Points		  [80, 0; 0, 165]
@@ -1565,20 +1729,24 @@ Model {
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  5
 	  SrcBlock		  "EQ Record"
 	  SrcPort		  1
 	  Points		  [70, 0; 0, 105]
 	  Branch {
+	    ZOrder		    6
 	    Points		    [0, 15]
 	    DstBlock		    "Unit Delay1"
 	    DstPort		    1
 	  }
 	  Branch {
+	    ZOrder		    7
 	    DstBlock		    "MATLAB Function"
 	    DstPort		    3
 	  }
 	}
 	Line {
+	  ZOrder		  8
 	  SrcBlock		  "f_ID"
 	  SrcPort		  1
 	  Points		  [60, 0; 0, 95]
@@ -1586,6 +1754,7 @@ Model {
 	  DstPort		  5
 	}
 	Line {
+	  ZOrder		  9
 	  SrcBlock		  "f_hat"
 	  SrcPort		  1
 	  Points		  [50, 0; 0, 75]
@@ -1593,6 +1762,7 @@ Model {
 	  DstPort		  6
 	}
 	Line {
+	  ZOrder		  10
 	  SrcBlock		  "Alphaf"
 	  SrcPort		  1
 	  Points		  [30, 0; 0, 50]
@@ -1600,21 +1770,25 @@ Model {
 	  DstPort		  7
 	}
 	Line {
+	  ZOrder		  11
 	  SrcBlock		  "Algebra"
 	  SrcPort		  1
 	  Points		  [20, 0]
 	  Branch {
+	    ZOrder		    12
 	    Points		    [0, -15]
 	    DstBlock		    "MATLAB Function"
 	    DstPort		    8
 	  }
 	  Branch {
+	    ZOrder		    13
 	    Points		    [30, 0]
 	    DstBlock		    "Unit Delay3"
 	    DstPort		    1
 	  }
 	}
 	Line {
+	  ZOrder		  14
 	  SrcBlock		  "Unit Delay3"
 	  SrcPort		  1
 	  Points		  [40, 0]
@@ -1622,6 +1796,7 @@ Model {
 	  DstPort		  9
 	}
 	Line {
+	  ZOrder		  15
 	  SrcBlock		  "Structure.P0"
 	  SrcPort		  1
 	  Points		  [75, 0; 0, -60]
@@ -1629,6 +1804,7 @@ Model {
 	  DstPort		  10
 	}
 	Line {
+	  ZOrder		  16
 	  SrcBlock		  "MATLAB Function"
 	  SrcPort		  1
 	  Points		  [0, -10]
@@ -1636,6 +1812,7 @@ Model {
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  17
 	  SrcBlock		  "EQ Scale Factor"
 	  SrcPort		  1
 	  Points		  [75, 0; 0, 130]
@@ -1650,6 +1827,7 @@ Model {
       SID		      "5755"
       Ports		      [1, 2, 1]
       Position		      [60, 112, 210, 163]
+      ZOrder		      -7
       BackgroundColor	      "cyan"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -1662,7 +1840,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Calculate Command Vectors\nType 4 KR explicit"
-	Location		[834, 471, 1513, 853]
+	Location		[804, 359, 1539, 925]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1680,6 +1858,7 @@ Model {
 	  Name			  "Accel"
 	  SID			  "5855"
 	  Position		  [85, 318, 115, 332]
+	  ZOrder		  -1
 	  BackgroundColor	  "orange"
 	  IconDisplay		  "Port number"
 	}
@@ -1697,6 +1876,7 @@ Model {
 	  Name			  "Alpha 1"
 	  SID			  "5857"
 	  Position		  [75, 101, 215, 129]
+	  ZOrder		  -3
 	  BackgroundColor	  "orange"
 	  ShowName		  off
 	  Priority		  "5"
@@ -1707,6 +1887,7 @@ Model {
 	  Name			  "Alpha 2"
 	  SID			  "5858"
 	  Position		  [75, 151, 215, 179]
+	  ZOrder		  -4
 	  BackgroundColor	  "orange"
 	  ShowName		  off
 	  Priority		  "11"
@@ -1717,6 +1898,7 @@ Model {
 	  Name			  "Init Accel"
 	  SID			  "5859"
 	  Position		  [135, 311, 175, 339]
+	  ZOrder		  -5
 	  BackgroundColor	  "orange"
 	  Priority		  "2"
 	  FontSize		  12
@@ -1741,19 +1923,9 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  SFBlockType		  "MATLAB Function"
-	  MaskType		  "Stateflow"
-	  MaskDescription	  "Embedded MATLAB block"
-	  MaskSelfModifiable	  on
-	  MaskDisplay		  "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('private/"
-	  "eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'fcn']);"
-	  MaskIconFrame		  on
-	  MaskIconOpaque	  off
-	  MaskIconRotate	  "none"
-	  MaskPortRotate	  "default"
-	  MaskIconUnits		  "normalized"
 	  System {
 	    Name		    "MATLAB Function"
-	    Location		    [257, 457, 812, 717]
+	    Location		    [227, 345, 838, 789]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1766,7 +1938,7 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "63"
+	    SIDHighWatermark	    "66"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "Alpha1"
@@ -1832,23 +2004,23 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "5860::20"
+	      SID		      "5860::65"
 	      Ports		      [1, 1]
-	      Position		      [270, 500, 320, 540]
-	      ZOrder		      6
+	      Position		      [270, 230, 320, 270]
+	      ZOrder		      51
 	      Outputs		      "1"
 	    }
 	    Block {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
-	      SID		      "5860::19"
+	      SID		      "5860::64"
 	      Tag		      "Stateflow S-Function template_KR4_PreRTHS 3"
 	      Ports		      [7, 3]
-	      Position		      [180, 170, 230, 500]
-	      ZOrder		      5
+	      Position		      [180, 100, 230, 260]
+	      ZOrder		      50
 	      FunctionName	      "sf_sfun"
 	      PortCounts	      "[7 3]"
-	      EnableBusSupport	      on
+	      EnableBusSupport	      off
 	      Port {
 		PortNumber		2
 		Name			"Displacement"
@@ -1865,9 +2037,9 @@ Model {
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "5860::22"
-	      Position		      [460, 511, 480, 529]
-	      ZOrder		      8
+	      SID		      "5860::66"
+	      Position		      [460, 241, 480, 259]
+	      ZOrder		      52
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -1887,42 +2059,49 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
+	      ZOrder		      12
 	      SrcBlock		      "Alpha1"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      13
 	      SrcBlock		      "Alpha2"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      2
 	    }
 	    Line {
+	      ZOrder		      14
 	      SrcBlock		      "Timestep"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      3
 	    }
 	    Line {
+	      ZOrder		      15
 	      SrcBlock		      "TimestepSquared"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      4
 	    }
 	    Line {
+	      ZOrder		      16
 	      SrcBlock		      "Acceleration"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      5
 	    }
 	    Line {
+	      ZOrder		      17
 	      SrcBlock		      "Prev_Displacement"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      6
 	    }
 	    Line {
+	      ZOrder		      18
 	      SrcBlock		      "Prev_Velocity"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
@@ -1930,6 +2109,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "Displacement"
+	      ZOrder		      19
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      2
@@ -1938,6 +2118,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "Velocity"
+	      ZOrder		      20
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      3
@@ -1945,12 +2126,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      21
 	      SrcBlock		      " Demux "
 	      SrcPort		      1
 	      DstBlock		      " Terminator "
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      22
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
 	      DstBlock		      " Demux "
@@ -1963,6 +2146,7 @@ Model {
 	  Name			  "Timestep "
 	  SID			  "5861"
 	  Position		  [75, 200, 170, 230]
+	  ZOrder		  -7
 	  BackgroundColor	  "orange"
 	  ShowName		  off
 	  Priority		  "3"
@@ -1973,6 +2157,7 @@ Model {
 	  Name			  "Timestep ^2"
 	  SID			  "5862"
 	  Position		  [75, 251, 215, 279]
+	  ZOrder		  -8
 	  BackgroundColor	  "orange"
 	  ShowName		  off
 	  Priority		  "9"
@@ -1983,12 +2168,13 @@ Model {
 	  Name			  "Unit Delay1"
 	  SID			  "5863"
 	  Position		  [395, 347, 435, 363]
+	  ZOrder		  -9
 	  BlockMirror		  on
 	  BackgroundColor	  "green"
 	  NamePlacement		  "alternate"
 	  ShowName		  off
 	  Priority		  "7"
-	  X0			  "Integrator.Displacement"
+	  InitialCondition	  "Integrator.Displacement"
 	  InputProcessing	  "Elements as channels (sample based)"
 	  SampleTime		  "-1"
 	}
@@ -1997,12 +2183,13 @@ Model {
 	  Name			  "Unit Delay2"
 	  SID			  "5864"
 	  Position		  [395, 312, 435, 328]
+	  ZOrder		  -10
 	  BlockMirror		  on
 	  BackgroundColor	  "green"
 	  NamePlacement		  "alternate"
 	  ShowName		  off
 	  Priority		  "7"
-	  X0			  "Integrator.Velocity"
+	  InitialCondition	  "Integrator.Velocity"
 	  InputProcessing	  "Elements as channels (sample based)"
 	  SampleTime		  "-1"
 	}
@@ -2011,6 +2198,7 @@ Model {
 	  Name			  "Target Displacement"
 	  SID			  "5865"
 	  Position		  [540, 143, 570, 157]
+	  ZOrder		  -11
 	  BackgroundColor	  "orange"
 	  IconDisplay		  "Port number"
 	}
@@ -2019,45 +2207,54 @@ Model {
 	  Name			  "Target Velocity"
 	  SID			  "5866"
 	  Position		  [540, 228, 570, 242]
+	  ZOrder		  -12
 	  BackgroundColor	  "orange"
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Line {
+	  ZOrder		  1
 	  SrcBlock		  "Accel"
 	  SrcPort		  1
 	  DstBlock		  "Init Accel"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  2
 	  SrcBlock		  "MATLAB Function"
 	  SrcPort		  1
 	  Points		  [15, 0]
 	  Branch {
+	    ZOrder		    3
 	    DstBlock		    "Target Displacement"
 	    DstPort		    1
 	  }
 	  Branch {
+	    ZOrder		    4
 	    Points		    [0, 205]
 	    DstBlock		    "Unit Delay1"
 	    DstPort		    1
 	  }
 	}
 	Line {
+	  ZOrder		  5
 	  SrcBlock		  "MATLAB Function"
 	  SrcPort		  2
 	  Points		  [5, 0]
 	  Branch {
+	    ZOrder		    6
 	    DstBlock		    "Target Velocity"
 	    DstPort		    1
 	  }
 	  Branch {
+	    ZOrder		    7
 	    Points		    [0, 85]
 	    DstBlock		    "Unit Delay2"
 	    DstPort		    1
 	  }
 	}
 	Line {
+	  ZOrder		  8
 	  SrcBlock		  "Unit Delay1"
 	  SrcPort		  1
 	  Points		  [-65, 0; 0, -115]
@@ -2065,6 +2262,7 @@ Model {
 	  DstPort		  6
 	}
 	Line {
+	  ZOrder		  9
 	  SrcBlock		  "Unit Delay2"
 	  SrcPort		  1
 	  Points		  [-55, 0]
@@ -2072,12 +2270,14 @@ Model {
 	  DstPort		  7
 	}
 	Line {
+	  ZOrder		  10
 	  SrcBlock		  "Alpha 1"
 	  SrcPort		  1
 	  DstBlock		  "MATLAB Function"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  11
 	  SrcBlock		  "Alpha 2"
 	  SrcPort		  1
 	  Points		  [60, 0; 0, -25]
@@ -2085,6 +2285,7 @@ Model {
 	  DstPort		  2
 	}
 	Line {
+	  ZOrder		  12
 	  SrcBlock		  "Timestep "
 	  SrcPort		  1
 	  Points		  [115, 0; 0, -50]
@@ -2092,6 +2293,7 @@ Model {
 	  DstPort		  3
 	}
 	Line {
+	  ZOrder		  13
 	  SrcBlock		  "Timestep ^2"
 	  SrcPort		  1
 	  Points		  [80, 0; 0, -75]
@@ -2099,6 +2301,7 @@ Model {
 	  DstPort		  4
 	}
 	Line {
+	  ZOrder		  14
 	  SrcBlock		  "Init Accel"
 	  SrcPort		  1
 	  Points		  [135, 0; 0, -110]
@@ -2107,7 +2310,10 @@ Model {
 	}
 	Annotation {
 	  SID			  "5867"
-	  Position		  [157, 334]
+	  Position		  [157, 334, 157, 334]
+	  AutoSize		  on
+	  WordWrap		  off
+	  ZOrder		  -1
 	}
       }
     }
@@ -2125,10 +2331,10 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "Numerical Element Calculations"
-      SID		      "5925"
+      SID		      "5942"
       Ports		      [2, 2]
       Position		      [415, 188, 570, 232]
-      ZOrder		      -9
+      ZOrder		      46
       BackgroundColor	      "[0.380392, 0.741176, 0.988235]"
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
@@ -2142,19 +2348,9 @@ Model {
       RequestExecContextInheritance off
       MaskHideContents	      off
       SFBlockType	      "MATLAB Function"
-      MaskType		      "Stateflow"
-      MaskDescription	      "Embedded MATLAB block"
-      MaskSelfModifiable      on
-      MaskDisplay	      "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('pr"
-      "ivate/eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'eml']);"
-      MaskIconFrame	      on
-      MaskIconOpaque	      off
-      MaskIconRotate	      "none"
-      MaskPortRotate	      "default"
-      MaskIconUnits	      "normalized"
       System {
 	Name			"Numerical Element Calculations"
-	Location		[227, 345, 838, 789]
+	Location		[197, 233, 864, 861]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2167,11 +2363,11 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"62"
+	SIDHighWatermark	"65"
 	Block {
 	  BlockType		  Inport
 	  Name			  "Displacement"
-	  SID			  "5925::19"
+	  SID			  "5942::19"
 	  Position		  [20, 101, 40, 119]
 	  ZOrder		  -1
 	  IconDisplay		  "Port number"
@@ -2179,7 +2375,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "Velocity"
-	  SID			  "5925::34"
+	  SID			  "5942::34"
 	  Position		  [20, 136, 40, 154]
 	  ZOrder		  -2
 	  Port			  "2"
@@ -2188,24 +2384,24 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "5925::58"
+	  SID			  "5942::64"
 	  Ports			  [1, 1]
-	  Position		  [270, 205, 320, 245]
-	  ZOrder		  14
+	  Position		  [270, 230, 320, 270]
+	  ZOrder		  19
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "5925::57"
+	  SID			  "5942::63"
 	  Tag			  "Stateflow S-Function template_KR4_PreRTHS 1"
 	  Ports			  [2, 3]
-	  Position		  [180, 104, 230, 206]
-	  ZOrder		  13
+	  Position		  [180, 100, 230, 180]
+	  ZOrder		  18
 	  FunctionName		  "sf_sfun"
 	  Parameters		  "ElementsStruct,NumFreeDOF,RigidLinkMasterMatrix,RigidLinkNo,RigidLinkNodeID,RigidLinkSlaveMatrix"
 	  PortCounts		  "[2 3]"
-	  EnableBusSupport	  on
+	  EnableBusSupport	  off
 	  Port {
 	    PortNumber		    2
 	    Name		    "Total_RF"
@@ -2222,14 +2418,14 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "5925::60"
-	  Position		  [460, 216, 480, 234]
-	  ZOrder		  16
+	  SID			  "5942::65"
+	  Position		  [460, 241, 480, 259]
+	  ZOrder		  20
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "Total_RF"
-	  SID			  "5925::5"
+	  SID			  "5942::5"
 	  Position		  [460, 101, 480, 119]
 	  ZOrder		  -9
 	  IconDisplay		  "Port number"
@@ -2237,19 +2433,21 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "ElementRFs"
-	  SID			  "5925::62"
+	  SID			  "5942::62"
 	  Position		  [460, 136, 480, 154]
 	  ZOrder		  17
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Line {
+	  ZOrder		  1
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  2
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
@@ -2257,6 +2455,7 @@ Model {
 	}
 	Line {
 	  Name			  "ElementRFs"
+	  ZOrder		  3
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  3
@@ -2265,6 +2464,7 @@ Model {
 	}
 	Line {
 	  Name			  "Total_RF"
+	  ZOrder		  4
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -2272,14 +2472,17 @@ Model {
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  5
 	  SrcBlock		  "Velocity"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  2
 	}
 	Line {
+	  ZOrder		  6
 	  SrcBlock		  "Displacement"
 	  SrcPort		  1
+	  Points		  [120, 0]
 	  DstBlock		  " SFunction "
 	  DstPort		  1
 	}
@@ -2432,7 +2635,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Type 4 Calcs"
-	Location		[729, 642, 1583, 1032]
+	Location		[699, 530, 1609, 1104]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2459,6 +2662,7 @@ Model {
 	  Name			  "Vel"
 	  SID			  "5794"
 	  Position		  [235, 143, 265, 157]
+	  ZOrder		  -2
 	  BackgroundColor	  "orange"
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -2468,6 +2672,7 @@ Model {
 	  Name			  "Alphaf"
 	  SID			  "5797"
 	  Position		  [135, 94, 265, 126]
+	  ZOrder		  -3
 	  BackgroundColor	  "orange"
 	  Value			  "Integrator.Alphaf"
 	}
@@ -2476,6 +2681,7 @@ Model {
 	  Name			  "DampingMatrixFree"
 	  SID			  "5799"
 	  Position		  [120, 44, 265, 76]
+	  ZOrder		  -4
 	  BackgroundColor	  "orange"
 	  Value			  "Structure.DampingMatrixFree"
 	}
@@ -2484,6 +2690,7 @@ Model {
 	  Name			  "Init Accel"
 	  SID			  "5800"
 	  Position		  [195, 271, 235, 299]
+	  ZOrder		  -5
 	  BackgroundColor	  "orange"
 	  FontSize		  12
 	  Value			  "Integrator.Acceleration"
@@ -2507,19 +2714,9 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  SFBlockType		  "MATLAB Function"
-	  MaskType		  "Stateflow"
-	  MaskDescription	  "Embedded MATLAB block"
-	  MaskSelfModifiable	  on
-	  MaskDisplay		  "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('private/"
-	  "eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'fcn']);"
-	  MaskIconFrame		  on
-	  MaskIconOpaque	  off
-	  MaskIconRotate	  "none"
-	  MaskPortRotate	  "default"
-	  MaskIconUnits		  "normalized"
 	  System {
 	    Name		    "MATLAB Function"
-	    Location		    [257, 457, 812, 717]
+	    Location		    [227, 345, 838, 789]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2532,7 +2729,7 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "64"
+	    SIDHighWatermark	    "67"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "DampingMatrixFree"
@@ -2589,23 +2786,23 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "5871::20"
+	      SID		      "5871::66"
 	      Ports		      [1, 1]
-	      Position		      [270, 505, 320, 545]
-	      ZOrder		      6
+	      Position		      [270, 230, 320, 270]
+	      ZOrder		      52
 	      Outputs		      "1"
 	    }
 	    Block {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
-	      SID		      "5871::19"
+	      SID		      "5871::65"
 	      Tag		      "Stateflow S-Function template_KR4_PreRTHS 4"
 	      Ports		      [6, 3]
-	      Position		      [180, 172, 230, 503]
-	      ZOrder		      5
+	      Position		      [180, 102, 230, 243]
+	      ZOrder		      51
 	      FunctionName	      "sf_sfun"
 	      PortCounts	      "[6 3]"
-	      EnableBusSupport	      on
+	      EnableBusSupport	      off
 	      Port {
 		PortNumber		2
 		Name			"IntmInherentDampingForce"
@@ -2622,9 +2819,9 @@ Model {
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "5871::22"
-	      Position		      [460, 516, 480, 534]
-	      ZOrder		      8
+	      SID		      "5871::67"
+	      Position		      [460, 241, 480, 259]
+	      ZOrder		      53
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -2644,36 +2841,42 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
+	      ZOrder		      11
 	      SrcBlock		      "DampingMatrixFree"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      12
 	      SrcBlock		      "Alphaf"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      2
 	    }
 	    Line {
+	      ZOrder		      13
 	      SrcBlock		      "Velocity"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      3
 	    }
 	    Line {
+	      ZOrder		      14
 	      SrcBlock		      "Prev_Velocity"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      4
 	    }
 	    Line {
+	      ZOrder		      15
 	      SrcBlock		      "MassMatrixHat2"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      5
 	    }
 	    Line {
+	      ZOrder		      16
 	      SrcBlock		      "Acceleration"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
@@ -2681,6 +2884,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "IntmInherentDampingForce"
+	      ZOrder		      17
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      2
@@ -2689,6 +2893,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "PrevWeightedInertiaForce"
+	      ZOrder		      18
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      3
@@ -2696,12 +2901,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      19
 	      SrcBlock		      " Demux "
 	      SrcPort		      1
 	      DstBlock		      " Terminator "
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      20
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
 	      DstBlock		      " Demux "
@@ -2714,6 +2921,7 @@ Model {
 	  Name			  "MassMatrixHat2"
 	  SID			  "5802"
 	  Position		  [145, 199, 290, 231]
+	  ZOrder		  -7
 	  BackgroundColor	  "orange"
 	  Value			  "Integrator.MassMatrixHat2"
 	}
@@ -2722,9 +2930,10 @@ Model {
 	  Name			  "Unit Delay3"
 	  SID			  "5807"
 	  Position		  [295, 162, 335, 178]
+	  ZOrder		  -8
 	  BackgroundColor	  "green"
 	  ShowName		  off
-	  X0			  "Integrator.Velocity"
+	  InitialCondition	  "Integrator.Velocity"
 	  InputProcessing	  "Elements as channels (sample based)"
 	  SampleTime		  "-1"
 	}
@@ -2748,38 +2957,45 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
+	  ZOrder		  1
 	  SrcBlock		  "Vel"
 	  SrcPort		  1
 	  Points		  [10, 0]
 	  Branch {
+	    ZOrder		    2
 	    DstBlock		    "Unit Delay3"
 	    DstPort		    1
 	  }
 	  Branch {
+	    ZOrder		    3
 	    Points		    [0, -20]
 	    DstBlock		    "MATLAB Function"
 	    DstPort		    3
 	  }
 	}
 	Line {
+	  ZOrder		  4
 	  SrcBlock		  "Accel"
 	  SrcPort		  1
 	  DstBlock		  "Init Accel"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  5
 	  SrcBlock		  "MATLAB Function"
 	  SrcPort		  1
 	  DstBlock		  "f_ID"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  6
 	  SrcBlock		  "MATLAB Function"
 	  SrcPort		  2
 	  DstBlock		  "f_hat"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  7
 	  SrcBlock		  "DampingMatrixFree"
 	  SrcPort		  1
 	  Points		  [50, 0; 0, 30]
@@ -2787,12 +3003,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  8
 	  SrcBlock		  "Alphaf"
 	  SrcPort		  1
 	  DstBlock		  "MATLAB Function"
 	  DstPort		  2
 	}
 	Line {
+	  ZOrder		  9
 	  SrcBlock		  "Unit Delay3"
 	  SrcPort		  1
 	  Points		  [15, 0; 0, -20]
@@ -2800,6 +3018,7 @@ Model {
 	  DstPort		  4
 	}
 	Line {
+	  ZOrder		  10
 	  SrcBlock		  "MassMatrixHat2"
 	  SrcPort		  1
 	  Points		  [70, 0; 0, -45]
@@ -2807,6 +3026,7 @@ Model {
 	  DstPort		  5
 	}
 	Line {
+	  ZOrder		  11
 	  SrcBlock		  "Init Accel"
 	  SrcPort		  1
 	  Points		  [145, 0]
@@ -2824,11 +3044,12 @@ Model {
       BackgroundColor	      "green"
       NamePlacement	      "alternate"
       ShowName		      off
-      X0		      "Integrator.Acceleration"
+      InitialCondition	      "Integrator.Acceleration"
       InputProcessing	      "Elements as channels (sample based)"
       SampleTime	      "-1"
     }
     Line {
+      ZOrder		      1
       SrcBlock		      "Acceleration\nTiming"
       SrcPort		      1
       Points		      [20, 0]
@@ -2836,20 +3057,24 @@ Model {
       DstPort		      enable
     }
     Line {
+      ZOrder		      2
       SrcBlock		      "Calculate Command Vectors\nType 4 KR explicit"
       SrcPort		      2
       Points		      [25, 0]
       Branch {
+	ZOrder			3
 	DstBlock		"Rate Transition1"
 	DstPort			1
       }
       Branch {
-	Points			[0, 0; 0, 180]
+	ZOrder			4
+	Points			[0, 180]
 	DstBlock		"Actuators"
 	DstPort			2
       }
     }
     Line {
+      ZOrder		      5
       SrcBlock		      "Rate Transition2"
       SrcPort		      1
       Points		      [40, 0; 0, -30]
@@ -2857,6 +3082,7 @@ Model {
       DstPort		      3
     }
     Line {
+      ZOrder		      6
       SrcBlock		      "Command\nTiming"
       SrcPort		      1
       Points		      [30, 0]
@@ -2864,128 +3090,154 @@ Model {
       DstPort		      enable
     }
     Line {
+      ZOrder		      7
       SrcBlock		      "Calculate Command Vectors\nType 4 KR explicit"
       SrcPort		      1
-      Points		      [15, 0]
+      Points		      [14, 0]
       Branch {
+	ZOrder			33
 	DstBlock		"Rate Transition5"
 	DstPort			1
       }
       Branch {
-	Points			[-1, 0; 0, 185]
+	ZOrder			9
+	Points			[0, 185]
 	DstBlock		"Actuators"
 	DstPort			1
       }
     }
     Line {
+      ZOrder		      10
       SrcBlock		      "Rate Transition5"
       SrcPort		      1
       Points		      [55, 0]
       Branch {
-	Points			[0, -30]
-	DstBlock		"To Workspace"
-	DstPort			1
-      }
-      Branch {
+	ZOrder			34
 	Points			[0, 75]
 	DstBlock		"Numerical Element Calculations"
 	DstPort			1
       }
+      Branch {
+	ZOrder			11
+	Points			[0, -30]
+	DstBlock		"To Workspace"
+	DstPort			1
+      }
     }
     Line {
+      ZOrder		      13
       SrcBlock		      "Unit Delay"
       SrcPort		      1
       Points		      [15, 0; 0, -130; -550, 0]
       Branch {
+	ZOrder			14
 	DstBlock		"Rate Transition6"
 	DstPort			1
       }
       Branch {
+	ZOrder			15
 	Points			[-410, 0]
 	DstBlock		"Calculate Command Vectors\nType 4 KR explicit"
 	DstPort			1
       }
     }
     Line {
+      ZOrder		      16
       SrcBlock		      "Rate Transition3"
       SrcPort		      1
       DstBlock		      "Calc Accel Vector\nType 4 KR explicit"
       DstPort		      1
     }
     Line {
+      ZOrder		      35
       SrcBlock		      "Numerical Element Calculations"
       SrcPort		      1
       Points		      [10, 0]
       Branch {
+	ZOrder			18
 	DstBlock		"Rate Transition2"
 	DstPort			1
       }
       Branch {
+	ZOrder			19
 	Points			[0, 50]
 	DstBlock		"To Workspace1"
 	DstPort			1
       }
     }
     Line {
+      ZOrder		      20
       SrcBlock		      "Rate Transition1"
       SrcPort		      1
       Points		      [75, 0]
       Branch {
+	ZOrder			21
 	DstBlock		"Type 4 Calcs"
 	DstPort			2
       }
       Branch {
+	ZOrder			22
 	DstBlock		"To Workspace2"
 	DstPort			1
       }
     }
     Line {
+      ZOrder		      23
       SrcBlock		      "Calc Accel Vector\nType 4 KR explicit"
       SrcPort		      1
       DstBlock		      "Unit Delay"
       DstPort		      1
     }
     Line {
+      ZOrder		      24
       SrcBlock		      "Type 4 Calcs"
       SrcPort		      1
       DstBlock		      "Rate Transition3"
       DstPort		      1
     }
     Line {
+      ZOrder		      25
       SrcBlock		      "Type 4 Calcs"
       SrcPort		      2
       DstBlock		      "Rate Transition4"
       DstPort		      1
     }
     Line {
+      ZOrder		      26
       SrcBlock		      "Rate Transition6"
       SrcPort		      1
       Points		      [0, 10]
       Branch {
+	ZOrder			27
 	DstBlock		"Type 4 Calcs"
 	DstPort			1
       }
       Branch {
+	ZOrder			28
 	DstBlock		"To Workspace3"
 	DstPort			1
       }
     }
     Line {
+      ZOrder		      29
       SrcBlock		      "Rate Transition4"
       SrcPort		      1
       DstBlock		      "Calc Accel Vector\nType 4 KR explicit"
       DstPort		      2
     }
     Line {
+      ZOrder		      30
       SrcBlock		      "Actuators"
       SrcPort		      1
       Points		      [93, 0]
       Branch {
+	ZOrder			31
 	Points			[0, 40]
 	DstBlock		"To Workspace4"
 	DstPort			1
       }
       Branch {
+	ZOrder			32
 	Points			[134, 0; 0, -130]
 	DstBlock		"Calc Accel Vector\nType 4 KR explicit"
 	DstPort			4
@@ -2995,10 +3247,9 @@ Model {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.6 (R2011b) dated Jan 25 2012, 21:03:37
+#    Stateflow Version 7.6 (R2013a) dated Aug  8 2013, 23:20:01
 #
 #
-
 
 Stateflow {
   machine {
@@ -3007,23 +3258,25 @@ Stateflow {
     created		    "01-Jan-2006 12:00:00"
     isLibrary		    0
     firstTarget		    60
-    sfVersion		    76014001.00040001
+    sfVersion		    76014001.0016
   }
   chart {
     id			    2
     name		    "Numerical Element Calculations"
-    windowPosition	    [611.25 286.083 213 384.75]
+    windowPosition	    [815 198.75 230 645]
     viewLimits		    [0 169.5 0 348.75]
     screen		    [1 1 1920 1200 1.333333333333333]
     treeNode		    [0 3 0 0]
-    firstTransition	    5
-    firstJunction	    4
+    firstTransition	    15
+    firstJunction	    14
     viewObj		    2
     machine		    1
+    subviewS {
+    }
     ssIdHighWaterMark	    32
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    6
+    firstData		    4
     chartFileNumber	    1
     disableImplicitCasting  1
     eml {
@@ -3148,296 +3401,299 @@ Stateflow {
       "B'*ss   * ( Element.wi(i) * Element.L/2 );\n\n    end\n\n    % Restoring force and stiffness matrix\n    Restori"
       "ngForce = Element.avq' * s;\n\n    if( RigidLinkNo )\n        RestoringForce = TR' * RestoringForce;  \n    end\n"
       "end\n\n%% Element 7\nfunction [Element,RestoringForce] = GetRestoringForce_Type7(Element, Displacement, RigidLin"
-      "kNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n    % Get the displacement Ue (6x1) vector o"
-      "f the element in global coordinates\n    Ue = zeros(6,1);\n    dof=zeros(6,1);\n    dof(1,1)=Element.Nodes(1).UX"
-      ";\n    dof(2,1)=Element.Nodes(1).UY;\n    dof(3,1)=Element.Nodes(1).THETA;\n    dof(4,1)=Element.Nodes(2).UX;\n "
-      "   dof(5,1)=Element.Nodes(2).UY;\n    dof(6,1)=Element.Nodes(2).THETA;\n    for i=1:6\n        if dof(i,1) ~= -1"
-      "\n            Ue(i,1)=Displacement(dof(i,1),1);\n        end\n    end\n\n    % Calculation Restoring Force, cons"
-      "idering the Rigid Links if used\n    if( RigidLinkNo )\n        TR = RigidLinkTransformation2Nodes(Element.Nodes"
-      "(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);        "
-      "\n        Ue = TR * Ue; \n    end       \n\n    if Element.CO==1\n        du=(Ue+Element.resdq)-Element.Uprev;\n"
-      "    else\n        du=Ue -Element.Uprev; % The incremental displacement vector du of the element in global coordi"
-      "nates \n    end\n    Element.Uprev=Ue; %Update Uprev of element for use in next state determination call\n\n    "
-      "% element deformation % geometry restricted to 1,2 plane (x,y)\n    dx = Element.xyj(1,1) - Element.xyi(1,1); \n"
-      "    dy = Element.xyj(2,1) - Element.xyi(2,1);\n    L = sqrt(dx*dx+dy*dy);\n    dx = dx / L;\n    dy = dy / L;\n\n"
-      "    % Form transformation matrix from element in global coordinate to basic system\n    avq  = [ -dy/L  dx/L  1 "
-      " dy/L -dx/L  0;\n           -dy/L  dx/L  0  dy/L -dx/L  1;\n           -dx   -dy    0  dx    dy    0];\n\n    % "
-      "Incremental basic deformations\n    dv = avq * du;        \n\n    % Basic forces from previous load step\n    si"
-      " = Element.si; %momentI, momentJ, axial\n    \n    % Initialize ds for iteration\n    ds = zeros(3,1); %deltaMom"
-      "entI, deltaMomentJ, deltaAxial\n\n    % Interpolation functions for equilibrium evaluated at integration points\n"
-      "    x  = (  Element.xi + 1. ) / 2.;   \n    b1 = -( 1. - x );\n    b2 =        x;      \n    b3 = -1./L;\n    b4"
-      " = ones(size(x));\n\n    % initialize incremental section deformations\n    dvsecs = zeros(2,Element.nIP);\n    "
-      "\n    vr = dv; % Predefine vr\n    % Iterate to satisfy compatibility \n    for k =1:Element.maxIter\n  	\n     "
-      "   % Compute residual and basic flexibility by summing \n        % section properties over element length\n     "
-      "   vr = dv;\n        fb = zeros(3);\n        si = Element.si; %momentI, momentJ, axial\n        % loop over each"
-      " section along the element length\n        for i=1:Element.nIP\n            % transformaion matrix \n           "
-      " b = [ b1(i) b2(i) 0;\n                  0     0    b4(i)];\n              \n            % section force, moment"
-      ", axial, and shear \n            ss = b * ( ds + si );\n            \n            % Given section force, determi"
-      "ne section deformation iteratively\n            % Initialize vector of dvs for iteration   \n            dvs = z"
-      "eros(2,1);\n            \n            % given section deformation, determine section force\n            [jthss, "
-      "ks] = SectionState(Element.sections(i), dvs);   \n            \n            % residual section force \n         "
-      "   sres     = ss - jthss;\n            dvs = ks \\ sres + dvs;    \n            \n             % store deformati"
-      "on of each section\n            dvsecs(:,i) = dvs;	\n            \n            % add section contribution to res"
-      "idual element deformation and flexibility\n            vr = vr - b' * dvs   * ( Element.wi(i) * L/2. );\n       "
-      "     fb = fb + b'*(ks\\b) * ( Element.wi(i) * L/2. ); \n        end\n        \n        % check Unbalanced force "
-      "  \n        UnbForce=fb\\vr;\n        NormUnb=((UnbForce(1)*L)^2+(UnbForce(2)*L)^2+(UnbForce(3))^2)^0.5;\n      "
-      "  TolFinal=max(Element.EAT,Element.ERT1*NormUnb);\n        if NormUnb < TolFinal\n            Element.NumIter=k;"
-      "\n            Element.EC=Element.EC+1;\n            Element.NUnbforce=NormUnb;\n            break;\n        end\n"
-      "        \n        ds = fb \\ vr + ds;\n        Element.NumIter=Element.maxIter;              \n    end\n    \n  "
-      "  % update section state with converged dvs\n    for i=1:Element.nIP\n        [ssc, ksc, Element.sections(i)] = "
-      "SectionState(Element.sections(i),dvsecs(:,i));    \n    end\n    \n    % update basic forces for element\n    El"
-      "ement.si = ds + si;\n    if Element.CO==1\n        Element.resdq = avq'*vr;    \n    end\n    \n    % Restoring "
-      "force and stiffness matrix\n    RestoringForce = avq' * Element.si;\n            \n    if( RigidLinkNo )\n      "
-      "  RestoringForce = TR' * RestoringForce;  \n    end    \nend\n\n\n%% Element 8\nfunction [Element,RestoringForce"
-      "] = GetRestoringForce_Type8(Element, Displacement, Velocity, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix"
-      ", RigidLinkSlaveMatrix)\n    % Get the displacement Ue (6x1) vector of the element in global coordinates\n    Ue"
-      "v = zeros(6,1);\n    Vev = zeros(6,1);\n    dof=zeros(6,1);\n    dof(1,1)=Element.Nodes(1).UX;\n    dof(2,1)=Ele"
-      "ment.Nodes(1).UY;\n    dof(3,1)=Element.Nodes(1).THETA;\n    dof(4,1)=Element.Nodes(2).UX;\n    dof(5,1)=Element"
-      ".Nodes(2).UY;\n    dof(6,1)=Element.Nodes(2).THETA;\n    for i=1:6\n        if dof(i,1) ~= -1\n            Uev(i"
-      ",1)=Displacement(dof(i,1),1);\n            Vev(i,1)=Velocity(dof(i,1),1);        \n        end\n    end\n\n    %"
-      " Calculation Restoring Force, considering the Rigid Links if used\n    if( RigidLinkNo )\n        TR = RigidLink"
-      "Transformation2Nodes(Element.Nodes(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatr"
-      "ix, RigidLinkSlaveMatrix);        \n        Uev = TR * Uev; \n        Vev = TR * Vev; \n    end \n\n    % Deform"
-      "ation and velocity\n    % if Element.dof ==1\n    Ue = Uev(Element.dof,1)-Uev(Element.dof+3,1);\n    Ve = Vev(El"
-      "ement.dof,1)-Vev(Element.dof+3,1);\n    % elseif Element.dof ==2\n    %     Ue = Uev(2,1)-Uev(5,1);\n    %     V"
-      "e = Vev(2,1)-Vev(5,1);\n    % else\n    %     Ue = Uev(3,1)-Uev(6,1);\n    %     Ve = Vev(3,1)-Vev(6,1);\n    % "
-      "end\n\n    % Incremental displacement and velocity\n    % the incremental deformation of the element \n    % Upd"
-      "ate max and min deformation history\n    % Element.prop.Dmax= max(Ue,Element.prop.Dmax); \n    % Element.prop.Dm"
-      "in= min(Ue,Element.prop.Dmin); \n    du = Ue - Element.Uprev;\n    [Element.prop kt Fs] = MaterialState(du, Elem"
-      "ent.prop, Ve);\n\n    RestoringForce=zeros(6,1);\n    RestoringForce(Element.dof,1)   = Fs;\n    RestoringForce("
-      "Element.dof+3,1) = -Fs;\n\n    if( RigidLinkNo )\n        RestoringForce = TR' * RestoringForce;  \n    end\n\n "
-      "   % Update Uprev\n    Element.Uprev=Ue; \nend\n\n\n%% Element 9\nfunction [Element,RestoringForce] = GetRestori"
-      "ngForce_Type9(Element, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n"
-      "\n%% Get the displacement Ue (12x1) vector of the element in global coordinates\nndof=12;  \nUe = zeros(ndof,1);"
-      "\ndof=zeros(ndof,1);\ndof(1,1)=Element.Nodes(1).UX;\ndof(2,1)=Element.Nodes(1).UY;\ndof(3,1)=Element.Nodes(1).TH"
-      "ETA;\ndof(4,1)=Element.Nodes(2).UX;\ndof(5,1)=Element.Nodes(2).UY;\ndof(6,1)=Element.Nodes(2).THETA;\ndof(7,1)=E"
-      "lement.Nodes(3).UX;\ndof(8,1)=Element.Nodes(3).UY;\ndof(9,1)=Element.Nodes(3).THETA;\ndof(10,1)=Element.Nodes(4)"
-      ".UX;\ndof(11,1)=Element.Nodes(4).UY;\ndof(12,1)=Element.Nodes(4).THETA;\n\nfor i=1:ndof\n    if dof(i,1) ~= -1\n"
-      "        Ue(i,1)=Displacement(dof(i,1),1);\n    end\nend\n\n% Calculation Restoring Force, considering the Rigid "
-      "Links if used\nif( RigidLinkNo )\n    TR = RigidLinkTransformation4Nodes(Element.Nodes(1).ID, Element.Nodes(2).I"
-      "D, Element.Nodes(3).ID, Element.Nodes(4).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlave"
-      "Matrix);        \n    Ue = TR * Ue; \nend   \n\n% The incremental displacement vector du of the element in globa"
-      "l coordinates\n% The element has 12 dofs\n% Update Uprev of element for use in next state determination call\ndu"
-      "=Ue-Element.Uprev;  \nElement.Uprev=Ue; \n\n% transform global node displacement to basic deformation\nv = Eleme"
-      "nt.avq*Ue;\n\n% compute element force\ns = zeros(9,1); \n\ns(1) = Element.kb1*v(1);\ns(2) = Element.kb2*v(2);\ns"
-      "(4) = Element.kb4*v(4);\ns(5) = Element.kb5*v(5);\ns(6) = Element.kb6*v(6);\ns(7) = Element.kb7*v(7);\ns(8) = El"
-      "ement.kb8*v(8);\ns(9) = Element.kb9*v(9);\n\ndv3 = Element.dx/Element.Width*du(10)-Element.dy/Element.Width*du(5"
-      ")-Element.dx/Element.Width*du(4)+Element.dy/Element.Width*du(11)-Element.Height/Element.Width*Element.dx/Element"
-      ".Width*du(2)...\n    +Element.Height/Element.Width*Element.dy/Element.Width*du(1)+Element.Height/Element.Width*E"
-      "lement.dx/Element.Width*du(8)-Element.Height/Element.Width*Element.dy/Element.Width*du(7);\n\n% compute shear de"
-      "formation mode\n[Element.ShearProp , tmp, s(3)]= MaterialState(dv3, Element.ShearProp, 0);\n\n% Restoring force "
-      "and stiffness matrix\nRestoringForce = Element.avq' * s;\n\nif( RigidLinkNo )\n    RestoringForce = TR' * Restor"
-      "ingForce;  \nend\n\n% function [pro] = trilinear(dx, pro)\n% \n% % calculate current deformation \n%     x = pro"
-      ".xprev + dx; \n% \n% if pro.YieldCode == 0\n% \n% 	pro.Fs1 = pro.Fs1+pro.K1*dx;\n%     pro.Fs2 = pro.Fs2+pro.K2*"
-      "dx;\n% 	% if it is beyond elastic range, limit to yield force\n% 	% and set m_nYieldCode to 1\n% 	if pro.Fs1 > p"
-      "ro.Fy1\n% 		\n%         pro.Fs1 = pro.Fy1 ;\n% 		pro.YieldCode = 1;\n%         \n%         if(pro.Fs2> pro.Fy2)\n"
-      "% 			pro.Fs2 = pro.Fy2 ;\n% 		    pro.YieldCode = 2;\n%         end\n%     elseif pro.Fs1 < -pro.Fy1\n% 		\n%   "
-      "      pro.Fs1 = -pro.Fy1;\n% 		pro.YieldCode = 1 ;\n%        \n% 		if pro.Fs2 < -pro.Fy2\n% 			pro.Fs2 = - pro.F"
-      "y2 ;\n% 		    pro.YieldCode = 2;\n%         end\n%     end\n% % 1st post-yielding region    \n% elseif pro.Yield"
-      "Code == 1\n%     \n%     % assume spring2 remain elastic\n%     pro.Fs2= pro.Fs2+pro.K2*dx;\n%     \n%     % kee"
-      "p loading\n%     if pro.Fs1*dx > 0.\n%         if pro.Fs2 > pro.Fy2\n%             pro.Fs2 = pro.Fy2;\n%        "
-      "     pro.YieldCode=2;            \n%         elseif pro.Fs2 < -pro.Fy2\n%             pro.Fs2 = -pro.Fy2;\n%    "
-      "         pro.YieldCode=2;\n%         end\n%         % unloading\n%     elseif pro.Fs1*dx < 0.\n%         pro.Fs1"
-      "= pro.Fs1 + pro.K1*dx;\n%         pro.YieldCode = 0;\n%         \n%         if pro.Fs1 < -pro.Fy1 \n%           "
-      "  pro.Fs1 = -pro.Fy1;\n%             pro.YieldCode = 1;\n%             if pro.Fs2 < -pro.Fy2\n%                 "
-      "pro.Fs2 = -pro.Fy2;\n%                 pro.YieldCode = 2;\n%             end\n%         elseif pro.Fs1 > pro.Fy1"
-      "\n%             pro.Fs1 = pro.Fy1;\n%             pro.YieldCode = 1;\n%             if pro.Fs2 > pro.Fy2\n%     "
-      "            pro.Fs2 = pro.Fy2;\n%                 pro.YieldCode = 2;\n%             end\n%         end\n%     en"
-      "d\n% elseif pro.YieldCode ==2\n%     % unloading\n% 	if (pro.Fs1*dx) < 0.\n% 		pro.Fs1 = pro.Fs1 + pro.K1*dx;\n%"
-      " 		pro.Fs2 = pro.Fs2 + pro.K2*dx;\n% 		pro.YieldCode = 0;\n% 		\n%         if pro.Fs1 < -pro.Fy1\n%             "
-      "pro.Fs1 = -pro.Fy1;\n% 			pro.YieldCode = 1;\n%             if pro.Fs2 < -pro.Fy2\n% 				pro.Fs2 = -pro.Fy2;\n% "
-      "				pro.YieldCode = 2;\n%             end            \n%         elseif pro.Fs1 > pro.Fy1\n% 			pro.Fs1 = pro.Fy"
-      "1;\n% 			pro.YieldCode = 1;\n%             if pro.Fs2> pro.Fy2\n% 				pro.Fs2 = pro.Fy2;\n% 				pro.YieldCode = "
-      "2;\n% 			end\n%         end\n%     end\n% end\n% \n% pro.Fs = pro.Fs1 + pro.Fs2 + pro.K3*x;\n% \n% % updata curr"
-      "ent state for next time step\n% if pro.YieldCode == 0\n%     pro.Kt = pro.K1 +pro.K2 +pro.K3;\n% elseif pro.Yiel"
-      "dCode == 1\n%     pro.Kt = pro.K2 +pro.K3;    \n% else\n%     pro.Kt = pro.K3;\n% end\n% pro.xprev = x;\n\nend\n"
-      "    \n\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-      "% Helper Functions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-      "%%%%%%%%%%%%%\n\n%% Rigid Link Tranformation Matrix Calculation for 2 Nodes, 6 DOF\nfunction TR = RigidLinkTrans"
-      "formation2Nodes(Node1ID, Node2ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n  "
-      "  % Rigid Link Calculations\n    TR = eye(6,6); % Transformation matrix for rigid link\n    if( RigidLinkNo )   "
-      " \n        % Find the row with the slave node, if it exists in the element\n        idx = 0;\n        for kk = 1"
-      ":RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node1ID)\n                idx = kk;\n                brea"
-      "k;\n            end\n        end\n        %idx=find(RigidLinkNodeID(:,2) == Node1ID); % find if a slave node exi"
-      "sts in the element\n        if ( idx )\n            TL=CalculateRigidLinkTransformation(RigidLinkMasterMatrix(id"
-      "x,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(idx,3));\n            jjj = 1"
-      "; % Node 1\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end\n        idx = 0;\n        fo"
-      "r kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node2ID)\n                idx = kk;\n            "
-      "    break;\n            end\n        end    \n        %idx=find(RigidLinkNodeID(:,2) == Node2ID); % find if a sl"
-      "ave node exists in the element\n        if ( idx )\n            TL=CalculateRigidLinkTransformation(RigidLinkMas"
-      "terMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(idx,3));         "
-      "   \n            jjj = 2; % Node 2\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end      "
-      "      \n    end\nend\n\n%% Rigid Link Tranformation Matrix Calculation for 4 Nodes, 12 DOF\nfunction TR = RigidL"
-      "inkTransformation4Nodes(Node1ID, Node2ID, Node3ID, Node4ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix,"
-      " RigidLinkSlaveMatrix)\n    % Rigid Link Calculations\n    TR = eye(12,12); % Transformation matrix for rigid li"
-      "nk\n    if( RigidLinkNo )    \n        % Find the row with the slave node, if it exists in the element\n        "
-      "idx = 0;\n        for kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node1ID)\n                idx"
-      " = kk;\n                break;\n            end\n        end\n        %idx=find(RigidLinkNodeID(:,2) == Node1ID)"
-      "; % find if a slave node exists in the element\n        if ( idx )\n            TL=CalculateRigidLinkTransformat"
-      "ion(RigidLinkMasterMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(i"
-      "dx,3));\n            jjj = 1; % Node 1\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end\n"
-      "        idx = 0;\n        for kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node2ID)\n           "
-      "     idx = kk;\n                break;\n            end\n        end    \n        %idx=find(RigidLinkNodeID(:,2)"
-      " == Node2ID); % find if a slave node exists in the element\n        if ( idx )\n            TL=CalculateRigidLin"
-      "kTransformation(RigidLinkMasterMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkS"
-      "laveMatrix(idx,3));            \n            jjj = 2; % Node 2\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*j"
-      "jj) = TL;\n        end                \n        % Find the row with the slave node, if it exists in the element\n"
-      "        idx = 0;\n        for kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node3ID)\n           "
-      "     idx = kk;\n                break;\n            end\n        end\n        %idx=find(RigidLinkNodeID(:,2) == "
-      "Node3ID); % find if a slave node exists in the element\n        if ( idx )\n            TL=CalculateRigidLinkTra"
-      "nsformation(RigidLinkMasterMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlave"
-      "Matrix(idx,3));\n            jjj = 3; % Node 3\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n     "
-      "   end\n        idx = 0;\n        for kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node4ID)\n   "
-      "             idx = kk;\n                break;\n            end\n        end    \n        %idx=find(RigidLinkNod"
-      "eID(:,2) == Node4ID); % find if a slave node exists in the element\n        if ( idx )\n            TL=Calculate"
-      "RigidLinkTransformation(RigidLinkMasterMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),Ri"
-      "gidLinkSlaveMatrix(idx,3));            \n            jjj = 4; % Node 4\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-"
-      "1)+1:3*jjj) = TL;\n        end          \n    end\nend\n\n%% Calculate Rigid Link Transformation\nfunction TL = "
-      "CalculateRigidLinkTransformation(MNXcoord, MNYcoord, SNXcoord, SNYcoord)\n    X1 = MNXcoord; Y1 = MNYcoord;\n   "
-      " X2 = SNXcoord;  Y2 = SNYcoord;\n    deltaX = X2 - X1;\n    deltaY = Y2 - Y1;\n    TL = [ 1 0 -deltaY;\n        "
-      "   0 1  deltaX;\n           0 0  1    ];\nend\n\n%% State determination for fiber section\nfunction [ss, ks, sec"
-      "] = SectionState( sec, dvs )\n% For section sec undergoing a change\n% in section deformation dvs=[curvature str"
-      "ain], compute\n% section forces SS=[moment axial] and the 2x2 tangents\n% section stiffness KS.\n    ks = zeros("
-      "2,2);\n    ss = zeros(2,1);  \n    numfib = length(sec.fibers);\n\n    % Loop over fibers\n    for i=1:numfib\n "
-      "       yi   = sec.fibers(i).yi;\n        area = sec.fibers(i).A;\n\n        % Change in strain\n        deps = y"
-      "i * dvs(1:2);\n\n        [sec.fibers(i).prop Et sc] = MaterialState(deps, sec.fibers(i).prop, 0 );        \n\n  "
-      "      % Integration -- add contribution of fiber \n        % for 3D --- following codes need to be modified\n   "
-      "     ks = ks + yi'*yi * (area*Et ); % may not need to do it\n        ss = ss + yi'    * (area*sc);\n    end\nend"
-      "\n\n%% Material Section State\nfunction [ mat Et sc] = MaterialState( dep, mat, vc)  \n    %MATERIALSTATE Summar"
-      "y of this function goes here\n    %   dep = incremental deformation at the current time step, except for\n    % "
-      "  Bouc-Wen model\n    %   mat = material data structure\n    %   vc  = 0 for other materials\n    %       = curr"
-      "ent velocity for Bouc-Wen material\n    %\n    switch  mat.Type\n        case 2\n            mat = bilinearMat(d"
-      "ep, mat);\n            Et = mat.Et;\n            sc = mat.sc;\n%       case 3\n        case 4\n            mat ="
-      " BoucWen(dep, mat, vc);\n            Et = mat.k;\n            sc = mat.Qj;\n        case 5\n            mat = tr"
-      "ilinear(dep, mat);\n            Et = mat.Kt;\n            sc = mat.Fs;\n%         case 6     \n        case 7\n "
-      "           mat = Concrete01(dep, mat);\n            Et = mat.Ttangent;\n            sc = mat.Cstress;\n        o"
-      "therwise\n            Et = 0;\n            sc = 0;\n    end\nend\n\n%% Bilinear Material Section State\nfunction"
-      " [mat] = bilinearMat(deps, mat )\n    %	[mat]=BILINEARMAT(deps,mat) For strain increment deps\n    %	and mat com"
-      "pute new properties for bilinear material.\n    %	mat.SY, mat.E, mat.EP are the yield stress,\n    %	first slop "
-      "and second slope respectively.  materialProp.SC,\n    %	mat.SB, materialSE are the current stress, back stress, "
-      "and\n    %	current strain, respectively. mat.ET is the current tangent modulus.\n\n    % Material properties\n  "
-      "  sigy = mat.sy;		% yield stress\n    E    = mat.e;		% E\n    Ep   = mat.ep;		% alpha*E\n\n    % State from last"
-      " converged load step\n    sig  = mat.sc;		% stress\n    sigb = mat.sb;		% backstress\n    code = mat.cd;		% yiel"
-      "d code\n                        %	=0, elastic\n                        %	=1, plastic\n\n    if code==0 || ( code"
-      "==1 && (sig-sigb)*deps < 0 )\n        % Strain to plastic loading from elastic state\n        deps1 = ( sign(dep"
-      "s) * sigy + sigb - sig ) / E;\n\n        % Elastic\n        sig  = sig + E * deps;\n        Et   = E;\n        c"
-      "ode = 0;\n\n        % Check if plasic loading from elastic state\n        if abs(deps) > abs(deps1)\n           "
-      " sig  = sig  + ( Ep - E ) * ( deps - deps1 );\n            sigb = sigb +   Ep       * ( deps - deps1 );\n       "
-      "     Et   = Ep;\n            code = 1;\n        end\n\n    else\n        % Continue plastic loading\n        sig"
-      "  = sig  + Ep * deps;\n        sigb = sigb + Ep * deps;\n        Et   = Ep;\n        code = 1;\n\n    end\n\n   "
-      " % Return updated state. \n    mat.sc = sig;\n    mat.sb = sigb;\n    mat.cd = code;\n    mat.es = mat.es + deps"
-      ";	\n    mat.Et = Et;\nend   \n\n%% BoucWen Material Section State\nfunction [BW]= BoucWen( dx, BW, vcur)\n    % "
-      "---------------------------------------------\n    % x,v: displacement and velocity\n    %   Q: restoring force\n"
-      "    %   z: hysteretic component\n    %  zj: z in next step, i.e. z_i+1\n    %  BW: numerous parameters for Bouc-"
-      "Wen model\n    %   i: step number\n\n    xcur =  dx + BW.Uprev;\n    % Fourth order R-K forward integration\n   "
-      " dz1 = dx*f(BW,vcur,BW.zj);\n    dz2 = dx*f(BW,vcur,BW.zj+dz1/2);\n    dz3 = dx*f(BW,vcur,BW.zj+dz2/2);\n    dz4"
-      " = dx*f(BW,vcur,BW.zj+dz3);\n    zj = BW.zj + (dz1+2*dz2+2*dz3+dz4)/6;\n\n    umax=(abs(BW.Dmin)+ BW.Dmax)*0.5; "
-      "   \n    BW.k=BW.k1*exp(-umax/BW.uref) + BW.k2;    \n    BW.Qj = BW.c*(abs(vcur)^BW.a)*sign(vcur) + BW.alpha*BW."
-      "k*xcur +...\n        (1-BW.alpha)*BW.k*BW.uy*zj;\n\n    % update deformation for next time step\n    BW.Uprev = "
-      "xcur;\n    BW.Dmax= max(xcur,BW.Dmax); \n    BW.Dmin= min(xcur,BW.Dmin); \n    BW.zj =  zj;\nend\n\n% BoucWen He"
-      "lper\nfunction y=f(BW,v,z)\n    % This function describes the nonlinear differential equation that governs\n    "
-      "% the hysteretic component, z.\n    % The returned value is \"dz/dx\" or \"z_dot/x_dot\"\n    y =(1/BW.uy)*(1-BW"
-      ".beta*sign(v)*abs(z)^BW.n*sign(z)-BW.gamma1*abs(z)^BW.n);\nend\n%%%%%%%%%%%%%%%%%%% End of Bouc-Wen Model %%%%%%"
-      "%%%%%%%%%%%%%%%%%% \n\n%% Trilinear Material Section State\nfunction [pro] = trilinear(dx, pro)\n    % calculate"
-      " current deformation \n        x = pro.xprev + dx; \n\n    if pro.YieldCode == 0\n\n        pro.Fs1 = pro.Fs1+pr"
-      "o.K1*dx;\n        pro.Fs2 = pro.Fs2+pro.K2*dx;\n        % if it is beyond elastic range, limit to yield force\n "
-      "       % and set m_nYieldCode to 1\n        if pro.Fs1 > pro.Fy1\n\n            pro.Fs1 = pro.Fy1 ;\n           "
-      " pro.YieldCode = 1;\n\n            if(pro.Fs2> pro.Fy2)\n                pro.Fs2 = pro.Fy2 ;\n                pr"
-      "o.YieldCode = 2;\n            end\n        elseif pro.Fs1 < -pro.Fy1\n\n            pro.Fs1 = -pro.Fy1;\n       "
-      "     pro.YieldCode = 1 ;\n\n            if pro.Fs2 < -pro.Fy2\n                pro.Fs2 = - pro.Fy2 ;\n          "
-      "      pro.YieldCode = 2;\n            end\n        end\n    % 1st post-yielding region    \n    elseif pro.Yield"
-      "Code == 1\n\n        % assume spring2 remain elastic\n        pro.Fs2= pro.Fs2+pro.K2*dx;\n\n        % keep load"
-      "ing\n        if pro.Fs1*dx > 0.\n            if pro.Fs2 > pro.Fy2\n                pro.Fs2 = pro.Fy2;\n         "
-      "       pro.YieldCode=2;            \n            elseif pro.Fs2 < -pro.Fy2\n                pro.Fs2 = -pro.Fy2;\n"
-      "                pro.YieldCode=2;\n            end\n            % unloading\n        elseif pro.Fs1*dx < 0.\n    "
-      "        pro.Fs1= pro.Fs1 + pro.K1*dx;\n            pro.YieldCode = 0;\n\n            if pro.Fs1 < -pro.Fy1 \n   "
-      "             pro.Fs1 = -pro.Fy1;\n                pro.YieldCode = 1;\n                if pro.Fs2 < -pro.Fy2\n   "
-      "                 pro.Fs2 = -pro.Fy2;\n                    pro.YieldCode = 2;\n                end\n            e"
-      "lseif pro.Fs1 > pro.Fy1\n                pro.Fs1 = pro.Fy1;\n                pro.YieldCode = 1;\n               "
-      " if pro.Fs2 > pro.Fy2\n                    pro.Fs2 = pro.Fy2;\n                    pro.YieldCode = 2;\n         "
-      "       end\n            end\n        end\n    elseif pro.YieldCode ==2\n        % unloading\n        if (pro.Fs1"
-      "*dx) < 0.\n            pro.Fs1 = pro.Fs1 + pro.K1*dx;\n            pro.Fs2 = pro.Fs2 + pro.K2*dx;\n            p"
-      "ro.YieldCode = 0;\n\n            if pro.Fs1 < -pro.Fy1\n                pro.Fs1 = -pro.Fy1;\n                pro"
-      ".YieldCode = 1;\n                if pro.Fs2 < -pro.Fy2\n                    pro.Fs2 = -pro.Fy2;\n               "
-      "     pro.YieldCode = 2;\n                end            \n            elseif pro.Fs1 > pro.Fy1\n                "
-      "pro.Fs1 = pro.Fy1;\n                pro.YieldCode = 1;\n                if pro.Fs2> pro.Fy2\n                   "
-      " pro.Fs2 = pro.Fy2;\n                    pro.YieldCode = 2;\n                end\n            end\n        end\n"
-      "    end\n\n    pro.Fs = pro.Fs1 + pro.Fs2 + pro.K3*x;\n\n    % updata current state for next time step\n    if p"
-      "ro.YieldCode == 0\n        pro.Kt = pro.K1 +pro.K2 +pro.K3;\n    elseif pro.YieldCode == 1\n        pro.Kt = pro"
-      ".K2 +pro.K3;    \n    else\n        pro.Kt = pro.K3;\n    end\n    pro.xprev = x;\nend\n\n%% Concrete01 Material"
-      " Section State\nfunction [mat] = Concrete01(dStrain , mat)\n\n    % Get the total strain     \n    mat.Tstrain ="
-      " dStrain + mat.Cstrain;\n    % Get the previous states\n    mat.TminStrain = mat.CminStrain;\n    mat.TendStrain"
-      " = mat.CendStrain;\n    mat.TunloadSlope = mat.CunloadSlope;\n    mat.Tstress = mat.Cstress;\n    mat.Ttangent ="
-      " mat.Ctangent;        \n    \n    % check for a quick return\n    if (mat.Tstrain > 0.0)\n        mat.Tstress = "
-      "1e-10;\n        mat.Ttangent = 0;%1e-10;\n    end    \n    \n    mat.TunloadSlope = mat.CunloadSlope;  \n  \n   "
-      " tempStress = mat.Cstress + mat.TunloadSlope*mat.Tstrain - mat.TunloadSlope*mat.Cstrain;\n  \n    % Material goe"
-      "s further into compression\n    if (mat.Tstrain < mat.Cstrain)   \n        mat.TminStrain = mat.CminStrain;\n   "
-      "     mat.TendStrain = mat.CendStrain;  \n    \n        [mat] = reload(mat);\n    \n        if (tempStress > mat."
-      "Tstress) \n            mat.Tstress = tempStress;\n            mat.Ttangent = mat.TunloadSlope;\n        end\n   "
-      " \n    % Material goes TOWARD tension\n    elseif (tempStress <= 0.0)\n        mat.Tstress = tempStress;\n      "
-      "  mat.Ttangent = mat.TunloadSlope;\n        \n    % Made it into tension\n    else\n        mat.Tstress = 1e-10;"
-      "\n        mat.Ttangent = 0;%1e-10;\n    end\n         \n    % Save states\n    mat.CminStrain = mat.TminStrain;\n"
-      "    mat.CendStrain = mat.TendStrain;\n    mat.CunloadSlope = mat.TunloadSlope;\n    mat.Cstress = mat.Tstress;\n"
-      "    mat.Ctangent = mat.Ttangent;\n    mat.Cstrain = mat.Tstrain;  \nend\n\n% Reload, Concrete01\nfunction [mat] "
-      "= reload(mat)\n\n    if (mat.Tstrain <= mat.TminStrain)     \n        mat.TminStrain = mat.Tstrain;\n    \n     "
-      "   % Determine point on envelope\n        [mat] = envelope(mat);     \n        [mat] = unload(mat);     \n    el"
-      "seif (mat.Tstrain <= mat.TendStrain) \n        mat.Ttangent = mat.TunloadSlope;\n        mat.Tstress = mat.Ttang"
-      "ent*(mat.Tstrain-mat.TendStrain);\n    else \n        mat.Tstress = 1e-10;\n        mat.Ttangent = 0;%1e-10;\n  "
-      "  end \nend\n    \n% Envelope, Concrete01\nfunction [mat] = envelope(mat)  \n\n    if (mat.Tstrain > mat.epsc0) "
-      "\n        eta = mat.Tstrain/mat.epsc0;\n        mat.Tstress = mat.fpc*(2*eta-eta*eta);\n        Ec0 = 2.0*mat.fp"
-      "c/mat.epsc0;  % changed\n        mat.Ttangent = Ec0*(1.0-eta); % changed\n    elseif (mat.Tstrain > mat.epscu) \n"
-      "        mat.Ttangent = (mat.fpc-mat.fpcu)/(mat.epsc0-mat.epscu);\n        mat.Tstress = mat.fpc + mat.Ttangent*("
-      "mat.Tstrain-mat.epsc0);\n    else \n        mat.Tstress = mat.fpcu;\n        mat.Ttangent = 1e-10;\n    end\nend"
-      "\n\n% Unload, Concrete01\nfunction [mat] = unload(mat)   \n    DBL_EPSILON=2.2204460492503131e-16;\n  \n    temp"
-      "Strain = mat.TminStrain;\n  \n    if (tempStrain < mat.epscu)\n        tempStrain = mat.epscu;\n    end\n    eta"
-      " = tempStrain/mat.epsc0;\n    ratio = 0.707*(eta-2.0) + 0.834;\n    if (eta < 2.0)\n        ratio = 0.145*eta*et"
-      "a + 0.13*eta;\n    end\n    mat.TendStrain = ratio*mat.epsc0;\n    temp1 = mat.TminStrain - mat.TendStrain;\n   "
-      " Ec0 = 2.0*mat.fpc/mat.epsc0;  % changed\n    temp2 = mat.Tstress/Ec0;   % changed\n  \n    if (temp1 > -DBL_EPS"
-      "ILON) % temp1 should always be negative\n        mat.TunloadSlope = Ec0;  % changed\n    elseif (temp1 <= temp2)"
-      "\n        mat.TendStrain = mat.TminStrain - temp1;\n        mat.TunloadSlope = mat.Tstress/temp1;\n    else \n  "
-      "      mat.TendStrain = mat.TminStrain - temp2;\n        mat.TunloadSlope = Ec0;  % changed\n    end\nend\n%%%%%%"
-      "%%%%%%%%%%%%%%%%%%End of Concrete01 Material%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n"
+      "kNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix, maxIter, EAT, ERT, CO)\n    % Get the displac"
+      "ement Ue (6x1) vector of the element in global coordinates\n    Ue = zeros(6,1);\n    dof=zeros(6,1);\n    dof(1"
+      ",1)=Element.Nodes(1).UX;\n    dof(2,1)=Element.Nodes(1).UY;\n    dof(3,1)=Element.Nodes(1).THETA;\n    dof(4,1)="
+      "Element.Nodes(2).UX;\n    dof(5,1)=Element.Nodes(2).UY;\n    dof(6,1)=Element.Nodes(2).THETA;\n    for i=1:6\n  "
+      "      if dof(i,1) ~= -1\n            Ue(i,1)=Displacement(dof(i,1),1);\n        end\n    end\n\n    % Calculatio"
+      "n Restoring Force, considering the Rigid Links if used\n    if( RigidLinkNo )\n        TR = RigidLinkTransformat"
+      "ion2Nodes(Element.Nodes(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLi"
+      "nkSlaveMatrix);        \n        Ue = TR * Ue; \n    end       \n\n    du=Ue -Element.Uprev; % The incremental d"
+      "isplacement vector du of the element in global coordinates \n\n\n    Element.Uprev=Ue; %Update Uprev of element "
+      "for use in next state determination call\n\n    % element defomration % geometry restricted to 1,2 plane (x,y)\n"
+      "    dx = Element.xyj(1,1) - Element.xyi(1,1); \n    dy = Element.xyj(2,1) - Element.xyi(2,1);\n    L = sqrt(dx*d"
+      "x+dy*dy);\n    dx = dx / L;\n    dy = dy / L;\n\n    % Form transformation matrix from element in global coordin"
+      "ate to basic system\n    avq  = [ -dy/L  dx/L  1.  dy/L -dx/L  0;\n           -dy/L  dx/L  0  dy/L -dx/L  1.;\n "
+      "          -dx   -dy    0  dx    dy    0];\n\n    % Incremental basic deformations\n    dv = avq * du;\n\n    % B"
+      "asic forces from previous load step\n    si = Element.si; %momentI, momentJ, axial\n\n    % Initialize ds for it"
+      "eration\n    ds = zeros(3,1); %deltaMomentI, deltaMomentJ, deltaAxial\n\n    % Interpolation functions for equil"
+      "ibrium evaluated at integration points\n    x  = (  Element.xi + 1. ) / 2.;   \n    b1 = -( 1. - x );\n    b2 = "
+      "       x;      \n    b3 = -1./L;\n    b4 = ones(size(x));\n\n    % initialize incremental section deformations\n"
+      "    dvsecs = zeros(2,Element.nIP);\n\n    %vr = dv;\n\n    % Iterate to satisfy compatibility \n    for k =1:Ele"
+      "ment.maxIter\n\n        % Compute residual and basic flexibility by summing \n        % section properties over "
+      "element length\n        vr = dv;\n        fb = zeros(3);\n        si = Element.si; %momentI, momentJ, axial\n   "
+      "     % loop over each section along the element length\n        for i=1:Element.nIP\n\n            % transformai"
+      "on matrix \n            b = [ b1(i) b2(i) 0;\n                   0     0    b4(i)];\n           %        b3    b"
+      "3    0]; \n            % section force, moment, axial, and shear \n            ss = b * ( ds + si );\n\n        "
+      "    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n            % Given section force, determine section d"
+      "eformation iteratively\n            % Initialize vector of dvs for iteration   \n             dvs = zeros(2,1);\n"
+      "\n            % Iterate on section equilibrium\n      %      for j=1:Element.maxIter\n\n                % given "
+      "section deformation, determine section force\n                [jthss, ks] = SectionState(Element.sections(i), dv"
+      "s);            \n                % residual section force \n                sres     = ss - jthss;\n            "
+      "    dvs = ks \\ sres + dvs;    \n\n\n\n      %      end\n            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+      "%%%%%%%%\n            % store deformation of each section\n            dvsecs(:,i) = dvs;				\n            % add"
+      " section contribution to residual element deformation and flexibility\n            vr = vr - b' * dvs   * ( Elem"
+      "ent.wi(i) * L/2. );\n            fb = fb + b'*(ks\\b) * ( Element.wi(i) * L/2. ); \n\n\n        end\n\n        %"
+      " check residual deformation \n    %     TolFinal=min(Element.EAT,Element.ERT1*norm(vr));\n    %     if norm(vr) "
+      "< TolFinal\n    %         Element.NumIter=k;\n    %         Element.EC=Element.EC+1;\n    % 		break;\n    %     "
+      "end\n\n    % check Unbalanced force   \n      UnbForce=fb\\vr;\n      NormUnb=((UnbForce(1)*L)^2+(UnbForce(2)*L)"
+      "^2+(UnbForce(3))^2)^0.5;\n      TolFinal=max(Element.EAT,Element.ERT1*NormUnb);\n        if NormUnb < TolFinal\n"
+      "            Element.NumIter=k;\n            Element.EC=Element.EC+1;\n            Element.NUnbforce=NormUnb;\n  "
+      "          break;\n        end\n    if Element.CO==1\n        ds = fb \\ vr + ds; \n    end\n     Element.NumIter"
+      "=Element.maxIter;  \n    end\n\n    % update section state with converged dvs\n    for i=1:Element.nIP\n        "
+      "[ssc, ksc, Element.sections(i)] = SectionState(Element.sections(i),...\n            dvsecs(:,i));    \n    end\n"
+      "\n    % update basic forces for element\n    Element.si = ds + si;\n\n    % Restoring force and stiffness matrix"
+      "\nRestoringForce = avq' * Element.si;\n            \n    if( RigidLinkNo )\n        RestoringForce = TR' * Resto"
+      "ringForce;  \n    end    \nend\n\n\n%% Element 8\nfunction [Element,RestoringForce] = GetRestoringForce_Type8(El"
+      "ement, Displacement, Velocity, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n    %"
+      " Get the displacement Ue (6x1) vector of the element in global coordinates\n    Uev = zeros(6,1);\n    Vev = zer"
+      "os(6,1);\n    dof=zeros(6,1);\n    dof(1,1)=Element.Nodes(1).UX;\n    dof(2,1)=Element.Nodes(1).UY;\n    dof(3,1"
+      ")=Element.Nodes(1).THETA;\n    dof(4,1)=Element.Nodes(2).UX;\n    dof(5,1)=Element.Nodes(2).UY;\n    dof(6,1)=El"
+      "ement.Nodes(2).THETA;\n    for i=1:6\n        if dof(i,1) ~= -1\n            Uev(i,1)=Displacement(dof(i,1),1);\n"
+      "            Vev(i,1)=Velocity(dof(i,1),1);        \n        end\n    end\n\n    % Calculation Restoring Force, c"
+      "onsidering the Rigid Links if used\n    if( RigidLinkNo )\n        TR = RigidLinkTransformation2Nodes(Element.No"
+      "des(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);     "
+      "   \n        Uev = TR * Uev; \n        Vev = TR * Vev; \n    end \n\n    % Deformation and velocity\n    % if El"
+      "ement.dof ==1\n    Ue = Uev(Element.dof,1)-Uev(Element.dof+3,1);\n    Ve = Vev(Element.dof,1)-Vev(Element.dof+3,"
+      "1);\n    % elseif Element.dof ==2\n    %     Ue = Uev(2,1)-Uev(5,1);\n    %     Ve = Vev(2,1)-Vev(5,1);\n    % e"
+      "lse\n    %     Ue = Uev(3,1)-Uev(6,1);\n    %     Ve = Vev(3,1)-Vev(6,1);\n    % end\n\n    % Incremental displa"
+      "cement and velocity\n    % the incremental deformation of the element \n    % Update max and min deformation his"
+      "tory\n    % Element.prop.Dmax= max(Ue,Element.prop.Dmax); \n    % Element.prop.Dmin= min(Ue,Element.prop.Dmin); "
+      "\n    du = Ue - Element.Uprev;\n    [Element.prop kt Fs] = MaterialState(du, Element.prop, Ve);\n\n    Restoring"
+      "Force=zeros(6,1);\n    RestoringForce(Element.dof,1)   = Fs;\n    RestoringForce(Element.dof+3,1) = -Fs;\n\n    "
+      "if( RigidLinkNo )\n        RestoringForce = TR' * RestoringForce;  \n    end\n\n    % Update Uprev\n    Element."
+      "Uprev=Ue; \nend\n\n\n%% Element 9\nfunction [Element,RestoringForce] = GetRestoringForce_Type9(Element, Displace"
+      "ment, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n\n%% Get the displacement Ue ("
+      "12x1) vector of the element in global coordinates\nndof=12;  \nUe = zeros(ndof,1);\ndof=zeros(ndof,1);\ndof(1,1)"
+      "=Element.Nodes(1).UX;\ndof(2,1)=Element.Nodes(1).UY;\ndof(3,1)=Element.Nodes(1).THETA;\ndof(4,1)=Element.Nodes(2"
+      ").UX;\ndof(5,1)=Element.Nodes(2).UY;\ndof(6,1)=Element.Nodes(2).THETA;\ndof(7,1)=Element.Nodes(3).UX;\ndof(8,1)="
+      "Element.Nodes(3).UY;\ndof(9,1)=Element.Nodes(3).THETA;\ndof(10,1)=Element.Nodes(4).UX;\ndof(11,1)=Element.Nodes("
+      "4).UY;\ndof(12,1)=Element.Nodes(4).THETA;\n\nfor i=1:ndof\n    if dof(i,1) ~= -1\n        Ue(i,1)=Displacement(d"
+      "of(i,1),1);\n    end\nend\n\n% Calculation Restoring Force, considering the Rigid Links if used\nif( RigidLinkNo"
+      " )\n    TR = RigidLinkTransformation4Nodes(Element.Nodes(1).ID, Element.Nodes(2).ID, Element.Nodes(3).ID, Elemen"
+      "t.Nodes(4).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);        \n    Ue = TR "
+      "* Ue; \nend   \n\n% The incremental displacement vector du of the element in global coordinates\n% The element h"
+      "as 12 dofs\n% Update Uprev of element for use in next state determination call\ndu=Ue-Element.Uprev;  \nElement."
+      "Uprev=Ue; \n\n% transform global node displacement to basic deformation\nv = Element.avq*Ue;\n\n% compute elemen"
+      "t force\ns = zeros(9,1); \n\ns(1) = Element.kb1*v(1);\ns(2) = Element.kb2*v(2);\ns(4) = Element.kb4*v(4);\ns(5) "
+      "= Element.kb5*v(5);\ns(6) = Element.kb6*v(6);\ns(7) = Element.kb7*v(7);\ns(8) = Element.kb8*v(8);\ns(9) = Elemen"
+      "t.kb9*v(9);\n\ndv3 = Element.dx/Element.Width*du(10)-Element.dy/Element.Width*du(5)-Element.dx/Element.Width*du("
+      "4)+Element.dy/Element.Width*du(11)-Element.Height/Element.Width*Element.dx/Element.Width*du(2)...\n    +Element."
+      "Height/Element.Width*Element.dy/Element.Width*du(1)+Element.Height/Element.Width*Element.dx/Element.Width*du(8)-"
+      "Element.Height/Element.Width*Element.dy/Element.Width*du(7);\n\n% compute shear deformation mode\n[Element.Shear"
+      "Prop , tmp, s(3)]= MaterialState(dv3, Element.ShearProp, 0);\n\n% Restoring force and stiffness matrix\nRestorin"
+      "gForce = Element.avq' * s;\n\nif( RigidLinkNo )\n    RestoringForce = TR' * RestoringForce;  \nend\n\n% function"
+      " [pro] = trilinear(dx, pro)\n% \n% % calculate current deformation \n%     x = pro.xprev + dx; \n% \n% if pro.Yi"
+      "eldCode == 0\n% \n% 	pro.Fs1 = pro.Fs1+pro.K1*dx;\n%     pro.Fs2 = pro.Fs2+pro.K2*dx;\n% 	% if it is beyond elas"
+      "tic range, limit to yield force\n% 	% and set m_nYieldCode to 1\n% 	if pro.Fs1 > pro.Fy1\n% 		\n%         pro.Fs"
+      "1 = pro.Fy1 ;\n% 		pro.YieldCode = 1;\n%         \n%         if(pro.Fs2> pro.Fy2)\n% 			pro.Fs2 = pro.Fy2 ;\n% 	"
+      "	    pro.YieldCode = 2;\n%         end\n%     elseif pro.Fs1 < -pro.Fy1\n% 		\n%         pro.Fs1 = -pro.Fy1;\n% "
+      "		pro.YieldCode = 1 ;\n%        \n% 		if pro.Fs2 < -pro.Fy2\n% 			pro.Fs2 = - pro.Fy2 ;\n% 		    pro.YieldCode ="
+      " 2;\n%         end\n%     end\n% % 1st post-yielding region    \n% elseif pro.YieldCode == 1\n%     \n%     % as"
+      "sume spring2 remain elastic\n%     pro.Fs2= pro.Fs2+pro.K2*dx;\n%     \n%     % keep loading\n%     if pro.Fs1*d"
+      "x > 0.\n%         if pro.Fs2 > pro.Fy2\n%             pro.Fs2 = pro.Fy2;\n%             pro.YieldCode=2;        "
+      "    \n%         elseif pro.Fs2 < -pro.Fy2\n%             pro.Fs2 = -pro.Fy2;\n%             pro.YieldCode=2;\n% "
+      "        end\n%         % unloading\n%     elseif pro.Fs1*dx < 0.\n%         pro.Fs1= pro.Fs1 + pro.K1*dx;\n%    "
+      "     pro.YieldCode = 0;\n%         \n%         if pro.Fs1 < -pro.Fy1 \n%             pro.Fs1 = -pro.Fy1;\n%     "
+      "        pro.YieldCode = 1;\n%             if pro.Fs2 < -pro.Fy2\n%                 pro.Fs2 = -pro.Fy2;\n%       "
+      "          pro.YieldCode = 2;\n%             end\n%         elseif pro.Fs1 > pro.Fy1\n%             pro.Fs1 = pro"
+      ".Fy1;\n%             pro.YieldCode = 1;\n%             if pro.Fs2 > pro.Fy2\n%                 pro.Fs2 = pro.Fy2"
+      ";\n%                 pro.YieldCode = 2;\n%             end\n%         end\n%     end\n% elseif pro.YieldCode ==2"
+      "\n%     % unloading\n% 	if (pro.Fs1*dx) < 0.\n% 		pro.Fs1 = pro.Fs1 + pro.K1*dx;\n% 		pro.Fs2 = pro.Fs2 + pro.K2"
+      "*dx;\n% 		pro.YieldCode = 0;\n% 		\n%         if pro.Fs1 < -pro.Fy1\n%             pro.Fs1 = -pro.Fy1;\n% 			pro"
+      ".YieldCode = 1;\n%             if pro.Fs2 < -pro.Fy2\n% 				pro.Fs2 = -pro.Fy2;\n% 				pro.YieldCode = 2;\n%    "
+      "         end            \n%         elseif pro.Fs1 > pro.Fy1\n% 			pro.Fs1 = pro.Fy1;\n% 			pro.YieldCode = 1;\n"
+      "%             if pro.Fs2> pro.Fy2\n% 				pro.Fs2 = pro.Fy2;\n% 				pro.YieldCode = 2;\n% 			end\n%         end\n"
+      "%     end\n% end\n% \n% pro.Fs = pro.Fs1 + pro.Fs2 + pro.K3*x;\n% \n% % updata current state for next time step\n"
+      "% if pro.YieldCode == 0\n%     pro.Kt = pro.K1 +pro.K2 +pro.K3;\n% elseif pro.YieldCode == 1\n%     pro.Kt = pro"
+      ".K2 +pro.K3;    \n% else\n%     pro.Kt = pro.K3;\n% end\n% pro.xprev = x;\n\nend\n    \n\n%%%%%%%%%%%%%%%%%%%%%%"
+      "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n%%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Functions %%%%%%%%%%%"
+      "%%%%%%%%%%%%%%%%%%\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n%% Rigid Link"
+      " Tranformation Matrix Calculation for 2 Nodes, 6 DOF\nfunction TR = RigidLinkTransformation2Nodes(Node1ID, Node2"
+      "ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n    % Rigid Link Calculations\n "
+      "   TR = eye(6,6); % Transformation matrix for rigid link\n    if( RigidLinkNo )    \n        % Find the row with"
+      " the slave node, if it exists in the element\n        idx = 0;\n        for kk = 1:RigidLinkNo\n            if ("
+      "RigidLinkNodeID(kk,2) == Node1ID)\n                idx = kk;\n                break;\n            end\n        e"
+      "nd\n        %idx=find(RigidLinkNodeID(:,2) == Node1ID); % find if a slave node exists in the element\n        if"
+      " ( idx )\n            TL=CalculateRigidLinkTransformation(RigidLinkMasterMatrix(idx,2),RigidLinkMasterMatrix(idx"
+      ",3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(idx,3));\n            jjj = 1; % Node 1\n            TR(3*("
+      "jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end\n        idx = 0;\n        for kk = 1:RigidLinkNo\n        "
+      "    if (RigidLinkNodeID(kk,2) == Node2ID)\n                idx = kk;\n                break;\n            end\n "
+      "       end    \n        %idx=find(RigidLinkNodeID(:,2) == Node2ID); % find if a slave node exists in the element"
+      "\n        if ( idx )\n            TL=CalculateRigidLinkTransformation(RigidLinkMasterMatrix(idx,2),RigidLinkMast"
+      "erMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(idx,3));            \n            jjj = 2; % No"
+      "de 2\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end            \n    end\nend\n\n%% Rig"
+      "id Link Tranformation Matrix Calculation for 4 Nodes, 12 DOF\nfunction TR = RigidLinkTransformation4Nodes(Node1I"
+      "D, Node2ID, Node3ID, Node4ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n    % "
+      "Rigid Link Calculations\n    TR = eye(12,12); % Transformation matrix for rigid link\n    if( RigidLinkNo )    \n"
+      "        % Find the row with the slave node, if it exists in the element\n        idx = 0;\n        for kk = 1:Ri"
+      "gidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node1ID)\n                idx = kk;\n                break;\n"
+      "            end\n        end\n        %idx=find(RigidLinkNodeID(:,2) == Node1ID); % find if a slave node exists "
+      "in the element\n        if ( idx )\n            TL=CalculateRigidLinkTransformation(RigidLinkMasterMatrix(idx,2)"
+      ",RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(idx,3));\n            jjj = 1; % "
+      "Node 1\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end\n        idx = 0;\n        for kk"
+      " = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node2ID)\n                idx = kk;\n                "
+      "break;\n            end\n        end    \n        %idx=find(RigidLinkNodeID(:,2) == Node2ID); % find if a slave "
+      "node exists in the element\n        if ( idx )\n            TL=CalculateRigidLinkTransformation(RigidLinkMasterM"
+      "atrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(idx,3));            \n"
+      "            jjj = 2; % Node 2\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end           "
+      "     \n        % Find the row with the slave node, if it exists in the element\n        idx = 0;\n        for kk"
+      " = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node3ID)\n                idx = kk;\n                "
+      "break;\n            end\n        end\n        %idx=find(RigidLinkNodeID(:,2) == Node3ID); % find if a slave node"
+      " exists in the element\n        if ( idx )\n            TL=CalculateRigidLinkTransformation(RigidLinkMasterMatri"
+      "x(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(idx,3));\n            jjj"
+      " = 3; % Node 3\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end\n        idx = 0;\n      "
+      "  for kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node4ID)\n                idx = kk;\n        "
+      "        break;\n            end\n        end    \n        %idx=find(RigidLinkNodeID(:,2) == Node4ID); % find if "
+      "a slave node exists in the element\n        if ( idx )\n            TL=CalculateRigidLinkTransformation(RigidLin"
+      "kMasterMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(idx,3));     "
+      "       \n            jjj = 4; % Node 4\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end  "
+      "        \n    end\nend\n\n%% Calculate Rigid Link Transformation\nfunction TL = CalculateRigidLinkTransformation"
+      "(MNXcoord, MNYcoord, SNXcoord, SNYcoord)\n    X1 = MNXcoord; Y1 = MNYcoord;\n    X2 = SNXcoord;  Y2 = SNYcoord;\n"
+      "    deltaX = X2 - X1;\n    deltaY = Y2 - Y1;\n    TL = [ 1 0 -deltaY;\n           0 1  deltaX;\n           0 0  "
+      "1    ];\nend\n\n%% State determination for fiber section\nfunction [ss, ks, sec] = SectionState( sec, dvs )\n% F"
+      "or section sec undergoing a change\n% in section deformation dvs=[curvature strain], compute\n% section forces S"
+      "S=[moment axial] and the 2x2 tangents\n% section stiffness KS.\n    ks = zeros(2,2);\n    ss = zeros(2,1);  \n  "
+      "  numfib = length(sec.fibers);\n\n    % Loop over fibers\n    for i=1:numfib\n        yi   = sec.fibers(i).yi;\n"
+      "        area = sec.fibers(i).A;\n\n        % Change in strain\n        deps = yi * dvs(1:2);\n\n        [sec.fib"
+      "ers(i).prop Et sc] = MaterialState(deps, sec.fibers(i).prop, 0 );        \n\n        % Integration -- add contri"
+      "bution of fiber \n        % for 3D --- following codes need to be modified\n        ks = ks + yi'*yi * (area*Et "
+      "); % may not need to do it\n        ss = ss + yi'    * (area*sc);\n    end\nend\n\n%% Material Section State\nfu"
+      "nction [ mat Et sc] = MaterialState( dep, mat, vc)  \n    %MATERIALSTATE Summary of this function goes here\n   "
+      " %   dep = incremental deformation at the current time step, except for\n    %   Bouc-Wen model\n    %   mat = m"
+      "aterial data structure\n    %   vc  = 0 for other materials\n    %       = current velocity for Bouc-Wen materia"
+      "l\n    %\n    switch  mat.Type\n        case 2\n            mat = bilinearMat(dep, mat);\n            Et = mat.E"
+      "t;\n            sc = mat.sc;\n%       case 3\n        case 4\n            mat = BoucWen(dep, mat, vc);\n        "
+      "    Et = mat.k;\n            sc = mat.Qj;\n        case 5\n            mat = trilinear(dep, mat);\n            E"
+      "t = mat.Kt;\n            sc = mat.Fs;\n%         case 6     \n        case 7\n            mat = Concrete01(dep, "
+      "mat);\n            Et = mat.Ttangent;\n            sc = mat.Cstress;\n        case 9\n            mat = Steel02("
+      "dep, mat);\n            Et = mat.e;\n            sc = mat.sig;\n        otherwise\n            Et = 0;\n        "
+      "    sc = 0;\n    end\nend\n\n%% Bilinear Material Section State\nfunction [mat] = bilinearMat(deps, mat )\n    %"
+      "	[mat]=BILINEARMAT(deps,mat) For strain increment deps\n    %	and mat compute new properties for bilinear materi"
+      "al.\n    %	mat.SY, mat.E, mat.EP are the yield stress,\n    %	first slop and second slope respectively.  materia"
+      "lProp.SC,\n    %	mat.SB, materialSE are the current stress, back stress, and\n    %	current strain, respectively"
+      ". mat.ET is the current tangent modulus.\n\n    % Material properties\n    sigy = mat.sy;		% yield stress\n    E"
+      "    = mat.e;		% E\n    Ep   = mat.ep;		% alpha*E\n\n    % State from last converged load step\n    sig  = mat.sc"
+      ";		% stress\n    sigb = mat.sb;		% backstress\n    code = mat.cd;		% yield code\n                        %	=0, e"
+      "lastic\n                        %	=1, plastic\n\n    if code==0 || ( code==1 && (sig-sigb)*deps < 0 )\n        %"
+      " Strain to plastic loading from elastic state\n        deps1 = ( sign(deps) * sigy + sigb - sig ) / E;\n\n      "
+      "  % Elastic\n        sig  = sig + E * deps;\n        Et   = E;\n        code = 0;\n\n        % Check if plasic l"
+      "oading from elastic state\n        if abs(deps) > abs(deps1)\n            sig  = sig  + ( Ep - E ) * ( deps - de"
+      "ps1 );\n            sigb = sigb +   Ep       * ( deps - deps1 );\n            Et   = Ep;\n            code = 1;\n"
+      "        end\n\n    else\n        % Continue plastic loading\n        sig  = sig  + Ep * deps;\n        sigb = si"
+      "gb + Ep * deps;\n        Et   = Ep;\n        code = 1;\n\n    end\n\n    % Return updated state. \n    mat.sc = "
+      "sig;\n    mat.sb = sigb;\n    mat.cd = code;\n    mat.es = mat.es + deps;	\n    mat.Et = Et;\nend   \n\n%% BoucW"
+      "en Material Section State\nfunction [BW]= BoucWen( dx, BW, vcur)\n    % ----------------------------------------"
+      "-----\n    % x,v: displacement and velocity\n    %   Q: restoring force\n    %   z: hysteretic component\n    % "
+      " zj: z in next step, i.e. z_i+1\n    %  BW: numerous parameters for Bouc-Wen model\n    %   i: step number\n\n  "
+      "  xcur =  dx + BW.Uprev;\n    % Fourth order R-K forward integration\n    dz1 = dx*f(BW,vcur,BW.zj);\n    dz2 = "
+      "dx*f(BW,vcur,BW.zj+dz1/2);\n    dz3 = dx*f(BW,vcur,BW.zj+dz2/2);\n    dz4 = dx*f(BW,vcur,BW.zj+dz3);\n    zj = B"
+      "W.zj + (dz1+2*dz2+2*dz3+dz4)/6;\n\n    umax=(abs(BW.Dmin)+ BW.Dmax)*0.5;    \n    BW.k=BW.k1*exp(-umax/BW.uref) "
+      "+ BW.k2;    \n    BW.Qj = BW.c*(abs(vcur)^BW.a)*sign(vcur) + BW.alpha*BW.k*xcur +...\n        (1-BW.alpha)*BW.k*"
+      "BW.uy*zj;\n\n    % update deformation for next time step\n    BW.Uprev = xcur;\n    BW.Dmax= max(xcur,BW.Dmax); "
+      "\n    BW.Dmin= min(xcur,BW.Dmin); \n    BW.zj =  zj;\nend\n\n% BoucWen Helper\nfunction y=f(BW,v,z)\n    % This "
+      "function describes the nonlinear differential equation that governs\n    % the hysteretic component, z.\n    % T"
+      "he returned value is \"dz/dx\" or \"z_dot/x_dot\"\n    y =(1/BW.uy)*(1-BW.beta*sign(v)*abs(z)^BW.n*sign(z)-BW.ga"
+      "mma1*abs(z)^BW.n);\nend\n%%%%%%%%%%%%%%%%%%% End of Bouc-Wen Model %%%%%%%%%%%%%%%%%%%%%%%% \n\n%% Trilinear Mat"
+      "erial Section State\nfunction [pro] = trilinear(dx, pro)\n    % calculate current deformation \n        x = pro."
+      "xprev + dx; \n\n    if pro.YieldCode == 0\n\n        pro.Fs1 = pro.Fs1+pro.K1*dx;\n        pro.Fs2 = pro.Fs2+pro"
+      ".K2*dx;\n        % if it is beyond elastic range, limit to yield force\n        % and set m_nYieldCode to 1\n   "
+      "     if pro.Fs1 > pro.Fy1\n\n            pro.Fs1 = pro.Fy1 ;\n            pro.YieldCode = 1;\n\n            if(p"
+      "ro.Fs2> pro.Fy2)\n                pro.Fs2 = pro.Fy2 ;\n                pro.YieldCode = 2;\n            end\n    "
+      "    elseif pro.Fs1 < -pro.Fy1\n\n            pro.Fs1 = -pro.Fy1;\n            pro.YieldCode = 1 ;\n\n           "
+      " if pro.Fs2 < -pro.Fy2\n                pro.Fs2 = - pro.Fy2 ;\n                pro.YieldCode = 2;\n            e"
+      "nd\n        end\n    % 1st post-yielding region    \n    elseif pro.YieldCode == 1\n\n        % assume spring2 r"
+      "emain elastic\n        pro.Fs2= pro.Fs2+pro.K2*dx;\n\n        % keep loading\n        if pro.Fs1*dx > 0.\n      "
+      "      if pro.Fs2 > pro.Fy2\n                pro.Fs2 = pro.Fy2;\n                pro.YieldCode=2;            \n  "
+      "          elseif pro.Fs2 < -pro.Fy2\n                pro.Fs2 = -pro.Fy2;\n                pro.YieldCode=2;\n    "
+      "        end\n            % unloading\n        elseif pro.Fs1*dx < 0.\n            pro.Fs1= pro.Fs1 + pro.K1*dx;\n"
+      "            pro.YieldCode = 0;\n\n            if pro.Fs1 < -pro.Fy1 \n                pro.Fs1 = -pro.Fy1;\n     "
+      "           pro.YieldCode = 1;\n                if pro.Fs2 < -pro.Fy2\n                    pro.Fs2 = -pro.Fy2;\n "
+      "                   pro.YieldCode = 2;\n                end\n            elseif pro.Fs1 > pro.Fy1\n              "
+      "  pro.Fs1 = pro.Fy1;\n                pro.YieldCode = 1;\n                if pro.Fs2 > pro.Fy2\n                "
+      "    pro.Fs2 = pro.Fy2;\n                    pro.YieldCode = 2;\n                end\n            end\n        en"
+      "d\n    elseif pro.YieldCode ==2\n        % unloading\n        if (pro.Fs1*dx) < 0.\n            pro.Fs1 = pro.Fs"
+      "1 + pro.K1*dx;\n            pro.Fs2 = pro.Fs2 + pro.K2*dx;\n            pro.YieldCode = 0;\n\n            if pro"
+      ".Fs1 < -pro.Fy1\n                pro.Fs1 = -pro.Fy1;\n                pro.YieldCode = 1;\n                if pro"
+      ".Fs2 < -pro.Fy2\n                    pro.Fs2 = -pro.Fy2;\n                    pro.YieldCode = 2;\n              "
+      "  end            \n            elseif pro.Fs1 > pro.Fy1\n                pro.Fs1 = pro.Fy1;\n                pro"
+      ".YieldCode = 1;\n                if pro.Fs2> pro.Fy2\n                    pro.Fs2 = pro.Fy2;\n                  "
+      "  pro.YieldCode = 2;\n                end\n            end\n        end\n    end\n\n    pro.Fs = pro.Fs1 + pro.F"
+      "s2 + pro.K3*x;\n\n    % updata current state for next time step\n    if pro.YieldCode == 0\n        pro.Kt = pro"
+      ".K1 +pro.K2 +pro.K3;\n    elseif pro.YieldCode == 1\n        pro.Kt = pro.K2 +pro.K3;    \n    else\n        pro"
+      ".Kt = pro.K3;\n    end\n    pro.xprev = x;\nend\n\n%% Concrete01 Material Section State\nfunction [mat] = Concre"
+      "te01(dStrain , mat)\n\n    % Get the total strain     \n    mat.Tstrain = dStrain + mat.Cstrain;\n    % Get the "
+      "previous states\n    mat.TminStrain = mat.CminStrain;\n    mat.TendStrain = mat.CendStrain;\n    mat.TunloadSlop"
+      "e = mat.CunloadSlope;\n    mat.Tstress = mat.Cstress;\n    mat.Ttangent = mat.Ctangent;        \n    \n    % che"
+      "ck for a quick return\n    if (mat.Tstrain > 0.0)\n        mat.Tstress = 1e-10;\n        mat.Ttangent = 0;%1e-10"
+      ";\n    end    \n    \n    mat.TunloadSlope = mat.CunloadSlope;  \n  \n    tempStress = mat.Cstress + mat.Tunload"
+      "Slope*mat.Tstrain - mat.TunloadSlope*mat.Cstrain;\n  \n    % Material goes further into compression\n    if (mat"
+      ".Tstrain < mat.Cstrain)   \n        mat.TminStrain = mat.CminStrain;\n        mat.TendStrain = mat.CendStrain;  "
+      "\n    \n        [mat] = reload(mat);\n    \n        if (tempStress > mat.Tstress) \n            mat.Tstress = te"
+      "mpStress;\n            mat.Ttangent = mat.TunloadSlope;\n        end\n    \n    % Material goes TOWARD tension\n"
+      "    elseif (tempStress <= 0.0)\n        mat.Tstress = tempStress;\n        mat.Ttangent = mat.TunloadSlope;\n   "
+      "     \n    % Made it into tension\n    else\n        mat.Tstress = 1e-10;\n        mat.Ttangent = 0;%1e-10;\n   "
+      " end\n         \n    % Save states\n    mat.CminStrain = mat.TminStrain;\n    mat.CendStrain = mat.TendStrain;\n"
+      "    mat.CunloadSlope = mat.TunloadSlope;\n    mat.Cstress = mat.Tstress;\n    mat.Ctangent = mat.Ttangent;\n    "
+      "mat.Cstrain = mat.Tstrain;  \nend\n\n% Reload, Concrete01\nfunction [mat] = reload(mat)\n\n    if (mat.Tstrain <"
+      "= mat.TminStrain)     \n        mat.TminStrain = mat.Tstrain;\n    \n        % Determine point on envelope\n    "
+      "    [mat] = envelope(mat);     \n        [mat] = unload(mat);     \n    elseif (mat.Tstrain <= mat.TendStrain) \n"
+      "        mat.Ttangent = mat.TunloadSlope;\n        mat.Tstress = mat.Ttangent*(mat.Tstrain-mat.TendStrain);\n    "
+      "else \n        mat.Tstress = 1e-10;\n        mat.Ttangent = 0;%1e-10;\n    end \nend\n    \n% Envelope, Concrete"
+      "01\nfunction [mat] = envelope(mat)  \n\n    if (mat.Tstrain > mat.epsc0) \n        eta = mat.Tstrain/mat.epsc0;\n"
+      "        mat.Tstress = mat.fpc*(2*eta-eta*eta);\n        Ec0 = 2.0*mat.fpc/mat.epsc0;  % changed\n        mat.Tta"
+      "ngent = Ec0*(1.0-eta); % changed\n    elseif (mat.Tstrain > mat.epscu) \n        mat.Ttangent = (mat.fpc-mat.fpc"
+      "u)/(mat.epsc0-mat.epscu);\n        mat.Tstress = mat.fpc + mat.Ttangent*(mat.Tstrain-mat.epsc0);\n    else \n   "
+      "     mat.Tstress = mat.fpcu;\n        mat.Ttangent = 1e-10;\n    end\nend\n\n% Unload, Concrete01\nfunction [mat"
+      "] = unload(mat)   \n    DBL_EPSILON=2.2204460492503131e-16;\n  \n    tempStrain = mat.TminStrain;\n  \n    if (t"
+      "empStrain < mat.epscu)\n        tempStrain = mat.epscu;\n    end\n    eta = tempStrain/mat.epsc0;\n    ratio = 0"
+      ".707*(eta-2.0) + 0.834;\n    if (eta < 2.0)\n        ratio = 0.145*eta*eta + 0.13*eta;\n    end\n    mat.TendStr"
+      "ain = ratio*mat.epsc0;\n    temp1 = mat.TminStrain - mat.TendStrain;\n    Ec0 = 2.0*mat.fpc/mat.epsc0;  % change"
+      "d\n    temp2 = mat.Tstress/Ec0;   % changed\n  \n    if (temp1 > -DBL_EPSILON) % temp1 should always be negative"
+      "\n        mat.TunloadSlope = Ec0;  % changed\n    elseif (temp1 <= temp2)\n        mat.TendStrain = mat.TminStra"
+      "in - temp1;\n        mat.TunloadSlope = mat.Tstress/temp1;\n    else \n        mat.TendStrain = mat.TminStrain -"
+      " temp2;\n        mat.TunloadSlope = Ec0;  % changed\n    end\nend\n%%%%%%%%%%%%%%%%%%%%%%%%End of Concrete01 Mat"
+      "erial%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\nfunction [mat] = Steel02(deps , mat)\n\n  mat.Esh = mat.b*ma"
+      "t.E0;\n  mat.epsy = mat.Fy / mat.E0;\n  \n  mat.eps=mat.epsP;\n  mat.e = mat.eP;\n  mat.sig = mat.sigP;\n  mat.e"
+      "psmax = mat.epsmaxP;\n  mat.epsmin = mat.epsminP;\n  mat.epspl  = mat.epsplP;\n  mat.epss0  = mat.epss0P;  \n  m"
+      "at.sigs0  = mat.sigs0P; \n  mat.epsr   = mat.epssrP;  \n  mat.sigr   = mat.sigsrP;  \n  mat.kon = mat.konP;\n  %"
+      " modified C-P. Lamarche 2006\n  if (mat.sigini ~= 0.0) \n    epsini = mat.sigini/mat.E0;\n    mat.eps = deps + m"
+      "at.epsP +epsini;\n  else\n  mat.eps = deps + mat.epsP;\n  end\n \n  \n  DBL_EPSILON=2.2204460492503131e-16;\n if"
+      " (mat.kon == 0 || mat.kon == 3) % modified C-P. Lamarche 2006\n\n\n%     if (abs(deps) < 10.0*DBL_EPSILON)\n% \n"
+      "%       mat.e = mat.E0;\n%       mat.sig = mat.sigini;               % modified C-P. Lamarche 2006\n%       mat."
+      "kon = 3;                     % modified C-P. Lamarche 2006 flag to impose initial stess/strain\n%     else \n\n "
+      "     mat.epsmax = mat.epsy;\n      mat.epsmin = -mat.epsy;\n        if (deps < 0.0) \n          mat.kon = 2;\n  "
+      "        mat.epss0 = mat.epsmin;\n          mat.sigs0 = -mat.Fy;\n          mat.epspl = mat.epsmin;\n        else"
+      " \n          mat.kon = 1;\n          mat.epss0 = mat.epsmax;\n          mat.sigs0 = mat.Fy;\n          mat.epspl"
+      " = mat.epsmax;\n       end\n     %end\n end\n \n if (mat.kon == 2 && deps > 0.0) \n\n\n    mat.kon = 1;\n    mat"
+      ".epsr = mat.epsP;\n    mat.sigr = mat.sigP;\n    %epsmin = min(epsP, epsmin);\n    if (mat.epsP < mat.epsmin)\n "
+      "    mat.epsmin = mat.epsP;\n    end\n     d1 = (mat.epsmax - mat.epsmin) / (2.0*(mat.a4 * mat.epsy));\n     shft"
+      " = 1.0 + mat.a3 * (d1^0.8);\n     mat.epss0 = (mat.Fy * shft - mat.Esh * mat.epsy * shft - mat.sigr + mat.E0 * m"
+      "at.epsr) / (mat.E0 - mat.Esh);\n     mat.sigs0 = mat.Fy * shft + mat.Esh * (mat.epss0 - mat.epsy * shft);\n     "
+      "mat.epspl = mat.epsmax;\n\n elseif (mat.kon == 1 && deps < 0.0)\n    \n    % update the maximum previous strain,"
+      " store the last load reversal \n    % point and calculate the stress and strain (sigs0 and epss0) at the \n    %"
+      " new intersection between elastic and strain hardening asymptote \n    % To include isotropic strain hardening s"
+      "hift the strain hardening \n    % asymptote by sigsft before calculating the intersection point \n    % Constant"
+      "s a1 and a2 control this stress shift on compression side \n\n    mat.kon = 2;\n    mat.epsr = mat.epsP;\n    ma"
+      "t.sigr = mat.sigP;\n    % epsmax = max(epsP, epsmax);\n    if (mat.epsP > mat.epsmax)\n      mat.epsmax = mat.ep"
+      "sP;\n    end\n    d1 = (mat.epsmax - mat.epsmin) / (2.0*(mat.a2 * mat.epsy));\n    shft = 1.0 + mat.a1 * (d1^0.8"
+      ");\n    mat.epss0 = (-mat.Fy * shft + mat.Esh * mat.epsy * shft - mat.sigr + mat.E0 * mat.epsr) / (mat.E0 - mat."
+      "Esh);\n    mat.sigs0 = -mat.Fy * shft + mat.Esh * (mat.epss0 + mat.epsy * shft);\n    mat.epspl = mat.epsmin;\n "
+      "end\n \n  xi  = abs((mat.epspl-mat.epss0)/mat.epsy);\n  R   = mat.R0*(1.0 - (mat.cR1*xi)/(mat.cR2+xi));\n  epsra"
+      "t = (mat.eps-mat.epsr)/(mat.epss0-mat.epsr);\n  dum1  = 1.0 + (abs(epsrat)^R);\n  dum2  = (dum1^(1/R));\n\n  mat"
+      ".sig   = mat.b*epsrat +(1.0-mat.b)*epsrat/dum2;\n  mat.sig   = mat.sig*(mat.sigs0-mat.sigr)+mat.sigr;\n\n  mat.e"
+      " = mat.b + (1.0-mat.b)/(dum1*dum2);\n  mat.e = mat.e*(mat.sigs0-mat.sigr)/(mat.epss0-mat.epsr);\n  \n  mat.epsmi"
+      "nP = mat.epsmin;\n  mat.epsmaxP = mat.epsmax;\n  mat.epsplP = mat.epspl;\n  mat.epss0P = mat.epss0;\n  mat.sigs0"
+      "P = mat.sigs0;\n  mat.epssrP = mat.epsr;\n  mat.sigsrP = mat.sigr;\n  mat.konP = mat.kon;\n  \n  mat.eP = mat.e;"
+      "\n  mat.sigP = mat.sig;\n  mat.epsP = mat.eps;\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
-  junction {
-    id			    4
-    position		    [23.5747 49.5747 7]
-    chart		    2
-    linkNode		    [2 0 0]
-    subviewer		    2
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    5
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [32.125 19.875 102.7 14.971]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      4
-      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    2
-    linkNode		    [2 0 0]
-    dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    2
-    drawStyle		    SMART
-    slide {
-      sticky		      BOTH_STICK
-    }
-    executionOrder	    1
-    ssIdNumber		    2
-  }
   data {
-    id			    6
+    id			    4
     ssIdNumber		    5
     name		    "Total_RF"
-    linkNode		    [2 0 7]
+    linkNode		    [2 0 5]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -3454,10 +3710,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    7
+    id			    5
     ssIdNumber		    6
     name		    "NumFreeDOF"
-    linkNode		    [2 6 8]
+    linkNode		    [2 4 6]
     scope		    PARAMETER_DATA
     paramIndexForInitFromWorkspace 1
     isNonTunable	    1
@@ -3478,10 +3734,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    8
+    id			    6
     ssIdNumber		    7
     name		    "Displacement"
-    linkNode		    [2 7 9]
+    linkNode		    [2 5 7]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -3500,10 +3756,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    9
+    id			    7
     ssIdNumber		    21
     name		    "Velocity"
-    linkNode		    [2 8 10]
+    linkNode		    [2 6 8]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -3522,10 +3778,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    10
+    id			    8
     ssIdNumber		    8
     name		    "ElementsStruct"
-    linkNode		    [2 9 11]
+    linkNode		    [2 7 9]
     scope		    PARAMETER_DATA
     isNonTunable	    1
     machine		    1
@@ -3546,10 +3802,10 @@ Stateflow {
     dataType		    "Bus: ElementStructBus"
   }
   data {
-    id			    11
+    id			    9
     ssIdNumber		    10
     name		    "RigidLinkNo"
-    linkNode		    [2 10 12]
+    linkNode		    [2 8 10]
     scope		    PARAMETER_DATA
     paramIndexForInitFromWorkspace 3
     isNonTunable	    1
@@ -3570,10 +3826,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    12
+    id			    10
     ssIdNumber		    11
     name		    "RigidLinkNodeID"
-    linkNode		    [2 11 13]
+    linkNode		    [2 9 11]
     scope		    PARAMETER_DATA
     paramIndexForInitFromWorkspace 4
     isNonTunable	    1
@@ -3594,10 +3850,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    13
+    id			    11
     ssIdNumber		    12
     name		    "RigidLinkMasterMatrix"
-    linkNode		    [2 12 14]
+    linkNode		    [2 10 12]
     scope		    PARAMETER_DATA
     paramIndexForInitFromWorkspace 2
     isNonTunable	    1
@@ -3618,10 +3874,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    14
+    id			    12
     ssIdNumber		    13
     name		    "RigidLinkSlaveMatrix"
-    linkNode		    [2 13 15]
+    linkNode		    [2 11 13]
     scope		    PARAMETER_DATA
     paramIndexForInitFromWorkspace 5
     isNonTunable	    1
@@ -3642,10 +3898,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    15
+    id			    13
     ssIdNumber		    32
     name		    "ElementRFs"
-    linkNode		    [2 14 0]
+    linkNode		    [2 12 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -3664,6 +3920,39 @@ Stateflow {
     }
     dataType		    "Bus: ElementRecorderBus"
   }
+  junction {
+    id			    14
+    position		    [23.5747 49.5747 7]
+    chart		    2
+    linkNode		    [2 0 0]
+    subviewer		    2
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    15
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.7 14.971]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      14
+      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    2
+    linkNode		    [2 0 0]
+    dataLimits		    [21.175 25.975 14.625 42.575]
+    subviewer		    2
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    2
+  }
   instance {
     id			    16
     name		    "Numerical Element Calculations"
@@ -3673,18 +3962,18 @@ Stateflow {
   chart {
     id			    17
     name		    "Calc Accel Vector\nType 4 KR explicit/MATLAB Function"
-    windowPosition	    [465.75 83.25 200.25 189.75]
+    windowPosition	    [621 458.75 213 385]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1920 1200 1.333333333333333]
     treeNode		    [0 18 0 0]
-    firstTransition	    20
-    firstJunction	    19
+    firstTransition	    31
+    firstJunction	    30
     viewObj		    17
     machine		    1
     ssIdHighWaterMark	    45
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    21
+    firstData		    19
     chartFileNumber	    2
     disableImplicitCasting  1
     eml {
@@ -3718,41 +4007,55 @@ Stateflow {
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
-  junction {
+  data {
     id			    19
-    position		    [23.5747 49.5747 7]
-    chart		    17
-    linkNode		    [17 0 0]
-    subviewer		    17
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
+    ssIdNumber		    8
+    name		    "MassMatrixHat1Inv"
+    linkNode		    [17 0 20]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
   }
-  transition {
+  data {
     id			    20
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [32.125 19.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    ssIdNumber		    44
+    name		    "EQScaleFactor"
+    linkNode		    [17 19 21]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dst {
-      id		      19
-      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    17
-    linkNode		    [17 0 0]
-    dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    17
-    drawStyle		    SMART
-    executionOrder	    1
-    ssIdNumber		    2
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    21
-    ssIdNumber		    8
-    name		    "MassMatrixHat1Inv"
-    linkNode		    [17 0 22]
+    ssIdNumber		    27
+    name		    "PEFF"
+    linkNode		    [17 20 22]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -3772,8 +4075,8 @@ Stateflow {
   }
   data {
     id			    22
-    ssIdNumber		    44
-    name		    "EQScaleFactor"
+    ssIdNumber		    45
+    name		    "PrevPEFF"
     linkNode		    [17 21 23]
     scope		    INPUT_DATA
     machine		    1
@@ -3794,8 +4097,8 @@ Stateflow {
   }
   data {
     id			    23
-    ssIdNumber		    27
-    name		    "PEFF"
+    ssIdNumber		    28
+    name		    "IntmInherentDampingForce"
     linkNode		    [17 22 24]
     scope		    INPUT_DATA
     machine		    1
@@ -3816,8 +4119,8 @@ Stateflow {
   }
   data {
     id			    24
-    ssIdNumber		    45
-    name		    "PrevPEFF"
+    ssIdNumber		    6
+    name		    "PrevWeightedInertiaForce"
     linkNode		    [17 23 25]
     scope		    INPUT_DATA
     machine		    1
@@ -3832,14 +4135,14 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    25
-    ssIdNumber		    28
-    name		    "IntmInherentDampingForce"
+    ssIdNumber		    41
+    name		    "Alphaf"
     linkNode		    [17 24 26]
     scope		    INPUT_DATA
     machine		    1
@@ -3860,8 +4163,8 @@ Stateflow {
   }
   data {
     id			    26
-    ssIdNumber		    6
-    name		    "PrevWeightedInertiaForce"
+    ssIdNumber		    42
+    name		    "RestoringForce"
     linkNode		    [17 25 27]
     scope		    INPUT_DATA
     machine		    1
@@ -3876,14 +4179,14 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    27
-    ssIdNumber		    41
-    name		    "Alphaf"
+    ssIdNumber		    30
+    name		    "Prev_RestoringForce"
     linkNode		    [17 26 28]
     scope		    INPUT_DATA
     machine		    1
@@ -3904,53 +4207,9 @@ Stateflow {
   }
   data {
     id			    28
-    ssIdNumber		    42
-    name		    "RestoringForce"
-    linkNode		    [17 27 29]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    29
-    ssIdNumber		    30
-    name		    "Prev_RestoringForce"
-    linkNode		    [17 28 30]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    30
     ssIdNumber		    5
     name		    "Acceleration"
-    linkNode		    [17 29 31]
+    linkNode		    [17 27 29]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -3967,10 +4226,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    31
+    id			    29
     ssIdNumber		    43
     name		    "P0"
-    linkNode		    [17 30 0]
+    linkNode		    [17 28 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -3988,6 +4247,39 @@ Stateflow {
     }
     dataType		    "Inherit: Same as Simulink"
   }
+  junction {
+    id			    30
+    position		    [23.5747 49.5747 7]
+    chart		    17
+    linkNode		    [17 0 0]
+    subviewer		    17
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    31
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      30
+      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    17
+    linkNode		    [17 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    17
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    2
+  }
   instance {
     id			    32
     name		    "Calc Accel Vector\nType 4 KR explicit/MATLAB Function"
@@ -3997,18 +4289,18 @@ Stateflow {
   chart {
     id			    33
     name		    "Calculate Command Vectors\nType 4 KR explicit/MATLAB Function"
-    windowPosition	    [450.75 113.25 200.25 189.75]
+    windowPosition	    [601 458.75 213 385]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1920 1200 1.333333333333333]
     treeNode		    [0 34 0 0]
-    firstTransition	    36
-    firstJunction	    35
+    firstTransition	    45
+    firstJunction	    44
     viewObj		    33
     machine		    1
     ssIdHighWaterMark	    44
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    37
+    firstData		    35
     chartFileNumber	    3
     disableImplicitCasting  1
     eml {
@@ -4039,41 +4331,55 @@ Stateflow {
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
-  junction {
+  data {
     id			    35
-    position		    [23.5747 49.5747 7]
-    chart		    33
-    linkNode		    [33 0 0]
-    subviewer		    33
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
+    ssIdNumber		    8
+    name		    "Alpha1"
+    linkNode		    [33 0 36]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
   }
-  transition {
+  data {
     id			    36
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [32.125 19.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    ssIdNumber		    27
+    name		    "Alpha2"
+    linkNode		    [33 35 37]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dst {
-      id		      35
-      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    33
-    linkNode		    [33 0 0]
-    dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    33
-    drawStyle		    SMART
-    executionOrder	    1
-    ssIdNumber		    2
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    37
-    ssIdNumber		    8
-    name		    "Alpha1"
-    linkNode		    [33 0 38]
+    ssIdNumber		    28
+    name		    "Timestep"
+    linkNode		    [33 36 38]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4093,8 +4399,8 @@ Stateflow {
   }
   data {
     id			    38
-    ssIdNumber		    27
-    name		    "Alpha2"
+    ssIdNumber		    30
+    name		    "TimestepSquared"
     linkNode		    [33 37 39]
     scope		    INPUT_DATA
     machine		    1
@@ -4115,8 +4421,8 @@ Stateflow {
   }
   data {
     id			    39
-    ssIdNumber		    28
-    name		    "Timestep"
+    ssIdNumber		    5
+    name		    "Acceleration"
     linkNode		    [33 38 40]
     scope		    INPUT_DATA
     machine		    1
@@ -4127,20 +4433,18 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    40
-    ssIdNumber		    30
-    name		    "TimestepSquared"
+    ssIdNumber		    41
+    name		    "Displacement"
     linkNode		    [33 39 41]
-    scope		    INPUT_DATA
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -4153,16 +4457,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    41
-    ssIdNumber		    5
-    name		    "Acceleration"
+    ssIdNumber		    42
+    name		    "Velocity"
     linkNode		    [33 40 42]
-    scope		    INPUT_DATA
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -4171,6 +4475,8 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
       frame		      SF_FRAME_NO
@@ -4179,10 +4485,10 @@ Stateflow {
   }
   data {
     id			    42
-    ssIdNumber		    41
-    name		    "Displacement"
+    ssIdNumber		    43
+    name		    "Prev_Displacement"
     linkNode		    [33 41 43]
-    scope		    OUTPUT_DATA
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -4195,59 +4501,15 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    43
-    ssIdNumber		    42
-    name		    "Velocity"
-    linkNode		    [33 42 44]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    44
-    ssIdNumber		    43
-    name		    "Prev_Displacement"
-    linkNode		    [33 43 45]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    45
     ssIdNumber		    44
     name		    "Prev_Velocity"
-    linkNode		    [33 44 0]
+    linkNode		    [33 42 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4264,6 +4526,39 @@ Stateflow {
       frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
+  }
+  junction {
+    id			    44
+    position		    [23.5747 49.5747 7]
+    chart		    33
+    linkNode		    [33 0 0]
+    subviewer		    33
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    45
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      44
+      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    33
+    linkNode		    [33 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    33
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    2
   }
   instance {
     id			    46
@@ -4274,18 +4569,18 @@ Stateflow {
   chart {
     id			    47
     name		    "Type 4 Calcs/MATLAB Function"
-    windowPosition	    [435.75 128.25 200.25 189.75]
+    windowPosition	    [581 458.75 213 385]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1920 1200 1.333333333333333]
     treeNode		    [0 48 0 0]
-    firstTransition	    50
-    firstJunction	    49
+    firstTransition	    58
+    firstJunction	    57
     viewObj		    47
     machine		    1
     ssIdHighWaterMark	    44
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    51
+    firstData		    49
     chartFileNumber	    4
     disableImplicitCasting  1
     eml {
@@ -4317,41 +4612,55 @@ Stateflow {
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
-  junction {
+  data {
     id			    49
-    position		    [23.5747 49.5747 7]
-    chart		    47
-    linkNode		    [47 0 0]
-    subviewer		    47
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
+    ssIdNumber		    8
+    name		    "DampingMatrixFree"
+    linkNode		    [47 0 50]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
   }
-  transition {
+  data {
     id			    50
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [32.125 19.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    ssIdNumber		    41
+    name		    "Alphaf"
+    linkNode		    [47 49 51]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dst {
-      id		      49
-      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    47
-    linkNode		    [47 0 0]
-    dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    47
-    drawStyle		    SMART
-    executionOrder	    1
-    ssIdNumber		    2
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    51
-    ssIdNumber		    8
-    name		    "DampingMatrixFree"
-    linkNode		    [47 0 52]
+    ssIdNumber		    27
+    name		    "Velocity"
+    linkNode		    [47 50 52]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4371,10 +4680,10 @@ Stateflow {
   }
   data {
     id			    52
-    ssIdNumber		    41
-    name		    "Alphaf"
+    ssIdNumber		    28
+    name		    "IntmInherentDampingForce"
     linkNode		    [47 51 53]
-    scope		    INPUT_DATA
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -4387,16 +4696,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    53
-    ssIdNumber		    27
-    name		    "Velocity"
+    ssIdNumber		    6
+    name		    "PrevWeightedInertiaForce"
     linkNode		    [47 52 54]
-    scope		    INPUT_DATA
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -4409,16 +4718,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    54
-    ssIdNumber		    28
-    name		    "IntmInherentDampingForce"
+    ssIdNumber		    42
+    name		    "Prev_Velocity"
     linkNode		    [47 53 55]
-    scope		    OUTPUT_DATA
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -4431,16 +4740,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    55
-    ssIdNumber		    6
-    name		    "PrevWeightedInertiaForce"
+    ssIdNumber		    30
+    name		    "MassMatrixHat2"
     linkNode		    [47 54 56]
-    scope		    OUTPUT_DATA
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -4453,59 +4762,15 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    56
-    ssIdNumber		    42
-    name		    "Prev_Velocity"
-    linkNode		    [47 55 57]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    57
-    ssIdNumber		    30
-    name		    "MassMatrixHat2"
-    linkNode		    [47 56 58]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    58
     ssIdNumber		    43
     name		    "Acceleration"
-    linkNode		    [47 57 0]
+    linkNode		    [47 55 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4522,6 +4787,39 @@ Stateflow {
       frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
+  }
+  junction {
+    id			    57
+    position		    [23.5747 49.5747 7]
+    chart		    47
+    linkNode		    [47 0 0]
+    subviewer		    47
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    58
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      57
+      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    47
+    linkNode		    [47 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    47
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    2
   }
   instance {
     id			    59

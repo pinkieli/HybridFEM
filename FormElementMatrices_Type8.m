@@ -29,6 +29,8 @@ if ISTF == 0
             K = Element.prop.Ttangent; % for Concrete material
         case 8
             K = Element.prop.e; % for Concrete material
+        case 9
+            K = Element.prop.e; % for Reinforcing material
         otherwise
             errordlg('The assigned material is not available', 'InputError');
     end

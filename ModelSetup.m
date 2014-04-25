@@ -70,7 +70,6 @@ ElementRecorderBus = eval(ElementRecorderStruct_bus.busName);
 if flag == 0    
     errordlg('Check Equilibrium under Static Loading','Analysis Error');
 end
-
 %% Store data to workspace
 if strcmp(TARGET,'Matlab')
     % Store initial results vectors for Matlab Simulation
