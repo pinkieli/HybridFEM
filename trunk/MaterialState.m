@@ -36,6 +36,10 @@ switch  mat.Type
          mat = Concrete02(dep, mat);
          Et = mat.e;
          sc = mat.sig;
+     case 9
+         mat = Steel02(dep, mat);
+         Et = mat.e;
+         sc = mat.sig;
     otherwise
         msg =['Assigned material is defined'];
         errordlg(msg,'Input Error');
@@ -1292,16 +1296,135 @@ function[sigc,Ect] = Compr_Envlp(epsc,mat)
    end
 
 
-        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
       
-       
-       
-       
-       
-       
-       
-       
-       
+function [mat] = Steel02(deps , mat)
+
+%   mat.eps=mat.epsP;
+%   mat.e = mat.eP;
+%   mat.sig = mat.sigP;
+%   mat.epsmax = mat.epsmaxP;
+%   mat.epsmin = mat.epsminP;
+%   mat.epspl  = mat.epsplP;
+%   mat.epss0  = mat.epss0P;  
+%   mat.sigs0  = mat.sigs0P; 
+%   mat.epsr   = mat.epssrP;  
+%   mat.sigr   = mat.sigsrP;  
+%   mat.kon = mat.konP;
+  
+  % modified C-P. Lamarche 2006
+  if (mat.sigini ~= 0.0) 
+    epsini = mat.sigini/mat.E0;
+    mat.eps = deps + mat.epsP +epsini;
+  else
+  mat.eps = deps + mat.epsP;
+  end
+ 
+  
+  DBL_EPSILON=1e-16;
+ if (mat.kon == 0 || mat.kon == 3) % modified C-P. Lamarche 2006
+
+
+    if (abs(deps) < 10.0*DBL_EPSILON && deps~= 0)
+
+      mat.e = mat.E0;
+      mat.sig = mat.sigini;               % modified C-P. Lamarche 2006
+      mat.kon = 3;                     % modified C-P. Lamarche 2006 flag to impose initial stess/strain
+    else 
+
+      mat.epsmax = mat.epsy;
+      mat.epsmin = -mat.epsy;
+        if (deps < 0.0) 
+          mat.kon = 2;
+          mat.epss0 = mat.epsmin;
+          mat.sigs0 = -mat.Fy;
+          mat.epspl = mat.epsmin;
+        else 
+          mat.kon = 1;
+          mat.epss0 = mat.epsmax;
+          mat.sigs0 = mat.Fy;
+          mat.epspl = mat.epsmax;
+       end
+     end
+ end
+ 
+ if (mat.kon == 2 && deps > 0.0) 
+
+
+    mat.kon = 1;
+    mat.epsr = mat.epsP;
+    mat.sigr = mat.sigP;
+    %epsmin = min(epsP, epsmin);
+    if (mat.epsP < mat.epsmin)
+     mat.epsmin = mat.epsP;
+    end
+     d1 = (mat.epsmax - mat.epsmin) / (2.0*(mat.a4 * mat.epsy));
+     shft = 1.0 + mat.a3 * (d1^0.8);
+     mat.epss0 = (mat.Fy * shft - mat.Esh * mat.epsy * shft - mat.sigr + mat.E0 * mat.epsr) / (mat.E0 - mat.Esh);
+     mat.sigs0 = mat.Fy * shft + mat.Esh * (mat.epss0 - mat.epsy * shft);
+     mat.epspl = mat.epsmax;
+
+ elseif (mat.kon == 1 && deps < 0.0)
+    
+    % update the maximum previous strain, store the last load reversal 
+    % point and calculate the stress and strain (sigs0 and epss0) at the 
+    % new intersection between elastic and strain hardening asymptote 
+    % To include isotropic strain hardening shift the strain hardening 
+    % asymptote by sigsft before calculating the intersection point 
+    % Constants a1 and a2 control this stress shift on compression side 
+
+    mat.kon = 2;
+    mat.epsr = mat.epsP;
+    mat.sigr = mat.sigP;
+    % epsmax = max(epsP, epsmax);
+    if (mat.epsP > mat.epsmax)
+      mat.epsmax = mat.epsP;
+    end
+    d1 = (mat.epsmax - mat.epsmin) / (2.0*(mat.a2 * mat.epsy));
+    shft = 1.0 + mat.a1 * (d1^0.8);
+    mat.epss0 = (-mat.Fy * shft + mat.Esh * mat.epsy * shft - mat.sigr + mat.E0 * mat.epsr) / (mat.E0 - mat.Esh);
+    mat.sigs0 = -mat.Fy * shft + mat.Esh * (mat.epss0 + mat.epsy * shft);
+    mat.epspl = mat.epsmin;
+ end
+ 
+  xi  = abs((mat.epspl-mat.epss0)/mat.epsy);
+  R   = mat.R0*(1.0 - (mat.cR1*xi)/(mat.cR2+xi));
+  epsrat = (mat.eps-mat.epsr)/(mat.epss0-mat.epsr);
+  dum1  = 1.0 + (abs(epsrat)^R);
+  dum2  = (dum1^(1/R));
+
+  mat.sig   = mat.b*epsrat +(1.0-mat.b)*epsrat/dum2;
+  mat.sig   = mat.sig*(mat.sigs0-mat.sigr)+mat.sigr;
+
+  mat.e = mat.b + (1.0-mat.b)/(dum1*dum2);
+  mat.e = mat.e*(mat.sigs0-mat.sigr)/(mat.epss0-mat.epsr);
+  
+  mat.epsminP = mat.epsmin;
+  mat.epsmaxP = mat.epsmax;
+  mat.epsplP = mat.epspl;
+  mat.epss0P = mat.epss0;
+  mat.sigs0P = mat.sigs0;
+  mat.epssrP = mat.epsr;
+  mat.sigsrP = mat.sigr;
+  mat.konP = mat.kon;
+  
+  mat.eP = mat.e;
+  mat.sigP = mat.sig;
+  mat.epsP = mat.eps;
+  
+   
+
+
+  
+  
+ 
+  
+  
+ 
+  
+  
        
        
        

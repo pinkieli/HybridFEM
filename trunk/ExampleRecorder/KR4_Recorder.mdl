@@ -1,5 +1,5 @@
 Model {
-  Name			  "template_KR4"
+  Name			  "KR4_Recorder"
   Version		  8.2
   MdlSubVersion		  0
   SavedCharacterEncoding  "windows-1252"
@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1279"
+    ComputedModelVersion    "1.1282"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -31,7 +31,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [57.0, 558.0, 1138.0, 565.0]
+      Location		      [224.0, 109.0, 1138.0, 565.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -40,7 +40,7 @@ Model {
 	DockPosition		"Left"
 	Width			[50]
 	Height			[50]
-	Filter			[8]
+	Filter			[9]
       }
       Object {
 	$PropName		"ExplorerBarInfo"
@@ -57,7 +57,7 @@ Model {
 	LoadSaveID		"0"
 	Extents			[1088.0, 391.0]
 	ZoomFactor		[1.0]
-	Offset			[0.0, 0.0]
+	Offset			[73.25, 68.0]
       }
     }
   }
@@ -67,9 +67,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Thomas Marullo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Apr 25 15:13:24 2014"
-  RTWModifiedTimeStamp	  320339603
-  ModelVersionFormat	  "1.%<AutoIncrement:1279>"
+  LastModifiedDate	  "Fri Apr 25 15:23:54 2014"
+  RTWModifiedTimeStamp	  320340220
+  ModelVersionFormat	  "1.%<AutoIncrement:1282>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -111,11 +111,11 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    6
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "template_KR4"
+    model_		    "KR4_Recorder"
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "template_KR4"
+      Cell		      "KR4_Recorder"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -768,6 +768,11 @@ Model {
   }
   BlockParameterDefaults {
     Block {
+      BlockType		      BusSelector
+      OutputSignals	      "signal1,signal2,signal3"
+      OutputAsBus	      off
+    }
+    Block {
       BlockType		      Constant
       Value		      "1"
       VectorParams1D	      on
@@ -843,6 +848,14 @@ Model {
       Interpolate	      on
     }
     Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      NonVirtualBus	      off
+    }
+    Block {
       BlockType		      Outport
       Port		      "1"
       OutMin		      "[]"
@@ -867,6 +880,11 @@ Model {
       OutPortSampleTimeOpt    "Specify"
       OutPortSampleTimeMultiple	"1"
       OutPortSampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Reshape
+      OutputDimensionality    "1-D array"
+      OutputDimensions	      "[1,1]"
     }
     Block {
       BlockType		      S-Function
@@ -940,8 +958,8 @@ Model {
     }
   }
   System {
-    Name		    "template_KR4"
-    Location		    [57, 558, 1195, 1123]
+    Name		    "KR4_Recorder"
+    Location		    [224, 109, 1362, 674]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -955,7 +973,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "5942"
+    SIDHighWatermark	    "5950"
     Block {
       BlockType		      DiscretePulseGenerator
       Name		      "Acceleration\nTiming"
@@ -967,6 +985,62 @@ Model {
       Period		      "Integrator.Interpolations"
       PhaseDelay	      "Integrator.Interpolations-1"
       SampleTime	      "sample"
+    }
+    Block {
+      BlockType		      BusSelector
+      Name		      "Bus\nSelector"
+      SID		      "5943"
+      Ports		      [1, 3]
+      Position		      [615, 281, 620, 319]
+      ZOrder		      40
+      ShowName		      off
+      OutputSignals	      "Element3,Element5,Element7"
+      Port {
+	PortNumber		1
+	Name			"<Element3>"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      Port {
+	PortNumber		2
+	Name			"<Element5>"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      Port {
+	PortNumber		3
+	Name			"<Element7>"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      BusSelector
+      Name		      "Bus\nSelector1"
+      SID		      "5949"
+      Ports		      [1, 3]
+      Position		      [615, 331, 620, 369]
+      ZOrder		      44
+      ShowName		      off
+      OutputSignals	      "Element3,Element5,Element7"
+      Port {
+	PortNumber		1
+	Name			"<Element3>"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      Port {
+	PortNumber		2
+	Name			"<Element5>"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      Port {
+	PortNumber		3
+	Name			"<Element7>"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
     }
     Block {
       BlockType		      SubSystem
@@ -1238,13 +1312,13 @@ Model {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
 	      SID		      "5936::64"
-	      Tag		      "Stateflow S-Function template_KR4 2"
+	      Tag		      "Stateflow S-Function KR4_Recorder 2"
 	      Ports		      [10, 2]
 	      Position		      [180, 100, 230, 320]
 	      ZOrder		      50
 	      FunctionName	      "sf_sfun"
 	      PortCounts	      "[10 2]"
-	      EnableBusSupport	      off
+	      EnableBusSupport	      on
 	      Port {
 		PortNumber		2
 		Name			"Acceleration"
@@ -1720,13 +1794,13 @@ Model {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
 	      SID		      "5860::64"
-	      Tag		      "Stateflow S-Function template_KR4 3"
+	      Tag		      "Stateflow S-Function KR4_Recorder 3"
 	      Ports		      [7, 3]
 	      Position		      [180, 100, 230, 260]
 	      ZOrder		      50
 	      FunctionName	      "sf_sfun"
 	      PortCounts	      "[7 3]"
-	      EnableBusSupport	      off
+	      EnableBusSupport	      on
 	      Port {
 		PortNumber		2
 		Name			"Displacement"
@@ -2035,6 +2109,17 @@ Model {
       SampleTime	      "sample"
     }
     Block {
+      BlockType		      Mux
+      Name		      "Mux"
+      SID		      "5950"
+      Ports		      [3, 1]
+      Position		      [715, 331, 720, 369]
+      ZOrder		      45
+      ShowName		      off
+      Inputs		      "3"
+      DisplayOption	      "bar"
+    }
+    Block {
       BlockType		      SubSystem
       Name		      "Numerical Element Calculations"
       SID		      "5942"
@@ -2100,14 +2185,14 @@ Model {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
 	  SID			  "5942::63"
-	  Tag			  "Stateflow S-Function template_KR4 1"
+	  Tag			  "Stateflow S-Function KR4_Recorder 1"
 	  Ports			  [2, 3]
 	  Position		  [180, 100, 230, 180]
 	  ZOrder		  18
 	  FunctionName		  "sf_sfun"
 	  Parameters		  "ElementsStruct,NumFreeDOF,RigidLinkMasterMatrix,RigidLinkNo,RigidLinkNodeID,RigidLinkSlaveMatrix"
 	  PortCounts		  "[2 3]"
-	  EnableBusSupport	  off
+	  EnableBusSupport	  on
 	  Port {
 	    PortNumber		    2
 	    Name		    "Total_RF"
@@ -2263,6 +2348,22 @@ Model {
       OutPortSampleTime	      "SampleRate"
     }
     Block {
+      BlockType		      Reshape
+      Name		      "Reshape"
+      SID		      "5944"
+      Ports		      [1, 1]
+      Position		      [715, 278, 745, 302]
+      ZOrder		      38
+    }
+    Block {
+      BlockType		      Reshape
+      Name		      "Reshape1"
+      SID		      "5948"
+      Ports		      [1, 1]
+      Position		      [810, 338, 840, 362]
+      ZOrder		      43
+    }
+    Block {
       BlockType		      ToWorkspace
       Name		      "To Workspace"
       SID		      "1443"
@@ -2279,7 +2380,7 @@ Model {
       Name		      "To Workspace1"
       SID		      "5844"
       Ports		      [1]
-      Position		      [610, 240, 660, 260]
+      Position		      [660, 240, 710, 260]
       ZOrder		      32
       ShowName		      off
       VariableName	      "A_RF"
@@ -2307,6 +2408,30 @@ Model {
       ZOrder		      32
       ShowName		      off
       VariableName	      "A_Accel"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace4"
+      SID		      "5946"
+      Ports		      [1]
+      Position		      [790, 282, 895, 298]
+      ZOrder		      41
+      ShowName		      off
+      VariableName	      "A_Element3"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace5"
+      SID		      "5947"
+      Ports		      [1]
+      Position		      [885, 342, 990, 358]
+      ZOrder		      42
+      ShowName		      off
+      VariableName	      "A_Elements3_5_7"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
     }
@@ -2490,13 +2615,13 @@ Model {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
 	      SID		      "5871::65"
-	      Tag		      "Stateflow S-Function template_KR4 4"
+	      Tag		      "Stateflow S-Function KR4_Recorder 4"
 	      Ports		      [6, 3]
 	      Position		      [180, 102, 230, 243]
 	      ZOrder		      51
 	      FunctionName	      "sf_sfun"
 	      PortCounts	      "[6 3]"
-	      EnableBusSupport	      off
+	      EnableBusSupport	      on
 	      Port {
 		PortNumber		2
 		Name			"IntmInherentDampingForce"
@@ -2826,7 +2951,7 @@ Model {
       ZOrder		      27
       SrcBlock		      "Numerical Element Calculations"
       SrcPort		      1
-      Points		      [10, 0]
+      Points		      [40, 0]
       Branch {
 	ZOrder			14
 	DstBlock		"Rate Transition2"
@@ -2899,6 +3024,81 @@ Model {
       DstBlock		      "Calc Accel Vector\nType 4 KR explicit"
       DstPort		      2
     }
+    Line {
+      Name		      "<Element3>"
+      ZOrder		      48
+      Labels		      [0, 0]
+      SrcBlock		      "Bus\nSelector"
+      SrcPort		      1
+      Points		      [0, 0]
+      DstBlock		      "Reshape"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      49
+      SrcBlock		      "Numerical Element Calculations"
+      SrcPort		      2
+      Points		      [17, 0; 0, 80; 1, 0]
+      Branch {
+	ZOrder			57
+	Points			[0, 50]
+	DstBlock		"Bus\nSelector1"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			56
+	DstBlock		"Bus\nSelector"
+	DstPort			1
+      }
+    }
+    Line {
+      ZOrder		      50
+      SrcBlock		      "Reshape"
+      SrcPort		      1
+      DstBlock		      "To Workspace4"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      53
+      SrcBlock		      "Reshape1"
+      SrcPort		      1
+      DstBlock		      "To Workspace5"
+      DstPort		      1
+    }
+    Line {
+      Name		      "<Element5>"
+      ZOrder		      58
+      Labels		      [0, 0]
+      SrcBlock		      "Bus\nSelector1"
+      SrcPort		      2
+      DstBlock		      "Mux"
+      DstPort		      2
+    }
+    Line {
+      Name		      "<Element7>"
+      ZOrder		      59
+      Labels		      [0, 0]
+      SrcBlock		      "Bus\nSelector1"
+      SrcPort		      3
+      DstBlock		      "Mux"
+      DstPort		      3
+    }
+    Line {
+      Name		      "<Element3>"
+      ZOrder		      60
+      Labels		      [0, 0]
+      SrcBlock		      "Bus\nSelector1"
+      SrcPort		      1
+      DstBlock		      "Mux"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      61
+      SrcBlock		      "Mux"
+      SrcPort		      1
+      DstBlock		      "Reshape1"
+      DstPort		      1
+    }
   }
 }
 # Finite State Machines
@@ -2910,7 +3110,7 @@ Model {
 Stateflow {
   machine {
     id			    1
-    name		    "template_KR4"
+    name		    "KR4_Recorder"
     created		    "01-Jan-2006 12:00:00"
     isLibrary		    0
     firstTarget		    60
@@ -2927,8 +3127,6 @@ Stateflow {
     firstJunction	    14
     viewObj		    2
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    32
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -2954,394 +3152,410 @@ Stateflow {
     eml {
       isEML		      1
       script		      "% Get restoring force for each element\n% Returns (6x1) restoring force vector of all elements in"
-      " global coordinates %*fs\nfunction [Total_RF,ElementRFs] = eml(NumFreeDOF, Displacement, Velocity, ElementsStruc"
+      " global coordinates %*fs\nfunction [Total_RF ElementRFs] = eml(NumFreeDOF, Displacement, Velocity, ElementsStruc"
       "t, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix) %*fe\n    % Store the Elements in "
       "memory\n    persistent Elements;\n    persistent TotalRF;        \n    if isempty(Elements)\n        Elements = "
       "ElementsStruct;        \n    end\n    \n    % Storage for the Global Restoring Force        \n    TotalRF = zero"
       "s(NumFreeDOF, 1);     \n    ElementRFs = struct;   \n    ElementRFs.Recorders = 0;\n    \n%Elements  %*s\n[Eleme"
-      "nts.Element1, ElementRF] = GetRestoringForce_Type6(Elements.Element1, Displacement, RigidLinkNo, RigidLinkNodeID"
+      "nts.Element1, ElementRF] = GetRestoringForce_Type1(Elements.Element1, Displacement, RigidLinkNo, RigidLinkNodeID"
       ", RigidLinkMasterMatrix, RigidLinkSlaveMatrix);\nTotalRF = AssembleElementGlobalRF6DOF(Elements.Element1, Elemen"
-      "tRF, TotalRF);\n[Elements.Element2, ElementRF] = GetRestoringForce_Type6(Elements.Element2, Displacement, RigidL"
+      "tRF, TotalRF);\n[Elements.Element2, ElementRF] = GetRestoringForce_Type1(Elements.Element2, Displacement, RigidL"
       "inkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);\nTotalRF = AssembleElementGlobalRF6DOF(Ele"
-      "ments.Element2, ElementRF, TotalRF);\n[Elements.Element3, ElementRF] = GetRestoringForce_Type6(Elements.Element3"
+      "ments.Element2, ElementRF, TotalRF);\n[Elements.Element3, ElementRF] = GetRestoringForce_Type1(Elements.Element3"
       ", Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);\nTotalRF = AssembleE"
-      "lementGlobalRF6DOF(Elements.Element3, ElementRF, TotalRF);\n[Elements.Element4, ElementRF] = GetRestoringForce_T"
-      "ype6(Elements.Element4, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)"
-      ";\nTotalRF = AssembleElementGlobalRF6DOF(Elements.Element4, ElementRF, TotalRF);\n[Elements.Element5, ElementRF]"
-      " = GetRestoringForce_Type4(Elements.Element5, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix,"
-      " RigidLinkSlaveMatrix);\nTotalRF = AssembleElementGlobalRF6DOF(Elements.Element5, ElementRF, TotalRF);\n\n%*e\n "
-      "                        \n    Total_RF = TotalRF;\n\n\nend\n\n\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-      "%%%%%%%%%%%%%%%%%%%%%%%%%%%\nfunction TotalRF = AssembleElementGlobalRF6DOF(Element, ElementRF, TotalRF)\n    % "
-      "Assemble the structure restoring force vector based on the\n    % degrees of freedom node locations.  \n    ndof"
-      " = 6;\n    dof6 = zeros(6,1); \n    dof6(1,1)=Element.Nodes(1).UX;\n    dof6(2,1)=Element.Nodes(1).UY;\n    dof6"
-      "(3,1)=Element.Nodes(1).THETA;\n    dof6(4,1)=Element.Nodes(2).UX;\n    dof6(5,1)=Element.Nodes(2).UY;\n    dof6("
-      "6,1)=Element.Nodes(2).THETA;      \n\n    % Add to the TotalRF    \n    i = 1;\n    for i=1:ndof\n        if dof"
-      "6(i,1) ~= -1\n          TotalRF(dof6(i,1), 1) = ElementRF(i, 1) + TotalRF(dof6(i,1), 1);\n        end\n    end  "
-      "  \nend\n\nfunction TotalRF = AssembleElementGlobalRF9DOF(Element, ElementRF, TotalRF)\n    % Assemble the struc"
-      "ture restoring force vector based on the\n    % degrees of freedom node locations.  \n    ndof = 12;\n    dof12 "
-      "= zeros(12,1); \n    dof12(1,1)=Element.Nodes(1).UX;\n    dof12(2,1)=Element.Nodes(1).UY;\n    dof12(3,1)=Elemen"
-      "t.Nodes(1).THETA;\n    dof12(4,1)=Element.Nodes(2).UX;\n    dof12(5,1)=Element.Nodes(2).UY;\n    dof12(6,1)=Elem"
-      "ent.Nodes(2).THETA;  \n    dof12(7,1)=Element.Nodes(3).UX;\n    dof12(8,1)=Element.Nodes(3).UY;\n    dof12(9,1)="
-      "Element.Nodes(3).THETA;\n    dof12(10,1)=Element.Nodes(4).UX;\n    dof12(11,1)=Element.Nodes(4).UY;\n    dof12(1"
-      "2,1)=Element.Nodes(4).THETA;\n\n    % Add to the TotalRF\n    for i=1:ndof\n        if dof12(i,1) ~= -1\n       "
-      "   TotalRF(dof12(i,1), 1) = ElementRF(i, 1) + TotalRF(dof12(i,1), 1);\n        end\n    end    \nend\n\n%% Eleme"
-      "nt 1\nfunction [Element, RestoringForce] = GetRestoringForce_Type1(Element, Displacement, RigidLinkNo, RigidLink"
-      "NodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n    % Get distance between nodes\n    X21 = Element.Nodes("
-      "2).Xcoord - Element.Nodes(1).Xcoord;\n    Y21 = Element.Nodes(2).Ycoord - Element.Nodes(1).Ycoord;\n    EL = sqr"
-      "t(X21 * X21 + Y21 * Y21);\n    EAL = Element.Material.E * Element.Area / EL;\n    EIZL = Element.Material.E * El"
-      "ement.Inertia / EL;    \n    % Calculation of density (the uniform load is only taken into account)\n    SEP = z"
-      "eros(6);\n    SEP(1, 1) = EAL;\n    SEP(1, 4) = -EAL;\n    SEP(4, 4) = EAL;\n    SEP(2, 2) = 12 * EIZL / EL ^ 2;"
-      "\n    SEP(2, 3) = 6 * EIZL / EL;\n    SEP(2, 5) = -SEP(2, 2);\n    SEP(2, 6) = SEP(2, 3);\n    SEP(3, 3) = 4 * E"
-      "IZL;\n    SEP(3, 5) = -6 * EIZL / EL;\n    SEP(3, 6) = 2 * EIZL;\n    SEP(5, 5) = 12 * EIZL / EL ^ 2;\n    SEP(5"
-      ", 6) = -6 * EIZL / EL;\n    SEP(6, 6) = 4 * EIZL;\n    for i = 1:6\n       for j = i:6\n          SEP(j, i) = SE"
-      "P(i, j);\n       end\n    end\n    DCOS = zeros(3);\n    DCOS(1, 1) = X21 / EL;\n    DCOS(1, 2) = Y21 / EL;\n   "
-      " DCOS(1, 3) = 0;\n    DCOS(2, 1) = -DCOS(1, 2);\n    DCOS(2, 2) = DCOS(1, 1);\n    DCOS(2, 3) = 0;\n    DCOS(3, "
-      "1) = 0;\n    DCOS(3, 2) = 0;\n    DCOS(3, 3) = 1;\n    ALMBDA = zeros(6);       \n    for i = 1:2\n       IK = 3"
-      " * (i - 1);\n       for j = 1:3\n          for k = 1:3\n             ALMBDA(j + IK, k + IK) = DCOS(j, k);\n     "
-      "     end\n       end\n    end\n    SE = ALMBDA' * SEP * ALMBDA;\n    % Create the displacement Ue (6x1) vector o"
-      "f the element in global coordinates\n    Ue = zeros(6,1);\n    dof = zeros(6,1);\n    dof(1,1)=Element.Nodes(1)."
-      "UX;\n    dof(2,1)=Element.Nodes(1).UY;\n    dof(3,1)=Element.Nodes(1).THETA;\n    dof(4,1)=Element.Nodes(2).UX;\n"
-      "    dof(5,1)=Element.Nodes(2).UY;\n    dof(6,1)=Element.Nodes(2).THETA;\n    \n    for i=1:6\n        if dof(i,1"
-      ") ~= -1\n            Ue(i,1)=Displacement(dof(i,1),1);\n        end\n    end\n\n    % Calculation Restoring Forc"
-      "e, considering the Rigid Links if used\n    if( RigidLinkNo )\n        TR = RigidLinkTransformation2Nodes(Elemen"
-      "t.Nodes(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);\n"
-      "        RestoringForce = TR' * SE * TR * Ue;  % (6x1) resisting force vector of element in global coordinates\n "
-      "   else        \n        RestoringForce = SE * Ue;  % (6x1) resisting force vector of element in global coordina"
-      "tes\n    end\nend\n\n%% Element 2\nfunction [Element, RestoringForce] = GetRestoringForce_Type2(Element, Displac"
-      "ement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n    % Preset arrays\n    SE ="
-      " zeros(6,6);\n    SE(1, 1) = Element.Stiffness;\n    SE(1, 4) = -Element.Stiffness;\n    SE(4, 4) = Element.Stif"
-      "fness;\n    SE(4, 1) = SE(1,4);\n    \n    % Create the displacement Ue (6x1) vector of the element in global co"
-      "ordinates\n    Ue = zeros(6,1);\n    dof = zeros(6,1);\n    dof(1,1)=Element.Nodes(1).UX;\n    dof(2,1)=Element."
-      "Nodes(1).UY;\n    dof(3,1)=Element.Nodes(1).THETA;\n    dof(4,1)=Element.Nodes(2).UX;\n    dof(5,1)=Element.Node"
-      "s(2).UY;\n    dof(6,1)=Element.Nodes(2).THETA;\n    \n    for i=1:6\n        if dof(i,1) ~= -1\n            Ue(i"
-      ",1)=Displacement(dof(i,1),1);\n        end\n    end\n\n    % Calculation Restoring Force, considering the Rigid "
-      "Links if used\n    if( RigidLinkNo )\n        TR = RigidLinkTransformation2Nodes(Element.Nodes(1).ID, Element.No"
-      "des(2).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);\n        RestoringForce ="
-      " TR' * SE * TR * Ue;  % (6x1) resisting force vector of element in global coordinates\n    else\n%         if (R"
-      "UNMODE_BIT)\n%             RestoringForce = zeros(6,1);\n%             RestoringForce(1,1) = Element2Input;\n%  "
-      "           RestoringForce(4,1) = -Element2Input;\n%         else\n            RestoringForce = SE * Ue;  % (6x1)"
-      " resisting force vector of element in global coordinates\n%         end\n    end    \nend\n\n%% Element 3\n\n%% "
-      "Element 4\nfunction [Element, RestoringForce] = GetRestoringForce_Type4(Element, Displacement, RigidLinkNo, Rigi"
-      "dLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n\n    % element geometry       \n    % element deform"
-      "ation % geometry restricted to 1,2 plane (x,y)\n    dx = Element.xyj(1,1) - Element.xyi(1,1); \n    dy = Element"
-      ".xyj(2,1) - Element.xyi(2,1);\n    L = sqrt(dx*dx+dy*dy);\n    dx = dx / L;\n    dy = dy / L;\n\n    % 6x6 trans"
-      "formation matrix from local to global coordiante\n    apq  = zeros(6);\n    apq(1,1) = dx; apq(2,2) = dx; apq(4,"
-      "4) = dx; apq(5,5)= dx;\n    apq(1,2) = dy; apq(2,1) =-dy; apq(4,5) = dy; apq(5,4)=-dy;\n    apq(3,3) = 1.0; apq("
-      "6,6) =1.0;\n\n    % element stiffness matrix in local coordinate\n    SE = zeros(6,6);  \n    SE(2, 2) = Element"
-      ".K22;\n    SE(2, 5) = Element.K25;\n    SE(5, 2) = Element.K52;\n    SE(5, 5) = Element.K55;\n    % transformed "
-      "element stiffness matrix in global coordinate\n    SE = apq' * SE * apq;\n\n    % Create the displacement Ue (6x"
-      "1) vector of the element in global coordinates\n    Ue = zeros(6,1);\n    dof = zeros(6,1);\n    dof(1,1)=Elemen"
-      "t.Nodes(1).UX;\n    dof(2,1)=Element.Nodes(1).UY;\n    dof(3,1)=Element.Nodes(1).THETA;\n    dof(4,1)=Element.No"
-      "des(2).UX;\n    dof(5,1)=Element.Nodes(2).UY;\n    dof(6,1)=Element.Nodes(2).THETA;\n\n    for i=1:6\n        if"
-      " dof(i,1) ~= -1\n            Ue(i,1) = Displacement(dof(i,1),1);\n        end\n    end\n    \n    % Calculation "
-      "Restoring Force, considering the Rigid Links if used\n    if( RigidLinkNo )\n        TR = RigidLinkTransformatio"
-      "n2Nodes(Element.Nodes(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLink"
-      "SlaveMatrix);\n        RestoringForce = TR' * SE * TR * Ue;  % (6x1) resisting force vector of element in global"
-      " coordinates\n    else\n        RestoringForce = SE * Ue;  % (6x1) resisting force vector of element in global c"
-      "oordinates\n    end\nend\n\n%% Element 5\n\n%% Element 6\nfunction [Element,RestoringForce] = GetRestoringForce_"
-      "Type6(Element, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n    % G"
-      "et the displacement Ue (6x1) vector of the element in global coordinates\n    Ue = zeros(6,1);\n    dof=zeros(6,"
-      "1);\n    dof(1,1)=Element.Nodes(1).UX;\n    dof(2,1)=Element.Nodes(1).UY;\n    dof(3,1)=Element.Nodes(1).THETA;\n"
-      "    dof(4,1)=Element.Nodes(2).UX;\n    dof(5,1)=Element.Nodes(2).UY;\n    dof(6,1)=Element.Nodes(2).THETA;\n    "
-      "for i=1:6\n        if dof(i,1) ~= -1\n            Ue(i,1)=Displacement(dof(i,1),1);\n        end\n    end\n\n   "
-      " % Calculation Restoring Force, considering the Rigid Links if used\n    if( RigidLinkNo )\n        TR = RigidLi"
-      "nkTransformation2Nodes(Element.Nodes(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMa"
-      "trix, RigidLinkSlaveMatrix);        \n        Ue = TR * Ue; \n    end       \n\n    du=Ue-Element.Uprev;  % The "
-      "incremental displacement vector du of the element in global coordinates \n    Element.Uprev=Ue; %Update Uprev of"
-      " element for use in next state determination call\n\n    % Incremental basic deformations\n    dv = Element.avq "
-      "* du;      \n\n    % Integrate basic force and basic stiffness matrix\n    kb = zeros(3);\n    s  = zeros(3,1);\n"
-      "\n    for i=1:length(Element.sections)\n\n        % Form B matrix and compute section deformation\n        B = ["
-      " Element.b1(i) Element.b2(i) 0; 0 0 Element.b3(i) ];\n        dvs = B * dv;  \n\n        % Section state determi"
-      "nation and update section state\n        [ss ks Element.sections(i)] = SectionState( Element.sections(i), dvs );"
-      "\n\n        % Sum section term\n        kb = kb + B'*ks*B * ( Element.wi(i) * Element.L/2 );\n        s  = s  + "
-      "B'*ss   * ( Element.wi(i) * Element.L/2 );\n\n    end\n\n    % Restoring force and stiffness matrix\n    Restori"
-      "ngForce = Element.avq' * s;\n\n    if( RigidLinkNo )\n        RestoringForce = TR' * RestoringForce;  \n    end\n"
-      "end\n\n%% Element 7\nfunction [Element,RestoringForce] = GetRestoringForce_Type7(Element, Displacement, RigidLin"
-      "kNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix, maxIter, EAT, ERT, CO)\n    % Get the displac"
-      "ement Ue (6x1) vector of the element in global coordinates\n    Ue = zeros(6,1);\n    dof=zeros(6,1);\n    dof(1"
-      ",1)=Element.Nodes(1).UX;\n    dof(2,1)=Element.Nodes(1).UY;\n    dof(3,1)=Element.Nodes(1).THETA;\n    dof(4,1)="
-      "Element.Nodes(2).UX;\n    dof(5,1)=Element.Nodes(2).UY;\n    dof(6,1)=Element.Nodes(2).THETA;\n    for i=1:6\n  "
-      "      if dof(i,1) ~= -1\n            Ue(i,1)=Displacement(dof(i,1),1);\n        end\n    end\n\n    % Calculatio"
-      "n Restoring Force, considering the Rigid Links if used\n    if( RigidLinkNo )\n        TR = RigidLinkTransformat"
-      "ion2Nodes(Element.Nodes(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLi"
-      "nkSlaveMatrix);        \n        Ue = TR * Ue; \n    end       \n\n    du=Ue -Element.Uprev; % The incremental d"
-      "isplacement vector du of the element in global coordinates \n\n\n    Element.Uprev=Ue; %Update Uprev of element "
-      "for use in next state determination call\n\n    % element defomration % geometry restricted to 1,2 plane (x,y)\n"
-      "    dx = Element.xyj(1,1) - Element.xyi(1,1); \n    dy = Element.xyj(2,1) - Element.xyi(2,1);\n    L = sqrt(dx*d"
-      "x+dy*dy);\n    dx = dx / L;\n    dy = dy / L;\n\n    % Form transformation matrix from element in global coordin"
-      "ate to basic system\n    avq  = [ -dy/L  dx/L  1.  dy/L -dx/L  0;\n           -dy/L  dx/L  0  dy/L -dx/L  1.;\n "
-      "          -dx   -dy    0  dx    dy    0];\n\n    % Incremental basic deformations\n    dv = avq * du;\n\n    % B"
-      "asic forces from previous load step\n    si = Element.si; %momentI, momentJ, axial\n\n    % Initialize ds for it"
-      "eration\n    ds = zeros(3,1); %deltaMomentI, deltaMomentJ, deltaAxial\n\n    % Interpolation functions for equil"
-      "ibrium evaluated at integration points\n    x  = (  Element.xi + 1. ) / 2.;   \n    b1 = -( 1. - x );\n    b2 = "
-      "       x;      \n    b3 = -1./L;\n    b4 = ones(size(x));\n\n    % initialize incremental section deformations\n"
-      "    dvsecs = zeros(2,Element.nIP);\n\n    %vr = dv;\n\n    % Iterate to satisfy compatibility \n    for k =1:Ele"
-      "ment.maxIter\n\n        % Compute residual and basic flexibility by summing \n        % section properties over "
-      "element length\n        vr = dv;\n        fb = zeros(3);\n        si = Element.si; %momentI, momentJ, axial\n   "
-      "     % loop over each section along the element length\n        for i=1:Element.nIP\n\n            % transformai"
-      "on matrix \n            b = [ b1(i) b2(i) 0;\n                   0     0    b4(i)];\n           %        b3    b"
-      "3    0]; \n            % section force, moment, axial, and shear \n            ss = b * ( ds + si );\n\n        "
-      "    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n            % Given section force, determine section d"
-      "eformation iteratively\n            % Initialize vector of dvs for iteration   \n             dvs = zeros(2,1);\n"
-      "\n            % Iterate on section equilibrium\n      %      for j=1:Element.maxIter\n\n                % given "
-      "section deformation, determine section force\n                [jthss, ks] = SectionState(Element.sections(i), dv"
-      "s);            \n                % residual section force \n                sres     = ss - jthss;\n            "
-      "    dvs = ks \\ sres + dvs;    \n\n\n\n      %      end\n            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-      "%%%%%%%%\n            % store deformation of each section\n            dvsecs(:,i) = dvs;				\n            % add"
-      " section contribution to residual element deformation and flexibility\n            vr = vr - b' * dvs   * ( Elem"
-      "ent.wi(i) * L/2. );\n            fb = fb + b'*(ks\\b) * ( Element.wi(i) * L/2. ); \n\n\n        end\n\n        %"
-      " check residual deformation \n    %     TolFinal=min(Element.EAT,Element.ERT1*norm(vr));\n    %     if norm(vr) "
-      "< TolFinal\n    %         Element.NumIter=k;\n    %         Element.EC=Element.EC+1;\n    % 		break;\n    %     "
-      "end\n\n    % check Unbalanced force   \n      UnbForce=fb\\vr;\n      NormUnb=((UnbForce(1)*L)^2+(UnbForce(2)*L)"
-      "^2+(UnbForce(3))^2)^0.5;\n      TolFinal=max(Element.EAT,Element.ERT1*NormUnb);\n        if NormUnb < TolFinal\n"
-      "            Element.NumIter=k;\n            Element.EC=Element.EC+1;\n            Element.NUnbforce=NormUnb;\n  "
-      "          break;\n        end\n    if Element.CO==1\n        ds = fb \\ vr + ds; \n    end\n     Element.NumIter"
-      "=Element.maxIter;  \n    end\n\n    % update section state with converged dvs\n    for i=1:Element.nIP\n        "
-      "[ssc, ksc, Element.sections(i)] = SectionState(Element.sections(i),...\n            dvsecs(:,i));    \n    end\n"
-      "\n    % update basic forces for element\n    Element.si = ds + si;\n\n    % Restoring force and stiffness matrix"
-      "\nRestoringForce = avq' * Element.si;\n            \n    if( RigidLinkNo )\n        RestoringForce = TR' * Resto"
-      "ringForce;  \n    end    \nend\n\n\n%% Element 8\nfunction [Element,RestoringForce] = GetRestoringForce_Type8(El"
-      "ement, Displacement, Velocity, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n    %"
-      " Get the displacement Ue (6x1) vector of the element in global coordinates\n    Uev = zeros(6,1);\n    Vev = zer"
-      "os(6,1);\n    dof=zeros(6,1);\n    dof(1,1)=Element.Nodes(1).UX;\n    dof(2,1)=Element.Nodes(1).UY;\n    dof(3,1"
-      ")=Element.Nodes(1).THETA;\n    dof(4,1)=Element.Nodes(2).UX;\n    dof(5,1)=Element.Nodes(2).UY;\n    dof(6,1)=El"
-      "ement.Nodes(2).THETA;\n    for i=1:6\n        if dof(i,1) ~= -1\n            Uev(i,1)=Displacement(dof(i,1),1);\n"
-      "            Vev(i,1)=Velocity(dof(i,1),1);        \n        end\n    end\n\n    % Calculation Restoring Force, c"
-      "onsidering the Rigid Links if used\n    if( RigidLinkNo )\n        TR = RigidLinkTransformation2Nodes(Element.No"
-      "des(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);     "
-      "   \n        Uev = TR * Uev; \n        Vev = TR * Vev; \n    end \n\n    % Deformation and velocity\n    % if El"
-      "ement.dof ==1\n    Ue = Uev(Element.dof,1)-Uev(Element.dof+3,1);\n    Ve = Vev(Element.dof,1)-Vev(Element.dof+3,"
-      "1);\n    % elseif Element.dof ==2\n    %     Ue = Uev(2,1)-Uev(5,1);\n    %     Ve = Vev(2,1)-Vev(5,1);\n    % e"
-      "lse\n    %     Ue = Uev(3,1)-Uev(6,1);\n    %     Ve = Vev(3,1)-Vev(6,1);\n    % end\n\n    % Incremental displa"
-      "cement and velocity\n    % the incremental deformation of the element \n    % Update max and min deformation his"
-      "tory\n    % Element.prop.Dmax= max(Ue,Element.prop.Dmax); \n    % Element.prop.Dmin= min(Ue,Element.prop.Dmin); "
-      "\n    du = Ue - Element.Uprev;\n    [Element.prop kt Fs] = MaterialState(du, Element.prop, Ve);\n\n    Restoring"
-      "Force=zeros(6,1);\n    RestoringForce(Element.dof,1)   = Fs;\n    RestoringForce(Element.dof+3,1) = -Fs;\n\n    "
-      "if( RigidLinkNo )\n        RestoringForce = TR' * RestoringForce;  \n    end\n\n    % Update Uprev\n    Element."
-      "Uprev=Ue; \nend\n\n\n%% Element 9\nfunction [Element,RestoringForce] = GetRestoringForce_Type9(Element, Displace"
-      "ment, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n\n%% Get the displacement Ue ("
-      "12x1) vector of the element in global coordinates\nndof=12;  \nUe = zeros(ndof,1);\ndof=zeros(ndof,1);\ndof(1,1)"
-      "=Element.Nodes(1).UX;\ndof(2,1)=Element.Nodes(1).UY;\ndof(3,1)=Element.Nodes(1).THETA;\ndof(4,1)=Element.Nodes(2"
-      ").UX;\ndof(5,1)=Element.Nodes(2).UY;\ndof(6,1)=Element.Nodes(2).THETA;\ndof(7,1)=Element.Nodes(3).UX;\ndof(8,1)="
-      "Element.Nodes(3).UY;\ndof(9,1)=Element.Nodes(3).THETA;\ndof(10,1)=Element.Nodes(4).UX;\ndof(11,1)=Element.Nodes("
-      "4).UY;\ndof(12,1)=Element.Nodes(4).THETA;\n\nfor i=1:ndof\n    if dof(i,1) ~= -1\n        Ue(i,1)=Displacement(d"
-      "of(i,1),1);\n    end\nend\n\n% Calculation Restoring Force, considering the Rigid Links if used\nif( RigidLinkNo"
-      " )\n    TR = RigidLinkTransformation4Nodes(Element.Nodes(1).ID, Element.Nodes(2).ID, Element.Nodes(3).ID, Elemen"
-      "t.Nodes(4).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);        \n    Ue = TR "
-      "* Ue; \nend   \n\n% The incremental displacement vector du of the element in global coordinates\n% The element h"
-      "as 12 dofs\n% Update Uprev of element for use in next state determination call\ndu=Ue-Element.Uprev;  \nElement."
-      "Uprev=Ue; \n\n% transform global node displacement to basic deformation\nv = Element.avq*Ue;\n\n% compute elemen"
-      "t force\ns = zeros(9,1); \n\ns(1) = Element.kb1*v(1);\ns(2) = Element.kb2*v(2);\ns(4) = Element.kb4*v(4);\ns(5) "
-      "= Element.kb5*v(5);\ns(6) = Element.kb6*v(6);\ns(7) = Element.kb7*v(7);\ns(8) = Element.kb8*v(8);\ns(9) = Elemen"
-      "t.kb9*v(9);\n\ndv3 = Element.dx/Element.Width*du(10)-Element.dy/Element.Width*du(5)-Element.dx/Element.Width*du("
-      "4)+Element.dy/Element.Width*du(11)-Element.Height/Element.Width*Element.dx/Element.Width*du(2)...\n    +Element."
-      "Height/Element.Width*Element.dy/Element.Width*du(1)+Element.Height/Element.Width*Element.dx/Element.Width*du(8)-"
-      "Element.Height/Element.Width*Element.dy/Element.Width*du(7);\n\n% compute shear deformation mode\n[Element.Shear"
-      "Prop , tmp, s(3)]= MaterialState(dv3, Element.ShearProp, 0);\n\n% Restoring force and stiffness matrix\nRestorin"
-      "gForce = Element.avq' * s;\n\nif( RigidLinkNo )\n    RestoringForce = TR' * RestoringForce;  \nend\n\n% function"
-      " [pro] = trilinear(dx, pro)\n% \n% % calculate current deformation \n%     x = pro.xprev + dx; \n% \n% if pro.Yi"
-      "eldCode == 0\n% \n% 	pro.Fs1 = pro.Fs1+pro.K1*dx;\n%     pro.Fs2 = pro.Fs2+pro.K2*dx;\n% 	% if it is beyond elas"
-      "tic range, limit to yield force\n% 	% and set m_nYieldCode to 1\n% 	if pro.Fs1 > pro.Fy1\n% 		\n%         pro.Fs"
-      "1 = pro.Fy1 ;\n% 		pro.YieldCode = 1;\n%         \n%         if(pro.Fs2> pro.Fy2)\n% 			pro.Fs2 = pro.Fy2 ;\n% 	"
-      "	    pro.YieldCode = 2;\n%         end\n%     elseif pro.Fs1 < -pro.Fy1\n% 		\n%         pro.Fs1 = -pro.Fy1;\n% "
-      "		pro.YieldCode = 1 ;\n%        \n% 		if pro.Fs2 < -pro.Fy2\n% 			pro.Fs2 = - pro.Fy2 ;\n% 		    pro.YieldCode ="
-      " 2;\n%         end\n%     end\n% % 1st post-yielding region    \n% elseif pro.YieldCode == 1\n%     \n%     % as"
-      "sume spring2 remain elastic\n%     pro.Fs2= pro.Fs2+pro.K2*dx;\n%     \n%     % keep loading\n%     if pro.Fs1*d"
-      "x > 0.\n%         if pro.Fs2 > pro.Fy2\n%             pro.Fs2 = pro.Fy2;\n%             pro.YieldCode=2;        "
-      "    \n%         elseif pro.Fs2 < -pro.Fy2\n%             pro.Fs2 = -pro.Fy2;\n%             pro.YieldCode=2;\n% "
-      "        end\n%         % unloading\n%     elseif pro.Fs1*dx < 0.\n%         pro.Fs1= pro.Fs1 + pro.K1*dx;\n%    "
-      "     pro.YieldCode = 0;\n%         \n%         if pro.Fs1 < -pro.Fy1 \n%             pro.Fs1 = -pro.Fy1;\n%     "
-      "        pro.YieldCode = 1;\n%             if pro.Fs2 < -pro.Fy2\n%                 pro.Fs2 = -pro.Fy2;\n%       "
-      "          pro.YieldCode = 2;\n%             end\n%         elseif pro.Fs1 > pro.Fy1\n%             pro.Fs1 = pro"
-      ".Fy1;\n%             pro.YieldCode = 1;\n%             if pro.Fs2 > pro.Fy2\n%                 pro.Fs2 = pro.Fy2"
-      ";\n%                 pro.YieldCode = 2;\n%             end\n%         end\n%     end\n% elseif pro.YieldCode ==2"
-      "\n%     % unloading\n% 	if (pro.Fs1*dx) < 0.\n% 		pro.Fs1 = pro.Fs1 + pro.K1*dx;\n% 		pro.Fs2 = pro.Fs2 + pro.K2"
-      "*dx;\n% 		pro.YieldCode = 0;\n% 		\n%         if pro.Fs1 < -pro.Fy1\n%             pro.Fs1 = -pro.Fy1;\n% 			pro"
-      ".YieldCode = 1;\n%             if pro.Fs2 < -pro.Fy2\n% 				pro.Fs2 = -pro.Fy2;\n% 				pro.YieldCode = 2;\n%    "
-      "         end            \n%         elseif pro.Fs1 > pro.Fy1\n% 			pro.Fs1 = pro.Fy1;\n% 			pro.YieldCode = 1;\n"
-      "%             if pro.Fs2> pro.Fy2\n% 				pro.Fs2 = pro.Fy2;\n% 				pro.YieldCode = 2;\n% 			end\n%         end\n"
-      "%     end\n% end\n% \n% pro.Fs = pro.Fs1 + pro.Fs2 + pro.K3*x;\n% \n% % updata current state for next time step\n"
-      "% if pro.YieldCode == 0\n%     pro.Kt = pro.K1 +pro.K2 +pro.K3;\n% elseif pro.YieldCode == 1\n%     pro.Kt = pro"
-      ".K2 +pro.K3;    \n% else\n%     pro.Kt = pro.K3;\n% end\n% pro.xprev = x;\n\nend\n    \n\n%%%%%%%%%%%%%%%%%%%%%%"
-      "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n%%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Functions %%%%%%%%%%%"
-      "%%%%%%%%%%%%%%%%%%\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n%% Rigid Link"
-      " Tranformation Matrix Calculation for 2 Nodes, 6 DOF\nfunction TR = RigidLinkTransformation2Nodes(Node1ID, Node2"
-      "ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n    % Rigid Link Calculations\n "
-      "   TR = eye(6,6); % Transformation matrix for rigid link\n    if( RigidLinkNo )    \n        % Find the row with"
-      " the slave node, if it exists in the element\n        idx = 0;\n        for kk = 1:RigidLinkNo\n            if ("
-      "RigidLinkNodeID(kk,2) == Node1ID)\n                idx = kk;\n                break;\n            end\n        e"
-      "nd\n        %idx=find(RigidLinkNodeID(:,2) == Node1ID); % find if a slave node exists in the element\n        if"
-      " ( idx )\n            TL=CalculateRigidLinkTransformation(RigidLinkMasterMatrix(idx,2),RigidLinkMasterMatrix(idx"
-      ",3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(idx,3));\n            jjj = 1; % Node 1\n            TR(3*("
-      "jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end\n        idx = 0;\n        for kk = 1:RigidLinkNo\n        "
-      "    if (RigidLinkNodeID(kk,2) == Node2ID)\n                idx = kk;\n                break;\n            end\n "
-      "       end    \n        %idx=find(RigidLinkNodeID(:,2) == Node2ID); % find if a slave node exists in the element"
-      "\n        if ( idx )\n            TL=CalculateRigidLinkTransformation(RigidLinkMasterMatrix(idx,2),RigidLinkMast"
-      "erMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(idx,3));            \n            jjj = 2; % No"
-      "de 2\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end            \n    end\nend\n\n%% Rig"
-      "id Link Tranformation Matrix Calculation for 4 Nodes, 12 DOF\nfunction TR = RigidLinkTransformation4Nodes(Node1I"
-      "D, Node2ID, Node3ID, Node4ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n    % "
-      "Rigid Link Calculations\n    TR = eye(12,12); % Transformation matrix for rigid link\n    if( RigidLinkNo )    \n"
-      "        % Find the row with the slave node, if it exists in the element\n        idx = 0;\n        for kk = 1:Ri"
-      "gidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node1ID)\n                idx = kk;\n                break;\n"
-      "            end\n        end\n        %idx=find(RigidLinkNodeID(:,2) == Node1ID); % find if a slave node exists "
-      "in the element\n        if ( idx )\n            TL=CalculateRigidLinkTransformation(RigidLinkMasterMatrix(idx,2)"
-      ",RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(idx,3));\n            jjj = 1; % "
-      "Node 1\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end\n        idx = 0;\n        for kk"
-      " = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node2ID)\n                idx = kk;\n                "
-      "break;\n            end\n        end    \n        %idx=find(RigidLinkNodeID(:,2) == Node2ID); % find if a slave "
-      "node exists in the element\n        if ( idx )\n            TL=CalculateRigidLinkTransformation(RigidLinkMasterM"
-      "atrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(idx,3));            \n"
-      "            jjj = 2; % Node 2\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end           "
-      "     \n        % Find the row with the slave node, if it exists in the element\n        idx = 0;\n        for kk"
-      " = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node3ID)\n                idx = kk;\n                "
-      "break;\n            end\n        end\n        %idx=find(RigidLinkNodeID(:,2) == Node3ID); % find if a slave node"
-      " exists in the element\n        if ( idx )\n            TL=CalculateRigidLinkTransformation(RigidLinkMasterMatri"
-      "x(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(idx,3));\n            jjj"
-      " = 3; % Node 3\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end\n        idx = 0;\n      "
-      "  for kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node4ID)\n                idx = kk;\n        "
-      "        break;\n            end\n        end    \n        %idx=find(RigidLinkNodeID(:,2) == Node4ID); % find if "
-      "a slave node exists in the element\n        if ( idx )\n            TL=CalculateRigidLinkTransformation(RigidLin"
-      "kMasterMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(idx,3));     "
-      "       \n            jjj = 4; % Node 4\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end  "
-      "        \n    end\nend\n\n%% Calculate Rigid Link Transformation\nfunction TL = CalculateRigidLinkTransformation"
-      "(MNXcoord, MNYcoord, SNXcoord, SNYcoord)\n    X1 = MNXcoord; Y1 = MNYcoord;\n    X2 = SNXcoord;  Y2 = SNYcoord;\n"
-      "    deltaX = X2 - X1;\n    deltaY = Y2 - Y1;\n    TL = [ 1 0 -deltaY;\n           0 1  deltaX;\n           0 0  "
-      "1    ];\nend\n\n%% State determination for fiber section\nfunction [ss, ks, sec] = SectionState( sec, dvs )\n% F"
-      "or section sec undergoing a change\n% in section deformation dvs=[curvature strain], compute\n% section forces S"
-      "S=[moment axial] and the 2x2 tangents\n% section stiffness KS.\n    ks = zeros(2,2);\n    ss = zeros(2,1);  \n  "
-      "  numfib = length(sec.fibers);\n\n    % Loop over fibers\n    for i=1:numfib\n        yi   = sec.fibers(i).yi;\n"
-      "        area = sec.fibers(i).A;\n\n        % Change in strain\n        deps = yi * dvs(1:2);\n\n        [sec.fib"
-      "ers(i).prop Et sc] = MaterialState(deps, sec.fibers(i).prop, 0 );        \n\n        % Integration -- add contri"
-      "bution of fiber \n        % for 3D --- following codes need to be modified\n        ks = ks + yi'*yi * (area*Et "
-      "); % may not need to do it\n        ss = ss + yi'    * (area*sc);\n    end\nend\n\n%% Material Section State\nfu"
-      "nction [ mat Et sc] = MaterialState( dep, mat, vc)  \n    %MATERIALSTATE Summary of this function goes here\n   "
-      " %   dep = incremental deformation at the current time step, except for\n    %   Bouc-Wen model\n    %   mat = m"
-      "aterial data structure\n    %   vc  = 0 for other materials\n    %       = current velocity for Bouc-Wen materia"
-      "l\n    %\n    switch  mat.Type\n        case 2\n            mat = bilinearMat(dep, mat);\n            Et = mat.E"
-      "t;\n            sc = mat.sc;\n%       case 3\n        case 4\n            mat = BoucWen(dep, mat, vc);\n        "
-      "    Et = mat.k;\n            sc = mat.Qj;\n        case 5\n            mat = trilinear(dep, mat);\n            E"
-      "t = mat.Kt;\n            sc = mat.Fs;\n%         case 6     \n        case 7\n            mat = Concrete01(dep, "
-      "mat);\n            Et = mat.Ttangent;\n            sc = mat.Cstress;\n        case 9\n            mat = Steel02("
-      "dep, mat);\n            Et = mat.e;\n            sc = mat.sig;\n        otherwise\n            Et = 0;\n        "
-      "    sc = 0;\n    end\nend\n\n%% Bilinear Material Section State\nfunction [mat] = bilinearMat(deps, mat )\n    %"
-      "	[mat]=BILINEARMAT(deps,mat) For strain increment deps\n    %	and mat compute new properties for bilinear materi"
-      "al.\n    %	mat.SY, mat.E, mat.EP are the yield stress,\n    %	first slop and second slope respectively.  materia"
-      "lProp.SC,\n    %	mat.SB, materialSE are the current stress, back stress, and\n    %	current strain, respectively"
-      ". mat.ET is the current tangent modulus.\n\n    % Material properties\n    sigy = mat.sy;		% yield stress\n    E"
-      "    = mat.e;		% E\n    Ep   = mat.ep;		% alpha*E\n\n    % State from last converged load step\n    sig  = mat.sc"
-      ";		% stress\n    sigb = mat.sb;		% backstress\n    code = mat.cd;		% yield code\n                        %	=0, e"
-      "lastic\n                        %	=1, plastic\n\n    if code==0 || ( code==1 && (sig-sigb)*deps < 0 )\n        %"
-      " Strain to plastic loading from elastic state\n        deps1 = ( sign(deps) * sigy + sigb - sig ) / E;\n\n      "
-      "  % Elastic\n        sig  = sig + E * deps;\n        Et   = E;\n        code = 0;\n\n        % Check if plasic l"
-      "oading from elastic state\n        if abs(deps) > abs(deps1)\n            sig  = sig  + ( Ep - E ) * ( deps - de"
-      "ps1 );\n            sigb = sigb +   Ep       * ( deps - deps1 );\n            Et   = Ep;\n            code = 1;\n"
-      "        end\n\n    else\n        % Continue plastic loading\n        sig  = sig  + Ep * deps;\n        sigb = si"
-      "gb + Ep * deps;\n        Et   = Ep;\n        code = 1;\n\n    end\n\n    % Return updated state. \n    mat.sc = "
-      "sig;\n    mat.sb = sigb;\n    mat.cd = code;\n    mat.es = mat.es + deps;	\n    mat.Et = Et;\nend   \n\n%% BoucW"
-      "en Material Section State\nfunction [BW]= BoucWen( dx, BW, vcur)\n    % ----------------------------------------"
-      "-----\n    % x,v: displacement and velocity\n    %   Q: restoring force\n    %   z: hysteretic component\n    % "
-      " zj: z in next step, i.e. z_i+1\n    %  BW: numerous parameters for Bouc-Wen model\n    %   i: step number\n\n  "
-      "  xcur =  dx + BW.Uprev;\n    % Fourth order R-K forward integration\n    dz1 = dx*f(BW,vcur,BW.zj);\n    dz2 = "
-      "dx*f(BW,vcur,BW.zj+dz1/2);\n    dz3 = dx*f(BW,vcur,BW.zj+dz2/2);\n    dz4 = dx*f(BW,vcur,BW.zj+dz3);\n    zj = B"
-      "W.zj + (dz1+2*dz2+2*dz3+dz4)/6;\n\n    umax=(abs(BW.Dmin)+ BW.Dmax)*0.5;    \n    BW.k=BW.k1*exp(-umax/BW.uref) "
-      "+ BW.k2;    \n    BW.Qj = BW.c*(abs(vcur)^BW.a)*sign(vcur) + BW.alpha*BW.k*xcur +...\n        (1-BW.alpha)*BW.k*"
-      "BW.uy*zj;\n\n    % update deformation for next time step\n    BW.Uprev = xcur;\n    BW.Dmax= max(xcur,BW.Dmax); "
-      "\n    BW.Dmin= min(xcur,BW.Dmin); \n    BW.zj =  zj;\nend\n\n% BoucWen Helper\nfunction y=f(BW,v,z)\n    % This "
-      "function describes the nonlinear differential equation that governs\n    % the hysteretic component, z.\n    % T"
-      "he returned value is \"dz/dx\" or \"z_dot/x_dot\"\n    y =(1/BW.uy)*(1-BW.beta*sign(v)*abs(z)^BW.n*sign(z)-BW.ga"
-      "mma1*abs(z)^BW.n);\nend\n%%%%%%%%%%%%%%%%%%% End of Bouc-Wen Model %%%%%%%%%%%%%%%%%%%%%%%% \n\n%% Trilinear Mat"
-      "erial Section State\nfunction [pro] = trilinear(dx, pro)\n    % calculate current deformation \n        x = pro."
-      "xprev + dx; \n\n    if pro.YieldCode == 0\n\n        pro.Fs1 = pro.Fs1+pro.K1*dx;\n        pro.Fs2 = pro.Fs2+pro"
-      ".K2*dx;\n        % if it is beyond elastic range, limit to yield force\n        % and set m_nYieldCode to 1\n   "
-      "     if pro.Fs1 > pro.Fy1\n\n            pro.Fs1 = pro.Fy1 ;\n            pro.YieldCode = 1;\n\n            if(p"
-      "ro.Fs2> pro.Fy2)\n                pro.Fs2 = pro.Fy2 ;\n                pro.YieldCode = 2;\n            end\n    "
-      "    elseif pro.Fs1 < -pro.Fy1\n\n            pro.Fs1 = -pro.Fy1;\n            pro.YieldCode = 1 ;\n\n           "
-      " if pro.Fs2 < -pro.Fy2\n                pro.Fs2 = - pro.Fy2 ;\n                pro.YieldCode = 2;\n            e"
-      "nd\n        end\n    % 1st post-yielding region    \n    elseif pro.YieldCode == 1\n\n        % assume spring2 r"
-      "emain elastic\n        pro.Fs2= pro.Fs2+pro.K2*dx;\n\n        % keep loading\n        if pro.Fs1*dx > 0.\n      "
-      "      if pro.Fs2 > pro.Fy2\n                pro.Fs2 = pro.Fy2;\n                pro.YieldCode=2;            \n  "
-      "          elseif pro.Fs2 < -pro.Fy2\n                pro.Fs2 = -pro.Fy2;\n                pro.YieldCode=2;\n    "
-      "        end\n            % unloading\n        elseif pro.Fs1*dx < 0.\n            pro.Fs1= pro.Fs1 + pro.K1*dx;\n"
-      "            pro.YieldCode = 0;\n\n            if pro.Fs1 < -pro.Fy1 \n                pro.Fs1 = -pro.Fy1;\n     "
-      "           pro.YieldCode = 1;\n                if pro.Fs2 < -pro.Fy2\n                    pro.Fs2 = -pro.Fy2;\n "
-      "                   pro.YieldCode = 2;\n                end\n            elseif pro.Fs1 > pro.Fy1\n              "
-      "  pro.Fs1 = pro.Fy1;\n                pro.YieldCode = 1;\n                if pro.Fs2 > pro.Fy2\n                "
-      "    pro.Fs2 = pro.Fy2;\n                    pro.YieldCode = 2;\n                end\n            end\n        en"
-      "d\n    elseif pro.YieldCode ==2\n        % unloading\n        if (pro.Fs1*dx) < 0.\n            pro.Fs1 = pro.Fs"
-      "1 + pro.K1*dx;\n            pro.Fs2 = pro.Fs2 + pro.K2*dx;\n            pro.YieldCode = 0;\n\n            if pro"
-      ".Fs1 < -pro.Fy1\n                pro.Fs1 = -pro.Fy1;\n                pro.YieldCode = 1;\n                if pro"
-      ".Fs2 < -pro.Fy2\n                    pro.Fs2 = -pro.Fy2;\n                    pro.YieldCode = 2;\n              "
-      "  end            \n            elseif pro.Fs1 > pro.Fy1\n                pro.Fs1 = pro.Fy1;\n                pro"
-      ".YieldCode = 1;\n                if pro.Fs2> pro.Fy2\n                    pro.Fs2 = pro.Fy2;\n                  "
-      "  pro.YieldCode = 2;\n                end\n            end\n        end\n    end\n\n    pro.Fs = pro.Fs1 + pro.F"
-      "s2 + pro.K3*x;\n\n    % updata current state for next time step\n    if pro.YieldCode == 0\n        pro.Kt = pro"
-      ".K1 +pro.K2 +pro.K3;\n    elseif pro.YieldCode == 1\n        pro.Kt = pro.K2 +pro.K3;    \n    else\n        pro"
-      ".Kt = pro.K3;\n    end\n    pro.xprev = x;\nend\n\n%% Concrete01 Material Section State\nfunction [mat] = Concre"
-      "te01(dStrain , mat)\n\n    % Get the total strain     \n    mat.Tstrain = dStrain + mat.Cstrain;\n    % Get the "
-      "previous states\n    mat.TminStrain = mat.CminStrain;\n    mat.TendStrain = mat.CendStrain;\n    mat.TunloadSlop"
-      "e = mat.CunloadSlope;\n    mat.Tstress = mat.Cstress;\n    mat.Ttangent = mat.Ctangent;        \n    \n    % che"
-      "ck for a quick return\n    if (mat.Tstrain > 0.0)\n        mat.Tstress = 1e-10;\n        mat.Ttangent = 0;%1e-10"
-      ";\n    end    \n    \n    mat.TunloadSlope = mat.CunloadSlope;  \n  \n    tempStress = mat.Cstress + mat.Tunload"
-      "Slope*mat.Tstrain - mat.TunloadSlope*mat.Cstrain;\n  \n    % Material goes further into compression\n    if (mat"
-      ".Tstrain < mat.Cstrain)   \n        mat.TminStrain = mat.CminStrain;\n        mat.TendStrain = mat.CendStrain;  "
-      "\n    \n        [mat] = reload(mat);\n    \n        if (tempStress > mat.Tstress) \n            mat.Tstress = te"
-      "mpStress;\n            mat.Ttangent = mat.TunloadSlope;\n        end\n    \n    % Material goes TOWARD tension\n"
-      "    elseif (tempStress <= 0.0)\n        mat.Tstress = tempStress;\n        mat.Ttangent = mat.TunloadSlope;\n   "
-      "     \n    % Made it into tension\n    else\n        mat.Tstress = 1e-10;\n        mat.Ttangent = 0;%1e-10;\n   "
-      " end\n         \n    % Save states\n    mat.CminStrain = mat.TminStrain;\n    mat.CendStrain = mat.TendStrain;\n"
-      "    mat.CunloadSlope = mat.TunloadSlope;\n    mat.Cstress = mat.Tstress;\n    mat.Ctangent = mat.Ttangent;\n    "
-      "mat.Cstrain = mat.Tstrain;  \nend\n\n% Reload, Concrete01\nfunction [mat] = reload(mat)\n\n    if (mat.Tstrain <"
-      "= mat.TminStrain)     \n        mat.TminStrain = mat.Tstrain;\n    \n        % Determine point on envelope\n    "
-      "    [mat] = envelope(mat);     \n        [mat] = unload(mat);     \n    elseif (mat.Tstrain <= mat.TendStrain) \n"
-      "        mat.Ttangent = mat.TunloadSlope;\n        mat.Tstress = mat.Ttangent*(mat.Tstrain-mat.TendStrain);\n    "
-      "else \n        mat.Tstress = 1e-10;\n        mat.Ttangent = 0;%1e-10;\n    end \nend\n    \n% Envelope, Concrete"
-      "01\nfunction [mat] = envelope(mat)  \n\n    if (mat.Tstrain > mat.epsc0) \n        eta = mat.Tstrain/mat.epsc0;\n"
-      "        mat.Tstress = mat.fpc*(2*eta-eta*eta);\n        Ec0 = 2.0*mat.fpc/mat.epsc0;  % changed\n        mat.Tta"
-      "ngent = Ec0*(1.0-eta); % changed\n    elseif (mat.Tstrain > mat.epscu) \n        mat.Ttangent = (mat.fpc-mat.fpc"
-      "u)/(mat.epsc0-mat.epscu);\n        mat.Tstress = mat.fpc + mat.Ttangent*(mat.Tstrain-mat.epsc0);\n    else \n   "
-      "     mat.Tstress = mat.fpcu;\n        mat.Ttangent = 1e-10;\n    end\nend\n\n% Unload, Concrete01\nfunction [mat"
-      "] = unload(mat)   \n    DBL_EPSILON=2.2204460492503131e-16;\n  \n    tempStrain = mat.TminStrain;\n  \n    if (t"
-      "empStrain < mat.epscu)\n        tempStrain = mat.epscu;\n    end\n    eta = tempStrain/mat.epsc0;\n    ratio = 0"
-      ".707*(eta-2.0) + 0.834;\n    if (eta < 2.0)\n        ratio = 0.145*eta*eta + 0.13*eta;\n    end\n    mat.TendStr"
-      "ain = ratio*mat.epsc0;\n    temp1 = mat.TminStrain - mat.TendStrain;\n    Ec0 = 2.0*mat.fpc/mat.epsc0;  % change"
-      "d\n    temp2 = mat.Tstress/Ec0;   % changed\n  \n    if (temp1 > -DBL_EPSILON) % temp1 should always be negative"
-      "\n        mat.TunloadSlope = Ec0;  % changed\n    elseif (temp1 <= temp2)\n        mat.TendStrain = mat.TminStra"
-      "in - temp1;\n        mat.TunloadSlope = mat.Tstress/temp1;\n    else \n        mat.TendStrain = mat.TminStrain -"
-      " temp2;\n        mat.TunloadSlope = Ec0;  % changed\n    end\nend\n%%%%%%%%%%%%%%%%%%%%%%%%End of Concrete01 Mat"
-      "erial%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\nfunction [mat] = Steel02(deps , mat)\n\n  mat.Esh = mat.b*ma"
-      "t.E0;\n  mat.epsy = mat.Fy / mat.E0;\n  \n  mat.eps=mat.epsP;\n  mat.e = mat.eP;\n  mat.sig = mat.sigP;\n  mat.e"
-      "psmax = mat.epsmaxP;\n  mat.epsmin = mat.epsminP;\n  mat.epspl  = mat.epsplP;\n  mat.epss0  = mat.epss0P;  \n  m"
-      "at.sigs0  = mat.sigs0P; \n  mat.epsr   = mat.epssrP;  \n  mat.sigr   = mat.sigsrP;  \n  mat.kon = mat.konP;\n  %"
-      " modified C-P. Lamarche 2006\n  if (mat.sigini ~= 0.0) \n    epsini = mat.sigini/mat.E0;\n    mat.eps = deps + m"
-      "at.epsP +epsini;\n  else\n  mat.eps = deps + mat.epsP;\n  end\n \n  \n  DBL_EPSILON=2.2204460492503131e-16;\n if"
-      " (mat.kon == 0 || mat.kon == 3) % modified C-P. Lamarche 2006\n\n\n%     if (abs(deps) < 10.0*DBL_EPSILON)\n% \n"
-      "%       mat.e = mat.E0;\n%       mat.sig = mat.sigini;               % modified C-P. Lamarche 2006\n%       mat."
-      "kon = 3;                     % modified C-P. Lamarche 2006 flag to impose initial stess/strain\n%     else \n\n "
-      "     mat.epsmax = mat.epsy;\n      mat.epsmin = -mat.epsy;\n        if (deps < 0.0) \n          mat.kon = 2;\n  "
-      "        mat.epss0 = mat.epsmin;\n          mat.sigs0 = -mat.Fy;\n          mat.epspl = mat.epsmin;\n        else"
-      " \n          mat.kon = 1;\n          mat.epss0 = mat.epsmax;\n          mat.sigs0 = mat.Fy;\n          mat.epspl"
-      " = mat.epsmax;\n       end\n     %end\n end\n \n if (mat.kon == 2 && deps > 0.0) \n\n\n    mat.kon = 1;\n    mat"
-      ".epsr = mat.epsP;\n    mat.sigr = mat.sigP;\n    %epsmin = min(epsP, epsmin);\n    if (mat.epsP < mat.epsmin)\n "
-      "    mat.epsmin = mat.epsP;\n    end\n     d1 = (mat.epsmax - mat.epsmin) / (2.0*(mat.a4 * mat.epsy));\n     shft"
-      " = 1.0 + mat.a3 * (d1^0.8);\n     mat.epss0 = (mat.Fy * shft - mat.Esh * mat.epsy * shft - mat.sigr + mat.E0 * m"
-      "at.epsr) / (mat.E0 - mat.Esh);\n     mat.sigs0 = mat.Fy * shft + mat.Esh * (mat.epss0 - mat.epsy * shft);\n     "
-      "mat.epspl = mat.epsmax;\n\n elseif (mat.kon == 1 && deps < 0.0)\n    \n    % update the maximum previous strain,"
-      " store the last load reversal \n    % point and calculate the stress and strain (sigs0 and epss0) at the \n    %"
-      " new intersection between elastic and strain hardening asymptote \n    % To include isotropic strain hardening s"
-      "hift the strain hardening \n    % asymptote by sigsft before calculating the intersection point \n    % Constant"
-      "s a1 and a2 control this stress shift on compression side \n\n    mat.kon = 2;\n    mat.epsr = mat.epsP;\n    ma"
-      "t.sigr = mat.sigP;\n    % epsmax = max(epsP, epsmax);\n    if (mat.epsP > mat.epsmax)\n      mat.epsmax = mat.ep"
-      "sP;\n    end\n    d1 = (mat.epsmax - mat.epsmin) / (2.0*(mat.a2 * mat.epsy));\n    shft = 1.0 + mat.a1 * (d1^0.8"
-      ");\n    mat.epss0 = (-mat.Fy * shft + mat.Esh * mat.epsy * shft - mat.sigr + mat.E0 * mat.epsr) / (mat.E0 - mat."
-      "Esh);\n    mat.sigs0 = -mat.Fy * shft + mat.Esh * (mat.epss0 + mat.epsy * shft);\n    mat.epspl = mat.epsmin;\n "
-      "end\n \n  xi  = abs((mat.epspl-mat.epss0)/mat.epsy);\n  R   = mat.R0*(1.0 - (mat.cR1*xi)/(mat.cR2+xi));\n  epsra"
-      "t = (mat.eps-mat.epsr)/(mat.epss0-mat.epsr);\n  dum1  = 1.0 + (abs(epsrat)^R);\n  dum2  = (dum1^(1/R));\n\n  mat"
-      ".sig   = mat.b*epsrat +(1.0-mat.b)*epsrat/dum2;\n  mat.sig   = mat.sig*(mat.sigs0-mat.sigr)+mat.sigr;\n\n  mat.e"
-      " = mat.b + (1.0-mat.b)/(dum1*dum2);\n  mat.e = mat.e*(mat.sigs0-mat.sigr)/(mat.epss0-mat.epsr);\n  \n  mat.epsmi"
-      "nP = mat.epsmin;\n  mat.epsmaxP = mat.epsmax;\n  mat.epsplP = mat.epspl;\n  mat.epss0P = mat.epss0;\n  mat.sigs0"
-      "P = mat.sigs0;\n  mat.epssrP = mat.epsr;\n  mat.sigsrP = mat.sigr;\n  mat.konP = mat.kon;\n  \n  mat.eP = mat.e;"
-      "\n  mat.sigP = mat.sig;\n  mat.epsP = mat.eps;\nend"
+      "lementGlobalRF6DOF(Elements.Element3, ElementRF, TotalRF);\nElementRFs.Element3 = ElementRF;\n[Elements.Element4"
+      ", ElementRF] = GetRestoringForce_Type1(Elements.Element4, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkM"
+      "asterMatrix, RigidLinkSlaveMatrix);\nTotalRF = AssembleElementGlobalRF6DOF(Elements.Element4, ElementRF, TotalRF"
+      ");\n[Elements.Element5, ElementRF] = GetRestoringForce_Type1(Elements.Element5, Displacement, RigidLinkNo, Rigid"
+      "LinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);\nTotalRF = AssembleElementGlobalRF6DOF(Elements.Elemen"
+      "t5, ElementRF, TotalRF);\nElementRFs.Element5 = ElementRF;\n[Elements.Element6, ElementRF] = GetRestoringForce_T"
+      "ype1(Elements.Element6, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)"
+      ";\nTotalRF = AssembleElementGlobalRF6DOF(Elements.Element6, ElementRF, TotalRF);\n[Elements.Element7, ElementRF]"
+      " = GetRestoringForce_Type4(Elements.Element7, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix,"
+      " RigidLinkSlaveMatrix);\nTotalRF = AssembleElementGlobalRF6DOF(Elements.Element7, ElementRF, TotalRF);\nElementR"
+      "Fs.Element7 = ElementRF;\n[Elements.Element8, ElementRF] = GetRestoringForce_Type4(Elements.Element8, Displaceme"
+      "nt, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);\nTotalRF = AssembleElementGlobal"
+      "RF6DOF(Elements.Element8, ElementRF, TotalRF);\n[Elements.Element9, ElementRF] = GetRestoringForce_Type4(Element"
+      "s.Element9, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);\nTotalRF ="
+      " AssembleElementGlobalRF6DOF(Elements.Element9, ElementRF, TotalRF);\n[Elements.Element10, ElementRF] = GetResto"
+      "ringForce_Type4(Elements.Element10, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLink"
+      "SlaveMatrix);\nTotalRF = AssembleElementGlobalRF6DOF(Elements.Element10, ElementRF, TotalRF);\n[Elements.Element"
+      "11, ElementRF] = GetRestoringForce_Type4(Elements.Element11, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLi"
+      "nkMasterMatrix, RigidLinkSlaveMatrix);\nTotalRF = AssembleElementGlobalRF6DOF(Elements.Element11, ElementRF, Tot"
+      "alRF);\n[Elements.Element12, ElementRF] = GetRestoringForce_Type4(Elements.Element12, Displacement, RigidLinkNo,"
+      " RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);\nTotalRF = AssembleElementGlobalRF6DOF(Elements."
+      "Element12, ElementRF, TotalRF);\n\n%*e\n                         \n    Total_RF = TotalRF;\n\n\nend\n\n\n%%%%%%%"
+      "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\nfunction TotalRF = AssembleElementGlobalRF"
+      "6DOF(Element, ElementRF, TotalRF)\n    % Assemble the structure restoring force vector based on the\n    % degre"
+      "es of freedom node locations.  \n    ndof = 6;\n    dof6 = zeros(6,1); \n    dof6(1,1)=Element.Nodes(1).UX;\n   "
+      " dof6(2,1)=Element.Nodes(1).UY;\n    dof6(3,1)=Element.Nodes(1).THETA;\n    dof6(4,1)=Element.Nodes(2).UX;\n    "
+      "dof6(5,1)=Element.Nodes(2).UY;\n    dof6(6,1)=Element.Nodes(2).THETA;      \n\n    % Add to the TotalRF    \n   "
+      " i = 1;\n    for i=1:ndof\n        if dof6(i,1) ~= -1\n          TotalRF(dof6(i,1), 1) = ElementRF(i, 1) + Total"
+      "RF(dof6(i,1), 1);\n        end\n    end    \nend\n\nfunction TotalRF = AssembleElementGlobalRF9DOF(Element, Elem"
+      "entRF, TotalRF)\n    % Assemble the structure restoring force vector based on the\n    % degrees of freedom node"
+      " locations.  \n    ndof = 12;\n    dof12 = zeros(12,1); \n    dof12(1,1)=Element.Nodes(1).UX;\n    dof12(2,1)=El"
+      "ement.Nodes(1).UY;\n    dof12(3,1)=Element.Nodes(1).THETA;\n    dof12(4,1)=Element.Nodes(2).UX;\n    dof12(5,1)="
+      "Element.Nodes(2).UY;\n    dof12(6,1)=Element.Nodes(2).THETA;  \n    dof12(7,1)=Element.Nodes(3).UX;\n    dof12(8"
+      ",1)=Element.Nodes(3).UY;\n    dof12(9,1)=Element.Nodes(3).THETA;\n    dof12(10,1)=Element.Nodes(4).UX;\n    dof1"
+      "2(11,1)=Element.Nodes(4).UY;\n    dof12(12,1)=Element.Nodes(4).THETA;\n\n    % Add to the TotalRF\n    for i=1:n"
+      "dof\n        if dof12(i,1) ~= -1\n          TotalRF(dof12(i,1), 1) = ElementRF(i, 1) + TotalRF(dof12(i,1), 1);\n"
+      "        end\n    end    \nend\n\n%% Element 1\nfunction [Element, RestoringForce] = GetRestoringForce_Type1(Elem"
+      "ent, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n    % Get distanc"
+      "e between nodes\n    X21 = Element.Nodes(2).Xcoord - Element.Nodes(1).Xcoord;\n    Y21 = Element.Nodes(2).Ycoord"
+      " - Element.Nodes(1).Ycoord;\n    EL = sqrt(X21 * X21 + Y21 * Y21);\n    EAL = Element.Material.E * Element.Area "
+      "/ EL;\n    EIZL = Element.Material.E * Element.Inertia / EL;    \n    % Calculation of density (the uniform load"
+      " is only taken into account)\n    SEP = zeros(6);\n    SEP(1, 1) = EAL;\n    SEP(1, 4) = -EAL;\n    SEP(4, 4) = "
+      "EAL;\n    SEP(2, 2) = 12 * EIZL / EL ^ 2;\n    SEP(2, 3) = 6 * EIZL / EL;\n    SEP(2, 5) = -SEP(2, 2);\n    SEP("
+      "2, 6) = SEP(2, 3);\n    SEP(3, 3) = 4 * EIZL;\n    SEP(3, 5) = -6 * EIZL / EL;\n    SEP(3, 6) = 2 * EIZL;\n    S"
+      "EP(5, 5) = 12 * EIZL / EL ^ 2;\n    SEP(5, 6) = -6 * EIZL / EL;\n    SEP(6, 6) = 4 * EIZL;\n    for i = 1:6\n   "
+      "    for j = i:6\n          SEP(j, i) = SEP(i, j);\n       end\n    end\n    DCOS = zeros(3);\n    DCOS(1, 1) = X"
+      "21 / EL;\n    DCOS(1, 2) = Y21 / EL;\n    DCOS(1, 3) = 0;\n    DCOS(2, 1) = -DCOS(1, 2);\n    DCOS(2, 2) = DCOS("
+      "1, 1);\n    DCOS(2, 3) = 0;\n    DCOS(3, 1) = 0;\n    DCOS(3, 2) = 0;\n    DCOS(3, 3) = 1;\n    ALMBDA = zeros(6"
+      ");       \n    for i = 1:2\n       IK = 3 * (i - 1);\n       for j = 1:3\n          for k = 1:3\n             AL"
+      "MBDA(j + IK, k + IK) = DCOS(j, k);\n          end\n       end\n    end\n    SE = ALMBDA' * SEP * ALMBDA;\n    % "
+      "Create the displacement Ue (6x1) vector of the element in global coordinates\n    Ue = zeros(6,1);\n    dof = ze"
+      "ros(6,1);\n    dof(1,1)=Element.Nodes(1).UX;\n    dof(2,1)=Element.Nodes(1).UY;\n    dof(3,1)=Element.Nodes(1).T"
+      "HETA;\n    dof(4,1)=Element.Nodes(2).UX;\n    dof(5,1)=Element.Nodes(2).UY;\n    dof(6,1)=Element.Nodes(2).THETA"
+      ";\n    \n    for i=1:6\n        if dof(i,1) ~= -1\n            Ue(i,1)=Displacement(dof(i,1),1);\n        end\n "
+      "   end\n\n    % Calculation Restoring Force, considering the Rigid Links if used\n    if( RigidLinkNo )\n       "
+      " TR = RigidLinkTransformation2Nodes(Element.Nodes(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLinkNodeID, Rigi"
+      "dLinkMasterMatrix, RigidLinkSlaveMatrix);\n        RestoringForce = TR' * SE * TR * Ue;  % (6x1) resisting force"
+      " vector of element in global coordinates\n    else        \n        RestoringForce = SE * Ue;  % (6x1) resisting"
+      " force vector of element in global coordinates\n    end\nend\n\n%% Element 2\nfunction [Element, RestoringForce]"
+      " = GetRestoringForce_Type2(Element, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLink"
+      "SlaveMatrix)\n    % Preset arrays\n    SE = zeros(6,6);\n    SE(1, 1) = Element.Stiffness;\n    SE(1, 4) = -Elem"
+      "ent.Stiffness;\n    SE(4, 4) = Element.Stiffness;\n    SE(4, 1) = SE(1,4);\n    \n    % Create the displacement "
+      "Ue (6x1) vector of the element in global coordinates\n    Ue = zeros(6,1);\n    dof = zeros(6,1);\n    dof(1,1)="
+      "Element.Nodes(1).UX;\n    dof(2,1)=Element.Nodes(1).UY;\n    dof(3,1)=Element.Nodes(1).THETA;\n    dof(4,1)=Elem"
+      "ent.Nodes(2).UX;\n    dof(5,1)=Element.Nodes(2).UY;\n    dof(6,1)=Element.Nodes(2).THETA;\n    \n    for i=1:6\n"
+      "        if dof(i,1) ~= -1\n            Ue(i,1)=Displacement(dof(i,1),1);\n        end\n    end\n\n    % Calculat"
+      "ion Restoring Force, considering the Rigid Links if used\n    if( RigidLinkNo )\n        TR = RigidLinkTransform"
+      "ation2Nodes(Element.Nodes(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, Rigid"
+      "LinkSlaveMatrix);\n        RestoringForce = TR' * SE * TR * Ue;  % (6x1) resisting force vector of element in gl"
+      "obal coordinates\n    else\n%         if (RUNMODE_BIT)\n%             RestoringForce = zeros(6,1);\n%           "
+      "  RestoringForce(1,1) = Element2Input;\n%             RestoringForce(4,1) = -Element2Input;\n%         else\n   "
+      "         RestoringForce = SE * Ue;  % (6x1) resisting force vector of element in global coordinates\n%         e"
+      "nd\n    end    \nend\n\n%% Element 3\n\n%% Element 4\nfunction [Element, RestoringForce] = GetRestoringForce_Typ"
+      "e4(Element, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix)\n\n    % el"
+      "ement geometry       \n    % element deformation % geometry restricted to 1,2 plane (x,y)\n    dx = Element.xyj("
+      "1,1) - Element.xyi(1,1); \n    dy = Element.xyj(2,1) - Element.xyi(2,1);\n    L = sqrt(dx*dx+dy*dy);\n    dx = d"
+      "x / L;\n    dy = dy / L;\n\n    % 6x6 transformation matrix from local to global coordiante\n    apq  = zeros(6)"
+      ";\n    apq(1,1) = dx; apq(2,2) = dx; apq(4,4) = dx; apq(5,5)= dx;\n    apq(1,2) = dy; apq(2,1) =-dy; apq(4,5) = "
+      "dy; apq(5,4)=-dy;\n    apq(3,3) = 1.0; apq(6,6) =1.0;\n\n    % element stiffness matrix in local coordinate\n   "
+      " SE = zeros(6,6);  \n    SE(2, 2) = Element.K22;\n    SE(2, 5) = Element.K25;\n    SE(5, 2) = Element.K52;\n    "
+      "SE(5, 5) = Element.K55;\n    % transformed element stiffness matrix in global coordinate\n    SE = apq' * SE * a"
+      "pq;\n\n    % Create the displacement Ue (6x1) vector of the element in global coordinates\n    Ue = zeros(6,1);\n"
+      "    dof = zeros(6,1);\n    dof(1,1)=Element.Nodes(1).UX;\n    dof(2,1)=Element.Nodes(1).UY;\n    dof(3,1)=Elemen"
+      "t.Nodes(1).THETA;\n    dof(4,1)=Element.Nodes(2).UX;\n    dof(5,1)=Element.Nodes(2).UY;\n    dof(6,1)=Element.No"
+      "des(2).THETA;\n\n    for i=1:6\n        if dof(i,1) ~= -1\n            Ue(i,1) = Displacement(dof(i,1),1);\n    "
+      "    end\n    end\n    \n    % Calculation Restoring Force, considering the Rigid Links if used\n    if( RigidLin"
+      "kNo )\n        TR = RigidLinkTransformation2Nodes(Element.Nodes(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLi"
+      "nkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);\n        RestoringForce = TR' * SE * TR * Ue;  % (6x1) r"
+      "esisting force vector of element in global coordinates\n    else\n        RestoringForce = SE * Ue;  % (6x1) res"
+      "isting force vector of element in global coordinates\n    end\nend\n\n%% Element 5\n\n%% Element 6\nfunction [El"
+      "ement,RestoringForce] = GetRestoringForce_Type6(Element, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMa"
+      "sterMatrix, RigidLinkSlaveMatrix)\n    % Get the displacement Ue (6x1) vector of the element in global coordinat"
+      "es\n    Ue = zeros(6,1);\n    dof=zeros(6,1);\n    dof(1,1)=Element.Nodes(1).UX;\n    dof(2,1)=Element.Nodes(1)."
+      "UY;\n    dof(3,1)=Element.Nodes(1).THETA;\n    dof(4,1)=Element.Nodes(2).UX;\n    dof(5,1)=Element.Nodes(2).UY;\n"
+      "    dof(6,1)=Element.Nodes(2).THETA;\n    for i=1:6\n        if dof(i,1) ~= -1\n            Ue(i,1)=Displacement"
+      "(dof(i,1),1);\n        end\n    end\n\n    % Calculation Restoring Force, considering the Rigid Links if used\n "
+      "   if( RigidLinkNo )\n        TR = RigidLinkTransformation2Nodes(Element.Nodes(1).ID, Element.Nodes(2).ID, Rigid"
+      "LinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);        \n        Ue = TR * Ue; \n    end "
+      "      \n\n    du=Ue-Element.Uprev;  % The incremental displacement vector du of the element in global coordinate"
+      "s \n    Element.Uprev=Ue; %Update Uprev of element for use in next state determination call\n\n    % Incremental"
+      " basic deformations\n    dv = Element.avq * du;      \n\n    % Integrate basic force and basic stiffness matrix\n"
+      "    kb = zeros(3);\n    s  = zeros(3,1);\n\n    for i=1:length(Element.sections)\n\n        % Form B matrix and "
+      "compute section deformation\n        B = [ Element.b1(i) Element.b2(i) 0; 0 0 Element.b3(i) ];\n        dvs = B "
+      "* dv;  \n\n        % Section state determination and update section state\n        [ss ks Element.sections(i)] ="
+      " SectionState( Element.sections(i), dvs );\n\n        % Sum section term\n        kb = kb + B'*ks*B * ( Element."
+      "wi(i) * Element.L/2 );\n        s  = s  + B'*ss   * ( Element.wi(i) * Element.L/2 );\n\n    end\n\n    % Restori"
+      "ng force and stiffness matrix\n    RestoringForce = Element.avq' * s;\n\n    if( RigidLinkNo )\n        Restorin"
+      "gForce = TR' * RestoringForce;  \n    end\nend\n\n%% Element 7\nfunction [Element,RestoringForce] = GetRestoring"
+      "Force_Type7(Element, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix, ma"
+      "xIter, EAT, ERT, CO)\n    % Get the displacement Ue (6x1) vector of the element in global coordinates\n    Ue = "
+      "zeros(6,1);\n    dof=zeros(6,1);\n    dof(1,1)=Element.Nodes(1).UX;\n    dof(2,1)=Element.Nodes(1).UY;\n    dof("
+      "3,1)=Element.Nodes(1).THETA;\n    dof(4,1)=Element.Nodes(2).UX;\n    dof(5,1)=Element.Nodes(2).UY;\n    dof(6,1)"
+      "=Element.Nodes(2).THETA;\n    for i=1:6\n        if dof(i,1) ~= -1\n            Ue(i,1)=Displacement(dof(i,1),1)"
+      ";\n        end\n    end\n\n    % Calculation Restoring Force, considering the Rigid Links if used\n    if( Rigid"
+      "LinkNo )\n        TR = RigidLinkTransformation2Nodes(Element.Nodes(1).ID, Element.Nodes(2).ID, RigidLinkNo, Rigi"
+      "dLinkNodeID, RigidLinkMasterMatrix, RigidLinkSlaveMatrix);        \n        Ue = TR * Ue; \n    end       \n\n  "
+      "  du=Ue -Element.Uprev; % The incremental displacement vector du of the element in global coordinates \n\n\n    "
+      "Element.Uprev=Ue; %Update Uprev of element for use in next state determination call\n\n    % element defomration"
+      " % geometry restricted to 1,2 plane (x,y)\n    dx = Element.xyj(1,1) - Element.xyi(1,1); \n    dy = Element.xyj("
+      "2,1) - Element.xyi(2,1);\n    L = sqrt(dx*dx+dy*dy);\n    dx = dx / L;\n    dy = dy / L;\n\n    % Form transform"
+      "ation matrix from element in global coordinate to basic system\n    avq  = [ -dy/L  dx/L  1.  dy/L -dx/L  0;\n  "
+      "         -dy/L  dx/L  0  dy/L -dx/L  1.;\n           -dx   -dy    0  dx    dy    0];\n\n    % Incremental basic "
+      "deformations\n    dv = avq * du;\n\n    % Basic forces from previous load step\n    si = Element.si; %momentI, m"
+      "omentJ, axial\n\n    % Initialize ds for iteration\n    ds = zeros(3,1); %deltaMomentI, deltaMomentJ, deltaAxial"
+      "\n\n    % Interpolation functions for equilibrium evaluated at integration points\n    x  = (  Element.xi + 1. )"
+      " / 2.;   \n    b1 = -( 1. - x );\n    b2 =        x;      \n    b3 = -1./L;\n    b4 = ones(size(x));\n\n    % in"
+      "itialize incremental section deformations\n    dvsecs = zeros(2,Element.nIP);\n\n    %vr = dv;\n\n    % Iterate "
+      "to satisfy compatibility \n    for k =1:Element.maxIter\n\n        % Compute residual and basic flexibility by s"
+      "umming \n        % section properties over element length\n        vr = dv;\n        fb = zeros(3);\n        si "
+      "= Element.si; %momentI, momentJ, axial\n        % loop over each section along the element length\n        for i"
+      "=1:Element.nIP\n\n            % transformaion matrix \n            b = [ b1(i) b2(i) 0;\n                   0   "
+      "  0    b4(i)];\n           %        b3    b3    0]; \n            % section force, moment, axial, and shear \n  "
+      "          ss = b * ( ds + si );\n\n            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n           "
+      " % Given section force, determine section deformation iteratively\n            % Initialize vector of dvs for it"
+      "eration   \n             dvs = zeros(2,1);\n\n            % Iterate on section equilibrium\n      %      for j=1"
+      ":Element.maxIter\n\n                % given section deformation, determine section force\n                [jthss"
+      ", ks] = SectionState(Element.sections(i), dvs);            \n                % residual section force \n        "
+      "        sres     = ss - jthss;\n                dvs = ks \\ sres + dvs;    \n\n\n\n      %      end\n           "
+      " %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n            % store deformation of each section\n         "
+      "   dvsecs(:,i) = dvs;				\n            % add section contribution to residual element deformation and flexibilit"
+      "y\n            vr = vr - b' * dvs   * ( Element.wi(i) * L/2. );\n            fb = fb + b'*(ks\\b) * ( Element.wi"
+      "(i) * L/2. ); \n\n\n        end\n\n        % check residual deformation \n    %     TolFinal=min(Element.EAT,Ele"
+      "ment.ERT1*norm(vr));\n    %     if norm(vr) < TolFinal\n    %         Element.NumIter=k;\n    %         Element."
+      "EC=Element.EC+1;\n    % 		break;\n    %     end\n\n    % check Unbalanced force   \n      UnbForce=fb\\vr;\n    "
+      "  NormUnb=((UnbForce(1)*L)^2+(UnbForce(2)*L)^2+(UnbForce(3))^2)^0.5;\n      TolFinal=max(Element.EAT,Element.ERT"
+      "1*NormUnb);\n        if NormUnb < TolFinal\n            Element.NumIter=k;\n            Element.EC=Element.EC+1;"
+      "\n            Element.NUnbforce=NormUnb;\n            break;\n        end\n    if Element.CO==1\n        ds = fb"
+      " \\ vr + ds; \n    end\n     Element.NumIter=Element.maxIter;  \n    end\n\n    % update section state with conv"
+      "erged dvs\n    for i=1:Element.nIP\n        [ssc, ksc, Element.sections(i)] = SectionState(Element.sections(i),."
+      "..\n            dvsecs(:,i));    \n    end\n\n    % update basic forces for element\n    Element.si = ds + si;\n"
+      "\n    % Restoring force and stiffness matrix\nRestoringForce = avq' * Element.si;\n            \n    if( RigidLi"
+      "nkNo )\n        RestoringForce = TR' * RestoringForce;  \n    end    \nend\n\n\n%% Element 8\nfunction [Element,"
+      "RestoringForce] = GetRestoringForce_Type8(Element, Displacement, Velocity, RigidLinkNo, RigidLinkNodeID, RigidLi"
+      "nkMasterMatrix, RigidLinkSlaveMatrix)\n    % Get the displacement Ue (6x1) vector of the element in global coord"
+      "inates\n    Uev = zeros(6,1);\n    Vev = zeros(6,1);\n    dof=zeros(6,1);\n    dof(1,1)=Element.Nodes(1).UX;\n  "
+      "  dof(2,1)=Element.Nodes(1).UY;\n    dof(3,1)=Element.Nodes(1).THETA;\n    dof(4,1)=Element.Nodes(2).UX;\n    do"
+      "f(5,1)=Element.Nodes(2).UY;\n    dof(6,1)=Element.Nodes(2).THETA;\n    for i=1:6\n        if dof(i,1) ~= -1\n   "
+      "         Uev(i,1)=Displacement(dof(i,1),1);\n            Vev(i,1)=Velocity(dof(i,1),1);        \n        end\n  "
+      "  end\n\n    % Calculation Restoring Force, considering the Rigid Links if used\n    if( RigidLinkNo )\n        "
+      "TR = RigidLinkTransformation2Nodes(Element.Nodes(1).ID, Element.Nodes(2).ID, RigidLinkNo, RigidLinkNodeID, Rigid"
+      "LinkMasterMatrix, RigidLinkSlaveMatrix);        \n        Uev = TR * Uev; \n        Vev = TR * Vev; \n    end \n"
+      "\n    % Deformation and velocity\n    % if Element.dof ==1\n    Ue = Uev(Element.dof,1)-Uev(Element.dof+3,1);\n "
+      "   Ve = Vev(Element.dof,1)-Vev(Element.dof+3,1);\n    % elseif Element.dof ==2\n    %     Ue = Uev(2,1)-Uev(5,1)"
+      ";\n    %     Ve = Vev(2,1)-Vev(5,1);\n    % else\n    %     Ue = Uev(3,1)-Uev(6,1);\n    %     Ve = Vev(3,1)-Vev"
+      "(6,1);\n    % end\n\n    % Incremental displacement and velocity\n    % the incremental deformation of the eleme"
+      "nt \n    % Update max and min deformation history\n    % Element.prop.Dmax= max(Ue,Element.prop.Dmax); \n    % E"
+      "lement.prop.Dmin= min(Ue,Element.prop.Dmin); \n    du = Ue - Element.Uprev;\n    [Element.prop kt Fs] = Material"
+      "State(du, Element.prop, Ve);\n\n    RestoringForce=zeros(6,1);\n    RestoringForce(Element.dof,1)   = Fs;\n    R"
+      "estoringForce(Element.dof+3,1) = -Fs;\n\n    if( RigidLinkNo )\n        RestoringForce = TR' * RestoringForce;  "
+      "\n    end\n\n    % Update Uprev\n    Element.Uprev=Ue; \nend\n\n\n%% Element 9\nfunction [Element,RestoringForce"
+      "] = GetRestoringForce_Type9(Element, Displacement, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLin"
+      "kSlaveMatrix)\n\n%% Get the displacement Ue (12x1) vector of the element in global coordinates\nndof=12;  \nUe ="
+      " zeros(ndof,1);\ndof=zeros(ndof,1);\ndof(1,1)=Element.Nodes(1).UX;\ndof(2,1)=Element.Nodes(1).UY;\ndof(3,1)=Elem"
+      "ent.Nodes(1).THETA;\ndof(4,1)=Element.Nodes(2).UX;\ndof(5,1)=Element.Nodes(2).UY;\ndof(6,1)=Element.Nodes(2).THE"
+      "TA;\ndof(7,1)=Element.Nodes(3).UX;\ndof(8,1)=Element.Nodes(3).UY;\ndof(9,1)=Element.Nodes(3).THETA;\ndof(10,1)=E"
+      "lement.Nodes(4).UX;\ndof(11,1)=Element.Nodes(4).UY;\ndof(12,1)=Element.Nodes(4).THETA;\n\nfor i=1:ndof\n    if d"
+      "of(i,1) ~= -1\n        Ue(i,1)=Displacement(dof(i,1),1);\n    end\nend\n\n% Calculation Restoring Force, conside"
+      "ring the Rigid Links if used\nif( RigidLinkNo )\n    TR = RigidLinkTransformation4Nodes(Element.Nodes(1).ID, Ele"
+      "ment.Nodes(2).ID, Element.Nodes(3).ID, Element.Nodes(4).ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix,"
+      " RigidLinkSlaveMatrix);        \n    Ue = TR * Ue; \nend   \n\n% The incremental displacement vector du of the e"
+      "lement in global coordinates\n% The element has 12 dofs\n% Update Uprev of element for use in next state determi"
+      "nation call\ndu=Ue-Element.Uprev;  \nElement.Uprev=Ue; \n\n% transform global node displacement to basic deforma"
+      "tion\nv = Element.avq*Ue;\n\n% compute element force\ns = zeros(9,1); \n\ns(1) = Element.kb1*v(1);\ns(2) = Eleme"
+      "nt.kb2*v(2);\ns(4) = Element.kb4*v(4);\ns(5) = Element.kb5*v(5);\ns(6) = Element.kb6*v(6);\ns(7) = Element.kb7*v"
+      "(7);\ns(8) = Element.kb8*v(8);\ns(9) = Element.kb9*v(9);\n\ndv3 = Element.dx/Element.Width*du(10)-Element.dy/Ele"
+      "ment.Width*du(5)-Element.dx/Element.Width*du(4)+Element.dy/Element.Width*du(11)-Element.Height/Element.Width*Ele"
+      "ment.dx/Element.Width*du(2)...\n    +Element.Height/Element.Width*Element.dy/Element.Width*du(1)+Element.Height/"
+      "Element.Width*Element.dx/Element.Width*du(8)-Element.Height/Element.Width*Element.dy/Element.Width*du(7);\n\n% c"
+      "ompute shear deformation mode\n[Element.ShearProp , tmp, s(3)]= MaterialState(dv3, Element.ShearProp, 0);\n\n% R"
+      "estoring force and stiffness matrix\nRestoringForce = Element.avq' * s;\n\nif( RigidLinkNo )\n    RestoringForce"
+      " = TR' * RestoringForce;  \nend\n\n% function [pro] = trilinear(dx, pro)\n% \n% % calculate current deformation "
+      "\n%     x = pro.xprev + dx; \n% \n% if pro.YieldCode == 0\n% \n% 	pro.Fs1 = pro.Fs1+pro.K1*dx;\n%     pro.Fs2 = "
+      "pro.Fs2+pro.K2*dx;\n% 	% if it is beyond elastic range, limit to yield force\n% 	% and set m_nYieldCode to 1\n% "
+      "	if pro.Fs1 > pro.Fy1\n% 		\n%         pro.Fs1 = pro.Fy1 ;\n% 		pro.YieldCode = 1;\n%         \n%         if(pro"
+      ".Fs2> pro.Fy2)\n% 			pro.Fs2 = pro.Fy2 ;\n% 		    pro.YieldCode = 2;\n%         end\n%     elseif pro.Fs1 < -pro"
+      ".Fy1\n% 		\n%         pro.Fs1 = -pro.Fy1;\n% 		pro.YieldCode = 1 ;\n%        \n% 		if pro.Fs2 < -pro.Fy2\n% 			p"
+      "ro.Fs2 = - pro.Fy2 ;\n% 		    pro.YieldCode = 2;\n%         end\n%     end\n% % 1st post-yielding region    \n% "
+      "elseif pro.YieldCode == 1\n%     \n%     % assume spring2 remain elastic\n%     pro.Fs2= pro.Fs2+pro.K2*dx;\n%  "
+      "   \n%     % keep loading\n%     if pro.Fs1*dx > 0.\n%         if pro.Fs2 > pro.Fy2\n%             pro.Fs2 = pro"
+      ".Fy2;\n%             pro.YieldCode=2;            \n%         elseif pro.Fs2 < -pro.Fy2\n%             pro.Fs2 = "
+      "-pro.Fy2;\n%             pro.YieldCode=2;\n%         end\n%         % unloading\n%     elseif pro.Fs1*dx < 0.\n%"
+      "         pro.Fs1= pro.Fs1 + pro.K1*dx;\n%         pro.YieldCode = 0;\n%         \n%         if pro.Fs1 < -pro.Fy"
+      "1 \n%             pro.Fs1 = -pro.Fy1;\n%             pro.YieldCode = 1;\n%             if pro.Fs2 < -pro.Fy2\n% "
+      "                pro.Fs2 = -pro.Fy2;\n%                 pro.YieldCode = 2;\n%             end\n%         elseif p"
+      "ro.Fs1 > pro.Fy1\n%             pro.Fs1 = pro.Fy1;\n%             pro.YieldCode = 1;\n%             if pro.Fs2 >"
+      " pro.Fy2\n%                 pro.Fs2 = pro.Fy2;\n%                 pro.YieldCode = 2;\n%             end\n%      "
+      "   end\n%     end\n% elseif pro.YieldCode ==2\n%     % unloading\n% 	if (pro.Fs1*dx) < 0.\n% 		pro.Fs1 = pro.Fs1"
+      " + pro.K1*dx;\n% 		pro.Fs2 = pro.Fs2 + pro.K2*dx;\n% 		pro.YieldCode = 0;\n% 		\n%         if pro.Fs1 < -pro.Fy1"
+      "\n%             pro.Fs1 = -pro.Fy1;\n% 			pro.YieldCode = 1;\n%             if pro.Fs2 < -pro.Fy2\n% 				pro.Fs2"
+      " = -pro.Fy2;\n% 				pro.YieldCode = 2;\n%             end            \n%         elseif pro.Fs1 > pro.Fy1\n% 			"
+      "pro.Fs1 = pro.Fy1;\n% 			pro.YieldCode = 1;\n%             if pro.Fs2> pro.Fy2\n% 				pro.Fs2 = pro.Fy2;\n% 				"
+      "pro.YieldCode = 2;\n% 			end\n%         end\n%     end\n% end\n% \n% pro.Fs = pro.Fs1 + pro.Fs2 + pro.K3*x;\n% \n"
+      "% % updata current state for next time step\n% if pro.YieldCode == 0\n%     pro.Kt = pro.K1 +pro.K2 +pro.K3;\n% "
+      "elseif pro.YieldCode == 1\n%     pro.Kt = pro.K2 +pro.K3;    \n% else\n%     pro.Kt = pro.K3;\n% end\n% pro.xpre"
+      "v = x;\n\nend\n    \n\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n%%%%%%%%%%%%"
+      "%%%%%%%%%%%%%%%% Helper Functions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+      "%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n%% Rigid Link Tranformation Matrix Calculation for 2 Nodes, 6 DOF\nfunction TR ="
+      " RigidLinkTransformation2Nodes(Node1ID, Node2ID, RigidLinkNo, RigidLinkNodeID, RigidLinkMasterMatrix, RigidLinkS"
+      "laveMatrix)\n    % Rigid Link Calculations\n    TR = eye(6,6); % Transformation matrix for rigid link\n    if( R"
+      "igidLinkNo )    \n        % Find the row with the slave node, if it exists in the element\n        idx = 0;\n   "
+      "     for kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node1ID)\n                idx = kk;\n     "
+      "           break;\n            end\n        end\n        %idx=find(RigidLinkNodeID(:,2) == Node1ID); % find if a"
+      " slave node exists in the element\n        if ( idx )\n            TL=CalculateRigidLinkTransformation(RigidLink"
+      "MasterMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(idx,3));\n    "
+      "        jjj = 1; % Node 1\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end\n        idx ="
+      " 0;\n        for kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node2ID)\n                idx = kk"
+      ";\n                break;\n            end\n        end    \n        %idx=find(RigidLinkNodeID(:,2) == Node2ID);"
+      " % find if a slave node exists in the element\n        if ( idx )\n            TL=CalculateRigidLinkTransformati"
+      "on(RigidLinkMasterMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLinkSlaveMatrix(id"
+      "x,3));            \n            jjj = 2; % Node 2\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n  "
+      "      end            \n    end\nend\n\n%% Rigid Link Tranformation Matrix Calculation for 4 Nodes, 12 DOF\nfunct"
+      "ion TR = RigidLinkTransformation4Nodes(Node1ID, Node2ID, Node3ID, Node4ID, RigidLinkNo, RigidLinkNodeID, RigidLi"
+      "nkMasterMatrix, RigidLinkSlaveMatrix)\n    % Rigid Link Calculations\n    TR = eye(12,12); % Transformation matr"
+      "ix for rigid link\n    if( RigidLinkNo )    \n        % Find the row with the slave node, if it exists in the el"
+      "ement\n        idx = 0;\n        for kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node1ID)\n    "
+      "            idx = kk;\n                break;\n            end\n        end\n        %idx=find(RigidLinkNodeID(:"
+      ",2) == Node1ID); % find if a slave node exists in the element\n        if ( idx )\n            TL=CalculateRigid"
+      "LinkTransformation(RigidLinkMasterMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2),RigidLi"
+      "nkSlaveMatrix(idx,3));\n            jjj = 1; % Node 1\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;"
+      "\n        end\n        idx = 0;\n        for kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node2I"
+      "D)\n                idx = kk;\n                break;\n            end\n        end    \n        %idx=find(Rigid"
+      "LinkNodeID(:,2) == Node2ID); % find if a slave node exists in the element\n        if ( idx )\n            TL=Ca"
+      "lculateRigidLinkTransformation(RigidLinkMasterMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(id"
+      "x,2),RigidLinkSlaveMatrix(idx,3));            \n            jjj = 2; % Node 2\n            TR(3*(jjj-1)+1:3*jjj,"
+      "3*(jjj-1)+1:3*jjj) = TL;\n        end                \n        % Find the row with the slave node, if it exists "
+      "in the element\n        idx = 0;\n        for kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) == Node3"
+      "ID)\n                idx = kk;\n                break;\n            end\n        end\n        %idx=find(RigidLin"
+      "kNodeID(:,2) == Node3ID); % find if a slave node exists in the element\n        if ( idx )\n            TL=Calcu"
+      "lateRigidLinkTransformation(RigidLinkMasterMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlaveMatrix(idx,2"
+      "),RigidLinkSlaveMatrix(idx,3));\n            jjj = 3; % Node 3\n            TR(3*(jjj-1)+1:3*jjj,3*(jjj-1)+1:3*j"
+      "jj) = TL;\n        end\n        idx = 0;\n        for kk = 1:RigidLinkNo\n            if (RigidLinkNodeID(kk,2) "
+      "== Node4ID)\n                idx = kk;\n                break;\n            end\n        end    \n        %idx=f"
+      "ind(RigidLinkNodeID(:,2) == Node4ID); % find if a slave node exists in the element\n        if ( idx )\n        "
+      "    TL=CalculateRigidLinkTransformation(RigidLinkMasterMatrix(idx,2),RigidLinkMasterMatrix(idx,3),RigidLinkSlave"
+      "Matrix(idx,2),RigidLinkSlaveMatrix(idx,3));            \n            jjj = 4; % Node 4\n            TR(3*(jjj-1)"
+      "+1:3*jjj,3*(jjj-1)+1:3*jjj) = TL;\n        end          \n    end\nend\n\n%% Calculate Rigid Link Transformation"
+      "\nfunction TL = CalculateRigidLinkTransformation(MNXcoord, MNYcoord, SNXcoord, SNYcoord)\n    X1 = MNXcoord; Y1 "
+      "= MNYcoord;\n    X2 = SNXcoord;  Y2 = SNYcoord;\n    deltaX = X2 - X1;\n    deltaY = Y2 - Y1;\n    TL = [ 1 0 -d"
+      "eltaY;\n           0 1  deltaX;\n           0 0  1    ];\nend\n\n%% State determination for fiber section\nfunct"
+      "ion [ss, ks, sec] = SectionState( sec, dvs )\n% For section sec undergoing a change\n% in section deformation dv"
+      "s=[curvature strain], compute\n% section forces SS=[moment axial] and the 2x2 tangents\n% section stiffness KS.\n"
+      "    ks = zeros(2,2);\n    ss = zeros(2,1);  \n    numfib = length(sec.fibers);\n\n    % Loop over fibers\n    fo"
+      "r i=1:numfib\n        yi   = sec.fibers(i).yi;\n        area = sec.fibers(i).A;\n\n        % Change in strain\n "
+      "       deps = yi * dvs(1:2);\n\n        [sec.fibers(i).prop Et sc] = MaterialState(deps, sec.fibers(i).prop, 0 )"
+      ";        \n\n        % Integration -- add contribution of fiber \n        % for 3D --- following codes need to b"
+      "e modified\n        ks = ks + yi'*yi * (area*Et ); % may not need to do it\n        ss = ss + yi'    * (area*sc)"
+      ";\n    end\nend\n\n%% Material Section State\nfunction [ mat Et sc] = MaterialState( dep, mat, vc)  \n    %MATER"
+      "IALSTATE Summary of this function goes here\n    %   dep = incremental deformation at the current time step, exc"
+      "ept for\n    %   Bouc-Wen model\n    %   mat = material data structure\n    %   vc  = 0 for other materials\n   "
+      " %       = current velocity for Bouc-Wen material\n    %\n    switch  mat.Type\n        case 2\n            mat "
+      "= bilinearMat(dep, mat);\n            Et = mat.Et;\n            sc = mat.sc;\n%       case 3\n        case 4\n  "
+      "          mat = BoucWen(dep, mat, vc);\n            Et = mat.k;\n            sc = mat.Qj;\n        case 5\n     "
+      "       mat = trilinear(dep, mat);\n            Et = mat.Kt;\n            sc = mat.Fs;\n%         case 6     \n  "
+      "      case 7\n            mat = Concrete01(dep, mat);\n            Et = mat.Ttangent;\n            sc = mat.Cstr"
+      "ess;\n        case 9\n            mat = Steel02(dep, mat);\n            Et = mat.e;\n            sc = mat.sig;\n"
+      "        otherwise\n            Et = 0;\n            sc = 0;\n    end\nend\n\n%% Bilinear Material Section State\n"
+      "function [mat] = bilinearMat(deps, mat )\n    %	[mat]=BILINEARMAT(deps,mat) For strain increment deps\n    %	and"
+      " mat compute new properties for bilinear material.\n    %	mat.SY, mat.E, mat.EP are the yield stress,\n    %	fir"
+      "st slop and second slope respectively.  materialProp.SC,\n    %	mat.SB, materialSE are the current stress, back "
+      "stress, and\n    %	current strain, respectively. mat.ET is the current tangent modulus.\n\n    % Material proper"
+      "ties\n    sigy = mat.sy;		% yield stress\n    E    = mat.e;		% E\n    Ep   = mat.ep;		% alpha*E\n\n    % State f"
+      "rom last converged load step\n    sig  = mat.sc;		% stress\n    sigb = mat.sb;		% backstress\n    code = mat.cd;"
+      "		% yield code\n                        %	=0, elastic\n                        %	=1, plastic\n\n    if code==0 |"
+      "| ( code==1 && (sig-sigb)*deps < 0 )\n        % Strain to plastic loading from elastic state\n        deps1 = ( "
+      "sign(deps) * sigy + sigb - sig ) / E;\n\n        % Elastic\n        sig  = sig + E * deps;\n        Et   = E;\n "
+      "       code = 0;\n\n        % Check if plasic loading from elastic state\n        if abs(deps) > abs(deps1)\n   "
+      "         sig  = sig  + ( Ep - E ) * ( deps - deps1 );\n            sigb = sigb +   Ep       * ( deps - deps1 );\n"
+      "            Et   = Ep;\n            code = 1;\n        end\n\n    else\n        % Continue plastic loading\n    "
+      "    sig  = sig  + Ep * deps;\n        sigb = sigb + Ep * deps;\n        Et   = Ep;\n        code = 1;\n\n    end"
+      "\n\n    % Return updated state. \n    mat.sc = sig;\n    mat.sb = sigb;\n    mat.cd = code;\n    mat.es = mat.es"
+      " + deps;	\n    mat.Et = Et;\nend   \n\n%% BoucWen Material Section State\nfunction [BW]= BoucWen( dx, BW, vcur)\n"
+      "    % ---------------------------------------------\n    % x,v: displacement and velocity\n    %   Q: restoring "
+      "force\n    %   z: hysteretic component\n    %  zj: z in next step, i.e. z_i+1\n    %  BW: numerous parameters fo"
+      "r Bouc-Wen model\n    %   i: step number\n\n    xcur =  dx + BW.Uprev;\n    % Fourth order R-K forward integrati"
+      "on\n    dz1 = dx*f(BW,vcur,BW.zj);\n    dz2 = dx*f(BW,vcur,BW.zj+dz1/2);\n    dz3 = dx*f(BW,vcur,BW.zj+dz2/2);\n"
+      "    dz4 = dx*f(BW,vcur,BW.zj+dz3);\n    zj = BW.zj + (dz1+2*dz2+2*dz3+dz4)/6;\n\n    umax=(abs(BW.Dmin)+ BW.Dmax"
+      ")*0.5;    \n    BW.k=BW.k1*exp(-umax/BW.uref) + BW.k2;    \n    BW.Qj = BW.c*(abs(vcur)^BW.a)*sign(vcur) + BW.al"
+      "pha*BW.k*xcur +...\n        (1-BW.alpha)*BW.k*BW.uy*zj;\n\n    % update deformation for next time step\n    BW.U"
+      "prev = xcur;\n    BW.Dmax= max(xcur,BW.Dmax); \n    BW.Dmin= min(xcur,BW.Dmin); \n    BW.zj =  zj;\nend\n\n% Bou"
+      "cWen Helper\nfunction y=f(BW,v,z)\n    % This function describes the nonlinear differential equation that govern"
+      "s\n    % the hysteretic component, z.\n    % The returned value is \"dz/dx\" or \"z_dot/x_dot\"\n    y =(1/BW.uy"
+      ")*(1-BW.beta*sign(v)*abs(z)^BW.n*sign(z)-BW.gamma1*abs(z)^BW.n);\nend\n%%%%%%%%%%%%%%%%%%% End of Bouc-Wen Model"
+      " %%%%%%%%%%%%%%%%%%%%%%%% \n\n%% Trilinear Material Section State\nfunction [pro] = trilinear(dx, pro)\n    % ca"
+      "lculate current deformation \n        x = pro.xprev + dx; \n\n    if pro.YieldCode == 0\n\n        pro.Fs1 = pro"
+      ".Fs1+pro.K1*dx;\n        pro.Fs2 = pro.Fs2+pro.K2*dx;\n        % if it is beyond elastic range, limit to yield f"
+      "orce\n        % and set m_nYieldCode to 1\n        if pro.Fs1 > pro.Fy1\n\n            pro.Fs1 = pro.Fy1 ;\n    "
+      "        pro.YieldCode = 1;\n\n            if(pro.Fs2> pro.Fy2)\n                pro.Fs2 = pro.Fy2 ;\n           "
+      "     pro.YieldCode = 2;\n            end\n        elseif pro.Fs1 < -pro.Fy1\n\n            pro.Fs1 = -pro.Fy1;\n"
+      "            pro.YieldCode = 1 ;\n\n            if pro.Fs2 < -pro.Fy2\n                pro.Fs2 = - pro.Fy2 ;\n   "
+      "             pro.YieldCode = 2;\n            end\n        end\n    % 1st post-yielding region    \n    elseif pr"
+      "o.YieldCode == 1\n\n        % assume spring2 remain elastic\n        pro.Fs2= pro.Fs2+pro.K2*dx;\n\n        % ke"
+      "ep loading\n        if pro.Fs1*dx > 0.\n            if pro.Fs2 > pro.Fy2\n                pro.Fs2 = pro.Fy2;\n  "
+      "              pro.YieldCode=2;            \n            elseif pro.Fs2 < -pro.Fy2\n                pro.Fs2 = -pr"
+      "o.Fy2;\n                pro.YieldCode=2;\n            end\n            % unloading\n        elseif pro.Fs1*dx < "
+      "0.\n            pro.Fs1= pro.Fs1 + pro.K1*dx;\n            pro.YieldCode = 0;\n\n            if pro.Fs1 < -pro.F"
+      "y1 \n                pro.Fs1 = -pro.Fy1;\n                pro.YieldCode = 1;\n                if pro.Fs2 < -pro."
+      "Fy2\n                    pro.Fs2 = -pro.Fy2;\n                    pro.YieldCode = 2;\n                end\n     "
+      "       elseif pro.Fs1 > pro.Fy1\n                pro.Fs1 = pro.Fy1;\n                pro.YieldCode = 1;\n       "
+      "         if pro.Fs2 > pro.Fy2\n                    pro.Fs2 = pro.Fy2;\n                    pro.YieldCode = 2;\n "
+      "               end\n            end\n        end\n    elseif pro.YieldCode ==2\n        % unloading\n        if "
+      "(pro.Fs1*dx) < 0.\n            pro.Fs1 = pro.Fs1 + pro.K1*dx;\n            pro.Fs2 = pro.Fs2 + pro.K2*dx;\n     "
+      "       pro.YieldCode = 0;\n\n            if pro.Fs1 < -pro.Fy1\n                pro.Fs1 = -pro.Fy1;\n           "
+      "     pro.YieldCode = 1;\n                if pro.Fs2 < -pro.Fy2\n                    pro.Fs2 = -pro.Fy2;\n       "
+      "             pro.YieldCode = 2;\n                end            \n            elseif pro.Fs1 > pro.Fy1\n        "
+      "        pro.Fs1 = pro.Fy1;\n                pro.YieldCode = 1;\n                if pro.Fs2> pro.Fy2\n           "
+      "         pro.Fs2 = pro.Fy2;\n                    pro.YieldCode = 2;\n                end\n            end\n     "
+      "   end\n    end\n\n    pro.Fs = pro.Fs1 + pro.Fs2 + pro.K3*x;\n\n    % updata current state for next time step\n"
+      "    if pro.YieldCode == 0\n        pro.Kt = pro.K1 +pro.K2 +pro.K3;\n    elseif pro.YieldCode == 1\n        pro."
+      "Kt = pro.K2 +pro.K3;    \n    else\n        pro.Kt = pro.K3;\n    end\n    pro.xprev = x;\nend\n\n%% Concrete01 "
+      "Material Section State\nfunction [mat] = Concrete01(dStrain , mat)\n\n    % Get the total strain     \n    mat.T"
+      "strain = dStrain + mat.Cstrain;\n    % Get the previous states\n    mat.TminStrain = mat.CminStrain;\n    mat.Te"
+      "ndStrain = mat.CendStrain;\n    mat.TunloadSlope = mat.CunloadSlope;\n    mat.Tstress = mat.Cstress;\n    mat.Tt"
+      "angent = mat.Ctangent;        \n    \n    % check for a quick return\n    if (mat.Tstrain > 0.0)\n        mat.Ts"
+      "tress = 1e-10;\n        mat.Ttangent = 0;%1e-10;\n    end    \n    \n    mat.TunloadSlope = mat.CunloadSlope;  \n"
+      "  \n    tempStress = mat.Cstress + mat.TunloadSlope*mat.Tstrain - mat.TunloadSlope*mat.Cstrain;\n  \n    % Mater"
+      "ial goes further into compression\n    if (mat.Tstrain < mat.Cstrain)   \n        mat.TminStrain = mat.CminStrai"
+      "n;\n        mat.TendStrain = mat.CendStrain;  \n    \n        [mat] = reload(mat);\n    \n        if (tempStress"
+      " > mat.Tstress) \n            mat.Tstress = tempStress;\n            mat.Ttangent = mat.TunloadSlope;\n        e"
+      "nd\n    \n    % Material goes TOWARD tension\n    elseif (tempStress <= 0.0)\n        mat.Tstress = tempStress;\n"
+      "        mat.Ttangent = mat.TunloadSlope;\n        \n    % Made it into tension\n    else\n        mat.Tstress = "
+      "1e-10;\n        mat.Ttangent = 0;%1e-10;\n    end\n         \n    % Save states\n    mat.CminStrain = mat.TminSt"
+      "rain;\n    mat.CendStrain = mat.TendStrain;\n    mat.CunloadSlope = mat.TunloadSlope;\n    mat.Cstress = mat.Tst"
+      "ress;\n    mat.Ctangent = mat.Ttangent;\n    mat.Cstrain = mat.Tstrain;  \nend\n\n% Reload, Concrete01\nfunction"
+      " [mat] = reload(mat)\n\n    if (mat.Tstrain <= mat.TminStrain)     \n        mat.TminStrain = mat.Tstrain;\n    "
+      "\n        % Determine point on envelope\n        [mat] = envelope(mat);     \n        [mat] = unload(mat);     \n"
+      "    elseif (mat.Tstrain <= mat.TendStrain) \n        mat.Ttangent = mat.TunloadSlope;\n        mat.Tstress = mat"
+      ".Ttangent*(mat.Tstrain-mat.TendStrain);\n    else \n        mat.Tstress = 1e-10;\n        mat.Ttangent = 0;%1e-1"
+      "0;\n    end \nend\n    \n% Envelope, Concrete01\nfunction [mat] = envelope(mat)  \n\n    if (mat.Tstrain > mat.e"
+      "psc0) \n        eta = mat.Tstrain/mat.epsc0;\n        mat.Tstress = mat.fpc*(2*eta-eta*eta);\n        Ec0 = 2.0*"
+      "mat.fpc/mat.epsc0;  % changed\n        mat.Ttangent = Ec0*(1.0-eta); % changed\n    elseif (mat.Tstrain > mat.ep"
+      "scu) \n        mat.Ttangent = (mat.fpc-mat.fpcu)/(mat.epsc0-mat.epscu);\n        mat.Tstress = mat.fpc + mat.Tta"
+      "ngent*(mat.Tstrain-mat.epsc0);\n    else \n        mat.Tstress = mat.fpcu;\n        mat.Ttangent = 1e-10;\n    e"
+      "nd\nend\n\n% Unload, Concrete01\nfunction [mat] = unload(mat)   \n    DBL_EPSILON=2.2204460492503131e-16;\n  \n "
+      "   tempStrain = mat.TminStrain;\n  \n    if (tempStrain < mat.epscu)\n        tempStrain = mat.epscu;\n    end\n"
+      "    eta = tempStrain/mat.epsc0;\n    ratio = 0.707*(eta-2.0) + 0.834;\n    if (eta < 2.0)\n        ratio = 0.145"
+      "*eta*eta + 0.13*eta;\n    end\n    mat.TendStrain = ratio*mat.epsc0;\n    temp1 = mat.TminStrain - mat.TendStrai"
+      "n;\n    Ec0 = 2.0*mat.fpc/mat.epsc0;  % changed\n    temp2 = mat.Tstress/Ec0;   % changed\n  \n    if (temp1 > -"
+      "DBL_EPSILON) % temp1 should always be negative\n        mat.TunloadSlope = Ec0;  % changed\n    elseif (temp1 <="
+      " temp2)\n        mat.TendStrain = mat.TminStrain - temp1;\n        mat.TunloadSlope = mat.Tstress/temp1;\n    el"
+      "se \n        mat.TendStrain = mat.TminStrain - temp2;\n        mat.TunloadSlope = Ec0;  % changed\n    end\nend\n"
+      "%%%%%%%%%%%%%%%%%%%%%%%%End of Concrete01 Material%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\nfunction [mat] "
+      "= Steel02(deps , mat)\n\n  mat.Esh = mat.b*mat.E0;\n  mat.epsy = mat.Fy / mat.E0;\n  \n  mat.eps=mat.epsP;\n  ma"
+      "t.e = mat.eP;\n  mat.sig = mat.sigP;\n  mat.epsmax = mat.epsmaxP;\n  mat.epsmin = mat.epsminP;\n  mat.epspl  = m"
+      "at.epsplP;\n  mat.epss0  = mat.epss0P;  \n  mat.sigs0  = mat.sigs0P; \n  mat.epsr   = mat.epssrP;  \n  mat.sigr "
+      "  = mat.sigsrP;  \n  mat.kon = mat.konP;\n  % modified C-P. Lamarche 2006\n  if (mat.sigini ~= 0.0) \n    epsini"
+      " = mat.sigini/mat.E0;\n    mat.eps = deps + mat.epsP +epsini;\n  else\n  mat.eps = deps + mat.epsP;\n  end\n \n "
+      " \n  DBL_EPSILON=2.2204460492503131e-16;\n if (mat.kon == 0 || mat.kon == 3) % modified C-P. Lamarche 2006\n\n\n"
+      "%     if (abs(deps) < 10.0*DBL_EPSILON)\n% \n%       mat.e = mat.E0;\n%       mat.sig = mat.sigini;             "
+      "  % modified C-P. Lamarche 2006\n%       mat.kon = 3;                     % modified C-P. Lamarche 2006 flag to "
+      "impose initial stess/strain\n%     else \n\n      mat.epsmax = mat.epsy;\n      mat.epsmin = -mat.epsy;\n       "
+      " if (deps < 0.0) \n          mat.kon = 2;\n          mat.epss0 = mat.epsmin;\n          mat.sigs0 = -mat.Fy;\n  "
+      "        mat.epspl = mat.epsmin;\n        else \n          mat.kon = 1;\n          mat.epss0 = mat.epsmax;\n     "
+      "     mat.sigs0 = mat.Fy;\n          mat.epspl = mat.epsmax;\n       end\n     %end\n end\n \n if (mat.kon == 2 &"
+      "& deps > 0.0) \n\n\n    mat.kon = 1;\n    mat.epsr = mat.epsP;\n    mat.sigr = mat.sigP;\n    %epsmin = min(epsP"
+      ", epsmin);\n    if (mat.epsP < mat.epsmin)\n     mat.epsmin = mat.epsP;\n    end\n     d1 = (mat.epsmax - mat.ep"
+      "smin) / (2.0*(mat.a4 * mat.epsy));\n     shft = 1.0 + mat.a3 * (d1^0.8);\n     mat.epss0 = (mat.Fy * shft - mat."
+      "Esh * mat.epsy * shft - mat.sigr + mat.E0 * mat.epsr) / (mat.E0 - mat.Esh);\n     mat.sigs0 = mat.Fy * shft + ma"
+      "t.Esh * (mat.epss0 - mat.epsy * shft);\n     mat.epspl = mat.epsmax;\n\n elseif (mat.kon == 1 && deps < 0.0)\n  "
+      "  \n    % update the maximum previous strain, store the last load reversal \n    % point and calculate the stres"
+      "s and strain (sigs0 and epss0) at the \n    % new intersection between elastic and strain hardening asymptote \n"
+      "    % To include isotropic strain hardening shift the strain hardening \n    % asymptote by sigsft before calcul"
+      "ating the intersection point \n    % Constants a1 and a2 control this stress shift on compression side \n\n    m"
+      "at.kon = 2;\n    mat.epsr = mat.epsP;\n    mat.sigr = mat.sigP;\n    % epsmax = max(epsP, epsmax);\n    if (mat."
+      "epsP > mat.epsmax)\n      mat.epsmax = mat.epsP;\n    end\n    d1 = (mat.epsmax - mat.epsmin) / (2.0*(mat.a2 * m"
+      "at.epsy));\n    shft = 1.0 + mat.a1 * (d1^0.8);\n    mat.epss0 = (-mat.Fy * shft + mat.Esh * mat.epsy * shft - m"
+      "at.sigr + mat.E0 * mat.epsr) / (mat.E0 - mat.Esh);\n    mat.sigs0 = -mat.Fy * shft + mat.Esh * (mat.epss0 + mat."
+      "epsy * shft);\n    mat.epspl = mat.epsmin;\n end\n \n  xi  = abs((mat.epspl-mat.epss0)/mat.epsy);\n  R   = mat.R"
+      "0*(1.0 - (mat.cR1*xi)/(mat.cR2+xi));\n  epsrat = (mat.eps-mat.epsr)/(mat.epss0-mat.epsr);\n  dum1  = 1.0 + (abs("
+      "epsrat)^R);\n  dum2  = (dum1^(1/R));\n\n  mat.sig   = mat.b*epsrat +(1.0-mat.b)*epsrat/dum2;\n  mat.sig   = mat."
+      "sig*(mat.sigs0-mat.sigr)+mat.sigr;\n\n  mat.e = mat.b + (1.0-mat.b)/(dum1*dum2);\n  mat.e = mat.e*(mat.sigs0-mat"
+      ".sigr)/(mat.epss0-mat.epsr);\n  \n  mat.epsminP = mat.epsmin;\n  mat.epsmaxP = mat.epsmax;\n  mat.epsplP = mat.e"
+      "pspl;\n  mat.epss0P = mat.epss0;\n  mat.sigs0P = mat.sigs0;\n  mat.epssrP = mat.epsr;\n  mat.sigsrP = mat.sigr;\n"
+      "  mat.konP = mat.kon;\n  \n  mat.eP = mat.e;\n  mat.sigP = mat.sig;\n  mat.epsP = mat.eps;\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }

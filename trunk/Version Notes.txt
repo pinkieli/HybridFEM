@@ -1,6 +1,11 @@
+Version 4.5.3
+- Modification to CreateElement_Type6 & 7
+- Steel02 Material Added
+- New material case added to FormElement_Type8 
+- Modification to GetRestoringForce_Type7
+
 Version 4.5.2
 - Feature: Element Recorder fixes
-- Feature: New Input Format
 
 Version 4.5
 - Feature: New Integration methods
